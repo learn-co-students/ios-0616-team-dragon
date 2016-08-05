@@ -10,5 +10,10 @@ import UIKit
 import Alamofire
 
 class CitySDKAPIClient {
+    var latitude: Stirng
+    var longitude: String
+    var state: String
+    var income: String
+    var population: String
     
 }

@@ -11,8 +11,17 @@ import Alamofire
 
 class CensusAPIClient {
     // MARK: Path Router
+    let url: String? = "https://api.census.gov"
+    let key = Constants.CENSUS_API_KEY
     
-    
-    
+    func sendAPIRequest() -> [CensusData] {
+        guard let urlString = url
+            else {
+                print("ERROR: Unable to get url path for starred status")
+                return [CensusData()]
+        }
+        
+        return [CensusData()]
+    }
     
 }
