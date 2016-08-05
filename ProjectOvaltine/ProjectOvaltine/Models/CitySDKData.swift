@@ -9,6 +9,8 @@
 import Foundation
 import SwiftyJSON
 
+//This is just a test 
+
 class CitySDKData {
     var latitude: String
     var longitude: String
