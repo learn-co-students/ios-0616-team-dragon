@@ -1,5 +1,5 @@
 //
-//  USAJobsAPIClient.swift
+//  LaborStatisticsAPIClient.swift
 //  ProjectOvaltine
 //
 //  Created by Christopher Webb-Orenstein on 8/5/16.
@@ -9,20 +9,20 @@
 import Foundation
 import Alamofire
 
-class USAJobsAPIClient {
+class LaborStatisticsAPIClient {
     
     let url: String? = ""
-    let key = Constants.USAJOBS_API_KEY
+    let key = Constants.BLS_API_KEY
     
     
-    //MARK request 
+    //MARK request
     func sendAPIRequest() {
         guard let urlString = url
             else { print("ERROR: Unable to get url path for API call") }
         Alamofire.request(.GET, urlString, paramaters: [])
-            responseJSON { response in
-                print(response.response)
-            }
+        responseJSON { response in
+            print(response.response)
+        }
     }
     
 }

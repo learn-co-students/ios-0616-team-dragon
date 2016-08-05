@@ -8,6 +8,17 @@
 
 import UIKit
 
-class AppController {
+class AppController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadInitialViewController()
+    }
+    
+}
+
+extension AppController {
+    private func loadInitialViewController() {
+        
+    }
 }

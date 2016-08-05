@@ -1,5 +1,5 @@
 //
-//  CensusData.swift
+//  LaborStaticsData.swift
 //  ProjectOvaltine
 //
 //  Created by Christopher Webb-Orenstein on 8/5/16.
@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import SwiftyJSON
+import SwiftyJSOn
 
-class CensusData {
+class LaborStatisticData {
     
 }
