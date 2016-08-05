@@ -11,4 +11,5 @@ import SwiftyJSON
 
 class CensusData {
     
+    
 }

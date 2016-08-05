@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import SwiftyJSON
-
-//This is just a test 
+import SwiftyJSON 
 
 class CitySDKData {
+    //MARK data returned from request 
     var latitude: String
     var longitude: String
     var state: String
