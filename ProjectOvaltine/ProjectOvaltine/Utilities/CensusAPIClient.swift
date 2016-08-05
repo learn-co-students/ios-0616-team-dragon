@@ -9,15 +9,18 @@
 import Foundation
 import Alamofire
 
-class CensusAPIClient {
+class CensusAPIClient: Request {
     
     // MARK: Path Router
-    let url: String? = "https://api.census.gov"
+    let baseURL: String? = "https://api.census.gov"
+    let method = .POST
+    let path = "/"
+    let paramaters = ["parameterOne": "not implemented"]
     let key = Constants.CENSUS_API_KEY
     
     // MARK: Request
     func sendAPIRequest() {
-        guard let urlString = url
+        guard let urlString = self.baseURL + self.path
             else { print("ERROR: Unable to get url path for API call")
         }
         Alamofire.request(.GET, urlString, paramaters: [])

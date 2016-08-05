@@ -8,3 +8,8 @@
 
 import Foundation
 import SwiftyJSON
+
+
+class CitySDKDataStore {
+    
+}
