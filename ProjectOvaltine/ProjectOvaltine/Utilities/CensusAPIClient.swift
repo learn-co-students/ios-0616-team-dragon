@@ -16,14 +16,15 @@ class CensusAPIClient {
     let key = Constants.CENSUS_API_KEY
     
     // MARK: Request
-    func sendAPIRequest() -> [CensusData] {
+    func sendAPIRequest() {
         guard let urlString = url
-            else {
-                print("ERROR: Unable to get url path for starred status")
-                return [CensusData()]
+            else { print("ERROR: Unable to get url path for API call")
         }
-        
-        return [CensusData()]
+        Alamofire.request(.GET, urlString, paramaters: [])
+            .responseJSON { response in
+                print(response.data)
+                print(response.response)
+        }
     }
     
 }

@@ -15,15 +15,12 @@ class CitySDKAPIClient {
     let key = Constants.CITYSDK_API_KEY
     
     // MARK: Request
-    func sendAPIRequest() -> [CitySDKData] {
+    func sendAPIRequest() {
         guard let urlString = url
-            else {
-                print("ERROR: Unable to get url path for starred status")
-                return [CitySDKData(json:["not":"implemented"])!]
-        }
-        
-        return [CitySDKData(json:["not":"implemented"])!]
+            else { print("ERROR: Unable to get url path for API call") }
+        Alamofire.request(.GET, urlString, paramaters: [])
+            responseJSON { response in
+                print(response.response)
+            }
     }
-
-    
 }
