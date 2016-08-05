@@ -7,9 +7,23 @@
 //
 
 import Foundation
-import SwiftyJSON
+import Alamofire
 
 class CitySDKAPIClient {
+    // MARK: Path Router
+    let url: String? = "" 
+    let key = Constants.CITYSDK_API_KEY
+    
+    // MARK: Request
+    func sendAPIRequest() -> [CitySDKData] {
+        guard let urlString = url
+            else {
+                print("ERROR: Unable to get url path for starred status")
+                return [CitySDKData(json:["not":"implemented"])!]
+        }
+        
+        return [CitySDKData(json:["not":"implemented"])!]
+    }
 
     
 }

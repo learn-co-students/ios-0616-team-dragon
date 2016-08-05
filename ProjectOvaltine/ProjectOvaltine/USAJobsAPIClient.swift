@@ -11,4 +11,7 @@ import Alamofire
 
 class USAJobsAPIClient {
     
+    let url = ""
+    let key = Constants.
+    
 }
