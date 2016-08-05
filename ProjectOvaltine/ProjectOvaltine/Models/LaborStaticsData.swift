@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftyJSOn
+import SwiftyJSON
 
 class LaborStatisticData {
     

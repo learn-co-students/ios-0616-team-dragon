@@ -17,10 +17,13 @@ class GoveDataAPIClient {
     //MARK request
     func sendAPIRequest() {
         guard let urlString = url
-            else { print("ERROR: Unable to get url path for API call") }
-        Alamofire.request(.GET, urlString, paramaters: [])
-        responseJSON { response in
-            print(response.response)
+            else {
+                print("ERROR: Unable to get url path for API call")
+                return
+        }
+        Alamofire.request(.GET, urlString, parameters: [:])
+            .responseJSON { response in
+                print(response.response)
         }
     }
     

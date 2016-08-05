@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Request {
-    var baseURL : NSURL? { get }
+    var baseURL : String { get }
     var method : String { get }
     var path : String { get }
     var parameters : Dictionary<String, String> { get }
