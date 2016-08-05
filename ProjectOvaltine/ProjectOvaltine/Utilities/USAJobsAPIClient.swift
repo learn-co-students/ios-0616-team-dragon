@@ -11,7 +11,16 @@ import Alamofire
 
 class USAJobsAPIClient {
     
-    let url = ""
-    let key = Constants.
+    let url: String? = ""
+    let key = Constants.USAJOBS_API_KEY
+    
+    func sendAPIRequest() {
+        guard let urlString = url
+            else { print("ERROR: Unable to get url path for API call") }
+        Alamofire.request(.GET, urlString, paramaters: [])
+        responseJSON { response in
+            print(response.response)
+        }
+    }
     
 }
