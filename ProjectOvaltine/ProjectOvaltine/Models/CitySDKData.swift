@@ -16,6 +16,8 @@ class CitySDKData {
     var income: Int
     var population: Int
     
+    
+    //Comment
     init?(json: JSON) {
         guard let
             lat = json["lat"].string,
