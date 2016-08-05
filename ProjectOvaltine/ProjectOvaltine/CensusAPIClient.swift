@@ -10,10 +10,12 @@ import UIKit
 import Alamofire
 
 class CensusAPIClient {
+    
     // MARK: Path Router
     let url: String? = "https://api.census.gov"
     let key = Constants.CENSUS_API_KEY
     
+    // MARK: Request
     func sendAPIRequest() -> [CensusData] {
         guard let urlString = url
             else {

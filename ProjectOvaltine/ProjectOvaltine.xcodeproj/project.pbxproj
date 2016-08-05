@@ -19,6 +19,7 @@
 		AFEEC1F61D54DC8E00EEAECA /* CensusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEEC1F51D54DC8E00EEAECA /* CensusData.swift */; };
 		AFEEC1F81D54DCA700EEAECA /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEEC1F71D54DCA700EEAECA /* USAJobsData.swift */; };
 		AFEEC1FD1D54DE5100EEAECA /* CitySDKAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEEC1FC1D54DE5100EEAECA /* CitySDKAPIClient.swift */; };
+		AFEEC1FF1D54E93800EEAECA /* CitySDKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEEC1FE1D54E93800EEAECA /* CitySDKData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		AFEEC1F51D54DC8E00EEAECA /* CensusData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CensusData.swift; sourceTree = "<group>"; };
 		AFEEC1F71D54DCA700EEAECA /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
 		AFEEC1FC1D54DE5100EEAECA /* CitySDKAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKAPIClient.swift; sourceTree = "<group>"; };
+		AFEEC1FE1D54E93800EEAECA /* CitySDKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKData.swift; sourceTree = "<group>"; };
 		C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 			children = (
 				AFEEC1F51D54DC8E00EEAECA /* CensusData.swift */,
 				AFEEC1F71D54DCA700EEAECA /* USAJobsData.swift */,
+				AFEEC1FE1D54E93800EEAECA /* CitySDKData.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				AFEDFBDA1D54DB5300C59C7A /* CensusAPIClient.swift in Sources */,
 				AFEEC1FD1D54DE5100EEAECA /* CitySDKAPIClient.swift in Sources */,
 				AF75DFAC1D53D31C00DDF173 /* Constants.swift in Sources */,
+				AFEEC1FF1D54E93800EEAECA /* CitySDKData.swift in Sources */,
 				AFEDFBDC1D54DB6C00C59C7A /* USAJobsAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

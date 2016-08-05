@@ -6,14 +6,10 @@
 //  Copyright © 2016 Christopher Webb-Orenstein. All rights reserved.
 //
 
-import UIKit
-import Alamofire
+import Foundation
+import SwiftyJSON
 
 class CitySDKAPIClient {
-    var latitude: Stirng
-    var longitude: String
-    var state: String
-    var income: String
-    var population: String
+
     
 }
