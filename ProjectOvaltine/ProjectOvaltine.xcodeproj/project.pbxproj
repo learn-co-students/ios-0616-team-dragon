@@ -14,6 +14,11 @@
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
 		AF75DFAC1D53D31C00DDF173 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DFAB1D53D31C00DDF173 /* Constants.swift */; };
+		AFEDFBDA1D54DB5300C59C7A /* CensusAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEDFBD91D54DB5300C59C7A /* CensusAPIClient.swift */; };
+		AFEDFBDC1D54DB6C00C59C7A /* USAJobsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEDFBDB1D54DB6C00C59C7A /* USAJobsAPIClient.swift */; };
+		AFEEC1F61D54DC8E00EEAECA /* CensusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEEC1F51D54DC8E00EEAECA /* CensusData.swift */; };
+		AFEEC1F81D54DCA700EEAECA /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEEC1F71D54DCA700EEAECA /* USAJobsData.swift */; };
+		AFEEC1FD1D54DE5100EEAECA /* CitySDKAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEEC1FC1D54DE5100EEAECA /* CitySDKAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		AF75DFA31D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF75DFA51D53D30400DDF173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF75DFAB1D53D31C00DDF173 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AFEDFBD91D54DB5300C59C7A /* CensusAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CensusAPIClient.swift; sourceTree = "<group>"; };
+		AFEDFBDB1D54DB6C00C59C7A /* USAJobsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsAPIClient.swift; sourceTree = "<group>"; };
+		AFEEC1F51D54DC8E00EEAECA /* CensusData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CensusData.swift; sourceTree = "<group>"; };
+		AFEEC1F71D54DCA700EEAECA /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
+		AFEEC1FC1D54DE5100EEAECA /* CitySDKAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKAPIClient.swift; sourceTree = "<group>"; };
 		C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,15 +81,52 @@
 		AF75DF981D53D30300DDF173 /* ProjectOvaltine */ = {
 			isa = PBXGroup;
 			children = (
-				AF75DFAB1D53D31C00DDF173 /* Constants.swift */,
-				AF75DF991D53D30300DDF173 /* AppDelegate.swift */,
-				AF75DF9B1D53D30300DDF173 /* ViewController.swift */,
-				AF75DF9D1D53D30400DDF173 /* Main.storyboard */,
-				AF75DFA01D53D30400DDF173 /* Assets.xcassets */,
-				AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */,
-				AF75DFA51D53D30400DDF173 /* Info.plist */,
+				AFEEC1FA1D54DCE300EEAECA /* Controllers */,
+				AFEDFBDD1D54DB8C00C59C7A /* Utilities */,
+				AFEEC1F91D54DCCB00EEAECA /* Models */,
+				AFEEC1FB1D54DD1F00EEAECA /* Supporting Files */,
 			);
 			path = ProjectOvaltine;
+			sourceTree = "<group>";
+		};
+		AFEDFBDD1D54DB8C00C59C7A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AF75DFAB1D53D31C00DDF173 /* Constants.swift */,
+				AFEDFBD91D54DB5300C59C7A /* CensusAPIClient.swift */,
+				AFEDFBDB1D54DB6C00C59C7A /* USAJobsAPIClient.swift */,
+				AFEEC1FC1D54DE5100EEAECA /* CitySDKAPIClient.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		AFEEC1F91D54DCCB00EEAECA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AFEEC1F51D54DC8E00EEAECA /* CensusData.swift */,
+				AFEEC1F71D54DCA700EEAECA /* USAJobsData.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AFEEC1FA1D54DCE300EEAECA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF75DF9B1D53D30300DDF173 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AFEEC1FB1D54DD1F00EEAECA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF75DF9D1D53D30400DDF173 /* Main.storyboard */,
+				AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */,
+				AF75DFA51D53D30400DDF173 /* Info.plist */,
+				AF75DFA01D53D30400DDF173 /* Assets.xcassets */,
+				AF75DF991D53D30300DDF173 /* AppDelegate.swift */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		DBC71C99095F417EE7AF1502 /* Pods */ = {
@@ -213,9 +260,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFEEC1F61D54DC8E00EEAECA /* CensusData.swift in Sources */,
 				AF75DF9C1D53D30300DDF173 /* ViewController.swift in Sources */,
+				AFEEC1F81D54DCA700EEAECA /* USAJobsData.swift in Sources */,
 				AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */,
+				AFEDFBDA1D54DB5300C59C7A /* CensusAPIClient.swift in Sources */,
+				AFEEC1FD1D54DE5100EEAECA /* CitySDKAPIClient.swift in Sources */,
 				AF75DFAC1D53D31C00DDF173 /* Constants.swift in Sources */,
+				AFEDFBDC1D54DB6C00C59C7A /* USAJobsAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
