@@ -6,7 +6,7 @@
 //  Copyright © 2016 Christopher Webb-Orenstein. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 
 class USAJobsAPIClient {
