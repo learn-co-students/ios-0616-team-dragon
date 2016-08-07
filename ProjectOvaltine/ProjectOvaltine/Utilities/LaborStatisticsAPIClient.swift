@@ -22,9 +22,10 @@ class LaborStatisticsAPIClient {
                 print("ERROR: Unable to get url path for API call")
                 return
         }
+        
         Alamofire.request(.GET, urlString, parameters: [:])
-        .responseJSON { response in
-            print(response.response)
+            .responseJSON { response in
+                print(response.response)
         }
     }
     

@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import SwiftyJSON
 
-class CitySDKDataStore {
+class DataStore {
     
 }
