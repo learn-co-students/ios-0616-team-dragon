@@ -9,6 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-class LaborStatisticData {
+class LaborStatisticsData {
     
 }

@@ -11,6 +11,8 @@ import Alamofire
 
 class LaborStatisticsAPIClient: Request {
     
+    static let sharedInstance = LaborStatisticsAPIClient()
+    
     let baseURL: String? = " "
     let path: String? = "/"
     let parameters = ["parameterOne": "not implemented"]

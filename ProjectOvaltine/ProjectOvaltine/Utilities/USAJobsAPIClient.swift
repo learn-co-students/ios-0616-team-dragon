@@ -11,6 +11,8 @@ import Alamofire
 
 class USAJobsAPIClient: Request {
     
+    static let sharedInstance = USAJobsAPIClient()
+    
     let baseURL: String? = " "
     let path: String? = "/"
     

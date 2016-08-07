@@ -9,7 +9,10 @@
 import Foundation
 import Alamofire
 
-class GoveDataAPIClient : Request {
+class GovDataAPIClient : Request {
+    
+    static let sharedInstance = GovDataAPIClient()
+    
     let baseURL: String? = " "
     let path: String? = "/"
     let parameters = ["parameterOne": "Not implemented"]

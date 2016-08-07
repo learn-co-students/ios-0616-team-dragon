@@ -11,6 +11,8 @@ import Alamofire
 
 class CitySDKAPIClient: Request {
     
+    static let sharedInstance = CitySDKAPIClient()
+    
     // MARK: Path Router
     let baseURL: String? = "http://citysdk.commerce.gov"
     let path: String? = "/"
