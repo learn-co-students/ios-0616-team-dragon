@@ -23,6 +23,7 @@
 		AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460141D551BE400FBE63B /* USAJobsData.swift */; };
 		AFE4601C1D551C4200FBE63B /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601B1D551C4200FBE63B /* AppController.swift */; };
 		AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601D1D551C4D00FBE63B /* ViewController.swift */; };
+		BD271FC11D58F8FF005878C8 /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD271FC01D58F8FF005878C8 /* MapKitViewController.swift */; };
 		BD6F23061D58C0F8007926EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6F23051D58C0F8007926EE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		AFE460141D551BE400FBE63B /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
 		AFE4601B1D551C4200FBE63B /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
 		AFE4601D1D551C4D00FBE63B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
+		BD271FC01D58F8FF005878C8 /* MapKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitViewController.swift; sourceTree = "<group>"; };
 		BD6F23051D58C0F8007926EE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 		AFE4601F1D551C5400FBE63B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BD271FC01D58F8FF005878C8 /* MapKitViewController.swift */,
 				AFE4601B1D551C4200FBE63B /* AppController.swift */,
 				AFE4601D1D551C4D00FBE63B /* ViewController.swift */,
 			);
@@ -277,6 +280,7 @@
 			files = (
 				AFE460161D551BE400FBE63B /* DataStore.swift in Sources */,
 				AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */,
+				BD271FC11D58F8FF005878C8 /* MapKitViewController.swift in Sources */,
 				AFE4601C1D551C4200FBE63B /* AppController.swift in Sources */,
 				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,
 				AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */,

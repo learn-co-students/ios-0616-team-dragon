@@ -34,7 +34,7 @@ class CitySDKAPIClient: Request {
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let json = ["level" : "county",
-                    "zip" : "10001",
+                    "zip" : "08540",
                     "variables" :[ "age" ],
                     "api":"acs5",
                     "year":"2014"]
@@ -51,5 +51,5 @@ class CitySDKAPIClient: Request {
 
         }
     }
-
 }
+

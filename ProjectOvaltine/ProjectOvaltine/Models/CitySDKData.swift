@@ -11,4 +11,8 @@ import SwiftyJSON
 
 class citySDKData {
     
+    static let dataStore = citySDKData()
+        
+    func getDataWithCompletion(completion: () -> ()){}
+    
 }

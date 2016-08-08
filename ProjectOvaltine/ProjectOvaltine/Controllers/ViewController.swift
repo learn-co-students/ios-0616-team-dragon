@@ -13,9 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let api = CitySDKAPIClient()
-        
-        print(api.sendAPIRequest())
+      
         
         // Do any additional setup after loading the view, typically from a nib.
     }
