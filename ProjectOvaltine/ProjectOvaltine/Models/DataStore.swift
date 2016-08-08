@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class DataStore {
     static let sharedInstance = DataStore()
     
@@ -16,7 +17,36 @@ class DataStore {
     let laborStatisticsAPI = LaborStatisticsAPIClient.sharedInstance
     let USAJobsAPI = USAJobsAPIClient.sharedInstance
     
-    var cityDataPoints:[citySDKData] = []
+    var cityDataPoints:[CitySDKData] = []
     var laborDataPoints:[LaborStatisticsData] = []
     var USAJobsDataPoints:[USAJobsData] = []
+    
+    let level = "county"
+    let zip = "10001"
+    let api = "acs5"
+    let year = "2014"
+    let variables = ["age",
+                     "education_high_school",
+                     "income_per_capita",
+                     "median_contract_rent",
+                     "employment_labor_force",
+                     "population",
+                     "commute_time_walked",
+                     "poverty"]
+    
+    func getCitySDKData(completion: () -> ()) {
+        cityAPI.sendAPIRequest(["level":level, "zip": zip, "api": api, "year": year, "variables": variables]) { (cityData) in
+            print(cityData)
+            self.cityDataPoints = cityData
+            completion()
+        }
+    }
+    
+    func getUSAJobsData() {
+        
+    }
+    
+    func getLaborStatisticsData() {
+        
+    }
 }
