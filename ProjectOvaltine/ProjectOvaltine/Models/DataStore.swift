@@ -19,4 +19,12 @@ class DataStore {
     var cityDataPoints:[citySDKData] = []
     var laborDataPoints:[LaborStatisticsData] = []
     var USAJobsDataPoints:[USAJobsData] = []
+    
+    
+    func getCitySDKData(name: String, completion: () -> ()) {
+        cityAPI.sendAPIRequest("county", zip: "10001", api: "acs5", year: "2014") { (cityData) in
+            self.cityDataPoints = cityData
+            completion()
+        }
+    }
 }
