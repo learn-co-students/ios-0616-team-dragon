@@ -25,10 +25,14 @@ class ViewController: UIViewController {
             print(self.store.cityDataPoints.first?.age)
         })
         
+<<<<<<< HEAD
+      
+=======
         
         
         
 //        print(api.sendAPIRequest(self.level, zip: self.zip, api: self.api, year: self.year, completion: ()->()))
+>>>>>>> master
         
         // Do any additional setup after loading the view, typically from a nib.
     }

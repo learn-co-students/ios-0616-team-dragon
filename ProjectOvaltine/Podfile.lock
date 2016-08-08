@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (3.4.1)
+  - LFHeatMap (1.0.2)
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - LFHeatMap
   - SnapKit (~> 0.15.0)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  LFHeatMap: 433197b20e4d57a9502bc2a2a21300fa851ff3c6
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 6ed40c1308390e6493c347a6431a5714c9a4d4c0
+PODFILE CHECKSUM: 48014ae1e030b01686fd2afa29561105d62a83be
 
 COCOAPODS: 1.0.1
