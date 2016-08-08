@@ -13,6 +13,11 @@ import MapKit
 
 class MapKitViewController: UIViewController, MKMapViewDelegate {
     
+    let store = DataStore.sharedInstance
+    let cityAPI = CitySDKAPIClient.sharedInstance
+    
+    var cityData: [CitySDKData] = []
+    
     let mapView = MKMapView()
     let initialLocation = CLLocation(latitude: 34.4248, longitude: -118.5971)
     var zipLocation : CLLocation! = nil
@@ -60,10 +65,28 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         
         
         
-        let api = CitySDKAPIClient()
-        
-        api.sendAPIRequest()
-        
+        self.store.getCitySDKData({
+            if let age = self.store.cityDataPoints.first?.age {
+                print(age)
+            }
+            
+            if let name = self.store.cityDataPoints.first?.locationName {
+                print(name)
+            }
+            
+            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
+                print(commute)
+            }
+            
+            if let income = self.store.cityDataPoints.first?.incomePerCapita {
+                print(income)
+            }
+            
+            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
+                print(education)
+            }
+            
+        })
         
         mapView.frame = view.frame
         mapView.delegate = self

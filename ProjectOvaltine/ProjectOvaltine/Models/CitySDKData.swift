@@ -6,14 +6,6 @@
 //  Copyright © 2016 Christopher Webb-Orenstein. All rights reserved.
 //
 
-//
-//  CitySDKData.swift
-//  ProjectOvaltine
-//
-//  Created by Christopher Webb-Orenstein on 8/7/16.
-//  Copyright © 2016 Christopher Webb-Orenstein. All rights reserved.
-//
-
 import Foundation
 import SwiftyJSON
 
@@ -43,7 +35,7 @@ class CitySDKData {
             lng = json["INTPTLON"].string,
             laborParticipation = json["B23025_002E"].string
             else {
-                fatalError("Fuck haaris")
+                fatalError("FatalError")
         }
         self.walkingCommuteTime = commuteWalk
         self.age = medianAge
