@@ -35,7 +35,6 @@ class CitySDKData {
             latnew = json["INTPTLAT"].string,
             longnew = json["INTPTLON"].string,
             partic = json["B23025_002E"].string
-            //emple = json["B23025_004E"].string
             else {
                 fatalError("Fuck haaris")
             }
@@ -49,7 +48,6 @@ class CitySDKData {
         self.locationName = localStuff
         self.latitude = latnew
         self.longitude = longnew
-        //self.laborForceEmployment = emple
         self.laborForceParticipation = partic
     }
 }

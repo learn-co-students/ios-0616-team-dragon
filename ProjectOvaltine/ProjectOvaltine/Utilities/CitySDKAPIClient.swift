@@ -56,17 +56,10 @@ class CitySDKAPIClient: Request {
                 case .Success(let responseObject):
                     var cityDataPoints: [CitySDKData] = []
                     let response = responseObject as! NSDictionary
-                    //print("response \(response)")
                     if let feat = response["features"] as? NSArray {
-                        //print("feat \(feat[0]["properties"])")
                         let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
-                        //print(jsonProperties["B01002_001E"])
                         var newData = CitySDKData(json: jsonProperties)
-                        //print(newData)
                         cityDataPoints.append(newData)
-                            //print("jsonProperties \(jsonProperties)")
-                            //print("city data points \(cityDataPoints)")
-                        
                         completion(cityDataPoints)
                     }
                 default:

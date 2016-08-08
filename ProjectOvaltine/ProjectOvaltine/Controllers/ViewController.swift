@@ -18,8 +18,6 @@ class ViewController: UIViewController {
     let zip = "10001"
     let api = "acs5"
     let year = "2014"
-    // data: [CitySDKData] = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
