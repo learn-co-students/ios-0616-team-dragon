@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Map Kit View Controller-->
+        <!--View Controller-->
         <scene sceneID="W0N-nR-uy2">
             <objects>
-                <viewController id="nT4-qd-fhq" customClass="MapKitViewController" customModule="ProjectOvaltine" sceneMemberID="viewController">
+                <viewController id="nT4-qd-fhq" customClass="ViewController" customModule="ProjectOvaltine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8jP-lI-Dul"/>
                         <viewControllerLayoutGuide type="bottom" id="dbW-sG-TLD"/>
