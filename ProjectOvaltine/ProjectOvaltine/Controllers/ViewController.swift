@@ -9,13 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let store = DataStore.sharedInstance
+    let cityAPI = CitySDKAPIClient.sharedInstance
+    
+    var cityData: [CitySDKData] = []
 
+    let level = "county"
+    let zip = "10001"
+    let api = "acs5"
+    let year = "2014"
+    // data: [CitySDKData] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.store.getCitySDKData({
+            print(self.store.cityDataPoints.first?.age)
+        })
         
-        let api = CitySDKAPIClient()
         
-        print(api.sendAPIRequest())
+        
+        
+//        print(api.sendAPIRequest(self.level, zip: self.zip, api: self.api, year: self.year, completion: ()->()))
         
         // Do any additional setup after loading the view, typically from a nib.
     }

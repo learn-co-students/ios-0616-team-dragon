@@ -12,4 +12,5 @@ protocol Request {
     var baseURL : String? { get }
     var path : String? { get }
     var parameters : Dictionary<String, String> { get }
+    var variables: [String] { get }
 }
