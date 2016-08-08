@@ -18,8 +18,7 @@ class CitySDKAPIClient: Request {
     let path: String? = "/"
     
     let parameters = ["parameterOne": "not implemented"]
-    let variables = ["education_high_school", "income_per_capita", "median_contract_rent"]
-    
+    let variables = ["education_high_school", "income_per_capita", "median_contract_rent", "employment_labor_force"]
     let key = Constants.CITYSDK_API_KEY
     
     
@@ -27,7 +26,7 @@ class CitySDKAPIClient: Request {
     
   
     // MARK: Request
-    func sendAPIRequest() {
+    func sendAPIRequest(level: String, zip: String, api: String, year: String) {
         guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
@@ -38,11 +37,11 @@ class CitySDKAPIClient: Request {
         let request = NSMutableURLRequest(URL:url!)
         request.HTTPMethod = "POST" 
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let json = ["level" : "county",
-                    "zip" : "10001",
+        let json = ["level" : level,
+                    "zip" : zip,
                     "variables" : self.variables,
-                    "api":"acs5",
-                    "year":"2014"]
+                    "api": api,
+                    "year": year]
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
         Alamofire.request(request)

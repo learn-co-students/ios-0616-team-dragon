@@ -10,12 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let level = "county"
+    let zip = "10001"
+    let api = "acs5"
+    let year = "2014"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let api = CitySDKAPIClient()
         
-        print(api.sendAPIRequest())
+        
+        print(api.sendAPIRequest(self.level, zip: self.zip, api: self.api, year: self.year))
         
         // Do any additional setup after loading the view, typically from a nib.
     }

@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 
 class citySDKData {
+    
     var walkingCommuteTime: Int
     var age: String
     var incomePerCapita: Int
@@ -19,6 +20,8 @@ class citySDKData {
     var locationName: String
     var latitude: String
     var longitude: String
+    var laborForceParticipation: Int
+    var laborForceEmployment: Int
     
     init(json:JSON) {
         let walkCommute = json["B08136_011E"].int
@@ -30,6 +33,8 @@ class citySDKData {
         let localName = json["NAME"].string
         let lat = json["INTPTLAT"].string
         let lng = json["INTPTLON"].string
+        let laborParticipation = json["B23025_002E"].int
+        let laborEmployment = json["B23025_004E"].int
         
         self.walkingCommuteTime = walkCommute!
         self.age = avgAge!
@@ -40,6 +45,8 @@ class citySDKData {
         self.locationName = localName!
         self.latitude = lat!
         self.longitude = lng!
+        self.laborForceParticipation = laborParticipation!
+        self.laborForceEmployment = laborEmployment!
     }
     
     
