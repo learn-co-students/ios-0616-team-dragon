@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class DataStore {
     static let sharedInstance = DataStore()
     
@@ -22,9 +23,8 @@ class DataStore {
     
     func getCitySDKData(completion: () -> ()) {
         cityAPI.sendAPIRequest("county", zip: "10001", api: "acs5", year: "2014") { (cityData) in
-            self.cityDataPoints = cityData
-            print(self.cityDataPoints)
             print(cityData)
+            self.cityDataPoints = cityData
             completion()
         }
     }

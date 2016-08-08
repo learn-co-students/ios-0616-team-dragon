@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let store = DataStore.sharedInstance
+    let cityAPI = CitySDKAPIClient.sharedInstance
+    
+    var cityData: [CitySDKData] = []
 
     let level = "county"
     let zip = "10001"
@@ -19,14 +23,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.store.getCitySDKData({
+            print(self.store.cityDataPoints.first?.age)
+        })
         
-        let api = CitySDKAPIClient.sharedInstance
-        
-        let data = DataStore.sharedInstance
-        data.getCitySDKData() {
-            print(data.cityDataPoints)
-        }
-        print(data.cityDataPoints)
         
         
         
