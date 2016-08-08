@@ -29,13 +29,14 @@ class CitySDKAPIClient: Request {
                 print("ERROR: Unable to get url path for API call")
                 return
         }
+        //"age" "income" "commute_time_walked" "population" B17001_002E  "poverty", "income_per_capita",
         let url = NSURL(string: self.baseURL!)
         let request = NSMutableURLRequest(URL:url!)
-        request.HTTPMethod = "POST"
+        request.HTTPMethod = "POST" 
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let json = ["level" : "county",
                     "zip" : "10001",
-                    "variables" :[ "age" ],
+                    "variables" :["education_high_school", "income_per_capita", "median_contract_rent"],
                     "api":"acs5",
                     "year":"2014"]
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
