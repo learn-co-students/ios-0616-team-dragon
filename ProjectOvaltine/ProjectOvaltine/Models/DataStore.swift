@@ -16,9 +16,11 @@ class DataStore {
     let laborStatisticsAPI = LaborStatisticsAPIClient.sharedInstance
     let USAJobsAPI = USAJobsAPIClient.sharedInstance
     
-    var cityDataPoints:[citySDKData] = []
+    var cityDataPoints:[CitySDKData] = []
     var laborDataPoints:[LaborStatisticsData] = []
     var USAJobsDataPoints:[USAJobsData] = []
+    
+    var params = ["api": "Jobs_Proximity_Index"]
     
     
     func getCitySDKData(name: String, completion: () -> ()) {

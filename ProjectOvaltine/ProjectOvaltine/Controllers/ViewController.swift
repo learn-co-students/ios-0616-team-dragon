@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         let api = CitySDKAPIClient()
         
         
-        api.sendAPIRequest(self.level, zip: self.zip, api: self.api, year: self.year)
+        print(api.sendAPIRequest(self.level, zip: self.zip, api: self.api, year: self.year))
         
         // Do any additional setup after loading the view, typically from a nib.
     }

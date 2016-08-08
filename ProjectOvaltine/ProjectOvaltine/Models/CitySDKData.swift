@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class citySDKData {
+class CitySDKData {
     
     var walkingCommuteTime: Int //(Normalizable) Time spent commuting (in minutes): walking.
     var age: String //Median age.
@@ -53,7 +53,4 @@ class citySDKData {
         self.laborForceParticipation = laborParticipation
         self.laborForceEmployment = laborEmployment
     }
-    
-    
-    
 }

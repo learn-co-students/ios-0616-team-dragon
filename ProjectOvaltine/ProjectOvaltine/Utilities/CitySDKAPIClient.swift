@@ -6,8 +6,9 @@
 //  Copyright © 2016 Christopher Webb-Orenstein. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Alamofire
+import SwiftyJSON
 
 class CitySDKAPIClient: Request {
     
@@ -23,10 +24,10 @@ class CitySDKAPIClient: Request {
     
     
     
-    
+    //func searchForRepository(name: String, completion: ([GithubRepository]) -> ())
   
     // MARK: Request
-    func sendAPIRequest(level: String, zip: String, api: String, year: String) {
+    func sendAPIRequest(level: String, zip: String, api: String, year: String, completion: ([CitySDKData]) -> ()) {
         guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
@@ -44,11 +45,17 @@ class CitySDKAPIClient: Request {
                     "year": year]
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
-        Alamofire.request(request)
-            .responseJSON { response in
-                switch response.result {
+        Alamofire.request(request).responseJSON { (response) in
+            switch response.result {
                 case .Success(let responseObject):
-                    print(responseObject)
+                    var cityDataPoints: [CitySDKData] = []
+                    let response = responseObject as! NSDictionary
+                    if let feat = response["features"] as? NSArray {
+                        if let jsonProperties = feat[0]["properties"] as? JSON {
+                            cityDataPoints.append(CitySDKData(json: jsonProperties))
+                        }
+                        completion(cityDataPoints)
+                    }
                 default:
                     print("ERROR")
                 }
