@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.store.getCitySDKData({
-            
             if let age = self.store.cityDataPoints.first?.age {
                 print(age)
             }
@@ -29,7 +28,7 @@ class ViewController: UIViewController {
             if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
                 print(commute)
             }
-        
+            
             if let income = self.store.cityDataPoints.first?.incomePerCapita {
                 print(income)
             }

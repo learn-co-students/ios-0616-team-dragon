@@ -52,5 +52,5 @@ class CitySDKAPIClient: Request {
                 }
         }
     }
-
 }
+

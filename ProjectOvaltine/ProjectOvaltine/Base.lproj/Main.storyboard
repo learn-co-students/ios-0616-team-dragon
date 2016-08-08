@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nT4-qd-fhq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nT4-qd-fhq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map Kit View Controller-->
         <scene sceneID="W0N-nR-uy2">
             <objects>
-                <viewController id="nT4-qd-fhq" customClass="ViewController" customModule="ProjectOvaltine" sceneMemberID="viewController">
+                <viewController id="nT4-qd-fhq" customClass="MapKitViewController" customModule="ProjectOvaltine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8jP-lI-Dul"/>
                         <viewControllerLayoutGuide type="bottom" id="dbW-sG-TLD"/>
