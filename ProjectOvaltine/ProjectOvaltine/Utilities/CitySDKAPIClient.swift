@@ -18,8 +18,12 @@ class CitySDKAPIClient: Request {
     let path: String? = "/"
     
     let parameters = ["parameterOne": "not implemented"]
+    let variables = ["education_high_school", "income_per_capita", "median_contract_rent"]
     
     let key = Constants.CITYSDK_API_KEY
+    
+    
+    
     
   
     // MARK: Request
@@ -36,7 +40,7 @@ class CitySDKAPIClient: Request {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let json = ["level" : "county",
                     "zip" : "10001",
-                    "variables" :["education_high_school", "income_per_capita", "median_contract_rent"],
+                    "variables" : self.variables,
                     "api":"acs5",
                     "year":"2014"]
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
