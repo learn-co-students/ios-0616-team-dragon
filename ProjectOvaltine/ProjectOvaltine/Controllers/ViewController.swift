@@ -38,12 +38,7 @@ class ViewController: UIViewController {
             }
             
         })
-<<<<<<< HEAD
-        
 
-        
-=======
->>>>>>> 78050ba88102838f175c60a5187992b534b29e3c
         // Do any additional setup after loading the view, typically from a nib.
     }
 

@@ -20,35 +20,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
     let coordinates = [["34.4313","-118.59890"],["34.4274","-118.60246"], ["34.4268","-118.60181"], ["34.4202","-118.6004"], ["34.42013","-118.59239"], ["34.42049","-118.59051"], ["34.42305","-118.59276"], ["34.42557","-118.59289"], ["34.42739","-118.59171"]]
     
-   
-    required init(coder: NSCoder) {
-        fatalError("NSCoding not supported")
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        <key>midCoord</key>
-//        <string>{34.4248,-118.5971}</string>
-//        <key>overlayTopLeftCoord</key>
-//        <string>{34.4311,-118.6012}</string>
-//        <key>overlayTopRightCoord</key>
-//        <string>{34.4311,-118.5912}</string>
-//        <key>overlayBottomLeftCoord</key>
-//        <string>{34.4194,-118.6012}</string>
-//        <key>boundary</key>
-//        <array>
-//        <string>{34.4313,-118.59890}</string>
-//        <string>{34.4274,-118.60246}</string>
-//        <string>{34.4268,-118.60181}</string>
-//        <string>{34.4202,-118.6004}</string>
-//        <string>{34.42013,-118.59239}</string>
-//        <string>{34.42049,-118.59051}</string>
-//        <string>{34.42305,-118.59276}</string>
-//        <string>{34.42557,-118.59289}</string>
-//        <string>{34.42739,-118.59171}</string>
-//        </array>
+
         
         
   
@@ -67,11 +42,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         
         
     }
-    
-
- 
-    
-    //
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,

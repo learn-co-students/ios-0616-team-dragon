@@ -33,7 +33,7 @@ class CitySDKAPIClient: Request {
         
         request.HTTPMethod = "POST" 
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-<<<<<<< HEAD
+
 
         let json = ["level" : "county",
                     "zip" : "08540",
@@ -41,8 +41,6 @@ class CitySDKAPIClient: Request {
                     "api":"acs5",
                     "year":"2014"]
 
-=======
->>>>>>> 78050ba88102838f175c60a5187992b534b29e3c
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
         
@@ -53,13 +51,11 @@ class CitySDKAPIClient: Request {
                     let response = responseObject as! NSDictionary
                     if let feat = response["features"] as? NSArray {
                         let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
-<<<<<<< HEAD
+
                         //print(jsonProperties["B01002_001E"])
                         let newData = CitySDKData(json: jsonProperties)
                         //print(newData)
-=======
-                        let newData = CitySDKData(json: jsonProperties)
->>>>>>> 78050ba88102838f175c60a5187992b534b29e3c
+
                         cityDataPoints.append(newData)
                         completion(cityDataPoints)
                     }
