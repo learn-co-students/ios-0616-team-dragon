@@ -9,20 +9,32 @@
 import Foundation
 import Alamofire
 
-class USAJobsAPIClient {
+class USAJobsAPIClient: Request {
     
-    let url: String? = ""
+    static let sharedInstance = USAJobsAPIClient()
+    
+    let baseURL: String? = " "
+    let path: String? = "/"
+    
+    let parameters = ["parameterOne":"not implemented"]
     let key = Constants.USAJOBS_API_KEY
     
     
     //MARK request 
     func sendAPIRequest() {
-        guard let urlString = url
+        guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
                 return 
         }
-        Alamofire.request(.GET, urlString, parameters: [:])
+        let url = NSURL(string: self.baseURL!)
+        let request = NSMutableURLRequest(URL:url!)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let json = ["not":"implemented"]
+        request.setValue(self.key, forHTTPHeaderField: "Authorization")
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
+        Alamofire.request(request)
             .responseJSON { response in
                 print(response.response)
             }

@@ -8,29 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		5B2B0D3F1D72C80262256454 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */; };
+		AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */; };
 		AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DF991D53D30300DDF173 /* AppDelegate.swift */; };
 		AF75DF9F1D53D30400DDF173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DF9D1D53D30400DDF173 /* Main.storyboard */; };
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
-		AFB2653C1D54F14A0019F98B /* Models in Resources */ = {isa = PBXBuildFile; fileRef = AFB265391D54F14A0019F98B /* Models */; };
-		AFB2653D1D54F14A0019F98B /* Utilities in Resources */ = {isa = PBXBuildFile; fileRef = AFB2653A1D54F14A0019F98B /* Utilities */; };
-		AFB2653E1D54F14A0019F98B /* Views in Resources */ = {isa = PBXBuildFile; fileRef = AFB2653B1D54F14A0019F98B /* Views */; };
-		AFB265401D54F1540019F98B /* Controllers in Resources */ = {isa = PBXBuildFile; fileRef = AFB2653F1D54F1540019F98B /* Controllers */; };
+		AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */; };
+		AFE4600B1D551B7900FBE63B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460051D551B7900FBE63B /* Constants.swift */; };
+		AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */; };
+		AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */; };
+		AFE4600E1D551B7900FBE63B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460081D551B7900FBE63B /* Request.swift */; };
+		AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */; };
+		AFE460161D551BE400FBE63B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460121D551BE400FBE63B /* DataStore.swift */; };
+		AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460131D551BE400FBE63B /* LaborStaticsData.swift */; };
+		AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460141D551BE400FBE63B /* USAJobsData.swift */; };
+		AFE4601C1D551C4200FBE63B /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601B1D551C4200FBE63B /* AppController.swift */; };
+		AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601D1D551C4D00FBE63B /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F902FD0066A98854362609 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
+		AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKData.swift; sourceTree = "<group>"; };
 		AF75DF961D53D30300DDF173 /* ProjectOvaltine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOvaltine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF75DF991D53D30300DDF173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF75DF9E1D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF75DFA01D53D30400DDF173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF75DFA31D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF75DFA51D53D30400DDF173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFB265391D54F14A0019F98B /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
-		AFB2653A1D54F14A0019F98B /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utilities; sourceTree = "<group>"; };
-		AFB2653B1D54F14A0019F98B /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
-		AFB2653F1D54F1540019F98B /* Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controllers; sourceTree = "<group>"; };
+		AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySDKAPIClient.swift; path = Utilities/CitySDKAPIClient.swift; sourceTree = "<group>"; };
+		AFE460051D551B7900FBE63B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
+		AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GovDataAPIClient.swift; path = Utilities/GovDataAPIClient.swift; sourceTree = "<group>"; };
+		AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaborStatisticsAPIClient.swift; path = Utilities/LaborStatisticsAPIClient.swift; sourceTree = "<group>"; };
+		AFE460081D551B7900FBE63B /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Utilities/Request.swift; sourceTree = "<group>"; };
+		AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = USAJobsAPIClient.swift; path = Utilities/USAJobsAPIClient.swift; sourceTree = "<group>"; };
+		AFE460121D551BE400FBE63B /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		AFE460131D551BE400FBE63B /* LaborStaticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaborStaticsData.swift; sourceTree = "<group>"; };
+		AFE460141D551BE400FBE63B /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
+		AFE4601B1D551C4200FBE63B /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
+		AFE4601D1D551C4D00FBE63B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
 		C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,13 +91,45 @@
 		AF75DF981D53D30300DDF173 /* ProjectOvaltine */ = {
 			isa = PBXGroup;
 			children = (
-				AFB2653F1D54F1540019F98B /* Controllers */,
-				AFB265391D54F14A0019F98B /* Models */,
-				AFB2653A1D54F14A0019F98B /* Utilities */,
-				AFB2653B1D54F14A0019F98B /* Views */,
+				AFE460101D551BE400FBE63B /* Models */,
+				AFE45FFF1D551B2900FBE63B /* Utilities */,
+				AFE4601F1D551C5400FBE63B /* Controllers */,
 				AFEEC1FB1D54DD1F00EEAECA /* Supporting Files */,
 			);
 			path = ProjectOvaltine;
+			sourceTree = "<group>";
+		};
+		AFE45FFF1D551B2900FBE63B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
+				AFE460051D551B7900FBE63B /* Constants.swift */,
+				AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */,
+				AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */,
+				AFE460081D551B7900FBE63B /* Request.swift */,
+				AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		AFE460101D551BE400FBE63B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */,
+				AFE460121D551BE400FBE63B /* DataStore.swift */,
+				AFE460131D551BE400FBE63B /* LaborStaticsData.swift */,
+				AFE460141D551BE400FBE63B /* USAJobsData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AFE4601F1D551C5400FBE63B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFE4601B1D551C4200FBE63B /* AppController.swift */,
+				AFE4601D1D551C4D00FBE63B /* ViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		AFEEC1FB1D54DD1F00EEAECA /* Supporting Files */ = {
@@ -168,10 +216,6 @@
 			files = (
 				AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */,
 				AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */,
-				AFB2653C1D54F14A0019F98B /* Models in Resources */,
-				AFB2653E1D54F14A0019F98B /* Views in Resources */,
-				AFB2653D1D54F14A0019F98B /* Utilities in Resources */,
-				AFB265401D54F1540019F98B /* Controllers in Resources */,
 				AF75DF9F1D53D30400DDF173 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +275,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE460161D551BE400FBE63B /* DataStore.swift in Sources */,
+				AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */,
+				AFE4601C1D551C4200FBE63B /* AppController.swift in Sources */,
+				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,
+				AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */,
 				AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */,
+				AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */,
+				AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */,
+				AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */,
+				AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */,
+				AFE4600B1D551B7900FBE63B /* Constants.swift in Sources */,
+				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
+				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

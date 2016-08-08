@@ -8,15 +8,7 @@
 
 import Foundation
 import SwiftyJSON
-//
-//class USAJobsData {
-//    
-//    //test data
-//    var newData: String
-//    
-////    init?(json:JSON) {
-////        let data = json["data"]
-////        self.newData = data 
-////    }
-////    
-//}
+
+class USAJobsData {
+    
+}
