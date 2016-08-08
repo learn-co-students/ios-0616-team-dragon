@@ -45,7 +45,6 @@ class CitySDKData {
             else {
                 fatalError("Fuck haaris")
         }
-        
         self.walkingCommuteTime = commuteWalk
         self.age = medianAge
         self.incomePerCapita = perCapitaIncome

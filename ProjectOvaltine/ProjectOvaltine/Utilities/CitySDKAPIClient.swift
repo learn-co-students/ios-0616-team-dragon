@@ -1,3 +1,11 @@
+
+//
+//  CitySDKAPIClient.swift
+//  ProjectOvaltine
+//
+//  Created by Christopher Webb-Orenstein on 8/5/16.
+//  Copyright © 2016 Christopher Webb-Orenstein. All rights reserved.
+//
 import UIKit
 import Alamofire
 import SwiftyJSON
@@ -13,7 +21,6 @@ class CitySDKAPIClient: Request {
     
     // MARK: Request
     func sendAPIRequest(params: NSDictionary, completion: ([CitySDKData]) -> ()) {
-        
         guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
@@ -22,7 +29,6 @@ class CitySDKAPIClient: Request {
         
         let url = NSURL(string: self.baseURL!)
         let request = NSMutableURLRequest(URL:url!)
-        
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(self.key, forHTTPHeaderField: "Authorization")

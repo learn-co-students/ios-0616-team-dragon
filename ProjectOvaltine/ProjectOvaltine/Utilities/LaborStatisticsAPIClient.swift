@@ -16,6 +16,7 @@ class LaborStatisticsAPIClient: Request {
     let baseURL: String? = " "
     let path: String? = "/"
     let parameters = ["parameterOne": "not implemented"]
+    let variables = ["education_high_school", "income_per_capita", "median_contract_rent"]
     
     let key = Constants.BLS_API_KEY
     

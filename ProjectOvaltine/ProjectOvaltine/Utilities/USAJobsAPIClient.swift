@@ -17,6 +17,7 @@ class USAJobsAPIClient: Request {
     let path: String? = "/"
     
     let parameters = ["parameterOne":"not implemented"]
+    let variables = ["education_high_school", "income_per_capita", "median_contract_rent"]
     let key = Constants.USAJOBS_API_KEY
     
     
