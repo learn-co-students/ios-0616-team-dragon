@@ -25,29 +25,29 @@ class CitySDKData {
     
     init(json:JSON) {
         guard let
-            walkTime = json["B08136_011E"].string,
-            ageStuff = json["B01002_001E"].string,
-            incomeStuff = json["B19301_001E"].string,
-            povertyStuff = json["B17001_002E"].string,
-            highSchool = json["B15003_017E"].string,
-            medianRental = json["B25058_001E"].string,
-            localStuff = json["NAME"].string,
-            latnew = json["INTPTLAT"].string,
-            longnew = json["INTPTLON"].string,
-            partic = json["B23025_002E"].string
+            commuteWalk = json["B08136_011E"].string,
+            medianAge = json["B01002_001E"].string,
+            perCapitaIncome = json["B19301_001E"].string,
+            povertyStats = json["B17001_002E"].string,
+            highschoolEdu = json["B15003_017E"].string,
+            medRents = json["B25058_001E"].string,
+            localName = json["NAME"].string,
+            lat = json["INTPTLAT"].string,
+            lng = json["INTPTLON"].string,
+            laborParticipation = json["B23025_002E"].string
             else {
                 fatalError("Fuck haaris")
             }
         
-        self.walkingCommuteTime = walkTime
-        self.age = ageStuff
-        self.incomePerCapita = incomeStuff
-        self.poverty = povertyStuff
-        self.highSchoolEducation = highSchool
-        self.medianRent = medianRental
-        self.locationName = localStuff
-        self.latitude = latnew
-        self.longitude = longnew
-        self.laborForceParticipation = partic
+        self.walkingCommuteTime = commuteWalk
+        self.age = medianAge
+        self.incomePerCapita = perCapitaIncome
+        self.poverty = povertyStats
+        self.highSchoolEducation = highschoolEdu
+        self.medianRent = medRents
+        self.locationName = localName
+        self.latitude = lat
+        self.longitude = lng
+        self.laborForceParticipation = laborParticipation
     }
 }

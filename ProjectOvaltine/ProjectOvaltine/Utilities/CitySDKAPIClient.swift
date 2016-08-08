@@ -16,20 +16,12 @@ class CitySDKAPIClient: Request {
     let baseURL: String? = "http://citysdk.commerce.gov"
     let path: String? = "/"
     let parameters = ["parameterOne": "not implemented"]
-    let variables = ["age",
-                     "education_high_school",
-                     "income_per_capita",
-                     "median_contract_rent",
-                     "employment_labor_force",
-                     "population",
-                     "commute_time_walked",
-                     "poverty"]
     let key = Constants.CITYSDK_API_KEY
     
     
     // MARK: Request
-    func sendAPIRequest(level: String, zip: String, api: String, year: String, completion: ([CitySDKData]) -> ()) {
-        
+    func sendAPIRequest(params: NSDictionary, completion: ([CitySDKData]) -> ()) {
+    
         guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
@@ -41,15 +33,8 @@ class CitySDKAPIClient: Request {
         
         request.HTTPMethod = "POST" 
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let json = ["level" : level,
-                    "zip" : zip,
-                    "variables" : self.variables,
-                    "api": api,
-                    "year": year]
-        
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
-        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
         
         Alamofire.request(request).responseJSON { (response) in
             switch response.result {
@@ -58,7 +43,7 @@ class CitySDKAPIClient: Request {
                     let response = responseObject as! NSDictionary
                     if let feat = response["features"] as? NSArray {
                         let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
-                        var newData = CitySDKData(json: jsonProperties)
+                        let newData = CitySDKData(json: jsonProperties)
                         cityDataPoints.append(newData)
                         completion(cityDataPoints)
                     }

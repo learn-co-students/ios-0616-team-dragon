@@ -21,8 +21,21 @@ class DataStore {
     var laborDataPoints:[LaborStatisticsData] = []
     var USAJobsDataPoints:[USAJobsData] = []
     
+    let level = "county"
+    let zip = "10001"
+    let api = "acs5"
+    let year = "2014"
+    let variables = ["age",
+                     "education_high_school",
+                     "income_per_capita",
+                     "median_contract_rent",
+                     "employment_labor_force",
+                     "population",
+                     "commute_time_walked",
+                     "poverty"]
+    
     func getCitySDKData(completion: () -> ()) {
-        cityAPI.sendAPIRequest("county", zip: "10001", api: "acs5", year: "2014") { (cityData) in
+        cityAPI.sendAPIRequest(["level":level, "zip": zip, "api": api, "year": year, "variables": variables]) { (cityData) in
             print(cityData)
             self.cityDataPoints = cityData
             completion()
