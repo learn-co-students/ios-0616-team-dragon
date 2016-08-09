@@ -31,17 +31,12 @@ class CitySDKAPIClient: Request {
         let url = NSURL(string: self.baseURL!)
         let request = NSMutableURLRequest(URL:url!)
         
-        request.HTTPMethod = "POST" 
+        request.HTTPMethod = "POST"
+        
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-
-        let json = ["level" : "county",
-                    "zip" : "08540",
-                    "variables" :[ "age" ],
-                    "api":"acs5",
-                    "year":"2014"]
-
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
+        
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
         
         Alamofire.request(request).responseJSON { (response) in
