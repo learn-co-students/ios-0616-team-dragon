@@ -9,11 +9,11 @@
 import Foundation
 
 protocol Request {
-    var baseURL: NSURL? { get }
-    var method: String { get }
-    var path: String { get }
-    var parameters: Dictionary<String, String> { get }
-    var headers: Dictionary<String, String> { get }
+    //    var baseURL: NSURL? { get }
+    //    var method: String { get }
+    //    var path: String { get }
+    //    var parameters: Dictionary<String, String> { get }
+    //    var headers: Dictionary<String, String> { get }
 }
 
 //extension Request {

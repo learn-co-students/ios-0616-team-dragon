@@ -10,6 +10,9 @@
 		5B2B0D3F1D72C80262256454 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */; };
 		AF1786341D595093008C834D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1786331D595093008C834D /* Constants.swift */; };
 		AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1786351D595B09008C834D /* MapKitViewController.swift */; };
+		AF24B1C71D5986EA0031FEEB /* CitySDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24B1C61D5986EA0031FEEB /* CitySDKTests.swift */; };
+		AF24B1C91D5987150031FEEB /* USAJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24B1C81D5987150031FEEB /* USAJobsTests.swift */; };
+		AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24B1CB1D5987530031FEEB /* MapUITests.swift */; };
 		AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */; };
 		AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DF991D53D30300DDF173 /* AppDelegate.swift */; };
 		AF75DF9F1D53D30400DDF173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DF9D1D53D30400DDF173 /* Main.storyboard */; };
@@ -32,6 +35,9 @@
 		97F902FD0066A98854362609 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
 		AF1786331D595093008C834D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AF1786351D595B09008C834D /* MapKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapKitViewController.swift; path = Controllers/MapKitViewController.swift; sourceTree = "<group>"; };
+		AF24B1C61D5986EA0031FEEB /* CitySDKTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySDKTests.swift; path = Tests/CitySDKTests.swift; sourceTree = "<group>"; };
+		AF24B1C81D5987150031FEEB /* USAJobsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = USAJobsTests.swift; path = Tests/USAJobsTests.swift; sourceTree = "<group>"; };
+		AF24B1CB1D5987530031FEEB /* MapUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapUITests.swift; path = UITests/MapUITests.swift; sourceTree = "<group>"; };
 		AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKData.swift; sourceTree = "<group>"; };
 		AF75DF961D53D30300DDF173 /* ProjectOvaltine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOvaltine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF75DF991D53D30300DDF173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +78,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF24B1CA1D5987270031FEEB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AF24B1C61D5986EA0031FEEB /* CitySDKTests.swift */,
+				AF24B1C81D5987150031FEEB /* USAJobsTests.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		AF24B1CD1D59875A0031FEEB /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				AF24B1CB1D5987530031FEEB /* MapUITests.swift */,
+			);
+			name = UITests;
+			sourceTree = "<group>";
+		};
 		AF75DF8D1D53D30300DDF173 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +120,8 @@
 				AFE45FFF1D551B2900FBE63B /* Utilities */,
 				AFE4601F1D551C5400FBE63B /* Controllers */,
 				AFEEC1FB1D54DD1F00EEAECA /* Supporting Files */,
+				AF24B1CA1D5987270031FEEB /* Tests */,
+				AF24B1CD1D59875A0031FEEB /* UITests */,
 			);
 			path = ProjectOvaltine;
 			sourceTree = "<group>";
@@ -278,12 +303,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF24B1C71D5986EA0031FEEB /* CitySDKTests.swift in Sources */,
 				AFE460161D551BE400FBE63B /* DataStore.swift in Sources */,
 				AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */,
 				AFE4601C1D551C4200FBE63B /* AppController.swift in Sources */,
 				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,
 				AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */,
+				AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */,
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
+				AF24B1C91D5987150031FEEB /* USAJobsTests.swift in Sources */,
 				AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */,
 				AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */,
 				AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */,
