@@ -15,7 +15,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
+<<<<<<< HEAD
     //let jobsAPI = USAJobsAPIClient.sharedInstance
+=======
+    let jobsAPI = USAJobsAPIClient.sharedInstance
+    let censusAPI = CensusAPIClient.sharedInstance
+>>>>>>> 8331811d27ad8f90b328a34cb4827dc253948831
     
     
     var cityData: [CitySDKData] = []
@@ -25,6 +30,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     var zipLocation : CLLocation! = nil
     let regionRadius: CLLocationDistance = 1000
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+<<<<<<< HEAD
     let coordinates: [(Double, Double)] = [(34.4313,-118.59890),(34.4274,-118.60246), (34.4268,-118.60181), (34.4202,-118.6004), (34.42013,-118.59239), (34.42049,-118.59051), (34.42305,-118.59276), (34.42557,-118.59289), (34.42739,-118.59171), (34.4313,-118.59890)]
     var initialLocation : CLLocation {
         let newLocation = CLLocation.init(latitude: coordinates[0].0, longitude: coordinates[0].1)
@@ -44,6 +50,29 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     }
     
     var circle: MKCircle!
+=======
+    let coordinates = [["34.4313","-118.59890"],["34.4274","-118.60246"], ["34.4268","-118.60181"], ["34.4202","-118.6004"], ["34.42013","-118.59239"], ["34.42049","-118.59051"], ["34.42305","-118.59276"], ["34.42557","-118.59289"], ["34.42739","-118.59171"]]
+    
+//    var midCoordinate: CLLocationCoordinate2D
+//    var overlayTopLeftCoordinate: CLLocationCoordinate2D
+//    var overlayTopRightCoordinate: CLLocationCoordinate2D
+//    var overlayBottomLeftCoordinate: CLLocationCoordinate2D
+//    var overlayBottomRightCoordinate: CLLocationCoordinate2D
+    
+//    let midPoint = CGPointFromString(properties!["midCoord"] as! String)
+//    midCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(midPoint.x), CLLocationDegrees(midPoint.y))
+   
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //cityAPI.getAPIReques
+        //self.store.getCitySDKData({
+    
+>>>>>>> 8331811d27ad8f90b328a34cb4827dc253948831
     
     var overlayBoundingMapRect: MKMapRect {
         get {
@@ -58,6 +87,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+<<<<<<< HEAD
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,6 +115,56 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
             }
             
         })
+=======
+//        <key>midCoord</key>
+//        <string>{34.4248,-118.5971}</string>
+//        <key>overlayTopLeftCoord</key>
+//        <string>{34.4311,-118.6012}</string>
+//        <key>overlayTopRightCoord</key>
+//        <string>{34.4311,-118.5912}</string>
+//        <key>overlayBottomLeftCoord</key>
+//        <string>{34.4194,-118.6012}</string>
+//        <key>boundary</key>
+//        <array>
+//        <string>{34.4313,-118.59890}</string>
+//        <string>{34.4274,-118.60246}</string>
+//        <string>{34.4268,-118.60181}</string>
+//        <string>{34.4202,-118.6004}</string>
+//        <string>{34.42013,-118.59239}</string>
+//        <string>{34.42049,-118.59051}</string>
+//        <string>{34.42305,-118.59276}</string>
+//        <string>{34.42557,-118.59289}</string>
+//        <string>{34.42739,-118.59171}</string>
+//        </array>
+ //       censusAPI.sendAPIRequest()
+        
+        self.store.sendCityAPITest()
+        
+//        jobsAPI.sendAPIRequest()
+//        
+//        self.store.getCitySDKData({
+//            if let age = self.store.cityDataPoints.first?.age {
+//                print(age)
+//            }
+//            
+//            if let name = self.store.cityDataPoints.first?.locationName {
+//                print(name)
+//            }
+//            
+//            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
+//                print(commute)
+//            }
+//            
+//            if let income = self.store.cityDataPoints.first?.incomePerCapita {
+//                print(income)
+//            }
+//            
+//            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
+//                print(education)
+//            }
+//            
+//        })
+>>>>>>> 8331811d27ad8f90b328a34cb4827dc253948831
         
         var boundary: [CLLocationCoordinate2D] = []
         
