@@ -22,19 +22,23 @@ class GovDataAPIClient : Request {
     
     //MARK request
     func sendAPIRequest() {
+        
         guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
                 return
         }
+        
         let url = NSURL(string: self.baseURL!)
         
         let json = ["jsonParameterOne": "not implemented"]
+        
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
+        
         Alamofire.request(request)
             .responseJSON { response in
                 switch response.result {
