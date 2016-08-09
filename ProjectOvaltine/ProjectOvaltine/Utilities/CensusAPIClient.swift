@@ -11,7 +11,6 @@ import Alamofire
 import SwiftyJSON
 
 class CensusAPIClient {
-    //acs1 let tenToNineteen = "B25032C_007E"
     static let sharedInstance = CensusAPIClient()
     
     let baseURL: String? = "http://api.census.gov/data/2014/"
@@ -45,7 +44,6 @@ class CensusAPIClient {
     let povertyFamilySingleMale = "B17012_009E"
     let povertyFemale = "B17001_017E"
     let povertyMale = "B17001_003E"
-    //let twentyToFortyNine = "B25032C_008E"
     let tenToNineteen = "B25032C_007E"
     let sameHouseOneYear = "B07012_005E"
     let belowOneHundredPercentPovertyLine = "B07012_002E"

@@ -10,26 +10,32 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class CitySDKAPIClient: Request {
+class CitySDKAPIClient {
     static let sharedInstance = CitySDKAPIClient()
     
     // MARK: Path Router
-    let baseURL: String? = "http://citysdk.commerce.gov"
-    let path: String? = "/"
-    let parameters = ["parameterOne": "not implemented"]
+    
+    enum URLRouter {
+        static let baseURL: String = "http://citysdk.commerce.gov"
+    }
+////    let baseURL: String = "http://citysdk.commerce.gov"
+    let method: String = "POST"
+    let URLPath: String = "/"
+    let headers: Dictionary<String, String> = ["Not":"Implemented"]
+    let parameters:Dictionary<String, String> = ["parameterOne": "not implemented"]
     let key = Constants.CITYSDK_API_KEY
     
     
     // MARK: Request
     func sendAPIRequest(params: NSDictionary, completion: ([CitySDKData]) -> ()) {
         
-        guard self.baseURL != nil
+        guard let urlForRequest = NSURL(string:URLRouter.baseURL)
             else {
                 print("ERROR: Unable to get url path for API call")
                 return
             }
         
-        let url = NSURL(string: self.baseURL!)
+        let url = NSURL(string: URLRouter.baseURL)
         
         let request = NSMutableURLRequest(URL:url!)
         request.HTTPMethod = "POST"
@@ -63,13 +69,13 @@ class CitySDKAPIClient: Request {
     
     func sendTestAPIRequest(params: NSDictionary) {
         
-        guard self.baseURL != nil
+        guard let urlForRequest = NSURL(string: self.baseURL)
             else {
                 print("ERROR: Unable to get url path for API call")
                 return
         }
         
-        let url = NSURL(string: self.baseURL!)
+        let url = NSURL(string: self.baseURL)
         
         let request = NSMutableURLRequest(URL:url!)
         request.HTTPMethod = "POST"

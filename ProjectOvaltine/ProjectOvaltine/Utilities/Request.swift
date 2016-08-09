@@ -7,14 +7,20 @@
 //
 
 import Foundation
-
-protocol Request {
-    //    var baseURL: NSURL? { get }
-    //    var method: String { get }
-    //    var path: String { get }
-    //    var parameters: Dictionary<String, String> { get }
-    //    var headers: Dictionary<String, String> { get }
-}
+//
+//protocol Request {
+//    //var baseURL: String { get }
+//    var method: String { get }
+//    var URLPath: String { get }
+//    var parameters: Dictionary<String, String> { get }
+//    var headers: Dictionary<String, String> { get }
+//}
+//
+//extension Request {
+//    var method : String { return "GET" }
+//    var path : String { return "" }
+//    var parameters : Dictionary<String, String> { return Dictionary() }
+//}
 
 //extension Request {
 //    var method : String { return "GET" }
