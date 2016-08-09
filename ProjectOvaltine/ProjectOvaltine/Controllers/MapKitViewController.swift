@@ -13,17 +13,22 @@ import MapKit
 
 class MapKitViewController: UIViewController, MKMapViewDelegate {
     
+    //Data store instances
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
     let jobsAPI = USAJobsAPIClient.sharedInstance
-    //let censusAPI = CensusAPIData.sharedInstance
     
+    //Array of citySDK data
     var cityData: [CitySDKData] = []
     
+    //Initialized mapView
     let mapView: MKMapView! = MKMapView()
     
+    //Set zipLocation (used in GeoCoder function), region radius
     var zipLocation : CLLocation! = nil
     let regionRadius: CLLocationDistance = 1000
+    
+    //Initialize alert - used in GeoCoder function when user enters an invalid zipcode
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
     
     //Hardcoded array of coordinates to test drawing a bounding box
@@ -34,14 +39,11 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         let newLocation = CLLocation.init(latitude: coordinates[0].0, longitude: coordinates[0].1)
         return newLocation}
     
-    
     //Necessary to convert point data to CLLocationCoordinate2D array
     var boundary: [CLLocationCoordinate2D] = []
     
     //Initializes a testDictionary for sending a test API request
     let testDictionary = [:]
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
