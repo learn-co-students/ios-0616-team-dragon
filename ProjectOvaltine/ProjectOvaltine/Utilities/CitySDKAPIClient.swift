@@ -87,7 +87,7 @@ class CitySDKAPIClient: Request {
                     print(geo)
                 }
                 if let feat = response["features"] as? NSArray {
-                    //let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
+                   
                     if let geo = feat[0]["geometry"] as? NSDictionary {
                         if let coords = geo["coordinates"] as? NSArray {
                             for c in coords {
@@ -96,7 +96,7 @@ class CitySDKAPIClient: Request {
                         }
                         
                     }
-                    //pr!int("JSON PROPERTIES:\(jsonProperties)")
+                 
                 }
             default:
                 print("ERROR")

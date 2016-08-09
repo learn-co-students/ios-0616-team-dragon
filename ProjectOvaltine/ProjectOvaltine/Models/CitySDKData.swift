@@ -26,13 +26,13 @@ class CitySDKData {
     var longitude: String
     var laborForceParticipation: String //Number of persons, age 16 or older, in the labor force.
     //var laborForceEmployment: String //Number of employed, age 16 or older, in the civilian labor force.
-    //var coordinates: String
+   
     
     init(json:JSON) {
         
         
         guard let
-            //coordinatesArray = JSON(["geometry"]).string,
+            
             commuteWalk = json["B08136_011E"].string,
             medianAge = json["B01002_001E"].string,
             perCapitaIncome = json["B19301_001E"].string,
@@ -46,7 +46,7 @@ class CitySDKData {
             else {
                 fatalError("FatalError")
         }
-     //   self.coordinates = coordinatesArray
+     
         self.walkingCommuteTime = commuteWalk
         self.age = medianAge
         self.incomePerCapita = perCapitaIncome
