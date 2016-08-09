@@ -10,14 +10,11 @@ import Foundation
 import SwiftyJSON
 
 class CitySDKData {
-<<<<<<< HEAD
     
  //   static let dataStore = citySDKData()
         
     func getDataWithCompletion(completion: () -> ()){}
-    
-=======
->>>>>>> e727111e0b027a82caadc673b0a43c20859d24db
+
     var walkingCommuteTime: String //(Normalizable) Time spent commuting (in minutes): walking.
     var age: String //Median age.
     var incomePerCapita: String //Per capita income in the past 12 months (in 2013 inflation-adjusted dollars).
@@ -56,8 +53,5 @@ class CitySDKData {
         self.longitude = lng
         self.laborForceParticipation = laborParticipation
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> e727111e0b027a82caadc673b0a43c20859d24db
 }

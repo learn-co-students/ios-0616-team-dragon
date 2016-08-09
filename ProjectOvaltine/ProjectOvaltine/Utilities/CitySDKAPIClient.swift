@@ -31,13 +31,9 @@ class CitySDKAPIClient: Request {
         
         let url = NSURL(string: self.baseURL!)
         
-<<<<<<< HEAD
-        request.HTTPMethod = "POST"
-        
-=======
+
         let request = NSMutableURLRequest(URL:url!)
         request.HTTPMethod = "POST"
->>>>>>> e727111e0b027a82caadc673b0a43c20859d24db
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
@@ -46,23 +42,7 @@ class CitySDKAPIClient: Request {
         
         Alamofire.request(request).responseJSON { (response) in
             switch response.result {
-<<<<<<< HEAD
-                case .Success(let responseObject):
-                    var cityDataPoints: [CitySDKData] = []
-                    let response = responseObject as! NSDictionary
-                    if let feat = response["features"] as? NSArray {
-                        let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
 
-                        //print(jsonProperties["B01002_001E"])
-                        let newData = CitySDKData(json: jsonProperties)
-                        //print(newData)
-
-                        cityDataPoints.append(newData)
-                        completion(cityDataPoints)
-                    }
-                default:
-                    print("ERROR")
-=======
             case .Success(let responseObject):
                 
                 var cityDataPoints: [CitySDKData] = []
@@ -73,7 +53,6 @@ class CitySDKAPIClient: Request {
                     let newData = CitySDKData(json: jsonProperties)
                     cityDataPoints.append(newData)
                     completion(cityDataPoints)
->>>>>>> e727111e0b027a82caadc673b0a43c20859d24db
                 }
             default:
                 print("ERROR")

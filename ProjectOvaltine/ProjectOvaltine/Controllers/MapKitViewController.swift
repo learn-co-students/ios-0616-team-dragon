@@ -15,69 +15,51 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
-    let jobsAPI = USAJobsAPIClient.sharedInstance
+    //let jobsAPI = USAJobsAPIClient.sharedInstance
     
     
     var cityData: [CitySDKData] = []
     
     let mapView: MKMapView! = MKMapView()
-    let initialLocation = CLLocation(latitude: 34.4248, longitude: -118.5971)
+    
     var zipLocation : CLLocation! = nil
     let regionRadius: CLLocationDistance = 1000
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
-    let coordinates = [["34.4313","-118.59890"],["34.4274","-118.60246"], ["34.4268","-118.60181"], ["34.4202","-118.6004"], ["34.42013","-118.59239"], ["34.42049","-118.59051"], ["34.42305","-118.59276"], ["34.42557","-118.59289"], ["34.42739","-118.59171"]]
+    let coordinates: [(Double, Double)] = [(34.4313,-118.59890),(34.4274,-118.60246), (34.4268,-118.60181), (34.4202,-118.6004), (34.42013,-118.59239), (34.42049,-118.59051), (34.42305,-118.59276), (34.42557,-118.59289), (34.42739,-118.59171)]
+    var initialLocation : CLLocation {
+        let newLocation = CLLocation.init(latitude: coordinates[0].0, longitude: coordinates[0].1)
+        return newLocation}
     
-<<<<<<< HEAD:ProjectOvaltine/ProjectOvaltine/MapKitViewController.swift
+    
+    var midCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D.init(latitude: 34.4248, longitude: -118.5971)
+    var overlayTopLeftCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D.init(latitude: 34.4311, longitude: -118.6012)
+    var overlayTopRightCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D.init(latitude: 34.4311, longitude: -118.5912)
+    var overlayBottomLeftCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D.init(latitude: 34.4194, longitude: -118.6012)
+    
+    var overlayBottomRightCoordinate: CLLocationCoordinate2D {
+        get {
+            return CLLocationCoordinate2DMake(self.overlayBottomLeftCoordinate.latitude,
+                                              self.overlayTopRightCoordinate.longitude)
+        }
+    }
+    
+    var circle: MKCircle!
+    
+    var overlayBoundingMapRect: MKMapRect {
+        get {
+            let topLeft = MKMapPointForCoordinate(self.overlayTopLeftCoordinate)
+            let topRight = MKMapPointForCoordinate(self.overlayTopRightCoordinate)
+            let bottomLeft = MKMapPointForCoordinate(self.overlayBottomLeftCoordinate)
+            
+            return MKMapRectMake(topLeft.x,
+                                 topLeft.y,
+                                 fabs(topLeft.x-topRight.x),
+                                 fabs(topLeft.y - bottomLeft.y))
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
-  
-        
-        
-=======
-//    var midCoordinate: CLLocationCoordinate2D
-//    var overlayTopLeftCoordinate: CLLocationCoordinate2D
-//    var overlayTopRightCoordinate: CLLocationCoordinate2D
-//    var overlayBottomLeftCoordinate: CLLocationCoordinate2D
-//    var overlayBottomRightCoordinate: CLLocationCoordinate2D
-    
-//    let midPoint = CGPointFromString(properties!["midCoord"] as! String)
-//    midCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(midPoint.x), CLLocationDegrees(midPoint.y))
-   
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-    
-//        <key>midCoord</key>
-//        <string>{34.4248,-118.5971}</string>
-//        <key>overlayTopLeftCoord</key>
-//        <string>{34.4311,-118.6012}</string>
-//        <key>overlayTopRightCoord</key>
-//        <string>{34.4311,-118.5912}</string>
-//        <key>overlayBottomLeftCoord</key>
-//        <string>{34.4194,-118.6012}</string>
-//        <key>boundary</key>
-//        <array>
-//        <string>{34.4313,-118.59890}</string>
-//        <string>{34.4274,-118.60246}</string>
-//        <string>{34.4268,-118.60181}</string>
-//        <string>{34.4202,-118.6004}</string>
-//        <string>{34.42013,-118.59239}</string>
-//        <string>{34.42049,-118.59051}</string>
-//        <string>{34.42305,-118.59276}</string>
-//        <string>{34.42557,-118.59289}</string>
-//        <string>{34.42739,-118.59171}</string>
-//        </array>
-        
-        jobsAPI.sendAPIRequest()
         
         self.store.getCitySDKData({
             if let age = self.store.cityDataPoints.first?.age {
@@ -101,40 +83,83 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
             }
             
         })
->>>>>>> e727111e0b027a82caadc673b0a43c20859d24db:ProjectOvaltine/ProjectOvaltine/Controllers/MapKitViewController.swift
+        
+        var boundary: [CLLocationCoordinate2D] = []
+        
+        
+        for i in 0...coordinates.count-1 {
+            
+            let point = CLLocationCoordinate2D(latitude: coordinates[i].0, longitude: coordinates[i].1)
+            boundary.append(point)
+            
+        }
+        
+        print("\(boundary) \n")
         
         mapView.frame = view.frame
         mapView.delegate = self
         view.addSubview(mapView)
         
+        let latDelta = self.overlayTopLeftCoordinate.latitude -
+            self.overlayBottomRightCoordinate.latitude
+        
+        // think of a span as a tv size, measure from one corner to another
+        let span = MKCoordinateSpanMake(fabs(latDelta), 0.0)
+        
+        let region = MKCoordinateRegionMake(self.midCoordinate, span)
+        
+        mapView.region = region
+        
+//        
+//        var polyline = MKPolyline(coordinates: , count: boundary.count)
+       // var polyline = MKPolyline(coordinates: Set(boundary), count: boundary.pointCount)
+        
+        let polyline = MKPolyline(coordinates: &boundary, count: boundary.count)
+        mapView.addOverlay(polyline)
+        
         centerMapOnLocation(self.initialLocation)
-        //getLocationFromZipcode("08540")
         
         
-      
+        
+        // loadOverlayForRegionWithLatitude(initialLocation.coordinate.latitude, andLongitude: initialLocation.coordinate.longitude)
         
         
     }
     
-<<<<<<< HEAD:ProjectOvaltine/ProjectOvaltine/MapKitViewController.swift
-=======
-//    var overlayBoundingMapRect: MKMapRect {
-//        get {
-////            let topLeft = MKMapPointForCoordinate(overlayTopLeftCoordinate)
-////            let topRight = MKMapPointForCoordinate(overlayTopRightCoordinate)
-////            let bottomLeft = MKMapPointForCoordinate(overlayBottomLeftCoordinate)
-//            
-//            return MKMapRectMake(topLeft.x,
-//                                 topLeft.y,
-//                                 fabs(topLeft.x-topRight.x),
-//                                 fabs(topLeft.y - bottomLeft.y))
-//        }
-//    }
- 
-    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.blueColor()
+            polylineRenderer.lineWidth = 5
+            return polylineRenderer
+        
+    }
     //
+    //    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+    //
+    //        let circleRenderer = MKCircleRenderer(overlay: overlay)
+    //        circleRenderer.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.1)
+    //        circleRenderer.strokeColor = UIColor.blueColor()
+    //        circleRenderer.lineWidth = 1
+    //        return circleRenderer
+    //
+    //
+    //    }
     
->>>>>>> e727111e0b027a82caadc673b0a43c20859d24db:ProjectOvaltine/ProjectOvaltine/Controllers/MapKitViewController.swift
+    
+    
+    
+    func loadOverlayForRegionWithLatitude(latitude: Double, andLongitude longitude: Double) {
+        
+        //1
+        let coordinatesInMethod = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        //2
+        self.circle = MKCircle(centerCoordinate: coordinatesInMethod, radius: 200000)
+        //3
+        self.mapView.setRegion(MKCoordinateRegion(center: coordinatesInMethod, span: MKCoordinateSpan(latitudeDelta: 7, longitudeDelta: 7)), animated: true)
+        //4
+        self.mapView.addOverlay(self.circle)
+    }
+    
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   self.regionRadius * 2.0, self.regionRadius * 2.0)
