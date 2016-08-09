@@ -32,7 +32,9 @@ struct CensusConstants {
                                                            "population":"B01003_001E",
                                                               "poverty":"B17001_002E",
                                                        "poverty_family":"B17012_002E",
-                                               "poverty_family_married":"B17012_003E"]
+                                               "poverty_family_married":"B17012_003E",
+                                         "poverty_family_single_female":"B17012_014E",
+                                           "poverty_family_single_male":"B17012_009E"]
 }
 
 

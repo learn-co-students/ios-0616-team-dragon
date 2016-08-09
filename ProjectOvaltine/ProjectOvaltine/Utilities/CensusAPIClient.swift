@@ -21,9 +21,17 @@ struct CensusAPIClient: Request {
     func buildRequest() -> NSURLRequest? {
         let zip = "10004"
         //let commuteTimePublicTransport = "B08136_007E"
-        let commuteTimePublicTransport = "B19013_001E,B01002_001E"
+        var paramString = ""
+        for param in CensusConstants.CENSUS_REQUEST_PARAMS.values {
+            if param.containsString(CensusConstants.CENSUS_REQUEST_PARAMS.values.first!) {
+                paramString = param
+            } else {
+               paramString = "\(paramString),\(param)" 
+            }
+        }
+        //let commuteTimePublicTransport = "B19013_001E,B01002_001E"
         let urlZipPath = "&for=zip+code+tabulation+area:\(zip)"
-        let URLRequestPath = URLPath + commuteTimePublicTransport + urlZipPath
+        let URLRequestPath = URLPath + paramString + urlZipPath
         guard let baseURL = NSURL(string:self.baseURLString + URLRequestPath) else { return nil }
         guard let URLComponents = NSURLComponents(URL:baseURL, resolvingAgainstBaseURL: true) else { return nil }
         
