@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B15436B1D59746600D8A0D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B15436A1D59746600D8A0D3 /* ViewController.swift */; };
+		2BE0F75E1D58BFDD00B12D07 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE0F75D1D58BFDD00B12D07 /* Constants.swift */; };
+		2BF959041D5A32C200F09856 /* active-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF959031D5A32C200F09856 /* active-search.png */; };
+		2BF9590A1D5A4C3400F09856 /* settings-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF959091D5A4C3400F09856 /* settings-4.png */; };
+		2BFDCFB11D5905E400056350 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB01D5905E400056350 /* DetailViewController.swift */; };
+		2BFDCFB31D5905FB00056350 /* PrototypeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB21D5905FB00056350 /* PrototypeTabBar.swift */; };
+		2BFDCFB51D59060A00056350 /* TabViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB41D59060A00056350 /* TabViewController1.swift */; };
+		2BFDCFB71D59061600056350 /* TabViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB61D59061600056350 /* TabViewController2.swift */; };
+		2BFDCFB91D59061E00056350 /* TabViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB81D59061E00056350 /* TabViewController3.swift */; };
+		2BFDCFBB1D59062800056350 /* TabViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFBA1D59062800056350 /* TabViewController4.swift */; };
+		2BFDCFBD1D59063100056350 /* TabViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFBC1D59063100056350 /* TabViewController5.swift */; };
+		2BFDCFBF1D5906F100056350 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFBE1D5906F100056350 /* AppController.swift */; };
+		2BFDCFC11D590A6100056350 /* barGraph.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFDCFC01D590A6100056350 /* barGraph.png */; };
 		5B2B0D3F1D72C80262256454 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */; };
 		AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */; };
 		AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DF991D53D30300DDF173 /* AppDelegate.swift */; };
-		AF75DF9F1D53D30400DDF173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DF9D1D53D30400DDF173 /* Main.storyboard */; };
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
 		AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */; };
-		AFE4600B1D551B7900FBE63B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460051D551B7900FBE63B /* Constants.swift */; };
 		AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */; };
 		AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */; };
 		AFE4600E1D551B7900FBE63B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460081D551B7900FBE63B /* Request.swift */; };
@@ -22,22 +33,31 @@
 		AFE460161D551BE400FBE63B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460121D551BE400FBE63B /* DataStore.swift */; };
 		AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460131D551BE400FBE63B /* LaborStaticsData.swift */; };
 		AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460141D551BE400FBE63B /* USAJobsData.swift */; };
-		AFE4601C1D551C4200FBE63B /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601B1D551C4200FBE63B /* AppController.swift */; };
-		AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601D1D551C4D00FBE63B /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B15436A1D59746600D8A0D3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2BE0F75D1D58BFDD00B12D07 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2BF959031D5A32C200F09856 /* active-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active-search.png"; sourceTree = "<group>"; };
+		2BF959091D5A4C3400F09856 /* settings-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-4.png"; sourceTree = "<group>"; };
+		2BFDCFB01D5905E400056350 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/DetailViewController.swift; sourceTree = "<group>"; };
+		2BFDCFB21D5905FB00056350 /* PrototypeTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrototypeTabBar.swift; path = Controllers/PrototypeTabBar.swift; sourceTree = "<group>"; };
+		2BFDCFB41D59060A00056350 /* TabViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController1.swift; path = Controllers/TabViewController1.swift; sourceTree = "<group>"; };
+		2BFDCFB61D59061600056350 /* TabViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController2.swift; path = Controllers/TabViewController2.swift; sourceTree = "<group>"; };
+		2BFDCFB81D59061E00056350 /* TabViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController3.swift; path = Controllers/TabViewController3.swift; sourceTree = "<group>"; };
+		2BFDCFBA1D59062800056350 /* TabViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController4.swift; path = Controllers/TabViewController4.swift; sourceTree = "<group>"; };
+		2BFDCFBC1D59063100056350 /* TabViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController5.swift; path = Controllers/TabViewController5.swift; sourceTree = "<group>"; };
+		2BFDCFBE1D5906F100056350 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
+		2BFDCFC01D590A6100056350 /* barGraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barGraph.png; sourceTree = "<group>"; };
 		7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F902FD0066A98854362609 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
 		AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKData.swift; sourceTree = "<group>"; };
 		AF75DF961D53D30300DDF173 /* ProjectOvaltine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOvaltine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF75DF991D53D30300DDF173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF75DF9E1D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF75DFA01D53D30400DDF173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF75DFA31D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF75DFA51D53D30400DDF173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySDKAPIClient.swift; path = Utilities/CitySDKAPIClient.swift; sourceTree = "<group>"; };
-		AFE460051D551B7900FBE63B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GovDataAPIClient.swift; path = Utilities/GovDataAPIClient.swift; sourceTree = "<group>"; };
 		AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaborStatisticsAPIClient.swift; path = Utilities/LaborStatisticsAPIClient.swift; sourceTree = "<group>"; };
 		AFE460081D551B7900FBE63B /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Utilities/Request.swift; sourceTree = "<group>"; };
@@ -45,8 +65,6 @@
 		AFE460121D551BE400FBE63B /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		AFE460131D551BE400FBE63B /* LaborStaticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaborStaticsData.swift; sourceTree = "<group>"; };
 		AFE460141D551BE400FBE63B /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
-		AFE4601B1D551C4200FBE63B /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
-		AFE4601D1D551C4D00FBE63B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
 		C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
-				AFE460051D551B7900FBE63B /* Constants.swift */,
+				2BE0F75D1D58BFDD00B12D07 /* Constants.swift */,
 				AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */,
 				AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */,
 				AFE460081D551B7900FBE63B /* Request.swift */,
@@ -126,8 +144,15 @@
 		AFE4601F1D551C5400FBE63B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AFE4601B1D551C4200FBE63B /* AppController.swift */,
-				AFE4601D1D551C4D00FBE63B /* ViewController.swift */,
+				2BFDCFBE1D5906F100056350 /* AppController.swift */,
+				2BFDCFB21D5905FB00056350 /* PrototypeTabBar.swift */,
+				2BFDCFB01D5905E400056350 /* DetailViewController.swift */,
+				2BFDCFB41D59060A00056350 /* TabViewController1.swift */,
+				2BFDCFB61D59061600056350 /* TabViewController2.swift */,
+				2BFDCFB81D59061E00056350 /* TabViewController3.swift */,
+				2BFDCFBA1D59062800056350 /* TabViewController4.swift */,
+				2BFDCFBC1D59063100056350 /* TabViewController5.swift */,
+				2B15436A1D59746600D8A0D3 /* ViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -135,8 +160,10 @@
 		AFEEC1FB1D54DD1F00EEAECA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AF75DF9D1D53D30400DDF173 /* Main.storyboard */,
 				AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */,
+				2BF959031D5A32C200F09856 /* active-search.png */,
+				2BF959091D5A4C3400F09856 /* settings-4.png */,
+				2BFDCFC01D590A6100056350 /* barGraph.png */,
 				AF75DFA51D53D30400DDF173 /* Info.plist */,
 				AF75DFA01D53D30400DDF173 /* Assets.xcassets */,
 				AF75DF991D53D30300DDF173 /* AppDelegate.swift */,
@@ -215,8 +242,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */,
+				2BF959041D5A32C200F09856 /* active-search.png in Resources */,
+				2BF9590A1D5A4C3400F09856 /* settings-4.png in Resources */,
+				2BFDCFC11D590A6100056350 /* barGraph.png in Resources */,
 				AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */,
-				AF75DF9F1D53D30400DDF173 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,32 +305,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFE460161D551BE400FBE63B /* DataStore.swift in Sources */,
+				2BFDCFBB1D59062800056350 /* TabViewController4.swift in Sources */,
 				AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */,
-				AFE4601C1D551C4200FBE63B /* AppController.swift in Sources */,
 				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,
 				AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */,
 				AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */,
 				AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */,
 				AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */,
 				AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */,
-				AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */,
-				AFE4600B1D551B7900FBE63B /* Constants.swift in Sources */,
+				2BFDCFBD1D59063100056350 /* TabViewController5.swift in Sources */,
+				2B15436B1D59746600D8A0D3 /* ViewController.swift in Sources */,
+				2BFDCFBF1D5906F100056350 /* AppController.swift in Sources */,
+				2BFDCFB51D59060A00056350 /* TabViewController1.swift in Sources */,
+				2BE0F75E1D58BFDD00B12D07 /* Constants.swift in Sources */,
+				2BFDCFB31D5905FB00056350 /* PrototypeTabBar.swift in Sources */,
+				2BFDCFB71D59061600056350 /* TabViewController2.swift in Sources */,
+				2BFDCFB91D59061E00056350 /* TabViewController3.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
 				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
+				2BFDCFB11D5905E400056350 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AF75DF9D1D53D30400DDF173 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF75DF9E1D53D30400DDF173 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
