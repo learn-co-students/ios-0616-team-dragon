@@ -16,6 +16,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
     let jobsAPI = USAJobsAPIClient.sharedInstance
+    //let censusAPI = CensusAPIClient.sharedInstance
     
     
     var cityData: [CitySDKData] = []
@@ -43,6 +44,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let censusAPI = CensusAPIClient()
+        let urlRequest = censusAPI.buildRequest()
+        print(censusAPI.sendAPIRequest(urlRequest!))
+        //cityAPI.getAPIReques
+        //self.store.getCitySDKData({
+    
     
     
 //        <key>midCoord</key>
@@ -65,31 +72,41 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
 //        <string>{34.42557,-118.59289}</string>
 //        <string>{34.42739,-118.59171}</string>
 //        </array>
+ //       censusAPI.sendAPIRequest()
         
-        jobsAPI.sendAPIRequest()
+//        self.store.sendCityAPITest()
         
-        self.store.getCitySDKData({
-            if let age = self.store.cityDataPoints.first?.age {
-                print(age)
-            }
-            
-            if let name = self.store.cityDataPoints.first?.locationName {
-                print(name)
-            }
-            
-            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
-                print(commute)
-            }
-            
-            if let income = self.store.cityDataPoints.first?.incomePerCapita {
-                print(income)
-            }
-            
-            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
-                print(education)
-            }
-            
-        })
+//        jobsAPI.sendAPIRequest()
+////        
+//        self.store.getCitySDKData({
+//            if let age = self.store.cityDataPoints.first?.age {
+//                print(age)
+//            }
+//            
+//            if let name = self.store.cityDataPoints.first?.locationName {
+//                print(name)
+//            }
+//            
+//            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
+//                print(commute)
+//            }
+//            
+//            if let income = self.store.cityDataPoints.first?.incomePerCapita {
+//                print(income)
+//            }
+//            
+//            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
+//                print(education)
+//            }
+//            
+//            if let coords = self.store.cityDataPoints.first?.coordinates {
+//                for cor in coords {
+//                    print("COORD: \(cor[0])")
+//                }
+//                
+//            }
+//            
+//        })
         
         mapView.frame = view.frame
         mapView.delegate = self

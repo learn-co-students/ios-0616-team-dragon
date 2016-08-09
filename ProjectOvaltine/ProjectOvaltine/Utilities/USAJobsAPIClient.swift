@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class USAJobsAPIClient: Request {
+class USAJobsAPIClient {
     
     static let sharedInstance = USAJobsAPIClient()
     

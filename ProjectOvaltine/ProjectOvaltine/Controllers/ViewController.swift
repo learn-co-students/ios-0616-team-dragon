@@ -11,11 +11,15 @@ import UIKit
 class ViewController: UIViewController {
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
+    let censusAPI = CensusAPIClient()
+    
+    
     
     var cityData: [CitySDKData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //censusAPI.sendAPIRequest()
         self.store.getCitySDKData({
             if let age = self.store.cityDataPoints.first?.age {
                 print(age)
