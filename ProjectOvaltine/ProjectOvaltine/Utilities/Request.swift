@@ -16,25 +16,25 @@ protocol Request {
     var headers: Dictionary<String, String> { get }
 }
 
-extension Request {
-    var method : String { return "GET" }
-    var path : String { return "" }
-    var parameters : Dictionary<String, String> { return Dictionary() }
-    var headers : Dictionary<String, String> { return Dictionary() }
-}
-
-
-extension Request {
-    func buildRequest() -> NSURLRequest? {
-        guard let baseURL = baseURL else { return nil }
-        guard let URLComponents = NSURLComponents(URL: baseURL, resolvingAgainstBaseURL: true) else { return nil }
-        URLComponents.path = (URLComponents.path ?? "") + path
-        guard let URL = URLComponents.URL else { return nil }
-        let request = NSMutableURLRequest(URL:URL)
-        request.HTTPMethod = method
-        return request
-    }
-    
+//extension Request {
+//    var method : String { return "GET" }
+//    var path : String { return "" }
+//    var parameters : Dictionary<String, String> { return Dictionary() }
+//    var headers : Dictionary<String, String> { return Dictionary() }
+//}
+//
+//
+//extension Request {
+//    func buildRequest() -> NSURLRequest? {
+//        guard let baseURL = baseURL else { return nil }
+//        guard let URLComponents = NSURLComponents(URL: baseURL, resolvingAgainstBaseURL: true) else { return nil }
+//        URLComponents.path = (URLComponents.path ?? "") + path
+//        guard let URL = URLComponents.URL else { return nil }
+//        let request = NSMutableURLRequest(URL:URL)
+//        request.HTTPMethod = method
+//        return request
+//    }
+//    
 //    func sendRequest(success success: (string: String) -> (), failure: (error: ErrorType) -> ()) {
 //        let session = NSURLSession.sharedSession()
 //        guard let request = buildRequest() else { return }
@@ -48,7 +48,7 @@ extension Request {
 //        }) else { return }
 //        task.resume()
 //    }
-}
+
     
 //    func sendRequest(success success: (string: String) -> (), failure: (error: ErrorType) -> ()) {
 //        let session = NSURLSession.sharedSession()
@@ -64,8 +64,6 @@ extension Request {
 //        }) else { return }
 //        task.resume()
 //    }
-
-}
 
 //protocol ConstructableRequest: Request {
 //    func buildRequest() -> NSURLRequest?
@@ -89,4 +87,6 @@ extension Request {
 //        // parse the result
 //        // fire the blocks on success and failure
 //    }
+//}
+
 //}
