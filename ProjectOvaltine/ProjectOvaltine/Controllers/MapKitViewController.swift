@@ -71,32 +71,39 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
 //        </array>
  //       censusAPI.sendAPIRequest()
         
-        self.store.sendCityAPITest()
+//        self.store.sendCityAPITest()
         
 //        jobsAPI.sendAPIRequest()
 //        
-//        self.store.getCitySDKData({
-//            if let age = self.store.cityDataPoints.first?.age {
-//                print(age)
-//            }
-//            
-//            if let name = self.store.cityDataPoints.first?.locationName {
-//                print(name)
-//            }
-//            
-//            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
-//                print(commute)
-//            }
-//            
-//            if let income = self.store.cityDataPoints.first?.incomePerCapita {
-//                print(income)
-//            }
-//            
-//            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
-//                print(education)
-//            }
-//            
-//        })
+        self.store.getCitySDKData({
+            if let age = self.store.cityDataPoints.first?.age {
+                print(age)
+            }
+            
+            if let name = self.store.cityDataPoints.first?.locationName {
+                print(name)
+            }
+            
+            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
+                print(commute)
+            }
+            
+            if let income = self.store.cityDataPoints.first?.incomePerCapita {
+                print(income)
+            }
+            
+            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
+                print(education)
+            }
+            
+            if let coords = self.store.cityDataPoints.first?.coordinates {
+                for cor in coords {
+                    print("COORD: \(cor[0])")
+                }
+                
+            }
+            
+        })
         
         mapView.frame = view.frame
         mapView.delegate = self

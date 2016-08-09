@@ -43,13 +43,16 @@ class CitySDKAPIClient: Request {
                 
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
-                if let geo = response["geometry"] as? NSArray {
-                    print(geo)
-                }
                 if let feat = response["features"] as? NSArray {
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
-                    let newData = CitySDKData(json: jsonProperties)
-                    cityDataPoints.append(newData)
+                    if let geo = feat[0]["geometry"] as? NSDictionary {
+                        if let coords = geo["coordinates"] as? NSArray {
+                            let newData = CitySDKData(json: jsonProperties, geoJSON:coords)
+                            cityDataPoints.append(newData)
+                        }
+                    }
+                    
+                    
                     completion(cityDataPoints)
                 }
             default:
