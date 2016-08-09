@@ -25,7 +25,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     var zipLocation : CLLocation! = nil
     let regionRadius: CLLocationDistance = 1000
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
-    let coordinates: [(Double, Double)] = [(34.4313,-118.59890),(34.4274,-118.60246), (34.4268,-118.60181), (34.4202,-118.6004), (34.42013,-118.59239), (34.42049,-118.59051), (34.42305,-118.59276), (34.42557,-118.59289), (34.42739,-118.59171)]
+    let coordinates: [(Double, Double)] = [(34.4313,-118.59890),(34.4274,-118.60246), (34.4268,-118.60181), (34.4202,-118.6004), (34.42013,-118.59239), (34.42049,-118.59051), (34.42305,-118.59276), (34.42557,-118.59289), (34.42739,-118.59171), (34.4313,-118.59890)]
     var initialLocation : CLLocation {
         let newLocation = CLLocation.init(latitude: coordinates[0].0, longitude: coordinates[0].1)
         return newLocation}
@@ -61,7 +61,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.store.getCitySDKData({
+            
             if let age = self.store.cityDataPoints.first?.age {
                 print(age)
             }
@@ -94,25 +96,11 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
             
         }
         
-        print("\(boundary) \n")
-        
         mapView.frame = view.frame
         mapView.delegate = self
         view.addSubview(mapView)
         
-        let latDelta = self.overlayTopLeftCoordinate.latitude -
-            self.overlayBottomRightCoordinate.latitude
-        
-        // think of a span as a tv size, measure from one corner to another
-        let span = MKCoordinateSpanMake(fabs(latDelta), 0.0)
-        
-        let region = MKCoordinateRegionMake(self.midCoordinate, span)
-        
-        mapView.region = region
-        
-//        
-//        var polyline = MKPolyline(coordinates: , count: boundary.count)
-       // var polyline = MKPolyline(coordinates: Set(boundary), count: boundary.pointCount)
+
         
         let polyline = MKPolyline(coordinates: &boundary, count: boundary.count)
         mapView.addOverlay(polyline)

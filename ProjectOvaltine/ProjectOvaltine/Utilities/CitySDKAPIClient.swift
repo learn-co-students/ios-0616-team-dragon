@@ -52,6 +52,7 @@ class CitySDKAPIClient: Request {
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
                     let newData = CitySDKData(json: jsonProperties)
                     cityDataPoints.append(newData)
+                    print(newData)
                     completion(cityDataPoints)
                 }
             default:
