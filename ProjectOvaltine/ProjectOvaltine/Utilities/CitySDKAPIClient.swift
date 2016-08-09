@@ -28,10 +28,11 @@ class CitySDKAPIClient: Request {
             else {
                 print("ERROR: Unable to get url path for API call")
                 return
-        }
+            }
         
         let url = NSURL(string: self.baseURL!)
         let request = NSMutableURLRequest(URL:url!)
+        
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
@@ -41,7 +42,6 @@ class CitySDKAPIClient: Request {
             switch response.result {
                 
             case .Success(let responseObject):
-                
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
                 

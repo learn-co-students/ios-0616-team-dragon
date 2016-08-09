@@ -23,6 +23,7 @@ class LaborStatisticsAPIClient: Request {
     
     //MARK request
     func sendAPIRequest() {
+        
         guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
@@ -35,10 +36,7 @@ class LaborStatisticsAPIClient: Request {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let json = ["notImplemented": "yet"]
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
-        
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
-        
-        
         Alamofire.request(request)
             .responseJSON { response in
                 print(response.response)
