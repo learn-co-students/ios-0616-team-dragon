@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class GovDataAPIClient : {
+class GovDataAPIClient {
    
     static let sharedInstance = GovDataAPIClient()
     let baseURL: String = " "
@@ -23,13 +23,13 @@ class GovDataAPIClient : {
     //MARK request
     func sendAPIRequest() {
         
-        guard self.baseURL != nil
+        guard NSURL(string:baseURL) != nil
             else {
                 print("ERROR: Unable to get url path for API call")
                 return
         }
         
-        let url = NSURL(string: self.baseURL!)
+        let url = NSURL(string: self.baseURL)
         
         let json = ["jsonParameterOne": "not implemented"]
         

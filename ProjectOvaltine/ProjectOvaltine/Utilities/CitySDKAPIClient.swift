@@ -18,7 +18,7 @@ class CitySDKAPIClient {
     enum URLRouter {
         static let baseURL: String = "http://citysdk.commerce.gov"
     }
-////    let baseURL: String = "http://citysdk.commerce.gov"
+    let baseURL: String = "http://citysdk.commerce.gov"
     let method: String = "POST"
     let URLPath: String = "/"
     let headers: Dictionary<String, String> = ["Not":"Implemented"]
