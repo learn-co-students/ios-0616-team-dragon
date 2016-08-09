@@ -31,7 +31,6 @@ class CitySDKAPIClient: Request {
         }
         
         let url = NSURL(string: self.baseURL!)
-        
         let request = NSMutableURLRequest(URL:url!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

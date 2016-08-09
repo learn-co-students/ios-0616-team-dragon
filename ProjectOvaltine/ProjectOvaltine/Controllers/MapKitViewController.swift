@@ -15,6 +15,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
+    let jobsAPI = USAJobsAPIClient.sharedInstance
+    
     
     var cityData: [CitySDKData] = []
     
@@ -64,7 +66,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
 //        <string>{34.42739,-118.59171}</string>
 //        </array>
         
-        
+        jobsAPI.sendAPIRequest()
         
         self.store.getCitySDKData({
             if let age = self.store.cityDataPoints.first?.age {
