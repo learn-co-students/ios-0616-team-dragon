@@ -18,30 +18,31 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     var cityData: [CitySDKData] = []
     
-    let mapView = MKMapView()
+    let mapView: MKMapView! = MKMapView()
     let initialLocation = CLLocation(latitude: 34.4248, longitude: -118.5971)
     var zipLocation : CLLocation! = nil
     let regionRadius: CLLocationDistance = 1000
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
     let coordinates = [["34.4313","-118.59890"],["34.4274","-118.60246"], ["34.4268","-118.60181"], ["34.4202","-118.6004"], ["34.42013","-118.59239"], ["34.42049","-118.59051"], ["34.42305","-118.59276"], ["34.42557","-118.59289"], ["34.42739","-118.59171"]]
     
-    var midCoordinate: CLLocationCoordinate2D
-    var overlayTopLeftCoordinate: CLLocationCoordinate2D
-    var overlayTopRightCoordinate: CLLocationCoordinate2D
-    var overlayBottomLeftCoordinate: CLLocationCoordinate2D
-    var overlayBottomRightCoordinate: CLLocationCoordinate2D
+//    var midCoordinate: CLLocationCoordinate2D
+//    var overlayTopLeftCoordinate: CLLocationCoordinate2D
+//    var overlayTopRightCoordinate: CLLocationCoordinate2D
+//    var overlayBottomLeftCoordinate: CLLocationCoordinate2D
+//    var overlayBottomRightCoordinate: CLLocationCoordinate2D
     
 //    let midPoint = CGPointFromString(properties!["midCoord"] as! String)
 //    midCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(midPoint.x), CLLocationDegrees(midPoint.y))
    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+    
 //        <key>midCoord</key>
 //        <string>{34.4248,-118.5971}</string>
 //        <key>overlayTopLeftCoord</key>
@@ -101,18 +102,18 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    var overlayBoundingMapRect: MKMapRect {
-        get {
-            let topLeft = MKMapPointForCoordinate(overlayTopLeftCoordinate)
-            let topRight = MKMapPointForCoordinate(overlayTopRightCoordinate)
-            let bottomLeft = MKMapPointForCoordinate(overlayBottomLeftCoordinate)
-            
-            return MKMapRectMake(topLeft.x,
-                                 topLeft.y,
-                                 fabs(topLeft.x-topRight.x),
-                                 fabs(topLeft.y - bottomLeft.y))
-        }
-    }
+//    var overlayBoundingMapRect: MKMapRect {
+//        get {
+////            let topLeft = MKMapPointForCoordinate(overlayTopLeftCoordinate)
+////            let topRight = MKMapPointForCoordinate(overlayTopRightCoordinate)
+////            let bottomLeft = MKMapPointForCoordinate(overlayBottomLeftCoordinate)
+//            
+//            return MKMapRectMake(topLeft.x,
+//                                 topLeft.y,
+//                                 fabs(topLeft.x-topRight.x),
+//                                 fabs(topLeft.y - bottomLeft.y))
+//        }
+//    }
  
     
     //
@@ -146,9 +147,4 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
             
         })
     }
-    
-    
-    
-    
-    
 }
