@@ -43,10 +43,11 @@ class DataStore {
     }
     
     func getUSAJobsData() {
+        govDataAPI.sendAPIRequest()
         
     }
     
     func getLaborStatisticsData() {
-        
+        laborStatisticsAPI.sendAPIRequest()
     }
 }
