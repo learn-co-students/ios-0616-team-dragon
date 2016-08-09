@@ -8,36 +8,37 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class GovDataAPIClient : Request {
-    
+   
     static let sharedInstance = GovDataAPIClient()
-    
     let baseURL: String? = " "
     let path: String? = "/"
     let parameters = ["parameterOne": "Not implemented"]
     let variables = ["education_high_school", "income_per_capita", "median_contract_rent"]
-    
     let key = Constants.GOVDATA_API_KEY
     
     
     //MARK request
     func sendAPIRequest() {
+        
         guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
                 return
         }
+        
         let url = NSURL(string: self.baseURL!)
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let json = ["jsonParameterOne": "not implemented"]
         
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
-        
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
+        
         Alamofire.request(request)
             .responseJSON { response in
                 switch response.result {
@@ -48,5 +49,4 @@ class GovDataAPIClient : Request {
                 }
         }
     }
-    
 }
