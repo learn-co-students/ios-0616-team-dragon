@@ -43,7 +43,9 @@ class CitySDKAPIClient: Request {
                 
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
-                
+                if let geo = response["geometry"] as? NSArray {
+                    print(geo)
+                }
                 if let feat = response["features"] as? NSArray {
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
                     let newData = CitySDKData(json: jsonProperties)
@@ -55,4 +57,46 @@ class CitySDKAPIClient: Request {
             }
         }
     }
+    
+    func sendTestAPIRequest(params: NSDictionary) {
+        
+        guard self.baseURL != nil
+            else {
+                print("ERROR: Unable to get url path for API call")
+                return
+        }
+        
+        let url = NSURL(string: self.baseURL!)
+        
+        let request = NSMutableURLRequest(URL:url!)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(self.key, forHTTPHeaderField: "Authorization")
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
+        
+        Alamofire.request(request).responseJSON { (response) in
+            switch response.result {
+            case .Success(let responseObject):
+                let response = responseObject as! NSDictionary
+                if let geo = response["geometry"] as? NSArray {
+                    print(geo)
+                }
+                if let feat = response["features"] as? NSArray {
+                    //let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
+                    if let geo = feat[0]["geometry"] as? NSDictionary {
+                        if let coords = geo["coordinates"] as? NSArray {
+                            for c in coords {
+                                print(c)
+                            }
+                        }
+                        
+                    }
+                    //pr!int("JSON PROPERTIES:\(jsonProperties)")
+                }
+            default:
+                print("ERROR")
+            }
+        }
+    }
+
 }
