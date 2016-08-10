@@ -9,6 +9,11 @@
 import Foundation
 
 struct ScoreModel {
+    var scoreName: String
     var score:Int = 0
     var dataPoints: [String] = []
+    
+    init(name: String) {
+        self.scoreName = name
+    }
 }
