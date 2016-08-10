@@ -26,12 +26,13 @@ class LaborStatisticsAPIClient {
                 print("ERROR: Unable to get url path for API call")
                 return
         }
-        let url = NSURL(string: self.baseURL!)
         
+        let url = NSURL(string: self.baseURL!)
+        let json = ["notImplemented": "yet"]
         let request = NSMutableURLRequest(URL: url!)
+        
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let json = ["notImplemented": "yet"]
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
         

@@ -26,12 +26,12 @@ class USAJobsAPIClient {
                 print("ERROR: Unable to get url path for API call")
                 return 
         }
-        
+        let params = ["not":"implemented"]
         let url = NSURL(string: self.baseURL! + self.path!)
+        
         let request = NSMutableURLRequest(URL:url!)
         request.HTTPMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let params = ["not":"implemented"]
         request.setValue(self.key, forHTTPHeaderField: "Authorization-Key")
         request.setValue(self.email, forHTTPHeaderField: "User-Agent")
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
