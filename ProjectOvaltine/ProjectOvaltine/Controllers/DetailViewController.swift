@@ -17,7 +17,6 @@ class DetailViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func initTabBarController() {
-        
         let tabViewController1 = TabViewController1()
         let tabViewController2 = TabViewController2()
         let tabViewController3 = TabViewController3()

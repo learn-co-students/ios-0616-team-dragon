@@ -16,16 +16,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
     let jobsAPI = USAJobsAPIClient.sharedInstance
-    //let censusAPI = CensusAPIClient.sharedInstance
-    
-    
     var cityData: [CitySDKData] = []
-    
     let mapView: MKMapView! = MKMapView()
     let initialLocation = CLLocation(latitude: 34.4248, longitude: -118.5971)
     var zipLocation : CLLocation! = nil
     let regionRadius: CLLocationDistance = 1000
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+    
     let coordinates = [["34.4313","-118.59890"],["34.4274","-118.60246"], ["34.4268","-118.60181"], ["34.4202","-118.6004"], ["34.42013","-118.59239"], ["34.42049","-118.59051"], ["34.42305","-118.59276"], ["34.42557","-118.59289"], ["34.42739","-118.59171"]]
     
 //    var midCoordinate: CLLocationCoordinate2D
@@ -41,17 +38,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
 //        fatalError("init(coder:) has not been implemented")
 //    }
 //    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let censusAPI = CensusAPIClient()
         let urlRequest = censusAPI.buildRequest()
         print(censusAPI.sendAPIRequest(urlRequest!))
-        //cityAPI.getAPIReques
-        //self.store.getCitySDKData({
-    
-    
-    
+        
 //        <key>midCoord</key>
 //        <string>{34.4248,-118.5971}</string>
 //        <key>overlayTopLeftCoord</key>
@@ -72,53 +64,36 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
 //        <string>{34.42557,-118.59289}</string>
 //        <string>{34.42739,-118.59171}</string>
 //        </array>
- //       censusAPI.sendAPIRequest()
-        
-//        self.store.sendCityAPITest()
-        
-//        jobsAPI.sendAPIRequest()
-////        
-//        self.store.getCitySDKData({
+//       censusAPI.sendAPIRequest()
+//       self.store.sendCityAPITest()
+//       jobsAPI.sendAPIRequest()
+//       self.store.getCitySDKData({
 //            if let age = self.store.cityDataPoints.first?.age {
 //                print(age)
 //            }
-//            
 //            if let name = self.store.cityDataPoints.first?.locationName {
 //                print(name)
 //            }
-//            
 //            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
 //                print(commute)
 //            }
-//            
 //            if let income = self.store.cityDataPoints.first?.incomePerCapita {
 //                print(income)
 //            }
-//            
 //            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
 //                print(education)
 //            }
-//            
 //            if let coords = self.store.cityDataPoints.first?.coordinates {
 //                for cor in coords {
 //                    print("COORD: \(cor[0])")
 //                }
-//                
 //            }
-//            
 //        })
-        
         mapView.frame = view.frame
         mapView.delegate = self
         view.addSubview(mapView)
-        
         centerMapOnLocation(self.initialLocation)
-        //getLocationFromZipcode("08540")
-        
-        
-      
-        
-        
+//        getLocationFromZipcode("08540")
     }
     
 //    var overlayBoundingMapRect: MKMapRect {
@@ -126,29 +101,21 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
 ////            let topLeft = MKMapPointForCoordinate(overlayTopLeftCoordinate)
 ////            let topRight = MKMapPointForCoordinate(overlayTopRightCoordinate)
 ////            let bottomLeft = MKMapPointForCoordinate(overlayBottomLeftCoordinate)
-//            
 //            return MKMapRectMake(topLeft.x,
 //                                 topLeft.y,
 //                                 fabs(topLeft.x-topRight.x),
 //                                 fabs(topLeft.y - bottomLeft.y))
 //        }
 //    }
- 
-    
-    //
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   self.regionRadius * 2.0, self.regionRadius * 2.0)
-        
         self.mapView.setRegion(coordinateRegion, animated: true)
-        
-        
     }
     
     func getLocationFromZipcode(zipcode: String){
         var placemark: CLPlacemark!
-        
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {(placemarks, error) in
             if ((error) != nil) {
                 self.alert.title = "Zip not found!"
@@ -157,13 +124,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
                 self.presentViewController(self.alert, animated: true, completion: nil)
                 print("\(error)")
             } else {
-                
                 placemark = (placemarks?.last)!
                 self.zipLocation = placemark?.location
-                
                 self.centerMapOnLocation(self.zipLocation)
             }
-            
         })
     }
 }
