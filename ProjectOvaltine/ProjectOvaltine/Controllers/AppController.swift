@@ -12,39 +12,21 @@ import SwiftSpinner
 
 class AppController: UIViewController {
     
+    var currentViewController: UIViewController!
+    
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
     var cityData: [CitySDKData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.store.getCitySDKData({
-            if let age = self.store.cityDataPoints.first?.age {
-                print(age)
-            }
-            if let name = self.store.cityDataPoints.first?.locationName {
-                print(name)
-            }
-            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
-                print(commute)
-            }
-            if let income = self.store.cityDataPoints.first?.incomePerCapita {
-                print(income)
-            }
-            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
-                print(education)
-            }
-            
-            if let geo = self.store.cityDataPoints.first?.coordinates {
-                print(geo)
-            }
-        })
-        
         self.view.backgroundColor=UIColor.lightGrayColor()
         //self.initHeaderBanner()
         self.initMapBlock()
         self.initSearchButton()
         self.initSearchTextField()
+        self.loadInitialViewController()
+        self.addNotificationObservers()
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named:"any.jpeg")!)
     }
     
@@ -121,6 +103,8 @@ class AppController: UIViewController {
 
 extension AppController {
     private func loadInitialViewController() {
+        self.currentViewController = loadViewControllerWith()
+        addCurrentViewController(self.currentViewController)
         //not implemented yet
         
     }

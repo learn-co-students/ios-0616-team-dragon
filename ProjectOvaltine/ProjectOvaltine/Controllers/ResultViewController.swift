@@ -8,23 +8,44 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+//class ResultViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ResultViewController: UITableViewController, UIViewController {
     
-    let resultVC = ResultView()
-    let resultTableVC = ResultFeedTableView()
+    var dataProvider: AppControllerDataProvider?
+    
+    let resultView = ResultView()
+    let resultTableView = UITableView()
+    
+    override func loadView() {
+        super.loadView()
+        self.resultTableView.dataSource = self
+        self.resultTableView.delegate = self
+        
+        self.resultTableView.dataSource = dataProvider
+        
+        self.dataProvider?.registerCellsForTableView(self.resultTableView)
+        self.resultTableView.registerClass(ResultCell.self, forCellReuseIdentifier: "resultCell")
+        self.view.addSubview(self.resultView)
+        self.view.addSubview(self.resultTableView)
+    }
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+        let scrollOptionsButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(ResultViewController.showScrollOptions))
+        self.navigationItem.rightBarButtonItem = scrollOptionsButton
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+    func showScrollOptions() {
+        // not implemented yet
     }
     
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        return nil
-//    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("resultCell", forIndexPath: indexPath)
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("did select:\(indexPath.row)")
+    }
 
 }
-
-//: UIViewController, UITableViewDelegate, UITableViewDataSource,
