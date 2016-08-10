@@ -7,10 +7,9 @@
 //
 
 import UIKit
-class ResultModel {
-    
-    var score: String = ""
-    var locationName: String = ""
-    
-    
+struct ResultModel {
+    let scoreData: ScoreModel
+    let location: String
+    let dataPoints: [String]
+    let countyLogo: UIImage?
 }

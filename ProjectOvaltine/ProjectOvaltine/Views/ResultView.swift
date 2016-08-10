@@ -13,6 +13,6 @@ import SnapKit
 class ResultView: UITableViewCell {
     static let cellReuseIdentifier = "ResultViewCell"
     override func layoutSubviews() {
-        
+        super.layoutSubviews()
     }
 }
