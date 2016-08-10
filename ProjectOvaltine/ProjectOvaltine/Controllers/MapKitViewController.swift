@@ -30,29 +30,34 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     //Initialize alert - used in GeoCoder function when user enters an invalid zipcode
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
-    
-
     //Hardcoded array of coordinates to test drawing a bounding box
     let coordinates: [(Double, Double)] = [(34.4313,-118.59890),(34.4274,-118.60246), (34.4268,-118.60181), (34.4202,-118.6004), (34.42013,-118.59239), (34.42049,-118.59051), (34.42305,-118.59276), (34.42557,-118.59289), (34.42739,-118.59171), (34.4313,-118.59890)]
     
     //Calculates a location from array of location data - will be deprecated eventually
     var initialLocation : CLLocation {
-        let newLocation = CLLocation.init(latitude: coordinates[0].0, longitude: coordinates[0].1)
+        let newLocation = CLLocation.init(latitude: 40.28683599971092, longitude: -75.26431999998206)
         return newLocation}
     
     //Necessary to convert point data to CLLocationCoordinate2D array
     var boundary: [CLLocationCoordinate2D] = []
     
-    //Initializes a testDictionary for sending a test API request
-    let testDictionary = [:]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         testPrint()
         drawInMapView()
-        convertArrayDataToPoints(coordinates)
-        drawPolylines()
+        
+        populateCoordinateArray{(someArray) in
+            
+            for i in 0...someArray.count-1 {
+                
+                self.convertArrayDataToPoints(someArray[i] as! [AnyObject])
+            }
+            
+            self.drawPolylines()
+            print(self.boundary)
+            
+        }
+        
         centerMapOnLocation(self.initialLocation)
     }
     
@@ -62,9 +67,20 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         view.addSubview(mapView)
     }
     
-    func testPrint(){
-        //Prints test data
+    func populateCoordinateArray(completionHandler: (NSArray) -> ()){
+        
         self.store.getCitySDKData({
+            
+            if let geo = self.store.cityDataPoints.first?.coordinates {
+                completionHandler(geo)
+            }
+        })
+    }
+    
+    func testPrint(){
+        self.store.getCitySDKData({
+            if let geo = self.store.cityDataPoints.first?.coordinates {
+                print(geo)}
             
             if let age = self.store.cityDataPoints.first?.age {
                 print(age)
@@ -89,14 +105,14 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         })
     }
     
-    func convertArrayDataToPoints(array: [(Double, Double)]) {
+    func convertArrayDataToPoints(array: [AnyObject]) {
         
-        for i in 0...coordinates.count-1 {
-            
-            let point = CLLocationCoordinate2D(latitude: coordinates[i].0, longitude: coordinates[i].1)
-            boundary.append(point)
-            
-        }
+        let longCoord = array[0] as! Double
+        let latCoord = array[1] as! Double
+        
+        let point = CLLocationCoordinate2D(latitude: latCoord, longitude: longCoord)
+        boundary.append(point)
+        
     }
     
     func drawPolylines(){

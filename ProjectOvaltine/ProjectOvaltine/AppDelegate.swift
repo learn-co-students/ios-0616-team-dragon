@@ -17,9 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         _ = CitySDKAPIClient()
         // Override point for customization after application launch.
-        
         let appController = MapKitViewController()
-        
         self.window?.rootViewController = appController
         
         window?.makeKeyAndVisible()

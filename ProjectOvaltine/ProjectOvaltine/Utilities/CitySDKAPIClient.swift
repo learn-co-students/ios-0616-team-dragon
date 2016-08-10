@@ -30,6 +30,7 @@ class CitySDKAPIClient {
                 print("ERROR: Unable to get url path for API call")
                 return
             }
+
         let request = NSMutableURLRequest(URL:url)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -44,15 +45,15 @@ class CitySDKAPIClient {
             case .Success(let responseObject):
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
+
     
                 if let feat = response["features"] as? NSArray {
-
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
                     
 
                     if let geo = feat[0]["geometry"] as? NSDictionary {
                         
-                        if let coords = geo["coordinates"] as? NSArray {
+                        if let coords = geo["coordinates"]![0] as? NSArray {
                             let newData = CitySDKData(json: jsonProperties, geoJSON:coords)
                             cityDataPoints.append(newData)
                         }
@@ -70,39 +71,5 @@ class CitySDKAPIClient {
         //code goes here
         //soon
     }
-//
-//        guard let url = NSURL(string: self.baseURL)
-//            else {
-//                print("ERROR: Unable to get url path for API call")
-//                return
-//        }
-//        let request = NSMutableURLRequest(URL:url)
-//        request.HTTPMethod = "POST"
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.setValue(self.key, forHTTPHeaderField: "Authorization")
-//        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
-//        
-//        Alamofire.request(request).responseJSON { (response) in
-//            switch response.result {
-//            case .Success(let responseObject):
-//                let response = responseObject as! NSDictionary
-//                if let geo = response["geometry"] as? NSArray {
-//                    print(geo)
-//                }
-//                if let feat = response["features"] as? NSArray {
-//                    let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
-//                    if let geo = feat[0]["geometry"] as? NSDictionary {
-//                        if let coords = geo["coordinates"] as? NSArray {
-//                            for c in coords {
-//                                print(c)
-//                            }
-//                        }
-//                        
-//                    }
-//                }
-//            default:
-//                print("ERROR")
-//            }
-//        }
-//    }
+
 }

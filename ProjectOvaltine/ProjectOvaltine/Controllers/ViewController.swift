@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
     let censusAPI = CensusAPIClient()
-
     var cityData: [CitySDKData] = []
     
     override func viewDidLoad() {
