@@ -138,4 +138,19 @@ class AppController: UIViewController {
         
         self.view.addSubview(myTextField)
     }
+    
+    
+}
+
+
+extension AppController {
+    
+    private func loadInitialViewController() {
+        
+    }
+    
+    private func addNotificationObservers() {
+            
+    }
+    
 }

@@ -13,15 +13,15 @@ import SwiftyJSON
 
 struct CensusAPIClient: Request {
     
-    var method: String = MethodType.GET.method
+    var method: String = MethodRouter.GET.method
     var baseURLString: String = "http://api.census.gov/data/2014/"
     var URLPath: String = "acs5?get="
     var parameters: Dictionary<String, String> = Dictionary()
     var headers: Dictionary<String, String> = Dictionary()
     
     func buildRequest() -> NSURLRequest? {
-        
         let zip = "10004"
+        let urlZipPath = "&for=zip+code+tabulation+area:\(zip)"
         var paramString = ""
         
         for param in CensusConstants.CENSUS_REQUEST_PARAMS.values {
@@ -32,19 +32,14 @@ struct CensusAPIClient: Request {
             }
         }
         
-        let urlZipPath = "&for=zip+code+tabulation+area:\(zip)"
         let URLRequestPath = URLPath + paramString + urlZipPath
-        
         guard let baseURL = NSURL(string:self.baseURLString + URLRequestPath) else { return nil }
-        
         guard let URLComponents = NSURLComponents(URL:baseURL, resolvingAgainstBaseURL: true) else { return nil }
-        
         guard let URL = URLComponents.URL else { return nil }
         let request = NSMutableURLRequest(URL:URL)
         request.HTTPMethod = method
         return request
     }
-    
     
     func sendAPIRequest(request: NSURLRequest) {
         Alamofire.request(request).responseJSON { (response) in
@@ -56,4 +51,5 @@ struct CensusAPIClient: Request {
             }
         }
     }
+    
 }

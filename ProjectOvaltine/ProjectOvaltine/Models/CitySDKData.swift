@@ -20,7 +20,7 @@ class CitySDKData {
     var latitude: String
     var longitude: String
     var laborForceParticipation: String //Number of persons, age 16 or older, in the labor force.
-    //var laborForceEmployment: String //Number of employed, age 16 or older, in the civilian labor force.
+    var laborForceEmployed: String //Number of employed, age 16 or older, in the civilian labor force.
     var coordinates: NSArray
     
     init(json:JSON, geoJSON:NSArray) {
@@ -34,7 +34,8 @@ class CitySDKData {
             localName = json["NAME"].string,
             lat = json["INTPTLAT"].string,
             lng = json["INTPTLON"].string,
-            laborParticipation = json["B23025_002E"].string
+            laborParticipation = json["B23025_002E"].string,
+            laborEmployment = json["B23025_004E"].string
             else {
                 fatalError("FatalError")
         }
@@ -48,6 +49,7 @@ class CitySDKData {
         self.latitude = lat
         self.longitude = lng
         self.laborForceParticipation = laborParticipation
+        self.laborForceEmployed = laborEmployment
         self.coordinates = geoJSON
     }
 }

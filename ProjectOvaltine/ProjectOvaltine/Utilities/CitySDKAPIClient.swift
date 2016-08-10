@@ -14,7 +14,6 @@ class CitySDKAPIClient {
     static let sharedInstance = CitySDKAPIClient()
     
     // MARK: Path Router
-    
     enum URLRouter {
         static let baseURL: String = "http://citysdk.commerce.gov"
     }
@@ -34,6 +33,7 @@ class CitySDKAPIClient {
                 print("ERROR: Unable to get url path for API call")
                 return
             }
+        
         let request = NSMutableURLRequest(URL:url)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -43,12 +43,14 @@ class CitySDKAPIClient {
         Alamofire.request(request).responseJSON { (response) in
             switch response.result {
             case .Success(let responseObject):
-                
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
+                
                 if let feat = response["features"] as? NSArray {
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
+                    
                     if let geo = feat[0]["geometry"] as? NSDictionary {
+                        
                         if let coords = geo["coordinates"] as? NSArray {
                             let newData = CitySDKData(json: jsonProperties, geoJSON:coords)
                             cityDataPoints.append(newData)
@@ -66,6 +68,9 @@ class CitySDKAPIClient {
     
     func sendTestAPIRequest(params: NSDictionary) {
     }
+    
+    
+
 //
 //        guard let url = NSURL(string: self.baseURL)
 //            else {
