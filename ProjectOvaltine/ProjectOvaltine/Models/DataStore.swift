@@ -44,10 +44,6 @@ class DataStore {
         }
     }
     
-    func sendCityAPITest() {
-        cityAPI.sendTestAPIRequest(["level":level, "zip": zip, "api": api, "year": year, "variables": variables])
-    }
-    
     func getUSAJobsData() {
         govDataAPI.sendAPIRequest()
         //not implemented yet

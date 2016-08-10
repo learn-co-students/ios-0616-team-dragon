@@ -8,14 +8,18 @@
 
 import UIKit
 struct ResultModel {
-    let subScores: [ScoreModel] = []
+
+    var subScores: [ScoreModel] = []
+    var dataPoints: [String] = []
     let resultScore: ScoreModel
     let resultLocationName: String
-    let dataParameter: String = ""
-//    let countyLogo: UIImage!
-    
+    let dataParameter: String
+    let countyLogo: UIImage?
+
     init(score:ScoreModel) {
         self.resultScore = score
         self.resultLocationName = score.scoreName
+        self.countyLogo = UIImage()
+        self.dataParameter = ""
     }
 }

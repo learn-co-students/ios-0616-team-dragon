@@ -30,15 +30,7 @@ class CitySDKAPIClient {
                 print("ERROR: Unable to get url path for API call")
                 return
             }
-<<<<<<< HEAD
         let request = NSMutableURLRequest(URL:url)
-=======
-        
-        let url = NSURL(string: self.baseURL!)
-        
-
-        let request = NSMutableURLRequest(URL:url!)
->>>>>>> 3e57809900705c9f6a9801d0bdd3667040fc7c95
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
@@ -52,32 +44,12 @@ class CitySDKAPIClient {
             case .Success(let responseObject):
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
-<<<<<<< HEAD
-=======
-                if let geo = response["geometry"] as? NSArray {
-                    print(geo)
-                }
-                if let feat = response["features"] as? NSArray {
-                    let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
-                    let newData = CitySDKData(json: jsonProperties)
-                    cityDataPoints.append(newData)
-                    print(newData)
-                    completion(cityDataPoints)
-                }
-            default:
-                print("ERROR")
-            }
-        }
-    }
->>>>>>> 3e57809900705c9f6a9801d0bdd3667040fc7c95
     
                 if let feat = response["features"] as? NSArray {
-<<<<<<< HEAD
+
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
                     
-=======
-                   
->>>>>>> 3e57809900705c9f6a9801d0bdd3667040fc7c95
+
                     if let geo = feat[0]["geometry"] as? NSDictionary {
                         
                         if let coords = geo["coordinates"] as? NSArray {
@@ -85,11 +57,8 @@ class CitySDKAPIClient {
                             cityDataPoints.append(newData)
                         }
                     }
-<<<<<<< HEAD
+
                     completion(cityDataPoints)
-=======
-                 
->>>>>>> 3e57809900705c9f6a9801d0bdd3667040fc7c95
                 }
             default:
                 print("ERROR")
