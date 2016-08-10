@@ -11,22 +11,23 @@ import UIKit
 class ResultCell: UITableViewCell {
     static let cellReuseIdentifier = "ResultCell"
     
-    var locationName: String?
+    var resultParameter: String?
     var view: UIView = UIView()
-    var scoreLabel = UILabel()
+    var parameterLabel = UILabel()
+    
     
     func createScoreLabel() {
-        self.scoreLabel.frame = CGRectMake(50, 50, 200, 30)
-        self.scoreLabel.backgroundColor = UIColor.brownColor()
-        self.scoreLabel.textColor = UIColor.whiteColor()
-        self.scoreLabel.textAlignment = NSTextAlignment.Left
-        self.scoreLabel.text = "My First Label"
-        self.view.addSubview(self.scoreLabel)
+        self.parameterLabel.frame = CGRectMake(50, 50, 200, 30)
+        self.parameterLabel.backgroundColor = UIColor.brownColor()
+        self.parameterLabel.textColor = UIColor.whiteColor()
+        self.parameterLabel.textAlignment = NSTextAlignment.Left
+        self.parameterLabel.text = "My First Label"
+        self.view.addSubview(self.parameterLabel)
     }
     
     var result: ResultModel! {
         didSet {
-            self.scoreLabel.text = String(result.scoreData.score)
+            self.parameterLabel.text = result.dataParameter
         }
     }
 }

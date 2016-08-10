@@ -11,5 +11,6 @@ struct ResultModel {
     let scoreData: ScoreModel
     let location: String
     let dataPoints: [String]
+    let dataParameter: String
     let countyLogo: UIImage?
 }

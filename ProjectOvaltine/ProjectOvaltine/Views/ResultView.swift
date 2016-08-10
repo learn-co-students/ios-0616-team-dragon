@@ -11,5 +11,8 @@ import SnapKit
 
 
 class ResultView: UIView {
-    
+    var graph: UIView?
+    var score: UIView?
+    var locationName: UILabel?
+    var graphDescription: UILabel?
 }
