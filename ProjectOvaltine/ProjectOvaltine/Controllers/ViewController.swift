@@ -33,6 +33,9 @@ class ViewController: UIViewController {
             if let education = self.store.cityDataPoints.first?.highSchoolEducation {
                 print(education)
             }
+            if let coords = self.store.cityDataPoints.first?.coordinates {
+                print(coords)
+            }
         })
         // Do any additional setup after loading the view, typically from a nib.
     }

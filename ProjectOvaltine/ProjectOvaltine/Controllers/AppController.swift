@@ -34,6 +34,9 @@ class AppController: UIViewController {
             if let education = self.store.cityDataPoints.first?.highSchoolEducation {
                 print(education)
             }
+            if let geo = self.store.cityDataPoints.first?.coordinates {
+                print(geo)
+            }
         })
         
         self.view.backgroundColor=UIColor.lightGrayColor()
