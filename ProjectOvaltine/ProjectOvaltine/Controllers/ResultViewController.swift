@@ -10,7 +10,8 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    let tableView = UITableView()
+    let resultVC = ResultView()
+    let resultTableVC = ResultFeedTableView()
     
     override func viewDidLoad() {
         
