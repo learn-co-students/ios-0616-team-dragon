@@ -13,6 +13,7 @@ import SwiftSpinner
 class AppController: UIViewController {
     
     var currentViewController: UIViewController!
+    var containerView: UIView!
     
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
@@ -104,11 +105,37 @@ class AppController: UIViewController {
 extension AppController {
     private func loadInitialViewController() {
         self.currentViewController = loadViewControllerWith()
-        addCurrentViewController(self.currentViewController)
+        self.addCurrentViewController(self.currentViewController)
         //not implemented yet
         
     }
     private func addNotificationObservers() {
         //not implemented yet
+    }
+    
+    private func loadViewControllerWith(storyboardID: String) -> UIViewController {
+        
+        switch storyboardID {
+        case StoryboardID.loginVC:
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as UIViewController
+            return storyboard.instantiateViewControllerWithIdentifier(storyboardID) as! LoginViewController
+        case StoryboardID.reposTVC:
+            let vc = storyboard.instantiateViewControllerWithIdentifier(storyboardID) as! ReposTableViewController
+            let navVC = UINavigationController(rootViewController: vc)
+            return navVC
+        default:
+            fatalError("ERROR: Unable to find controller with storyboard id: \(storyboardID)")
+        }
+        
+        
+        
+    
+    private func addCurrentViewController(controller: UIViewController) {
+        self.addChildViewController(controller)
+        self.containerView.addSubview(controller.view)
+        controller.view.frame = self.containerView.bounds
+        controller.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        controller.didMoveToParentViewController(self)
+        
     }
 }
