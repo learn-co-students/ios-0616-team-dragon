@@ -12,7 +12,6 @@ import SwiftyJSON
 
 
 struct CityAPIClientStruct: Request {
-    
     var method: String = MethodRouter.POST.method
     var baseURLString: String = "http://citysdk.commerce.gov"
     var URLPath: String = ""
@@ -36,7 +35,6 @@ struct CityAPIClientStruct: Request {
                 paramString = "\(paramString),\(param)"
             }
         }
-        
         let URLRequestPath = URLPath + paramString + urlZipPath
         guard let baseURL = NSURL(string:self.baseURLString + URLRequestPath) else { return nil }
         guard let URLComponents = NSURLComponents(URL:baseURL, resolvingAgainstBaseURL: true) else { return nil }
@@ -59,5 +57,4 @@ struct CityAPIClientStruct: Request {
             }
         }
     }
-    
 }

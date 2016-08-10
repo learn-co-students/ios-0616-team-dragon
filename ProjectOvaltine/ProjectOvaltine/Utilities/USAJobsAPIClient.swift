@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 class USAJobsAPIClient {
-    
     static let sharedInstance = USAJobsAPIClient()
     
     let baseURL: String? = "https://data.usajobs.gov/api/search"
@@ -20,10 +19,8 @@ class USAJobsAPIClient {
     let key = Constants.USAJOBS_API_KEY
     let email = Constants.USAJOBS_USER_AGENT
     
-    
     //MARK request 
     func sendAPIRequest() {
-        
         guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
@@ -44,5 +41,4 @@ class USAJobsAPIClient {
                 print(response.response)
             }
     }
-    
 }

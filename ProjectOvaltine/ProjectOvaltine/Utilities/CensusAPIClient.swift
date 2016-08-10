@@ -10,9 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-
 struct CensusAPIClient: Request {
-    
     var method: String = MethodRouter.GET.method
     var baseURLString: String = "http://api.census.gov/data/2014/"
     var URLPath: String = "acs5?get="
@@ -31,7 +29,6 @@ struct CensusAPIClient: Request {
                paramString = "\(paramString),\(param)"
             }
         }
-        
         let URLRequestPath = URLPath + paramString + urlZipPath
         guard let baseURL = NSURL(string:self.baseURLString + URLRequestPath) else { return nil }
         guard let URLComponents = NSURLComponents(URL:baseURL, resolvingAgainstBaseURL: true) else { return nil }
@@ -51,5 +48,4 @@ struct CensusAPIClient: Request {
             }
         }
     }
-    
 }

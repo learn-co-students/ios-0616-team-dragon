@@ -50,10 +50,11 @@ class DataStore {
     
     func getUSAJobsData() {
         govDataAPI.sendAPIRequest()
-        
+        //not implemented yet
     }
     
     func getLaborStatisticsData() {
         laborStatisticsAPI.sendAPIRequest()
+        //not implemented yet
     }
 }

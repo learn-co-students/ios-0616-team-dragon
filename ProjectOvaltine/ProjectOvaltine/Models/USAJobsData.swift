@@ -10,5 +10,5 @@ import Foundation
 import SwiftyJSON
 
 class USAJobsData {
-    
+    //not implemented yet
 }

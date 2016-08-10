@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-
 protocol MethodRouterType {
     var method: String { get }
 }

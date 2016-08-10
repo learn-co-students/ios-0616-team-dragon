@@ -36,8 +36,6 @@ struct CensusConstants {
                                          "poverty_family_single_female":"B17012_014E",
                                            "poverty_family_single_male":"B17012_009E"]
 }
-
-
 //    let commuteTimePublicTransport = "B08136_007E"
 //    let commuteTime = "B08136_001E"
 //    let commuteTimeWalked = "B08136_011E"

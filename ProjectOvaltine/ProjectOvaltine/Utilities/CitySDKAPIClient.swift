@@ -12,7 +12,6 @@ import SwiftyJSON
 
 class CitySDKAPIClient {
     static let sharedInstance = CitySDKAPIClient()
-    
     // MARK: Path Router
     enum URLRouter {
         static let baseURL: String = "http://citysdk.commerce.gov"
@@ -24,16 +23,13 @@ class CitySDKAPIClient {
     let parameters:Dictionary<String, String> = ["parameterOne": "not implemented"]
     let key = Constants.CITYSDK_API_KEY
     
-    
     // MARK: Request
     func sendAPIRequest(params: NSDictionary, completion: ([CitySDKData]) -> ()) {
-        
         guard let url = NSURL(string:URLRouter.baseURL)
             else {
                 print("ERROR: Unable to get url path for API call")
                 return
             }
-        
         let request = NSMutableURLRequest(URL:url)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -45,7 +41,7 @@ class CitySDKAPIClient {
             case .Success(let responseObject):
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
-                
+    
                 if let feat = response["features"] as? NSArray {
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
                     
@@ -56,8 +52,6 @@ class CitySDKAPIClient {
                             cityDataPoints.append(newData)
                         }
                     }
-                    
-                    
                     completion(cityDataPoints)
                 }
             default:
@@ -67,10 +61,9 @@ class CitySDKAPIClient {
     }
     
     func sendTestAPIRequest(params: NSDictionary) {
+        //code goes here
+        //soon
     }
-    
-    
-
 //
 //        guard let url = NSURL(string: self.baseURL)
 //            else {
@@ -106,5 +99,4 @@ class CitySDKAPIClient {
 //            }
 //        }
 //    }
-
 }
