@@ -11,10 +11,7 @@ import UIKit
 class TabViewController3: PrototypeTabBar {
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.blueColor()
     }
-    
-    }
+}

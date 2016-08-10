@@ -20,6 +20,7 @@ struct CensusConstants {
                                                   "employment_employed":"B23025_004E",
                                                "employment_labor_force":"B23025_002E",
                                            "employment_not_labor_force":"B23025_007E",
+                                           //stuff add here
                                                  "employment_unemployed":"B23025_005E",
                                                                "income":"B19013_001E",
                                                     "income_per_capita":"B19301_001E",

@@ -14,33 +14,26 @@ class AppController: UIViewController {
     
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
-    
     var cityData: [CitySDKData] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.store.getCitySDKData({
             if let age = self.store.cityDataPoints.first?.age {
                 print(age)
             }
-            
             if let name = self.store.cityDataPoints.first?.locationName {
                 print(name)
             }
-            
             if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
                 print(commute)
             }
-            
             if let income = self.store.cityDataPoints.first?.incomePerCapita {
                 print(income)
             }
-            
             if let education = self.store.cityDataPoints.first?.highSchoolEducation {
                 print(education)
             }
-            
         })
         
         self.view.backgroundColor=UIColor.lightGrayColor()
@@ -48,33 +41,23 @@ class AppController: UIViewController {
         self.initMapBlock()
         self.initSearchButton()
         self.initSearchTextField()
-        
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named:"any.jpeg")!)
     }
     
 //    override func viewDidAppear(animated: Bool) {
-//        
 //        SwiftSpinner.showWithDuration(1.3, title: "TEAM DRAGON")
-//        
 //        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
 //    }
-    
-    
+
     func searchButtonTapped(){
-        
-        
         SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
-        
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-        
             let detailVC = DetailViewController()
             SwiftSpinner.hide()
-            
             self.presentViewController(detailVC, animated: true, completion: nil)
     }
     
     func initHeaderBanner() {
-        
         let projectName = UIButton(frame: CGRectMake(20, 20, self.view.frame.width-40, 40))
         projectName.backgroundColor=UIColor.blueColor()
         projectName.setTitle("PROJECT OVALTINE", forState: .Normal)
@@ -87,7 +70,6 @@ class AppController: UIViewController {
     
 //    func initSummaryBlock() {
 //        //******** creating label programmatically*******//
-//        
 //        let label2 = UILabel(frame: CGRectMake(20, 80, 375, 450))
 //        //label.center = CGPointMake(160, 284)
 //        label2.textAlignment = NSTextAlignment.Center
@@ -98,9 +80,7 @@ class AppController: UIViewController {
 //    }
     
     func initMapBlock() {
-        
         let mapView = MKMapView()
-        
         mapView.frame = CGRectMake(0, 80, self.view.frame.width, 666)
         mapView.mapType = MKMapType.Standard
         mapView.zoomEnabled = true
@@ -125,32 +105,22 @@ class AppController: UIViewController {
     
     func initSearchTextField() {
         let myTextField = UITextField(frame: CGRect(x: 11, y: 20, width: self.view.frame.width-69, height: 40.00))
-        
         myTextField.backgroundColor = UIColor.whiteColor()
-        
         myTextField.placeholder = "Enter Zipcode"
         //myTextField.text = "    Enter here"
         myTextField.textAlignment = NSTextAlignment.Center
-        
         myTextField.borderStyle = UITextBorderStyle.Line
-        
         myTextField.secureTextEntry = false
-        
         self.view.addSubview(myTextField)
     }
-    
-    
 }
 
-
 extension AppController {
-    
     private func loadInitialViewController() {
+        //not implemented yet
         
     }
-    
     private func addNotificationObservers() {
-            
+        //not implemented yet
     }
-    
 }
