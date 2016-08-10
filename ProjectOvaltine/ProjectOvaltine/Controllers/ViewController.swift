@@ -11,7 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
+<<<<<<< HEAD
     let censusAPI = CensusAPIClient()
+=======
+    //let censusAPI = CensusAPIClient()
+    
+    
+    
+>>>>>>> 3e57809900705c9f6a9801d0bdd3667040fc7c95
     var cityData: [CitySDKData] = []
     
     override func viewDidLoad() {
@@ -38,6 +45,7 @@ class ViewController: UIViewController {
                 print(coords)
             }
         })
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     
