@@ -15,7 +15,7 @@ protocol Mapable {
 extension Mapable {
     
     func initMapBlock() {
-        let appController = AppController(coder: NSCoder.empty())
+        let appController = AppController()
         let mapView = MKMapView()
         mapView.frame = CGRectMake(0, 66, appController!.view.frame.width, 700)
         mapView.mapType = MKMapType.Standard

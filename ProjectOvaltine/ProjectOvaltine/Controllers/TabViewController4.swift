@@ -61,15 +61,4 @@ class TabViewController4: UIViewController, Navigable {
     func settingButtonPushed() {
         //not implemented yet
     }
-
-class TabViewController4: PrototypeTabBar {
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.yellowColor()
-    }
-    
-    }
 }

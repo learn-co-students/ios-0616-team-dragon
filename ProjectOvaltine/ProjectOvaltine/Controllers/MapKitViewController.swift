@@ -19,6 +19,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     //Array of citySDK data
     var cityData: [CitySDKData] = []
+    
     //Initialized mapView
     let mapView: MKMapView! = MKMapView()
     
@@ -62,8 +63,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
             print(self.boundary)
             
         }
-        
-        self.centerMapOnLocation(self.initialLocation)
+        centerMapOnLocation(self.initialLocation)
     }
     
     func drawInMapView(){

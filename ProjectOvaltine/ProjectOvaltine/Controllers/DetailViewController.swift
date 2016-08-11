@@ -12,16 +12,16 @@ import SwiftSpinner
 class DetailViewController: UITabBarController, UITabBarControllerDelegate, Tabable, Navigable {
     
     let resultView = ResultView()
-    let resultDataPointTitleLabel: UILabel! = nil
-    let resultMapView: MKMapView! = nil
-    let resultDataPointLabel: UILabel! = nil
+    var resultDataPointTitleLabel: UILabel!
+    var resultMapView: MKMapView!
+    var resultDataPointLabel: UILabel!
+
+    required init?(coder: NSCoder = NSCoder.empty()) {
+        super.init(coder: coder)
+        self.resultDataPointLabel = UILabel()
+        self.resultDataPointTitleLabel = UILabel()
+    }
     
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//    }
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

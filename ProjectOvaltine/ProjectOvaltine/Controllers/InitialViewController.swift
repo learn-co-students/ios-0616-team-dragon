@@ -21,18 +21,10 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor=UIColor.lightGrayColor()
-        //self.initHeaderBanner()
         self.initMapBlock()
         self.initSearchButton()
         self.initSearchTextField()
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named:"any.jpeg")!)
     }
-    
-    
-    //    override func viewDidAppear(animated: Bool) {
-    //        SwiftSpinner.showWithDuration(1.3, title: "TEAM DRAGON")
-    //        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-    //    }
     
     func searchButtonTapped(){
         SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
@@ -53,17 +45,6 @@ class InitialViewController: UIViewController {
         self.view.addSubview(projectName)
     }
     
-    //    func initSummaryBlock() {
-    //        //******** creating label programmatically*******//
-    //        let label2 = UILabel(frame: CGRectMake(20, 80, 375, 450))
-    //        //label.center = CGPointMake(160, 284)
-    //        label2.textAlignment = NSTextAlignment.Center
-    //        label2.backgroundColor = UIColor.lightGrayColor()
-    //        label2.text = "SUMMARY                              SUMMARY                  SUMMARY             SUMMARY"
-    //        label2.numberOfLines = 6
-    //        self.view.addSubview(label2)
-    //    }
-    
     func initMapBlock() {
         let mapView = MKMapView()
         mapView.frame = CGRectMake(0, 80, self.view.frame.width, 666)
@@ -75,7 +56,6 @@ class InitialViewController: UIViewController {
     func initSearchButton() {
         let button=UIButton(frame: CGRectMake(366, 20, 40, 40))
         button.backgroundColor = UIColor.whiteColor()
-        //button.setTitle("SEARCH", forState: .Normal)
         button.setImage(UIImage(named: "active-search.png"), forState: UIControlState.Normal)
         button.setTitleColor(UIColor.yellowColor(), forState: .Normal)
         button.alpha=1.0
@@ -91,7 +71,6 @@ class InitialViewController: UIViewController {
         let myTextField = UITextField(frame: CGRect(x: 11, y: 20, width: self.view.frame.width-69, height: 40.00))
         myTextField.backgroundColor = UIColor.whiteColor()
         myTextField.placeholder = "Enter Zipcode"
-        //myTextField.text = "    Enter here"
         myTextField.textAlignment = NSTextAlignment.Center
         myTextField.borderStyle = UITextBorderStyle.Line
         myTextField.secureTextEntry = false
