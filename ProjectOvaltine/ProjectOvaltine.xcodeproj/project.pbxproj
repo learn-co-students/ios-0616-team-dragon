@@ -34,6 +34,7 @@
 		AF588A681D5CB81C00F228C7 /* EducationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A671D5CB81C00F228C7 /* EducationDetailViewController.swift */; };
 		AF588A6A1D5CB83B00F228C7 /* EconomicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A691D5CB83B00F228C7 /* EconomicDetailViewController.swift */; };
 		AF588A6C1D5CB87800F228C7 /* DemographicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A6B1D5CB87800F228C7 /* DemographicDetailViewController.swift */; };
+		AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */; };
 		AF5D3B741D5A9E7C007E55B7 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */; };
 		AF5D3B751D5A9E7C007E55B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */; };
 		AF5D3B771D5A9E7C007E55B7 /* TabViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */; };
@@ -86,6 +87,7 @@
 		AF588A671D5CB81C00F228C7 /* EducationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EducationDetailViewController.swift; path = Controllers/EducationDetailViewController.swift; sourceTree = "<group>"; };
 		AF588A691D5CB83B00F228C7 /* EconomicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EconomicDetailViewController.swift; path = Controllers/EconomicDetailViewController.swift; sourceTree = "<group>"; };
 		AF588A6B1D5CB87800F228C7 /* DemographicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemographicDetailViewController.swift; path = Controllers/DemographicDetailViewController.swift; sourceTree = "<group>"; };
+		AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultTableView.swift; path = Views/ResultTableView.swift; sourceTree = "<group>"; };
 		AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
 		AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/DetailViewController.swift; sourceTree = "<group>"; };
 		AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController1.swift; path = Controllers/TabViewController1.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				AF1FC7C21D5B6F8C004973A2 /* ResultView.swift */,
 				AF1FC7D11D5B8A20004973A2 /* MapView.swift */,
+				AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */,
 				AF1FC7D51D5B8A58004973A2 /* Cells */,
 			);
 			name = Views;
@@ -435,6 +438,7 @@
 				AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
 				AF5D3B781D5A9E7C007E55B7 /* TabViewController2.swift in Sources */,
+				AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */,
 				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
 				AF588A6C1D5CB87800F228C7 /* DemographicDetailViewController.swift in Sources */,
 				AF5045111D5C34B300A2E97D /* Tabable.swift in Sources */,
