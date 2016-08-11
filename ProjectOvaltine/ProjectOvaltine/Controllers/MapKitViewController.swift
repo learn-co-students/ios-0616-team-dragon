@@ -11,7 +11,7 @@ import LFHeatMap
 import Foundation
 import MapKit
 
-class MapKitViewController: UIViewController, MKMapViewDelegate {
+class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControllerDelegate, UISearchBarDelegate {
     
     //Data store instances
     let store = DataStore.sharedInstance
@@ -41,24 +41,31 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     //Necessary to convert point data to CLLocationCoordinate2D array
     var boundary: [CLLocationCoordinate2D] = []
     
+    //Init searchBar
+    let searchController = UISearchBar.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        testPrint()
-        drawInMapView()
+        //self.testPrint()
+        self.drawInMapView()
         
-        populateCoordinateArray{(someArray) in
+        self.searchBar()
+        
+        
+        
+        self.populateCoordinateArray{(someArray) in
             
             for i in 0...someArray.count-1 {
                 
                 self.convertArrayDataToPoints(someArray[i] as! [AnyObject])
             }
             
-            self.drawPolylines()
+            
             print(self.boundary)
             
         }
         
-        centerMapOnLocation(self.initialLocation)
+        self.centerMapOnLocation(self.initialLocation)
     }
     
     func drawInMapView(){
@@ -139,6 +146,15 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         self.mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.getLocationFromZipcode(self.searchController.text!)
+        self.drawPolylines()
+    }
+    
+//    func getLocationFromSearchField(userSearch: String) {
+//        var placemark: CLPlacemark!
+//        CLGeocoder().geocodeAddressString(userSearch, completionHandler: {(placemarks, error) in })}
+    
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
         var placemark: CLPlacemark!
@@ -151,9 +167,21 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
                 print("\(error)")
             } else {
                 placemark = (placemarks?.last)!
-                self.zipLocation = placemark?.location
-                self.centerMapOnLocation(self.zipLocation)
+            
+                //print(placemarks)
+               self.zipLocation = placemark?.location
+            self.centerMapOnLocation(self.zipLocation)
             }
         })
+    }
+    
+    func searchBar() {
+        self.searchController.placeholder = "Enter Location"
+        self.searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 66)
+        let topConstraint = NSLayoutConstraint(item: searchController, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
+        self.searchController.delegate = self
+        self.view.addSubview(self.searchController)
+        self.view.addConstraint(topConstraint)
+        
     }
 }
