@@ -11,10 +11,12 @@ import MapKit
 import SwiftSpinner
 import SnapKit
 
-class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate {
+class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate, Mapable, Searchable {
     
-    let searchController = UISearchBar.init()
-    
+//    let searchable = setupSearch()
+    var searchController: UISearchBar = UISearchBar()
+    var constraint: NSLayoutConstraint = NSLayoutConstraint()
+    //var initialVC = AppController()
     var currentViewController: UIViewController!
     var containerView: UIView!
     
@@ -22,13 +24,26 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
     let cityAPI = CitySDKAPIClient.sharedInstance
     var cityData: [CitySDKData] = []
     
+//    required init?(coder: NSCoder = NSCoder.empty()) {
+//        //self.searchController = UISearchBar()
+//        self.constraint = NSLayoutConstraint()
+//        //self.currentViewController
+//        self.containerView = UIView()
+//        //self.currentViewController =
+//        super.init(coder:NSCoder.empty())
+//        //not implemented
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor=UIColor.lightGrayColor()
+        let searchable = self.setupSearch()
+        self.searchController = searchable.0
+        self.constraint = searchable.1
         //self.initHeaderBanner()
         self.initMapBlock()
-        self.initSearchButton()
-        self.initSearchTextField()
+//        self.initSearchButton()
+//        self.initSearchTextField()
         self.loadInitialViewController()
         self.addNotificationObservers()
         
@@ -67,12 +82,8 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
     }
 
     func searchBar() {
-        searchController.placeholder = "Enter Location"
-        searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 66)
-        let topConstraint = NSLayoutConstraint(item: searchController, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
-        searchController.delegate = self
-        self.view.addSubview(searchController)
-        self.view.addConstraint(topConstraint)
+        self.view.addSubview(self.searchController)
+        self.view.addConstraint(self.constraint)
     }
  
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -96,28 +107,33 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
         self.view.addSubview(projectName)
     }
     
-    func initMapBlock() {
-        let mapView = MKMapView()
-        mapView.frame = CGRectMake(0, 66, self.view.frame.width, 700)
-        mapView.mapType = MKMapType.Standard
-        mapView.zoomEnabled = true
-        mapView.scrollEnabled = true
-        self.view.addSubview(mapView)
-    }
+//    func initMapBlock() {
+//        let mapView = MKMapView()
+//        mapView.frame = CGRectMake(0, 66, self.view.frame.width, 700)
+//        mapView.mapType = MKMapType.Standard
+//        mapView.zoomEnabled = true
+//        mapView.scrollEnabled = true
+//        self.view.addSubview(mapView)
+//    }
     
 }
 
 extension AppController {
     private func loadInitialViewController() {
-        //self.currentViewController = loadViewControllerWith()
-       // self.addCurrentViewController(self.currentViewController)
-        //not implemented yet
+        
     }
+    //let initialViewController = InitialViewController()
+//    func loadInitialViewController() -> UIViewController {
+//        
+//        //self.currentViewController = loadViewControllerWith()
+//       // self.addCurrentViewController(self.currentViewController)
+//        //not implemented yet
+//    }
     private func addNotificationObservers() {
         //not implemented yet
     }
     
-    private func addCurrentViewController(controller: UIViewController) {
+   func addCurrentViewController(controller: UIViewController) {
         self.addChildViewController(controller)
         self.containerView.addSubview(controller.view)
         controller.view.frame = self.containerView.bounds
