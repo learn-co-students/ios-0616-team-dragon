@@ -27,8 +27,8 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
         self.view.backgroundColor=UIColor.lightGrayColor()
         //self.initHeaderBanner()
         self.initMapBlock()
-        self.initSearchButton()
-        self.initSearchTextField()
+//        self.initSearchButton()
+//        self.initSearchTextField()
         self.loadInitialViewController()
         self.addNotificationObservers()
         
