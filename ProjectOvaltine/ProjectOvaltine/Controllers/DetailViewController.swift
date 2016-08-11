@@ -80,21 +80,3 @@ class DetailViewController: UITabBarController, UITabBarControllerDelegate, Taba
         self.view.addSubview(newView)
     }
 }
-
-
-
-
-//    func initSearchButton() {
-//        let button=UIButton(frame: CGRectMake(366, 20, 40, 40))
-//        button.backgroundColor = UIColor.whiteColor()
-//        //button.setTitle("SEARCH", forState: .Normal)
-//        button.setImage(UIImage(named: "active-search.png"), forState: UIControlState.Normal)
-//        button.setTitleColor(UIColor.yellowColor(), forState: .Normal)
-//        button.alpha=1.0
-//        button.layer.borderWidth = 1.3
-//        button.layer.cornerRadius = 20
-//        //*** button action***//
-//        //button.addTarget(self, action: #selector(AppController.searchButtonTapped), forControlEvents: .TouchUpInside)
-//        button.titleLabel!.textAlignment=NSTextAlignment.Center
-//        self.view.addSubview(button)
-//    }
