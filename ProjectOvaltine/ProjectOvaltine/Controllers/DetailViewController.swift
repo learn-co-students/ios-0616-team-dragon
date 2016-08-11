@@ -12,7 +12,16 @@ import SwiftSpinner
 class DetailViewController: UITabBarController, UITabBarControllerDelegate, Tabable, Navigable {
     
     let resultView = ResultView()
+    let resultDataPointTitleLabel: UILabel!
+    let resultMapView: MKMapView!
+    let resultDataPointLabel: UILabel!
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.tintColor = UIColor.blueColor()
@@ -36,7 +45,7 @@ class DetailViewController: UITabBarController, UITabBarControllerDelegate, Taba
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
         let detailVC = DetailViewController()
         SwiftSpinner.hide()
-        self.presentViewController(detailVC, animated: true, completion: nil)
+        self.presentViewController(detailVC!, animated: true, completion: nil)
     }
     
     func initHeaderBanner() {
@@ -70,6 +79,9 @@ class DetailViewController: UITabBarController, UITabBarControllerDelegate, Taba
     }
     
     func setUpView() {
+        let mapFrame = CGRect(x: 0, y: 0, width: 150, height: 300)
+        self.resultMapView.frame = mapFrame
+        
         let viewFrame = CGRect(x: 0, y: 0, width: 150, height: 300)
         self.view = UIView(frame: viewFrame)
         self.view.backgroundColor = UIColor.clearColor()
@@ -77,6 +89,7 @@ class DetailViewController: UITabBarController, UITabBarControllerDelegate, Taba
         let height: CGFloat = UIScreen.mainScreen().bounds.size.height
         let newView = UIView(frame: CGRect(x: (width * 0.10), y: (height * 0.25), width: (width * 0.75), height: (height / 2)))
         newView.backgroundColor = UIColor.yellowColor()
+        self.view.addSubview(self.resultMapView)
         self.view.addSubview(newView)
     }
 }

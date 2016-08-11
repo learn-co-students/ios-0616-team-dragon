@@ -89,9 +89,9 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-        let detailVC = DetailViewController()
+        let detailVC = DetailViewController(coder: NSCoder())
         SwiftSpinner.hide()
-        self.showViewController(detailVC, sender: searchBar)
+        self.showViewController(detailVC!, sender: searchBar)
         searchController.text?.removeAll()
     }
     

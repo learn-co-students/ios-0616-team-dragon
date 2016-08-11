@@ -18,7 +18,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         super.viewWillAppear(animated)
         
         let tabOne = DetailViewController()
-        //let tabOne = InitialViewController()
         let tabTwo = ResultViewController()
         let tabThree = EconomicDetailViewController()
         let tabFour = EducationDetailViewController()
@@ -38,4 +37,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         print("Should select viewController: \(viewController.title) ?")
         return true;
     }
+    
+    //let iconOne = UITabBarItem(title: "Title", image: UIImage(named: "someImage.png"), selectedImage: UIImage(named: "otherImage.png"))
+    //item1.tabBarItem = icon1
 }
