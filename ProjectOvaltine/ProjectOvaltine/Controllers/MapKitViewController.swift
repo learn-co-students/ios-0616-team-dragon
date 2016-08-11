@@ -13,38 +13,49 @@ import MapKit
 
 class MapKitViewController: UIViewController, MKMapViewDelegate {
     
+    //Data store instances
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
     let jobsAPI = USAJobsAPIClient.sharedInstance
-    var cityData: [CitySDKData] = []
     
+    //Array of citySDK data
+    var cityData: [CitySDKData] = []
+    //Initialized mapView
     let mapView: MKMapView! = MKMapView()
-    let initialLocation = CLLocation(latitude: 34.4248, longitude: -118.5971)
+    
+    //Set zipLocation (used in GeoCoder function), region radius
     var zipLocation : CLLocation! = nil
     let regionRadius: CLLocationDistance = 1000
+    
+    //Initialize alert - used in GeoCoder function when user enters an invalid zipcode
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+    //Hardcoded array of coordinates to test drawing a bounding box
+    let coordinates: [(Double, Double)] = [(34.4313,-118.59890),(34.4274,-118.60246), (34.4268,-118.60181), (34.4202,-118.6004), (34.42013,-118.59239), (34.42049,-118.59051), (34.42305,-118.59276), (34.42557,-118.59289), (34.42739,-118.59171), (34.4313,-118.59890)]
     
-    let coordinates = [["34.4313","-118.59890"],["34.4274","-118.60246"], ["34.4268","-118.60181"], ["34.4202","-118.6004"], ["34.42013","-118.59239"], ["34.42049","-118.59051"], ["34.42305","-118.59276"], ["34.42557","-118.59289"], ["34.42739","-118.59171"]]
+    //Calculates a location from array of location data - will be deprecated eventually
+    var initialLocation : CLLocation {
+        let newLocation = CLLocation.init(latitude: 40.28683599971092, longitude: -75.26431999998206)
+        return newLocation}
     
-//    var midCoordinate: CLLocationCoordinate2D
-//    var overlayTopLeftCoordinate: CLLocationCoordinate2D
-//    var overlayTopRightCoordinate: CLLocationCoordinate2D
-//    var overlayBottomLeftCoordinate: CLLocationCoordinate2D
-//    var overlayBottomRightCoordinate: CLLocationCoordinate2D
+    //Necessary to convert point data to CLLocationCoordinate2D array
+    var boundary: [CLLocationCoordinate2D] = []
     
-//    let midPoint = CGPointFromString(properties!["midCoord"] as! String)
-//    midCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(midPoint.x), CLLocationDegrees(midPoint.y))
-   
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let censusAPI = CensusAPIClient()
-        let urlRequest = censusAPI.buildRequest()
-        print(censusAPI.sendAPIRequest(urlRequest!))
+        testPrint()
+        drawInMapView()
         
+        populateCoordinateArray{(someArray) in
+            
+            for i in 0...someArray.count-1 {
+                
+                self.convertArrayDataToPoints(someArray[i] as! [AnyObject])
+            }
+            
+            self.drawPolylines()
+            print(self.boundary)
+            
+        }
 //       censusAPI.sendAPIRequest()
 //       self.store.sendCityAPITest()
 //       jobsAPI.sendAPIRequest()
@@ -70,31 +81,88 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
 //                }
 //            }
 //        })
+        centerMapOnLocation(self.initialLocation)
+    }
+    
+    func drawInMapView(){
         mapView.frame = view.frame
         mapView.delegate = self
         view.addSubview(mapView)
-        centerMapOnLocation(self.initialLocation)
-//        getLocationFromZipcode("08540")
     }
     
-//    var overlayBoundingMapRect: MKMapRect {
-//        get {
-////            let topLeft = MKMapPointForCoordinate(overlayTopLeftCoordinate)
-////            let topRight = MKMapPointForCoordinate(overlayTopRightCoordinate)
-////            let bottomLeft = MKMapPointForCoordinate(overlayBottomLeftCoordinate)
-//            return MKMapRectMake(topLeft.x,
-//                                 topLeft.y,
-//                                 fabs(topLeft.x-topRight.x),
-//                                 fabs(topLeft.y - bottomLeft.y))
-//        }
-//    }
+    func populateCoordinateArray(completionHandler: (NSArray) -> ()){
+        
+        self.store.getCitySDKData({
+            
+            if let geo = self.store.cityDataPoints.first?.coordinates {
+                completionHandler(geo)
+            }
+        })
+    }
     
+    func testPrint(){
+        self.store.getCitySDKData({
+            if let geo = self.store.cityDataPoints.first?.coordinates {
+                print(geo)}
+            
+            if let age = self.store.cityDataPoints.first?.age {
+                print(age)
+            }
+            
+            if let name = self.store.cityDataPoints.first?.locationName {
+                print(name)
+            }
+            
+            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
+                print(commute)
+            }
+            
+            if let income = self.store.cityDataPoints.first?.incomePerCapita {
+                print(income)
+            }
+            
+            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
+                print(education)
+            }
+            
+        })
+    }
+    
+    func convertArrayDataToPoints(array: [AnyObject]) {
+        
+        let longCoord = array[0] as! Double
+        let latCoord = array[1] as! Double
+        
+        let point = CLLocationCoordinate2D(latitude: latCoord, longitude: longCoord)
+        boundary.append(point)
+        
+    }
+    
+    func drawPolylines(){
+        let polyline = MKPolyline(coordinates: &boundary, count: boundary.count)
+        mapView.addOverlay(polyline)
+    }
+    
+    //Delegate method from mapView in order to render the polyline
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+        polylineRenderer.strokeColor = UIColor.blueColor()
+        polylineRenderer.lineWidth = 5
+        return polylineRenderer
+        
+    }
+    
+    //Centers Map on a given coordinate
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  self.regionRadius * 2.0, self.regionRadius * 2.0)
+                                                                  self.regionRadius * 2.0,
+                                                                  self.regionRadius * 2.0)
+        
+
         self.mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
         var placemark: CLPlacemark!
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {(placemarks, error) in

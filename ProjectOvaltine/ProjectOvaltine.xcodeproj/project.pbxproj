@@ -18,26 +18,23 @@
 		AF1FC7C81D5B72C0004973A2 /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7C71D5B72C0004973A2 /* ScoreModel.swift */; };
 		AF1FC7CA1D5B736F004973A2 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7C91D5B736F004973A2 /* ResultViewController.swift */; };
 		AF1FC7D21D5B8A20004973A2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7D11D5B8A20004973A2 /* MapView.swift */; };
-		AF1FC7D41D5B8A46004973A2 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7D31D5B8A46004973A2 /* InitialViewController.swift */; };
 		AF1FC7D71D5B8D78004973A2 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7D61D5B8D78004973A2 /* LocationData.swift */; };
-		AF23E6971D5C256C00AC9F91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23E6961D5C256C00AC9F91 /* Constants.swift */; };
 		AF24B1C71D5986EA0031FEEB /* CitySDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24B1C61D5986EA0031FEEB /* CitySDKTests.swift */; };
 		AF24B1C91D5987150031FEEB /* USAJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24B1C81D5987150031FEEB /* USAJobsTests.swift */; };
 		AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24B1CB1D5987530031FEEB /* MapUITests.swift */; };
 		AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */; };
 		AF5D3B741D5A9E7C007E55B7 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */; };
 		AF5D3B751D5A9E7C007E55B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */; };
-		AF5D3B761D5A9E7C007E55B7 /* PrototypeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6E1D5A9E7C007E55B7 /* PrototypeTabBar.swift */; };
 		AF5D3B771D5A9E7C007E55B7 /* TabViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */; };
 		AF5D3B781D5A9E7C007E55B7 /* TabViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B701D5A9E7C007E55B7 /* TabViewController2.swift */; };
 		AF5D3B791D5A9E7C007E55B7 /* TabViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B711D5A9E7C007E55B7 /* TabViewController3.swift */; };
 		AF5D3B7A1D5A9E7C007E55B7 /* TabViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B721D5A9E7C007E55B7 /* TabViewController4.swift */; };
 		AF5D3B7B1D5A9E7C007E55B7 /* TabViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B731D5A9E7C007E55B7 /* TabViewController5.swift */; };
 		AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DF991D53D30300DDF173 /* AppDelegate.swift */; };
-		AF75DF9F1D53D30400DDF173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DF9D1D53D30400DDF173 /* Main.storyboard */; };
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
 		AFB255971D5BAF4D00C0539C /* AppControllerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB255961D5BAF4D00C0539C /* AppControllerDataProvider.swift */; };
+		AFB97A281D5C27B000BEA935 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB97A271D5C27B000BEA935 /* Constants.swift */; };
 		AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */; };
 		AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */; };
 		AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */; };
@@ -64,14 +61,12 @@
 		AF1FC7D11D5B8A20004973A2 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = Views/MapView.swift; sourceTree = "<group>"; };
 		AF1FC7D31D5B8A46004973A2 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialViewController.swift; path = Controllers/InitialViewController.swift; sourceTree = "<group>"; };
 		AF1FC7D61D5B8D78004973A2 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
-		AF23E6961D5C256C00AC9F91 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AF24B1C61D5986EA0031FEEB /* CitySDKTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySDKTests.swift; path = Tests/CitySDKTests.swift; sourceTree = "<group>"; };
 		AF24B1C81D5987150031FEEB /* USAJobsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = USAJobsTests.swift; path = Tests/USAJobsTests.swift; sourceTree = "<group>"; };
 		AF24B1CB1D5987530031FEEB /* MapUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapUITests.swift; path = UITests/MapUITests.swift; sourceTree = "<group>"; };
 		AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKData.swift; sourceTree = "<group>"; };
 		AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
 		AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/DetailViewController.swift; sourceTree = "<group>"; };
-		AF5D3B6E1D5A9E7C007E55B7 /* PrototypeTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrototypeTabBar.swift; path = Controllers/PrototypeTabBar.swift; sourceTree = "<group>"; };
 		AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController1.swift; path = Controllers/TabViewController1.swift; sourceTree = "<group>"; };
 		AF5D3B701D5A9E7C007E55B7 /* TabViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController2.swift; path = Controllers/TabViewController2.swift; sourceTree = "<group>"; };
 		AF5D3B711D5A9E7C007E55B7 /* TabViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController3.swift; path = Controllers/TabViewController3.swift; sourceTree = "<group>"; };
@@ -79,11 +74,11 @@
 		AF5D3B731D5A9E7C007E55B7 /* TabViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController5.swift; path = Controllers/TabViewController5.swift; sourceTree = "<group>"; };
 		AF75DF961D53D30300DDF173 /* ProjectOvaltine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOvaltine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF75DF991D53D30300DDF173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF75DF9E1D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF75DFA01D53D30400DDF173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF75DFA31D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF75DFA51D53D30400DDF173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFB255961D5BAF4D00C0539C /* AppControllerDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppControllerDataProvider.swift; path = Controllers/AppControllerDataProvider.swift; sourceTree = "<group>"; };
+		AFB97A271D5C27B000BEA935 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySDKAPIClient.swift; path = Utilities/CitySDKAPIClient.swift; sourceTree = "<group>"; };
 		AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GovDataAPIClient.swift; path = Utilities/GovDataAPIClient.swift; sourceTree = "<group>"; };
 		AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaborStatisticsAPIClient.swift; path = Utilities/LaborStatisticsAPIClient.swift; sourceTree = "<group>"; };
@@ -186,7 +181,7 @@
 		AFE45FFF1D551B2900FBE63B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				AF23E6961D5C256C00AC9F91 /* Constants.swift */,
+				AFB97A271D5C27B000BEA935 /* Constants.swift */,
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
 				AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */,
 				AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */,
@@ -218,7 +213,6 @@
 			children = (
 				AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */,
 				AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */,
-				AF5D3B6E1D5A9E7C007E55B7 /* PrototypeTabBar.swift */,
 				AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */,
 				AF5D3B701D5A9E7C007E55B7 /* TabViewController2.swift */,
 				AF5D3B711D5A9E7C007E55B7 /* TabViewController3.swift */,
@@ -236,7 +230,6 @@
 		AFEEC1FB1D54DD1F00EEAECA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AF75DF9D1D53D30400DDF173 /* Main.storyboard */,
 				AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */,
 				AF75DFA51D53D30400DDF173 /* Info.plist */,
 				AF75DFA01D53D30400DDF173 /* Assets.xcassets */,
@@ -289,6 +282,7 @@
 				TargetAttributes = {
 					AF75DF951D53D30300DDF173 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Q844VW9UW4;
 					};
 				};
 			};
@@ -317,7 +311,6 @@
 			files = (
 				AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */,
 				AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */,
-				AF75DF9F1D53D30400DDF173 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +384,6 @@
 				AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */,
 				AF5D3B771D5A9E7C007E55B7 /* TabViewController1.swift in Sources */,
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
-				AF1FC7D41D5B8A46004973A2 /* InitialViewController.swift in Sources */,
 				AFB255971D5BAF4D00C0539C /* AppControllerDataProvider.swift in Sources */,
 				AF1FC7C31D5B6F8C004973A2 /* ResultView.swift in Sources */,
 				AF1FC7C81D5B72C0004973A2 /* ScoreModel.swift in Sources */,
@@ -406,26 +398,17 @@
 				AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
 				AF5D3B781D5A9E7C007E55B7 /* TabViewController2.swift in Sources */,
-				AF5D3B761D5A9E7C007E55B7 /* PrototypeTabBar.swift in Sources */,
 				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
 				AF04F1C91D5A75B1005B7F26 /* CityAPIClientStruct.swift in Sources */,
 				AF1FC7C11D5B6F1F004973A2 /* ResultCell.swift in Sources */,
 				AF5D3B741D5A9E7C007E55B7 /* AppController.swift in Sources */,
-				AF23E6971D5C256C00AC9F91 /* Constants.swift in Sources */,
+				AFB97A281D5C27B000BEA935 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AF75DF9D1D53D30400DDF173 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF75DF9E1D53D30400DDF173 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -525,10 +508,13 @@
 			baseConfigurationReference = 97F902FD0066A98854362609 /* Pods-ProjectOvaltine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ProjectOvaltine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Webb.C.ProjectOvaltine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -537,10 +523,13 @@
 			baseConfigurationReference = C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ProjectOvaltine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Webb.C.ProjectOvaltine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

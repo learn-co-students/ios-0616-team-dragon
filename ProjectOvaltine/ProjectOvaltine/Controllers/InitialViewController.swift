@@ -5,7 +5,6 @@
 //  Created by Christopher Webb-Orenstein on 8/10/16.
 //  Copyright © 2016 Christopher Webb-Orenstein. All rights reserved.
 //
-
 import UIKit
 import MapKit
 import SwiftSpinner
@@ -72,7 +71,6 @@ class InitialViewController: UIViewController {
         mapView.scrollEnabled = true
         self.view.addSubview(mapView)
     }
-    
     func initSearchButton() {
         let button=UIButton(frame: CGRectMake(366, 20, 40, 40))
         button.backgroundColor = UIColor.whiteColor()
@@ -99,15 +97,3 @@ class InitialViewController: UIViewController {
         self.view.addSubview(myTextField)
     }
 }
-
-extension AppController {
-    private func loadInitialViewController() {
-        
-        //not implemented yet
-        
-    }
-    private func addNotificationObservers() {
-        //not implemented yet
-    }
-}
-

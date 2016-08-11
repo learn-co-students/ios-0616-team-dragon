@@ -33,8 +33,4 @@ class ResultView: UIView {
             self.resultLocationNameLabel.text = result.resultLocationName
         }
     }
-    
-    
-    
-
 }
