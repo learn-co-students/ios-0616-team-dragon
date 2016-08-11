@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate {
+    
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
     let censusAPI = CensusAPIClient()
+    
     var cityData: [CitySDKData] = []
+    var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //censusAPI.sendAPIRequest()
         self.store.getCitySDKData({
             if let age = self.store.cityDataPoints.first?.age {
                 print(age)

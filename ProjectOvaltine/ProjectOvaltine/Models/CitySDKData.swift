@@ -10,6 +10,8 @@ import Foundation
 import SwiftyJSON
 
 class CitySDKData {
+    func getDataWithCompletion(completion: () -> ()){}
+
     var walkingCommuteTime: String //(Normalizable) Time spent commuting (in minutes): walking.
     var age: String //Median age.
     var incomePerCapita: String //Per capita income in the past 12 months (in 2013 inflation-adjusted dollars).
@@ -24,6 +26,7 @@ class CitySDKData {
     var coordinates: NSArray
     
     init(json:JSON, geoJSON:NSArray) {
+
         guard let
             commuteWalk = json["B08136_011E"].string,
             medianAge = json["B01002_001E"].string,
@@ -39,6 +42,7 @@ class CitySDKData {
             else {
                 fatalError("FatalError")
         }
+     
         self.walkingCommuteTime = commuteWalk
         self.age = medianAge
         self.incomePerCapita = perCapitaIncome
@@ -52,4 +56,5 @@ class CitySDKData {
         self.laborForceEmployed = laborEmployment
         self.coordinates = geoJSON
     }
+
 }

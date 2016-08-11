@@ -8,7 +8,6 @@
 
 import UIKit
 struct ResultModel {
-
     var subScores: [ScoreModel] = []
     var dataPoints: [String] = []
     let resultScore: ScoreModel

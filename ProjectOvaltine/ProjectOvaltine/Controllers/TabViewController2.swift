@@ -8,13 +8,10 @@
 
 import UIKit
 
-class TabViewController2: UIViewController {
+class TabViewController2: UIViewController, Navigable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-        navBar()
-        detailImage()
     }
     
     func detailImage() {
@@ -27,6 +24,8 @@ class TabViewController2: UIViewController {
         imageView.clipsToBounds = true
         self.view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
+        self.view.backgroundColor = UIColor.redColor()
+        self.view.addSubview(self.setupNavBar())
     }
     
     func navBar() {

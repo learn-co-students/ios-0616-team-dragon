@@ -20,14 +20,23 @@
 		AF1FC7C61D5B70B4004973A2 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7C51D5B70B4004973A2 /* ResultModel.swift */; };
 		AF1FC7C81D5B72C0004973A2 /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7C71D5B72C0004973A2 /* ScoreModel.swift */; };
 		AF1FC7CA1D5B736F004973A2 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7C91D5B736F004973A2 /* ResultViewController.swift */; };
-		AF1FC7CC1D5B7AA1004973A2 /* ResultFeedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7CB1D5B7AA1004973A2 /* ResultFeedTableView.swift */; };
 		AF1FC7D21D5B8A20004973A2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7D11D5B8A20004973A2 /* MapView.swift */; };
-		AF1FC7D41D5B8A46004973A2 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7D31D5B8A46004973A2 /* InitialViewController.swift */; };
 		AF1FC7D71D5B8D78004973A2 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7D61D5B8D78004973A2 /* LocationData.swift */; };
 		AF24B1C71D5986EA0031FEEB /* CitySDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24B1C61D5986EA0031FEEB /* CitySDKTests.swift */; };
 		AF24B1C91D5987150031FEEB /* USAJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24B1C81D5987150031FEEB /* USAJobsTests.swift */; };
 		AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24B1CB1D5987530031FEEB /* MapUITests.swift */; };
 		AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */; };
+		AF50450F1D5C320600A2E97D /* Navigable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50450E1D5C320600A2E97D /* Navigable.swift */; };
+		AF5045111D5C34B300A2E97D /* Tabable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045101D5C34B300A2E97D /* Tabable.swift */; };
+		AF5045131D5C41C000A2E97D /* Mapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045121D5C41C000A2E97D /* Mapable.swift */; };
+		AF5045171D5C42D600A2E97D /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045161D5C42D600A2E97D /* Searchable.swift */; };
+		AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */; };
+		AF588A641D5CB78400F228C7 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A631D5CB78400F228C7 /* AppFont.swift */; };
+		AF588A661D5CB7DA00F228C7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A651D5CB7DA00F228C7 /* TabBarController.swift */; };
+		AF588A681D5CB81C00F228C7 /* EducationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A671D5CB81C00F228C7 /* EducationDetailViewController.swift */; };
+		AF588A6A1D5CB83B00F228C7 /* EconomicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A691D5CB83B00F228C7 /* EconomicDetailViewController.swift */; };
+		AF588A6C1D5CB87800F228C7 /* DemographicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A6B1D5CB87800F228C7 /* DemographicDetailViewController.swift */; };
+		AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */; };
 		AF5D3B741D5A9E7C007E55B7 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */; };
 		AF5D3B751D5A9E7C007E55B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */; };
 		AF5D3B771D5A9E7C007E55B7 /* TabViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */; };
@@ -38,6 +47,7 @@
 		AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DF991D53D30300DDF173 /* AppDelegate.swift */; };
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
+		AFB97A281D5C27B000BEA935 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB97A271D5C27B000BEA935 /* Constants.swift */; };
 		AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */; };
 		AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */; };
 		AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */; };
@@ -63,7 +73,6 @@
 		AF1FC7C51D5B70B4004973A2 /* ResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		AF1FC7C71D5B72C0004973A2 /* ScoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
 		AF1FC7C91D5B736F004973A2 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultViewController.swift; path = Controllers/ResultViewController.swift; sourceTree = "<group>"; };
-		AF1FC7CB1D5B7AA1004973A2 /* ResultFeedTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultFeedTableView.swift; path = Views/ResultFeedTableView.swift; sourceTree = "<group>"; };
 		AF1FC7D11D5B8A20004973A2 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = Views/MapView.swift; sourceTree = "<group>"; };
 		AF1FC7D31D5B8A46004973A2 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialViewController.swift; path = Controllers/InitialViewController.swift; sourceTree = "<group>"; };
 		AF1FC7D61D5B8D78004973A2 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
@@ -71,6 +80,17 @@
 		AF24B1C81D5987150031FEEB /* USAJobsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = USAJobsTests.swift; path = Tests/USAJobsTests.swift; sourceTree = "<group>"; };
 		AF24B1CB1D5987530031FEEB /* MapUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapUITests.swift; path = UITests/MapUITests.swift; sourceTree = "<group>"; };
 		AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKData.swift; sourceTree = "<group>"; };
+		AF50450E1D5C320600A2E97D /* Navigable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigable.swift; path = Controllers/Navigable.swift; sourceTree = "<group>"; };
+		AF5045101D5C34B300A2E97D /* Tabable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tabable.swift; path = Controllers/Tabable.swift; sourceTree = "<group>"; };
+		AF5045121D5C41C000A2E97D /* Mapable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mapable.swift; path = Controllers/Mapable.swift; sourceTree = "<group>"; };
+		AF5045161D5C42D600A2E97D /* Searchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Searchable.swift; path = Controllers/Searchable.swift; sourceTree = "<group>"; };
+		AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSCoderExtension.swift; path = Utilities/NSCoderExtension.swift; sourceTree = "<group>"; };
+		AF588A631D5CB78400F228C7 /* AppFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		AF588A651D5CB7DA00F228C7 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
+		AF588A671D5CB81C00F228C7 /* EducationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EducationDetailViewController.swift; path = Controllers/EducationDetailViewController.swift; sourceTree = "<group>"; };
+		AF588A691D5CB83B00F228C7 /* EconomicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EconomicDetailViewController.swift; path = Controllers/EconomicDetailViewController.swift; sourceTree = "<group>"; };
+		AF588A6B1D5CB87800F228C7 /* DemographicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemographicDetailViewController.swift; path = Controllers/DemographicDetailViewController.swift; sourceTree = "<group>"; };
+		AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultTableView.swift; path = Views/ResultTableView.swift; sourceTree = "<group>"; };
 		AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
 		AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/DetailViewController.swift; sourceTree = "<group>"; };
 		AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController1.swift; path = Controllers/TabViewController1.swift; sourceTree = "<group>"; };
@@ -83,6 +103,7 @@
 		AF75DFA01D53D30400DDF173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF75DFA31D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF75DFA51D53D30400DDF173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFB97A271D5C27B000BEA935 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySDKAPIClient.swift; path = Utilities/CitySDKAPIClient.swift; sourceTree = "<group>"; };
 		AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GovDataAPIClient.swift; path = Utilities/GovDataAPIClient.swift; sourceTree = "<group>"; };
 		AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaborStatisticsAPIClient.swift; path = Utilities/LaborStatisticsAPIClient.swift; sourceTree = "<group>"; };
@@ -118,9 +139,9 @@
 		AF1FC7C41D5B6F95004973A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AF1FC7CB1D5B7AA1004973A2 /* ResultFeedTableView.swift */,
 				AF1FC7C21D5B6F8C004973A2 /* ResultView.swift */,
 				AF1FC7D11D5B8A20004973A2 /* MapView.swift */,
+				AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */,
 				AF1FC7D51D5B8A58004973A2 /* Cells */,
 			);
 			name = Views;
@@ -186,7 +207,7 @@
 		AFE45FFF1D551B2900FBE63B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				2BE783821D5BD926005822C9 /* Constants.swift */,
+				AFB97A271D5C27B000BEA935 /* Constants.swift */,
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
 				AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */,
 				AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */,
@@ -194,6 +215,7 @@
 				AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */,
 				AF04F1C61D5A404C005B7F26 /* CensusAPIClient.swift */,
 				AF04F1C81D5A75B1005B7F26 /* CityAPIClientStruct.swift */,
+				AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -209,6 +231,7 @@
 				AF1FC7C51D5B70B4004973A2 /* ResultModel.swift */,
 				AF1FC7C71D5B72C0004973A2 /* ScoreModel.swift */,
 				AF1FC7D61D5B8D78004973A2 /* LocationData.swift */,
+				AF588A631D5CB78400F228C7 /* AppFont.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,6 +239,10 @@
 		AFE4601F1D551C5400FBE63B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF50450E1D5C320600A2E97D /* Navigable.swift */,
+				AF5045121D5C41C000A2E97D /* Mapable.swift */,
+				AF5045101D5C34B300A2E97D /* Tabable.swift */,
+				AF5045161D5C42D600A2E97D /* Searchable.swift */,
 				AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */,
 				AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */,
 				2BE27A621D5CBD3500A26673 /* TableViewCell.swift */,
@@ -228,6 +255,10 @@
 				AFE4601D1D551C4D00FBE63B /* ViewController.swift */,
 				AF1FC7D31D5B8A46004973A2 /* InitialViewController.swift */,
 				AF1FC7C91D5B736F004973A2 /* ResultViewController.swift */,
+				AF588A651D5CB7DA00F228C7 /* TabBarController.swift */,
+				AF588A671D5CB81C00F228C7 /* EducationDetailViewController.swift */,
+				AF588A691D5CB83B00F228C7 /* EconomicDetailViewController.swift */,
+				AF588A6B1D5CB87800F228C7 /* DemographicDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -287,6 +318,7 @@
 				TargetAttributes = {
 					AF75DF951D53D30300DDF173 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Q844VW9UW4;
 					};
 				};
 			};
@@ -383,33 +415,41 @@
 				AF5D3B7A1D5A9E7C007E55B7 /* TabViewController4.swift in Sources */,
 				AF5D3B751D5A9E7C007E55B7 /* DetailViewController.swift in Sources */,
 				AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */,
+				AF5045171D5C42D600A2E97D /* Searchable.swift in Sources */,
 				AF1FC7D21D5B8A20004973A2 /* MapView.swift in Sources */,
 				AF1FC7C61D5B70B4004973A2 /* ResultModel.swift in Sources */,
 				AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */,
 				AF5D3B771D5A9E7C007E55B7 /* TabViewController1.swift in Sources */,
+				AF588A641D5CB78400F228C7 /* AppFont.swift in Sources */,
+				AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */,
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
-				AF1FC7D41D5B8A46004973A2 /* InitialViewController.swift in Sources */,
 				AF1FC7C31D5B6F8C004973A2 /* ResultView.swift in Sources */,
 				AF1FC7C81D5B72C0004973A2 /* ScoreModel.swift in Sources */,
 				AF24B1C91D5987150031FEEB /* USAJobsTests.swift in Sources */,
 				AF5D3B791D5A9E7C007E55B7 /* TabViewController3.swift in Sources */,
 				AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */,
 				AF04F1C71D5A404C005B7F26 /* CensusAPIClient.swift in Sources */,
+				AF588A661D5CB7DA00F228C7 /* TabBarController.swift in Sources */,
+				AF50450F1D5C320600A2E97D /* Navigable.swift in Sources */,
 				AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */,
+				AF588A681D5CB81C00F228C7 /* EducationDetailViewController.swift in Sources */,
+				AF588A6A1D5CB83B00F228C7 /* EconomicDetailViewController.swift in Sources */,
 				AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */,
 				AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */,
 				AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */,
 				AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */,
-				AF1FC7CC1D5B7AA1004973A2 /* ResultFeedTableView.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
 				2BE27A631D5CBD3500A26673 /* TableViewCell.swift in Sources */,
 				AF5D3B781D5A9E7C007E55B7 /* TabViewController2.swift in Sources */,
+				AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */,
 				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
+				AF588A6C1D5CB87800F228C7 /* DemographicDetailViewController.swift in Sources */,
+				AF5045111D5C34B300A2E97D /* Tabable.swift in Sources */,
 				AF04F1C91D5A75B1005B7F26 /* CityAPIClientStruct.swift in Sources */,
+				AF5045131D5C41C000A2E97D /* Mapable.swift in Sources */,
 				AF1FC7C11D5B6F1F004973A2 /* ResultCell.swift in Sources */,
 				AF5D3B741D5A9E7C007E55B7 /* AppController.swift in Sources */,
-				2BE783811D5BD75F005822C9 /* (null) in Sources */,
-				2BE783831D5BD926005822C9 /* Constants.swift in Sources */,
+				AFB97A281D5C27B000BEA935 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,10 +555,13 @@
 			baseConfigurationReference = 97F902FD0066A98854362609 /* Pods-ProjectOvaltine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ProjectOvaltine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Webb.C.ProjectOvaltine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -527,10 +570,13 @@
 			baseConfigurationReference = C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ProjectOvaltine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Webb.C.ProjectOvaltine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
