@@ -9,21 +9,57 @@
 import UIKit
 import SwiftSpinner
 
-class TabViewController1: UIViewController {
+class TabViewController1: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var detailsArray = ["Finance","Education","Transportation", "Demographics"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.magentaColor()
+        self.view.backgroundColor = UIColor.whiteColor()
         navBar()
-        graphImage()
+        statsTableView()
+        
+   
     }
     
-    func graphImage() {
-        //********** creating UIImageView Programmatically******//
-        let imageView = UIImageView(frame: CGRectMake(20, 175, 375, 400))
-        let image = UIImage(named: "barGraph.png")
-        imageView.image = image
-        self.view.addSubview(imageView)
+    func statsTableView() {
+        
+        let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 66
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
+        else if section == 1 {
+            return detailsArray.count
+        }
+        return detailsArray.count
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
+        cell.myLabel1.text = detailsArray[indexPath.row]
+        cell.myLabel2.text = "\(indexPath.row + 1)"
+        cell.myLabel3.text = "Label"
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        print(detailsArray[indexPath.row])
+        
     }
     
     func navBar() {
@@ -36,7 +72,8 @@ class TabViewController1: UIViewController {
         
         navBar.setItems([navItem], animated: false)
         navBar.alpha = 1.0
-        
+        navBar.layer.zPosition = 3
+
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
@@ -48,7 +85,10 @@ class TabViewController1: UIViewController {
     }
     
     func dismissView() {
+        SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
+        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
         dismissViewControllerAnimated(true, completion: nil)
+        SwiftSpinner.hide()
     }
     
     func settingButtonPushed() {

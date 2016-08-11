@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BE27A631D5CBD3500A26673 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE27A621D5CBD3500A26673 /* TableViewCell.swift */; };
 		2BE783811D5BD75F005822C9 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2BE783831D5BD926005822C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE783821D5BD926005822C9 /* Constants.swift */; };
 		5B2B0D3F1D72C80262256454 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BE27A621D5CBD3500A26673 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2BE783821D5BD926005822C9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F902FD0066A98854362609 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */,
 				AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */,
+				2BE27A621D5CBD3500A26673 /* TableViewCell.swift */,
 				AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */,
 				AF5D3B701D5A9E7C007E55B7 /* TabViewController2.swift */,
 				AF5D3B711D5A9E7C007E55B7 /* TabViewController3.swift */,
@@ -399,6 +402,7 @@
 				AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */,
 				AF1FC7CC1D5B7AA1004973A2 /* ResultFeedTableView.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
+				2BE27A631D5CBD3500A26673 /* TableViewCell.swift in Sources */,
 				AF5D3B781D5A9E7C007E55B7 /* TabViewController2.swift in Sources */,
 				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
 				AF04F1C91D5A75B1005B7F26 /* CityAPIClientStruct.swift in Sources */,

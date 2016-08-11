@@ -30,11 +30,11 @@ class DetailViewController: UITabBarController, UITabBarControllerDelegate {
         let item4 = tabViewController4
         let item5 = tabViewController5
         
-        let icon1 = UITabBarItem(title: "Statistics", image: UIImage(named: "rating.png"), tag: 0)
-        let icon2 = UITabBarItem(title: "Finance", image: UIImage(named: "emp.png"), tag: 1)
-        let icon3 = UITabBarItem(title: "Education", image: UIImage(named: "edu.png"), tag: 2)
-        let icon4 = UITabBarItem(title: "Transportation", image: UIImage(named: "trans.png"), tag: 3)
-        let icon5 = UITabBarItem(title: "Demographics", image: UIImage(named: "resource.png"), tag: 4)
+        let icon1 = UITabBarItem(title: "Statistics", image: UIImage(named: "futures.png"), tag: 0)
+        let icon2 = UITabBarItem(title: "Finance", image: UIImage(named: "money_bag.png"), tag: 1)
+        let icon3 = UITabBarItem(title: "Education", image: UIImage(named: "classroom.png"), tag: 2)
+        let icon4 = UITabBarItem(title: "Transportation", image: UIImage(named: "bus.png"), tag: 3)
+        let icon5 = UITabBarItem(title: "Demographics", image: UIImage(named: "conference.png"), tag: 4)
         
         item1.tabBarItem = icon1
         item2.tabBarItem = icon2

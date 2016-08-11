@@ -12,8 +12,21 @@ class TabViewController5: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.greenColor()
+        self.view.backgroundColor = UIColor.whiteColor()
         navBar()
+        detailImage()
+    }
+    
+    func detailImage() {
+        //********** creating UIImageView Programmatically******//
+        
+        let imageView = UIImageView(frame: CGRectMake(0, 20, 425, 690))
+        let image = UIImage(named: "detail-info.png")
+        imageView.image = image
+        //imageView.layer.cornerRadius = imageView.frame.size.width / 4
+        imageView.clipsToBounds = true
+        self.view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
     }
     
     func navBar() {

@@ -53,7 +53,7 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
     }
     
     override func viewDidAppear(animated: Bool) {
-        SwiftSpinner.showWithDuration(1.3, title: "TEAM DRAGON")
+        SwiftSpinner.showWithDuration(0.9, title: "TEAM DRAGON")
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
     }
 
@@ -82,8 +82,8 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
         projectName.setTitleColor(UIColor.blackColor(), forState: .Normal)
         projectName.alpha = 0.3
         projectName.layer.zPosition = 3
-        projectName.layer.borderWidth=0.3
-        projectName.layer.cornerRadius=2
+        projectName.layer.borderWidth = 0.3
+        projectName.layer.cornerRadius = 2
         self.view.addSubview(projectName)
     }
     
