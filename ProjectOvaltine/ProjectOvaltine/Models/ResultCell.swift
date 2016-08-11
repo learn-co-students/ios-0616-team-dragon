@@ -17,7 +17,6 @@ class ResultCell: UITableViewCell {
     required init?(coder: NSCoder = NSCoder.empty()) {
         super.init(coder: coder)
     }
-    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.locationNameLabel.text = "Test"
@@ -40,9 +39,7 @@ class ResultCell: UITableViewCell {
         self.locationScoreLabel.text = "My First Label"
         return self.locationScoreLabel
     }
-    
 
-    
 //    static let reuseIdentifier: String = "resultCell"
 //    
 //    var resultGraph:UIImageView! = UIImageView()

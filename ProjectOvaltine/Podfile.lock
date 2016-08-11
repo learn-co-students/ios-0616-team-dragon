@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (3.4.1)
   - GaugeView (0.1.4)
-  - LFHeatMap (1.0.2)
   - SnapKit (0.15.0)
   - SwiftSpinner (0.9.5)
   - SwiftyJSON (2.3.2)
@@ -9,7 +8,6 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - GaugeView
-  - LFHeatMap
   - SnapKit (~> 0.15.0)
   - SwiftSpinner
   - SwiftyJSON
@@ -17,11 +15,10 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   GaugeView: c086ed105981d51d16ad903fb03138a1ae718e16
-  LFHeatMap: 433197b20e4d57a9502bc2a2a21300fa851ff3c6
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftSpinner: c6585a0ae5c67eb33e737695cce88f0262008cce
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 0de2240b45da57009dbfdac1da75665695feb987
+PODFILE CHECKSUM: 07405e978d94fd03608ee7d7b75ce4653b05b7f1
 
 COCOAPODS: 1.0.1

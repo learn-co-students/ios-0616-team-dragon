@@ -9,9 +9,22 @@
 import UIKit
 
 class TabViewController2: UIViewController, Navigable {
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func detailImage() {
+        //********** creating UIImageView Programmatically******//
+        
+        let imageView = UIImageView(frame: CGRectMake(0, 20, 425, 690))
+        let image = UIImage(named: "detail-info.png")
+        imageView.image = image
+        //imageView.layer.cornerRadius = imageView.frame.size.width / 4
+        imageView.clipsToBounds = true
+        self.view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
         self.view.backgroundColor = UIColor.redColor()
         self.view.addSubview(self.setupNavBar())
     }
@@ -43,4 +56,17 @@ class TabViewController2: UIViewController, Navigable {
     func settingButtonPushed() {
         //not implemented yet
     }
+
+class TabViewController2: PrototypeTabBar {
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.redColor()
+        
+        
+    }
+    }
+
 }
