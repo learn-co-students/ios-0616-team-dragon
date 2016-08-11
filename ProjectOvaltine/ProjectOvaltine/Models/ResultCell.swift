@@ -15,7 +15,6 @@ class ResultCell: UITableViewCell {
     var view: UIView = UIView()
     var parameterLabel = UILabel()
     
-    
     func createScoreLabel() {
         self.parameterLabel.frame = CGRectMake(50, 50, 200, 30)
         self.parameterLabel.backgroundColor = UIColor.brownColor()

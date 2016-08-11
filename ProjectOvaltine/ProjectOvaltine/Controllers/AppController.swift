@@ -15,12 +15,22 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
     
     let searchController = UISearchBar.init()
     
+    var currentViewController: UIViewController!
+    var containerView: UIView!
+    
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
     var cityData: [CitySDKData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor=UIColor.lightGrayColor()
+        //self.initHeaderBanner()
+        self.initMapBlock()
+        self.initSearchButton()
+        self.initSearchTextField()
+        self.loadInitialViewController()
+        self.addNotificationObservers()
         
        self.searchBar()
         
@@ -48,7 +58,6 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
         self.view.backgroundColor=UIColor.whiteColor()
         self.initHeaderBanner()
         self.initMapBlock()
-        
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named:"any.jpeg")!)
     }
     
@@ -100,10 +109,19 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
 
 extension AppController {
     private func loadInitialViewController() {
+        //self.currentViewController = loadViewControllerWith()
+       // self.addCurrentViewController(self.currentViewController)
         //not implemented yet
-        
     }
     private func addNotificationObservers() {
         //not implemented yet
+    }
+    
+    private func addCurrentViewController(controller: UIViewController) {
+        self.addChildViewController(controller)
+        self.containerView.addSubview(controller.view)
+        controller.view.frame = self.containerView.bounds
+        controller.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        controller.didMoveToParentViewController(self)
     }
 }
