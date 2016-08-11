@@ -14,7 +14,6 @@
 		2BFDCFBB1D59062800056350 /* TabViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFBA1D59062800056350 /* TabViewController4.swift */; };
 		2BFDCFBF1D5906F100056350 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFBE1D5906F100056350 /* AppController.swift */; };
 		2BFDCFC11D590A6100056350 /* barGraph.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFDCFC01D590A6100056350 /* barGraph.png */; };
-		5B2B0D3F1D72C80262256454 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */; };
 		AF04F1C71D5A404C005B7F26 /* CensusAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF04F1C61D5A404C005B7F26 /* CensusAPIClient.swift */; };
 		AF04F1C91D5A75B1005B7F26 /* CityAPIClientStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF04F1C81D5A75B1005B7F26 /* CityAPIClientStruct.swift */; };
 		AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF04F1CA1D5A8DC6005B7F26 /* CensusConstants.swift */; };
@@ -59,11 +58,10 @@
 		AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460131D551BE400FBE63B /* LaborStaticsData.swift */; };
 		AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460141D551BE400FBE63B /* USAJobsData.swift */; };
 		AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601D1D551C4D00FBE63B /* ViewController.swift */; };
+		D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B15436A1D59746600D8A0D3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2BE27A621D5CBD3500A26673 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2BF959031D5A32C200F09856 /* active-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active-search.png"; sourceTree = "<group>"; };
 		2BF959091D5A4C3400F09856 /* settings-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-4.png"; sourceTree = "<group>"; };
 		2BFDCFB01D5905E400056350 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/DetailViewController.swift; sourceTree = "<group>"; };
@@ -75,8 +73,7 @@
 		2BFDCFBC1D59063100056350 /* TabViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController5.swift; path = Controllers/TabViewController5.swift; sourceTree = "<group>"; };
 		2BFDCFBE1D5906F100056350 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
 		2BFDCFC01D590A6100056350 /* barGraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barGraph.png; sourceTree = "<group>"; };
-		7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		97F902FD0066A98854362609 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
+		60C2129E72DDDDF5234858A7 /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
 		AF04F1C61D5A404C005B7F26 /* CensusAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CensusAPIClient.swift; path = Utilities/CensusAPIClient.swift; sourceTree = "<group>"; };
 		AF04F1C81D5A75B1005B7F26 /* CityAPIClientStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityAPIClientStruct.swift; path = Utilities/CityAPIClientStruct.swift; sourceTree = "<group>"; };
 		AF04F1CA1D5A8DC6005B7F26 /* CensusConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CensusConstants.swift; sourceTree = "<group>"; };
@@ -127,7 +124,8 @@
 		AFE460131D551BE400FBE63B /* LaborStaticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaborStaticsData.swift; sourceTree = "<group>"; };
 		AFE460141D551BE400FBE63B /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
 		AFE4601D1D551C4D00FBE63B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
-		C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
+		CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC048C74F799EF73ABF209A0 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,19 +133,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B2B0D3F1D72C80262256454 /* Pods_ProjectOvaltine.framework in Frameworks */,
+				D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7DF9641B7B8AA5C8F2E74228 /* Frameworks */ = {
+		5439E42681104A506A519FB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */,
+				CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65CAE059F06368DBF0CD527A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC048C74F799EF73ABF209A0 /* Pods-ProjectOvaltine.debug.xcconfig */,
+				60C2129E72DDDDF5234858A7 /* Pods-ProjectOvaltine.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		AF1FC7C41D5B6F95004973A2 /* Views */ = {
@@ -191,8 +198,8 @@
 			children = (
 				AF75DF981D53D30300DDF173 /* ProjectOvaltine */,
 				AF75DF971D53D30300DDF173 /* Products */,
-				DBC71C99095F417EE7AF1502 /* Pods */,
-				7DF9641B7B8AA5C8F2E74228 /* Frameworks */,
+				65CAE059F06368DBF0CD527A /* Pods */,
+				5439E42681104A506A519FB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,7 +267,6 @@
 				AF5045161D5C42D600A2E97D /* Searchable.swift */,
 				AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */,
 				AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */,
-				2BE27A621D5CBD3500A26673 /* TableViewCell.swift */,
 				AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */,
 				AF5D3B701D5A9E7C007E55B7 /* TabViewController2.swift */,
 				AF5D3B711D5A9E7C007E55B7 /* TabViewController3.swift */,
@@ -282,7 +288,6 @@
 				2BFDCFB81D59061E00056350 /* TabViewController3.swift */,
 				2BFDCFBA1D59062800056350 /* TabViewController4.swift */,
 				2BFDCFBC1D59063100056350 /* TabViewController5.swift */,
-				2B15436A1D59746600D8A0D3 /* ViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -299,15 +304,6 @@
 				AF75DF991D53D30300DDF173 /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DBC71C99095F417EE7AF1502 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				97F902FD0066A98854362609 /* Pods-ProjectOvaltine.debug.xcconfig */,
-				C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -583,7 +579,7 @@
 		};
 		AF75DFA91D53D30400DDF173 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97F902FD0066A98854362609 /* Pods-ProjectOvaltine.debug.xcconfig */;
+			baseConfigurationReference = FC048C74F799EF73ABF209A0 /* Pods-ProjectOvaltine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -598,7 +594,7 @@
 		};
 		AF75DFAA1D53D30400DDF173 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9179A45E76BFD3155E867EF /* Pods-ProjectOvaltine.release.xcconfig */;
+			baseConfigurationReference = 60C2129E72DDDDF5234858A7 /* Pods-ProjectOvaltine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
