@@ -7,21 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		2B712AA51D5D1F0800BFBE46 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B712AA41D5D1F0800BFBE46 /* Constants.swift */; };
-		2BE27A631D5CBD3500A26673 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE27A621D5CBD3500A26673 /* TableViewCell.swift */; };
-
 		2B15436B1D59746600D8A0D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B15436A1D59746600D8A0D3 /* ViewController.swift */; };
-		2BE0F75E1D58BFDD00B12D07 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE0F75D1D58BFDD00B12D07 /* Constants.swift */; };
+		2BE27A631D5CBD3500A26673 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE27A621D5CBD3500A26673 /* TableViewCell.swift */; };
 		2BF959041D5A32C200F09856 /* active-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF959031D5A32C200F09856 /* active-search.png */; };
 		2BF9590A1D5A4C3400F09856 /* settings-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF959091D5A4C3400F09856 /* settings-4.png */; };
-		2BFDCFB11D5905E400056350 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB01D5905E400056350 /* DetailViewController.swift */; };
 		2BFDCFB31D5905FB00056350 /* PrototypeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB21D5905FB00056350 /* PrototypeTabBar.swift */; };
-		2BFDCFB51D59060A00056350 /* TabViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB41D59060A00056350 /* TabViewController1.swift */; };
 		2BFDCFB71D59061600056350 /* TabViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB61D59061600056350 /* TabViewController2.swift */; };
-		2BFDCFB91D59061E00056350 /* TabViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFB81D59061E00056350 /* TabViewController3.swift */; };
 		2BFDCFBB1D59062800056350 /* TabViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFBA1D59062800056350 /* TabViewController4.swift */; };
-		2BFDCFBD1D59063100056350 /* TabViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFBC1D59063100056350 /* TabViewController5.swift */; };
 		2BFDCFBF1D5906F100056350 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDCFBE1D5906F100056350 /* AppController.swift */; };
 		2BFDCFC11D590A6100056350 /* barGraph.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFDCFC01D590A6100056350 /* barGraph.png */; };
 		5B2B0D3F1D72C80262256454 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B070CDBA33160390ACA5A09 /* Pods_ProjectOvaltine.framework */; };
@@ -51,12 +43,9 @@
 		AF588A6A1D5CB83B00F228C7 /* EconomicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A691D5CB83B00F228C7 /* EconomicDetailViewController.swift */; };
 		AF588A6C1D5CB87800F228C7 /* DemographicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A6B1D5CB87800F228C7 /* DemographicDetailViewController.swift */; };
 		AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */; };
-		AF5D3B741D5A9E7C007E55B7 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */; };
 		AF5D3B751D5A9E7C007E55B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */; };
 		AF5D3B771D5A9E7C007E55B7 /* TabViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */; };
-		AF5D3B781D5A9E7C007E55B7 /* TabViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B701D5A9E7C007E55B7 /* TabViewController2.swift */; };
 		AF5D3B791D5A9E7C007E55B7 /* TabViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B711D5A9E7C007E55B7 /* TabViewController3.swift */; };
-		AF5D3B7A1D5A9E7C007E55B7 /* TabViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B721D5A9E7C007E55B7 /* TabViewController4.swift */; };
 		AF5D3B7B1D5A9E7C007E55B7 /* TabViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D3B731D5A9E7C007E55B7 /* TabViewController5.swift */; };
 		AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DF991D53D30300DDF173 /* AppDelegate.swift */; };
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
@@ -70,19 +59,12 @@
 		AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460131D551BE400FBE63B /* LaborStaticsData.swift */; };
 		AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460141D551BE400FBE63B /* USAJobsData.swift */; };
 		AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601D1D551C4D00FBE63B /* ViewController.swift */; };
-		BDDBC6B41D5CB77B00939975 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDBC6B31D5CB77B00939975 /* Constants.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-
-		2BE7837E1D5B5B49005822C9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2BE27A621D5CBD3500A26673 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B15436A1D59746600D8A0D3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2BE0F75D1D58BFDD00B12D07 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2BE27A621D5CBD3500A26673 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2BF959031D5A32C200F09856 /* active-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active-search.png"; sourceTree = "<group>"; };
 		2BF959091D5A4C3400F09856 /* settings-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-4.png"; sourceTree = "<group>"; };
 		2BFDCFB01D5905E400056350 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/DetailViewController.swift; sourceTree = "<group>"; };
@@ -461,7 +443,6 @@
 				AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */,
 				AF5D3B7B1D5A9E7C007E55B7 /* TabViewController5.swift in Sources */,
 				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,
-				AF5D3B7A1D5A9E7C007E55B7 /* TabViewController4.swift in Sources */,
 				AF5D3B751D5A9E7C007E55B7 /* DetailViewController.swift in Sources */,
 				AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */,
 				AF5045171D5C42D600A2E97D /* Searchable.swift in Sources */,
@@ -487,18 +468,12 @@
 				AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */,
 				AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */,
 				AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */,
-				2BFDCFBD1D59063100056350 /* TabViewController5.swift in Sources */,
 				2B15436B1D59746600D8A0D3 /* ViewController.swift in Sources */,
 				2BFDCFBF1D5906F100056350 /* AppController.swift in Sources */,
-				2BFDCFB51D59060A00056350 /* TabViewController1.swift in Sources */,
-				2BE0F75E1D58BFDD00B12D07 /* Constants.swift in Sources */,
 				2BFDCFB31D5905FB00056350 /* PrototypeTabBar.swift in Sources */,
 				2BFDCFB71D59061600056350 /* TabViewController2.swift in Sources */,
-				2BFDCFB91D59061E00056350 /* TabViewController3.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
 				2BE27A631D5CBD3500A26673 /* TableViewCell.swift in Sources */,
-				2B712AA51D5D1F0800BFBE46 /* Constants.swift in Sources */,
-				AF5D3B781D5A9E7C007E55B7 /* TabViewController2.swift in Sources */,
 				AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */,
 				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
 				AF588A6C1D5CB87800F228C7 /* DemographicDetailViewController.swift in Sources */,
@@ -506,9 +481,6 @@
 				AF04F1C91D5A75B1005B7F26 /* CityAPIClientStruct.swift in Sources */,
 				AF5045131D5C41C000A2E97D /* Mapable.swift in Sources */,
 				AF1FC7C11D5B6F1F004973A2 /* ResultCell.swift in Sources */,
-				AF5D3B741D5A9E7C007E55B7 /* AppController.swift in Sources */,
-				2BFDCFB11D5905E400056350 /* DetailViewController.swift in Sources */,
-				BDDBC6B41D5CB77B00939975 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
