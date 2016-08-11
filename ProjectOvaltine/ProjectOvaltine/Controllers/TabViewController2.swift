@@ -8,6 +8,7 @@
 
 import UIKit
 
+<<<<<<< HEAD
 class TabViewController2: UIViewController {
     
     override func viewDidLoad() {
@@ -43,4 +44,17 @@ class TabViewController2: UIViewController {
     func settingButtonPushed() {
         //not implemented yet
     }
+=======
+class TabViewController2: PrototypeTabBar {
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.redColor()
+        
+        
+    }
+    
+>>>>>>> 5d52fc58ebcad63d43d047c5cef0b7f77236fb34
 }

@@ -10,14 +10,25 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+<<<<<<< HEAD
     
     var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
     
     
+=======
+
+    var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
+
+
+>>>>>>> 5d52fc58ebcad63d43d047c5cef0b7f77236fb34
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         _ = CitySDKAPIClient()
         // Override point for customization after application launch.
         
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 5d52fc58ebcad63d43d047c5cef0b7f77236fb34
         let appController = AppController()
         
         self.window?.rootViewController = appController
