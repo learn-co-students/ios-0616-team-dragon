@@ -11,6 +11,7 @@ import SwiftSpinner
 
 
 class InitialViewController: UIViewController {
+    static let sharedInstance = InitialViewController()
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
     let jobsAPI = USAJobsAPIClient.sharedInstance
