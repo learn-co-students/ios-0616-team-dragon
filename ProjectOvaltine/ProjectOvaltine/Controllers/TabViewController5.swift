@@ -8,6 +8,7 @@
 
 import UIKit
 
+<<<<<<< HEAD
 class TabViewController5: UIViewController {
     
     override func viewDidLoad() {
@@ -57,4 +58,15 @@ class TabViewController5: UIViewController {
     func settingButtonPushed() {
         //not implemented yet
     }
+=======
+class TabViewController5: PrototypeTabBar {
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.greenColor()
+    }
+    
+>>>>>>> 5d52fc58ebcad63d43d047c5cef0b7f77236fb34
 }

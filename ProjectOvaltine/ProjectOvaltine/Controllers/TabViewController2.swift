@@ -9,6 +9,7 @@
 import UIKit
 
 class TabViewController2: UIViewController, Navigable {
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,4 +56,17 @@ class TabViewController2: UIViewController, Navigable {
     func settingButtonPushed() {
         //not implemented yet
     }
+
+class TabViewController2: PrototypeTabBar {
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.redColor()
+        
+        
+    }
+    }
+
 }
