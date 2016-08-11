@@ -15,7 +15,9 @@ class ResultCell: UITableViewCell {
     var locationScoreLabel: UILabel! = UILabel()
     var resultCatagoryLabel: UILabel! = UILabel()
     
-    
+    required init?(coder: NSCoder = NSCoder.empty()) {
+        super.init(coder: coder)
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

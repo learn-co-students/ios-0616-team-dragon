@@ -20,7 +20,7 @@ class ResultTableView: UITableView {
 //    }
     
     override func dequeueReusableCellWithIdentifier(identifier: String) -> UITableViewCell? {
-        let resultCell = ResultCell()
+        let resultCell = ResultCell(style:.Default, reuseIdentifier: "resultCell")
         let cell = UITableViewCell.init(style:UITableViewCellStyle.Default, reuseIdentifier: resultCell.reuseIdentifier)
         return cell
     }

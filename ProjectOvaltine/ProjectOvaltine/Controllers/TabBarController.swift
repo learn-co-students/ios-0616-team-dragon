@@ -17,10 +17,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let tabOne = DetailViewController()
-        let tabTwo = ResultViewController()
-        let tabThree = EconomicDetailViewController()
-        let tabFour = EducationDetailViewController()
+        let tabOne: DetailViewController! = DetailViewController()
+        let tabTwo: ResultViewController! = ResultViewController()
+        let tabThree: EconomicDetailViewController = EconomicDetailViewController()
+        let tabFour: EducationDetailViewController! = EducationDetailViewController()
         
         tabOne.tabBarItem.title = "Details"
         tabOne.tabBarItem.image = UIImage(named: "heart")

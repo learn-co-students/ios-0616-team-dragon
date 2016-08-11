@@ -12,12 +12,14 @@ import SwiftSpinner
 class DetailViewController: UITabBarController, UITabBarControllerDelegate, Tabable, Navigable {
     
     let resultView = ResultView()
-    let resultDataPointTitleLabel: UILabel!
-    let resultMapView: MKMapView!
-    let resultDataPointLabel: UILabel!
-    
-    required init?(coder: NSCoder) {
+    var resultDataPointTitleLabel: UILabel!
+    var resultMapView: MKMapView!
+    var resultDataPointLabel: UILabel!
+
+    required init?(coder: NSCoder = NSCoder.empty()) {
         super.init(coder: coder)
+        self.resultDataPointLabel = UILabel()
+        self.resultDataPointTitleLabel = UILabel()
     }
 
 

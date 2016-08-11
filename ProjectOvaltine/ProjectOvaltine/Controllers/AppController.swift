@@ -24,6 +24,15 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
     let cityAPI = CitySDKAPIClient.sharedInstance
     var cityData: [CitySDKData] = []
     
+    required init?(coder: NSCoder = NSCoder.empty()) {
+        //self.searchController = UISearchBar()
+        self.constraint = NSLayoutConstraint()
+        //self.currentViewController
+        self.containerView = UIView()
+        //self.currentViewController =
+        super.init(coder:NSCoder.empty())
+        
+    }
 //    required init?(coder: NSCoder = NSCoder.empty()) {
 //        //self.searchController = UISearchBar()
 //        self.constraint = NSLayoutConstraint()
@@ -89,7 +98,7 @@ class AppController: UIViewController, UISearchControllerDelegate, UISearchBarDe
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-        let detailVC = DetailViewController(coder: NSCoder())
+        let detailVC = DetailViewController()
         SwiftSpinner.hide()
         self.showViewController(detailVC!, sender: searchBar)
         searchController.text?.removeAll()

@@ -13,7 +13,7 @@ protocol Searchable: UISearchBarDelegate {
 
 extension Searchable {
     func setupSearch() -> (UISearchBar, NSLayoutConstraint) {
-        let appController = AppController()
+        let appController: AppController! = AppController()
         let searchController = UISearchBar().dynamicType.init()
         var topConstraint = NSLayoutConstraint()
        // searchController.placeholder = "Enter Location"
