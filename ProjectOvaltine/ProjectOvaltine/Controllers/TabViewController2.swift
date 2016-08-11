@@ -8,12 +8,12 @@
 
 import UIKit
 
-class TabViewController2: UIViewController {
+class TabViewController2: UIViewController, Navigable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.redColor()
-        navBar()
+        self.view.addSubview(self.setupNavBar())
     }
     
     func navBar() {

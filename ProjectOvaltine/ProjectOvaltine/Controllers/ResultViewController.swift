@@ -11,7 +11,7 @@ import UIKit
 //class ResultViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 class ResultViewController: UITableViewController {
     
-    var dataProvider: AppControllerDataProvider?
+    //var dataProvider: AppControllerDataProvider?
     
     let resultView = ResultView()
     let resultTableView = UITableView()
@@ -21,9 +21,9 @@ class ResultViewController: UITableViewController {
         self.resultTableView.dataSource = self
         self.resultTableView.delegate = self
         
-        self.resultTableView.dataSource = dataProvider
+        //self.resultTableView.dataSource = dataProvider
         
-        self.dataProvider?.registerCellsForTableView(self.resultTableView)
+        //self.dataProvider?.registerCellsForTableView(self.resultTableView)
         self.resultTableView.registerClass(ResultCell.self, forCellReuseIdentifier: "resultCell")
         self.view.addSubview(self.resultView)
         self.view.addSubview(self.resultTableView)

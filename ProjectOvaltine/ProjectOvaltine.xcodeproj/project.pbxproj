@@ -26,7 +26,6 @@
 		AF50450F1D5C320600A2E97D /* Navigable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50450E1D5C320600A2E97D /* Navigable.swift */; };
 		AF5045111D5C34B300A2E97D /* Tabable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045101D5C34B300A2E97D /* Tabable.swift */; };
 		AF5045131D5C41C000A2E97D /* Mapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045121D5C41C000A2E97D /* Mapable.swift */; };
-		AF5045151D5C429500A2E97D /* AppControllerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045141D5C429500A2E97D /* AppControllerDataProvider.swift */; };
 		AF5045171D5C42D600A2E97D /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045161D5C42D600A2E97D /* Searchable.swift */; };
 		AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */; };
 		AF588A641D5CB78400F228C7 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A631D5CB78400F228C7 /* AppFont.swift */; };
@@ -79,7 +78,6 @@
 		AF50450E1D5C320600A2E97D /* Navigable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigable.swift; path = Controllers/Navigable.swift; sourceTree = "<group>"; };
 		AF5045101D5C34B300A2E97D /* Tabable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tabable.swift; path = Controllers/Tabable.swift; sourceTree = "<group>"; };
 		AF5045121D5C41C000A2E97D /* Mapable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mapable.swift; path = Controllers/Mapable.swift; sourceTree = "<group>"; };
-		AF5045141D5C429500A2E97D /* AppControllerDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppControllerDataProvider.swift; path = Controllers/AppControllerDataProvider.swift; sourceTree = "<group>"; };
 		AF5045161D5C42D600A2E97D /* Searchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Searchable.swift; path = Controllers/Searchable.swift; sourceTree = "<group>"; };
 		AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSCoderExtension.swift; path = Utilities/NSCoderExtension.swift; sourceTree = "<group>"; };
 		AF588A631D5CB78400F228C7 /* AppFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				AF5045101D5C34B300A2E97D /* Tabable.swift */,
 				AF5045161D5C42D600A2E97D /* Searchable.swift */,
 				AF5D3B6C1D5A9E7C007E55B7 /* AppController.swift */,
-				AF5045141D5C429500A2E97D /* AppControllerDataProvider.swift */,
 				AF5D3B6D1D5A9E7C007E55B7 /* DetailViewController.swift */,
 				AF5D3B6F1D5A9E7C007E55B7 /* TabViewController1.swift */,
 				AF5D3B701D5A9E7C007E55B7 /* TabViewController2.swift */,
@@ -406,7 +403,6 @@
 				AF1FC7CA1D5B736F004973A2 /* ResultViewController.swift in Sources */,
 				AF24B1C71D5986EA0031FEEB /* CitySDKTests.swift in Sources */,
 				AFE460161D551BE400FBE63B /* DataStore.swift in Sources */,
-				AF5045151D5C429500A2E97D /* AppControllerDataProvider.swift in Sources */,
 				AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */,
 				AF5D3B7B1D5A9E7C007E55B7 /* TabViewController5.swift in Sources */,
 				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,

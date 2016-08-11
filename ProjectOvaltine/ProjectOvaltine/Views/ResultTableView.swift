@@ -11,20 +11,24 @@ import UIKit
 class ResultTableView: UITableView {
     
 //    override func dequeueReusableCellWithIdentifier(identifier: String, forIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        <#code#>
+//        // not implemented
 //    }
     
-    override func indexPathForCell(cell: UITableViewCell) -> NSIndexPath? {
-        <#code#>
-    }
+//    override func indexPathForCell(cell: UITableViewCell) -> NSIndexPath? {
+//        return indexPathForCell(cell)
+//       //not implemented
+//    }
     
     override func dequeueReusableCellWithIdentifier(identifier: String) -> UITableViewCell? {
-        let cell = UITableViewCell.init(style:UITableViewCellStyle.Default, reuseIdentifier: ResultCell.reuseIdentifier)
+        let resultCell = ResultCell()
+        let cell = UITableViewCell.init(style:UITableViewCellStyle.Default, reuseIdentifier: resultCell.reuseIdentifier)
         return cell
     }
     
-    override func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell? {
-        code
-    }
+//    override func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell? {
+//        self.indexPathForCell(cell:UITableViewCell)
+//        
+//        //not implemented
+//    }
     
 }
