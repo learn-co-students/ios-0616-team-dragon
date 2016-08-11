@@ -22,6 +22,4 @@ extension Searchable {
         searchController.delegate = self
         return(searchController, topConstraint)
     }
-//        appController.addSubview(searchController)
-//        appController.addConstraint(topConstraint)
 }

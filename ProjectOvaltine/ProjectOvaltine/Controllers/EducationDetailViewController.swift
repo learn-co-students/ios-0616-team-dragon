@@ -21,5 +21,4 @@ class EducationDetailViewController: UIViewController {
         SwiftSpinner.showWithDuration(1.3, title: "TEAM DRAGON")
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
     }
-    
 }

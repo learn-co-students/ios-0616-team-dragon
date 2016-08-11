@@ -37,7 +37,4 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         print("Should select viewController: \(viewController.title) ?")
         return true;
     }
-    
-    //let iconOne = UITabBarItem(title: "Title", image: UIImage(named: "someImage.png"), selectedImage: UIImage(named: "otherImage.png"))
-    //item1.tabBarItem = icon1
 }
