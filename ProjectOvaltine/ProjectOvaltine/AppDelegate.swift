@@ -13,18 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //var window: UIWindow?
     var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
     //var navigationController: UINavigationController?
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-
     
-
-
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         _ = CitySDKAPIClient()
         // Override point for customization after application launch.
         
-        let appController = AppController()
+        //let appController = AppController()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
@@ -62,6 +56,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    
 }

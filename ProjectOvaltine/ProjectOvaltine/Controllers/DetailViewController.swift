@@ -12,13 +12,13 @@ import SwiftSpinner
 class DetailViewController: UITabBarController, UITabBarControllerDelegate, Tabable, Navigable {
     
     let resultView = ResultView()
-    let resultDataPointTitleLabel: UILabel!
-    let resultMapView: MKMapView!
-    let resultDataPointLabel: UILabel!
+    let resultDataPointTitleLabel: UILabel! = nil
+    let resultMapView: MKMapView! = nil
+    let resultDataPointLabel: UILabel! = nil
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//    }
 
 
 
@@ -51,7 +51,7 @@ class DetailViewController: UITabBarController, UITabBarControllerDelegate, Taba
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
         //let detailVC = DetailViewController()
         SwiftSpinner.hide()
-        self.presentViewController(detailVC!, animated: true, completion: nil)
+        //self.presentViewController(detailVC!, animated: true, completion: nil)
     }
     
     func initHeaderBanner() {
@@ -130,7 +130,7 @@ class DetailViewController: UITabBarController, UITabBarControllerDelegate, Taba
         let height: CGFloat = UIScreen.mainScreen().bounds.size.height
         let newView = UIView(frame: CGRect(x: (width * 0.10), y: (height * 0.25), width: (width * 0.75), height: (height / 2)))
         newView.backgroundColor = UIColor.yellowColor()
-        self.view.addSubview(self.resultMapView)
+        //self.view.addSubview(self.resultMapView)
         self.view.addSubview(newView)
     }
 }

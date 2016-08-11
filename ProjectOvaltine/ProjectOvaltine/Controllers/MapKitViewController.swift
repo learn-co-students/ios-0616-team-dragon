@@ -7,7 +7,6 @@
 //
 // This makes the
 
-import LFHeatMap
 import Foundation
 import MapKit
 

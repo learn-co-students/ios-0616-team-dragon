@@ -15,6 +15,9 @@ class ResultCell: UITableViewCell {
     var locationScoreLabel: UILabel! = UILabel()
     var resultCatagoryLabel: UILabel! = UILabel()
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Fatal fail")
+    }
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -29,7 +32,6 @@ class ResultCell: UITableViewCell {
         contentView.addSubview(self.locationScoreLabel)
         contentView.addSubview(self.resultCatagoryLabel)
     }
-    
 //    static let reuseIdentifier: String = "resultCell"
 //    
 //    var resultGraph:UIImageView! = UIImageView()

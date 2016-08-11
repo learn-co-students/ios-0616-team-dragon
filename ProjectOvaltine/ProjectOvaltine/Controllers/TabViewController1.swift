@@ -9,7 +9,7 @@
 import UIKit
 import SwiftSpinner
 
-class TabViewController1: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TabViewController1: UIViewController, UITableViewDelegate {
     
     var detailsArray = ["Finance","Education","Transportation", "Demographics"]
     
@@ -26,7 +26,7 @@ class TabViewController1: UIViewController, UITableViewDelegate, UITableViewData
         
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
-        tableView.dataSource = self
+        //tableView.dataSource = self
         view.addSubview(tableView)
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -46,15 +46,15 @@ class TabViewController1: UIViewController, UITableViewDelegate, UITableViewData
         }
         return detailsArray.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
-        cell.myLabel1.text = detailsArray[indexPath.row]
-        cell.myLabel2.text = "\(indexPath.row + 1)"
-        cell.myLabel3.text = "Label"
-        
-        return cell
-    }
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
+//        cell.myLabel1.text = detailsArray[indexPath.row]
+//        cell.myLabel2.text = "\(indexPath.row + 1)"
+//        cell.myLabel3.text = "Label"
+//        
+//        return cell
+//    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
@@ -127,8 +127,7 @@ class TabViewController1: UIViewController, UITableViewDelegate, UITableViewData
         
         self.navigationItem.rightBarButtonItem = barButton
         
-        navItem.rightBarButtonItem = barButton
-        
+//        navItem.rightBarButtonItem = barButton
     }
     
     

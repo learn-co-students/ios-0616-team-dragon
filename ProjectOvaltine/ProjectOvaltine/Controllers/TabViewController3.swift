@@ -7,10 +7,7 @@
 //
 
 import UIKit
-
-<<<<<<< HEAD
 class TabViewController3: UIViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
@@ -59,15 +56,3 @@ class TabViewController3: UIViewController {
         //not implemented yet
     }
 }
-=======
-class TabViewController3: PrototypeTabBar {
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.blueColor()
-    }
-    
-}
->>>>>>> 5d52fc58ebcad63d43d047c5cef0b7f77236fb34
