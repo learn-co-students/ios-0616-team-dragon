@@ -9,7 +9,7 @@
 import UIKit
 
 //class ResultViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-class ResultViewController: UITableViewController, UIViewController {
+class ResultViewController: UITableViewController {
     
     var dataProvider: AppControllerDataProvider?
     

@@ -31,10 +31,10 @@ class AppController: UIViewController {
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named:"any.jpeg")!)
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        SwiftSpinner.showWithDuration(1.3, title: "TEAM DRAGON")
-//        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-//    }
+    override func viewDidAppear(animated: Bool) {
+        SwiftSpinner.showWithDuration(1.3, title: "TEAM DRAGON")
+        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+    }
 
     func searchButtonTapped(){
         SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
@@ -104,38 +104,33 @@ class AppController: UIViewController {
 
 extension AppController {
     private func loadInitialViewController() {
-        self.currentViewController = loadViewControllerWith()
-        self.addCurrentViewController(self.currentViewController)
+        //self.currentViewController = loadViewControllerWith()
+       // self.addCurrentViewController(self.currentViewController)
         //not implemented yet
-        
     }
     private func addNotificationObservers() {
         //not implemented yet
     }
     
-    private func loadViewControllerWith(storyboardID: String) -> UIViewController {
-        
-        switch storyboardID {
-        case StoryboardID.loginVC:
-            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as UIViewController
-            return storyboard.instantiateViewControllerWithIdentifier(storyboardID) as! LoginViewController
-        case StoryboardID.reposTVC:
-            let vc = storyboard.instantiateViewControllerWithIdentifier(storyboardID) as! ReposTableViewController
-            let navVC = UINavigationController(rootViewController: vc)
-            return navVC
-        default:
-            fatalError("ERROR: Unable to find controller with storyboard id: \(storyboardID)")
-        }
-        
-        
-        
-    
+//    private func loadViewControllerWith(storyboardID: String) -> UIViewController {
+//        
+//        switch storyboardID {
+//        case StoryboardID.loginVC:
+//            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as UIViewController
+//            return storyboard.instantiateViewControllerWithIdentifier(storyboardID) as! LoginViewController
+//        case StoryboardID.reposTVC:
+//            let vc = storyboard.instantiateViewControllerWithIdentifier(storyboardID) as! ReposTableViewController
+//            let navVC = UINavigationController(rootViewController: vc)
+//            return navVC
+//        default:
+//            fatalError("ERROR: Unable to find controller with storyboard id: \(storyboardID)")
+//        }
+//    }
     private func addCurrentViewController(controller: UIViewController) {
         self.addChildViewController(controller)
         self.containerView.addSubview(controller.view)
         controller.view.frame = self.containerView.bounds
         controller.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         controller.didMoveToParentViewController(self)
-        
     }
 }
