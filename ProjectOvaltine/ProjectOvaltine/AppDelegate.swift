@@ -10,18 +10,13 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+    //var window: UIWindow?
     var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
-    
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        _ = CitySDKAPIClient()
         // Override point for customization after application launch.
-        let appController = MapKitViewController()
+        let appController = AppController()
         self.window?.rootViewController = appController
-        
         window?.makeKeyAndVisible()
-        
         return true
     }
     
