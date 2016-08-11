@@ -11,12 +11,22 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     //var window: UIWindow?
-    var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
+    var window: UIWindow?
+    //var navigationController: UINavigationController?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
-        let appController = AppController()
-        self.window?.rootViewController = appController
-        window?.makeKeyAndVisible()
+        //self.window!.backgroundColor = UIColor.whiteColor()
+        self.window!.makeKeyAndVisible()
+        let tabController = TabBarController()
+        self.window?.rootViewController = tabController
+        
+        // let resultViewController: ResultViewController? = ResultViewController(nibName: "ResultView", bundle: nil)
+        
+        //self.navigationController = UINavigationController(rootViewController:resultViewController!)
+        // self.window!.rootViewController = self.navigationController
+        // window?.makeKeyAndVisible()
         return true
     }
     
