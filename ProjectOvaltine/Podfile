@@ -7,8 +7,4 @@ target 'ProjectOvaltine' do
     pod 'SnapKit', '~> 0.15.0'
     pod 'SwiftyJSON'
     pod 'SwiftSpinner'
-<<<<<<< HEAD
-    pod "LFHeatMap"
-=======
->>>>>>> 5d52fc58ebcad63d43d047c5cef0b7f77236fb34
 end
