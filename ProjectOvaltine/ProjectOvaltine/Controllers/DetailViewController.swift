@@ -5,9 +5,7 @@
 //  Created by John Hussain on 8/8/16.
 //  Copyright © 2016 John Hussain. All rights reserved.
 //
-
 import UIKit
-
 class DetailViewController: UITabBarController, UITabBarControllerDelegate, Tabable, Navigable {
     let resultView = ResultView()
     override func viewDidLoad() {

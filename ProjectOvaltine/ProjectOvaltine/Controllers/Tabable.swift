@@ -9,11 +9,8 @@
 import UIKit
 
 protocol Tabable: UITabBarControllerDelegate {
-    //var tabBarController: UITabBarController { get }
-    //var tabDelegate: UITabBarControllerDelegate { get }
+    //implemented in extension
 }
-
-//UITabBarController, UITabBarControllerDelegate
 
 extension Tabable {
     var tabViewController1 : TabViewController1 { return TabViewController1() }
@@ -31,7 +28,7 @@ extension Tabable {
     func setupTabBar() -> UITabBarController {
         let tabBarVC = UITabBarController()
         tabBarVC.delegate = self
-        
+
         let item1 = self.tabViewController1
         let item2 = self.tabViewController2
         let item3 = self.tabViewController3

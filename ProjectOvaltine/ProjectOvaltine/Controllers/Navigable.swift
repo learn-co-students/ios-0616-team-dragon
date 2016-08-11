@@ -9,7 +9,7 @@
 import UIKit
 
 protocol Navigable {
- //   var navigationBar: UINavigationBar { get }
+    //implemented in extension
 }
 
 extension Navigable {
