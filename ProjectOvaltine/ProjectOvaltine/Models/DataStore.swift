@@ -22,7 +22,7 @@ class DataStore {
     var USAJobsDataPoints:[USAJobsData] = []
     
     let level = "county"
-    let zip = "08540"
+    var zip : String = ""
     let api = "acs5"
     let year = "2014"
     let variablesToAdd = Array(CensusConstants.CENSUS_REQUEST_PARAMS.keys)

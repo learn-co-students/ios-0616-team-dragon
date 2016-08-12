@@ -43,7 +43,7 @@ class ResultView: UIView {
     
     func createScoreLabel() -> (UILabel, UILabel, UILabel){
         
-        let appyFont = AppFont()
+        //let appyFont = AppFont()
         self.resultLocationNameLabel.frame = CGRect(x: self.view.frame.width/1.3, y: self.view.frame.height * 1.2, width: 150, height: 40)
         self.resultLocationNameLabel.backgroundColor = UIColor.clearColor()
         self.resultLocationNameLabel.textColor = UIColor.blackColor()
