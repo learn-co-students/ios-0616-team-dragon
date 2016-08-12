@@ -22,9 +22,7 @@ class TabViewController1: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func ratingTextView() {
-        
         let text1 = "9.5"
-        
         let label = UILabel(frame : CGRect(x:60, y:90, width:100, height:100))
         view.addSubview(label)
         label.backgroundColor = UIColor.greenColor()
@@ -66,15 +64,7 @@ class TabViewController1: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
-        
-        
-        cell.myLabel1.text = detailsArray[indexPath.row]
-        cell.myLabel2.text = "\(indexPath.row + 1)"
-        cell.myLabel3.text = "Label"
-        
-        
-        
+        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cellID",locationName: "New York City", description:"Description", score:"90")
         return cell
     }
     

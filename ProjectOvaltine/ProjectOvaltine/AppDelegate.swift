@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let tabController = TabBarController()
         //self.window?.rootViewController = tabController
         
-        self.window?.rootViewController = AppController()
+        self.window?.rootViewController = MapKitViewController()
         return true
     }
     
