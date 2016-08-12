@@ -49,6 +49,7 @@
 		AFE906B01D5E3F0500CEA2C9 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */; };
 		AFE906B21D5E455200CEA2C9 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906B11D5E455200CEA2C9 /* AppController.swift */; };
 		AFE906B41D5E458700CEA2C9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906B31D5E458700CEA2C9 /* DetailViewController.swift */; };
+		AFE906B61D5E481400CEA2C9 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906B51D5E481400CEA2C9 /* TabViewController.swift */; };
 		D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultCell.swift; path = Views/SearchResultCell.swift; sourceTree = "<group>"; };
 		AFE906B11D5E455200CEA2C9 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
 		AFE906B31D5E458700CEA2C9 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/DetailViewController.swift; sourceTree = "<group>"; };
+		AFE906B51D5E481400CEA2C9 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabViewController.swift; path = Controllers/TabViewController.swift; sourceTree = "<group>"; };
 		CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC048C74F799EF73ABF209A0 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +249,7 @@
 				AFE906AD1D5E3D7800CEA2C9 /* Extensions.swift */,
 				AFE906B11D5E455200CEA2C9 /* AppController.swift */,
 				AFE906B31D5E458700CEA2C9 /* DetailViewController.swift */,
+				AFE906B51D5E481400CEA2C9 /* TabViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */,
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
 				AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */,
+				AFE906B61D5E481400CEA2C9 /* TabViewController.swift in Sources */,
 				AFE906B41D5E458700CEA2C9 /* DetailViewController.swift in Sources */,
 				AFE906A81D5E3D2600CEA2C9 /* EconomicDataViewController.swift in Sources */,
 				AF1FC7C31D5B6F8C004973A2 /* ResultView.swift in Sources */,
