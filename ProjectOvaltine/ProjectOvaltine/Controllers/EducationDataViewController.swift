@@ -17,8 +17,6 @@ class EducationDataViewController: UIViewController {
     }
     
     func detailImage() {
-        //********** creating UIImageView Programmatically******//
-        
         let imageView = UIImageView(frame: CGRectMake(0, 20, 425, 690))
         let image = UIImage(named: "detail-info.png")
         imageView.image = image
@@ -35,7 +33,6 @@ class EducationDataViewController: UIViewController {
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         
         navItem.leftBarButtonItem = homeItem
-        
         navBar.setItems([navItem], animated: false)
         navBar.alpha = 1.0
         

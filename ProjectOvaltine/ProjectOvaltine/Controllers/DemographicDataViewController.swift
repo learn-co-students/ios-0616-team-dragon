@@ -18,8 +18,6 @@ class DemographicDataViewController: UIViewController {
     }
     
     func detailImage() {
-        //********** creating UIImageView Programmatically******//
-        
         let imageView = UIImageView(frame: CGRectMake(0, 20, 425, 690))
         let image = UIImage(named: "detail-info.png")
         imageView.image = image
