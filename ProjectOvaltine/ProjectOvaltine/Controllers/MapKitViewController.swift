@@ -40,8 +40,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     var destinationBoundary: [CLLocationCoordinate2D] = []
     
-    var polyline : MKPolyline!
-    
     var polylineArray : [MKPolyline] = []
     
     var canDraw : Bool = false
@@ -55,22 +53,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
         self.searchBar()
         
-        centerMapOnLocation(self.initialLocation)
+        //centerMapOnLocation(self.initialLocation)
+        
+        getPlacemarkFromCoordinates(initialLocation)
     }
-    
-    //    func somefunc(){
-    //        self!.polyline = MKPolyline(coordinates: &self!.boundary, count: self!.boundary.count)
-    //        self!.polylineArray.append(self!.polyline)
-    //
-    //        if self!.polylineArray.count <= 1 {
-    //            self!.mapView.addOverlay(self!.polylineArray[0])
-    //            print(self!.polylineArray[0])
-    //        } else {
-    //            self!.mapView.removeOverlay(self!.polylineArray[0])
-    //            self!.mapView.addOverlay(self!.polylineArray[1])
-    //            print(self!.polylineArray)
-    //        }}
-    
     
     
     func drawInMapView(){
@@ -137,21 +123,21 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func getPlacemarkFromCoordinates(location: CLLocation) {
-            //CLGeocoder().reverseGeocodeLocation(initialLocation, completionHandler: {[weak self] in })
+        //CLGeocoder().reverseGeocodeLocation(initialLocation, completionHandler: {[weak self] in })
         CLGeocoder().reverseGeocodeLocation(location, completionHandler: {[weak self] (placemarks,error) in
             var placemark : CLPlacemark!
+            var placemarkPolyline : MKPolyline!
             
             if ((error) != nil) {
-                self!.alert.title = "Zip not found!"
-                self!.alert.message = "You entered an invalid zip"
+                self!.alert.title = "Address doesn't exist"
+                self!.alert.message = "No address found!"
                 self!.alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                 self!.presentViewController(self!.alert, animated: true, completion: nil)
                 print("\(error)")
             } else {
+              //  print(placemarks)
                 placemark = (placemarks?.last)!
-                print(self!.store.zip)
                 self!.store.zip = placemark.postalCode!
-                print(self!.store.zip)
                 
                 self!.populateCoordinateArrayForInitalLocation{(homeArray) in
                     
@@ -159,21 +145,22 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         
                         self!.convertHomeArrayDataToPoints(homeArray[i] as! [AnyObject])
                     }
-                    
                 }
-                
-                self!.zipLocation = placemark?.location
-                self!.centerMapOnLocation(self!.zipLocation)
+                print(placemark)
+                placemarkPolyline = MKPolyline(coordinates: &self!.homeBoundary, count: self!.homeBoundary.count)
+                self!.mapView.addOverlay(placemarkPolyline)
+                self!.centerMapOnLocation(self!.initialLocation)
                 
             }
-        })
+            })
     }
     
     //Takes a string of numbers and gets a lat/long - Async
     func getPlacemarkFromUserInformation(userInput: String){
         
         var placemark: CLPlacemark!
-    
+        var placemarkPolyline : MKPolyline!
+        
         CLGeocoder().geocodeAddressString(userInput, completionHandler: {[weak self] (placemarks, error) in
             if ((error) != nil) {
                 self!.alert.title = "Zip not found!"
@@ -186,19 +173,21 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 print(self!.store.zip)
                 self!.store.zip = placemark.postalCode!
                 print(self!.store.zip)
-                    
                 
-                    self!.populateCoordinateArrayForDestinationLocation{(destinationArray) in
+                
+                self!.populateCoordinateArrayForDestinationLocation{(destinationArray) in
+                    
+                    for i in 0...destinationArray.count-1 {
                         
-                        for i in 0...destinationArray.count-1 {
-                            
-                            self!.convertDestinationArrayToPoints(destinationArray[i] as! [AnyObject])
-                        }
+                        self!.convertDestinationArrayToPoints(destinationArray[i] as! [AnyObject])
+                    }
                 }
                 
-                    self!.zipLocation = placemark?.location
-                    self!.centerMapOnLocation(self!.zipLocation)
-                    
+                placemarkPolyline = MKPolyline(coordinates: &self!.destinationBoundary, count: self!.destinationBoundary.count)
+                self!.mapView.addOverlay(placemarkPolyline)
+                self!.zipLocation = placemark?.location
+                self!.centerMapOnLocation(self!.zipLocation)
+                
             }
             
             })
