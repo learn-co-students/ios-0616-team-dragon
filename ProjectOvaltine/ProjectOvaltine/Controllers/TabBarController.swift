@@ -15,7 +15,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         delegate = self
         self.setupNav()
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let tabOne: DetailViewController! = DetailViewController()
