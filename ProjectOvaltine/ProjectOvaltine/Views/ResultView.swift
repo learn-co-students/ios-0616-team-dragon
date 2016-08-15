@@ -24,25 +24,29 @@ class ResultView: UIView {
         self.backgroundColor = UIColor.whiteColor()
         self.createGraph()
         self.createLabels()
+        self.setupView()
       }
     
     func createGraph() {
-        self.graphView = GaugeView(frame: CGRect(x:self.frame.width/1.8, y:self.frame.height * 1.5, width: 200, height: 200))
+        self.graphView = GaugeView(frame: CGRect(x:0, y:0, width: 200, height: 200))
         self.graphView.percentage = 80
         self.graphView.thickness = 9
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
         self.graphView.labelColor = UIColor.blueColor()
         self.graphView.gaugeBackgroundColor = UIColor.lightGrayColor()
+        self.addSubview(graphView)
     }
     
     func createLabels() {
-        self.locationNameLabel.frame = CGRect(x: self.frame.width/1.3, y: self.frame.height * 1.2, width: 150, height: 40)
-        self.locationNameLabel.backgroundColor = UIColor.clearColor()
+        self.locationNameLabel.frame = CGRect(x:0, y: 0, width: 150, height: 40)
+        self.locationNameLabel.backgroundColor = UIColor.blueColor()
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Left
         self.locationNameLabel.font = UIFont(name:"AppleSDGothicNeo-Light", size:20)
         self.locationNameLabel.text = "New York County"
-        self.resultDescriptionTextView.frame = CGRect(x: 0, y: 150, width: 300, height:600)
+        self.resultDescriptionTextView.frame = CGRect(x: 0, y: 0, width: 300, height:600)
+        self.addSubview(locationNameLabel)
+        self.addSubview(self.resultDescriptionTextView)
     }
     
     
