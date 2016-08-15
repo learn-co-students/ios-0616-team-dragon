@@ -11,12 +11,11 @@ import SnapKit
 import GaugeView
 
 class ResultView: UIView {
-    private var gaugeView: GaugeView!
+    private var graphView: GaugeView!
     
-    var graph: UIView?
     var score: UIView!
     var locationName: UILabel?
-    var graphDescription = UILabel()
+    var graphDescriptionTextView = UITextView()
     var resultParameter: UILabel = UILabel()
     var view: UIView!
     var resultLocationNameLabel = UILabel()
@@ -29,21 +28,19 @@ class ResultView: UIView {
         self.view.frame = CGRectMake(self.frame.size.width/2 - width/2
             , self.frame.size.height/2 - height/2, width, height)
         self.view.backgroundColor = UIColor.whiteColor()
-        self.gaugeView = GaugeView(frame: CGRect(x:self.view.frame.width/1.8, y:self.view.frame.height * 1.5, width: 200, height: 200))
-        self.gaugeView.percentage = 80
-        self.gaugeView.thickness = 9
-        self.gaugeView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
-        self.gaugeView.labelColor = UIColor.blueColor()
-        self.gaugeView.gaugeBackgroundColor = UIColor.lightGrayColor()
-        self.view.addSubview(self.gaugeView)
+        self.graphView = GaugeView(frame: CGRect(x:self.view.frame.width/1.8, y:self.view.frame.height * 1.5, width: 200, height: 200))
+        self.graphView.percentage = 80
+        self.graphView.thickness = 9
+        self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
+        self.graphView.labelColor = UIColor.blueColor()
+        self.graphView.gaugeBackgroundColor = UIColor.lightGrayColor()
+        self.view.addSubview(self.graphView)
         self.view.addSubview(self.createScoreLabel().0)
         self.view.addSubview(self.createScoreLabel().1)
         self.view.addSubview(self.createScoreLabel().2)
     }
     
-    func createScoreLabel() -> (UILabel, UILabel, UILabel){
-        
-        let appyFont = AppFont()
+    func createScoreLabel() -> (UILabel, UILabel, UITextView){
         self.resultLocationNameLabel.frame = CGRect(x: self.view.frame.width/1.3, y: self.view.frame.height * 1.2, width: 150, height: 40)
         self.resultLocationNameLabel.backgroundColor = UIColor.clearColor()
         self.resultLocationNameLabel.textColor = UIColor.blackColor()
@@ -56,15 +53,19 @@ class ResultView: UIView {
         
         self.resultParameter.text = "Financial Data"
         self.resultLocationNameLabel.font = UIFont(name:"AppleSDGothicNeo-Light", size:16)
-        self.graphDescription.frame = CGRect(x: 10, y: self.view.frame.height * 0.8, width: 300, height:600)
-        self.graphDescription.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-        self.graphDescription.font = UIFont(name:"AppleSDGothicNeo-Light", size:16)
-        self.graphDescription.textColor = UIColor.blackColor()
-        
-        
+        self.graphDescriptionTextView.frame = CGRect(x: 10, y: self.view.frame.height * 0.8, width: 300, height:600)
+        self.graphDescriptionTextView.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        self.graphDescriptionTextView.font = UIFont(name:"AppleSDGothicNeo-Light", size:16)
+        self.graphDescriptionTextView.textColor = UIColor.blackColor()
+        let fixedWidth = self.graphDescriptionTextView.frame.size.width
+        self.graphDescriptionTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = graphDescriptionTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = graphDescriptionTextView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        self.graphDescriptionTextView.frame = newFrame
         self.locationName = UILabel()
         self.locationName!.text = "TEST"
-        return((self.resultLocationNameLabel, self.resultParameter, self.graphDescription))
+        return((self.resultLocationNameLabel, self.resultParameter, self.graphDescriptionTextView))
     }
 
     var result: ResultModel! {
