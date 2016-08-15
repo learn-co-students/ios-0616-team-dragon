@@ -64,7 +64,7 @@ class TabViewController1: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cellID",locationName: "New York City", description:"Description", score:"90")
+        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cellID",parameterDescription: "New York City", description:"Description", score:"90")
         return cell
     }
     

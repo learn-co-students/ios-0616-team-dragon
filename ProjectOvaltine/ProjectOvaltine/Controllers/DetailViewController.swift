@@ -21,31 +21,34 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func ratingTextView() {
-        let ratingsText = "9.5"
-        let graphDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-        let graphDescriptionTextView = UITextView()
-        graphDescriptionTextView.text = graphDescription
-        graphDescriptionTextView.frame = CGRect(x: 10, y:176, width: 300, height:600)
-        let fixedWidth = graphDescriptionTextView.frame.size.width
-        let ratingsLabel = UILabel(frame : CGRect(x:60, y:90, width:90, height:100))
-        graphDescriptionTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        let newSize = graphDescriptionTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        var newFrame = graphDescriptionTextView.frame
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-        graphDescriptionTextView.frame = newFrame
-        view.addSubview(ratingsLabel)
-        view.addSubview(graphDescriptionTextView)
-        ratingsLabel.backgroundColor = UIColor.blueColor()
-        ratingsLabel.text = ratingsText
-        ratingsLabel.textColor = UIColor.whiteColor()
-        ratingsLabel.font = UIFont(name:"AppleSDGothicNeo-Light", size:66)
-        ratingsLabel.sendSubviewToBack(ratingsLabel)
-        graphDescriptionTextView.sendSubviewToBack(graphDescriptionTextView)
-        
-        
-    
-        
-        
+        let ratingsView = ResultView()!
+        self.view.addSubview(ratingsView)
+       // self.ratingsView.sendSubviewToBack(ratingsView)
+//        let ratingsText = "9.5"
+//        let graphDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+//        let graphDescriptionTextView = UITextView()
+//        graphDescriptionTextView.text = graphDescription
+//        graphDescriptionTextView.frame = CGRect(x: 10, y:176, width: 300, height:600)
+//        let fixedWidth = graphDescriptionTextView.frame.size.width
+//        let ratingsLabel = UILabel(frame : CGRect(x:60, y:90, width:90, height:100))
+//        graphDescriptionTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+//        let newSize = graphDescriptionTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+//        var newFrame = graphDescriptionTextView.frame
+//        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+//        graphDescriptionTextView.frame = newFrame
+//        view.addSubview(ratingsLabel)
+//        view.addSubview(graphDescriptionTextView)
+//        ratingsLabel.backgroundColor = UIColor.blueColor()
+//        ratingsLabel.text = ratingsText
+//        ratingsLabel.textColor = UIColor.whiteColor()
+//        ratingsLabel.font = UIFont(name:"AppleSDGothicNeo-Light", size:66)
+//        ratingsLabel.sendSubviewToBack(ratingsLabel)
+//        graphDescriptionTextView.sendSubviewToBack(graphDescriptionTextView)
+//        
+//        
+//    
+//        
+//        
         
         
 //        self.graphDescriptionTextView.frame = CGRect(x: 10, y: self.view.frame.height * 0.8, width: 300, height:600)
@@ -91,7 +94,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return detailsArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",locationName: "New York City", description:"Description", score:"90")
+        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: "New York City", description: "Description", score:"90")
         return cell
     }
     
