@@ -15,7 +15,6 @@ class ResultViewController: UIViewController {
     override func loadView() {
         super.loadView()
         self.view.addSubview(ResultView()!)
-        ///self.view = ResultView()!.view
     }
     
     override func viewDidAppear(animated: Bool) {
