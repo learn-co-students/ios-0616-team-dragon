@@ -8,27 +8,65 @@
 
 import UIKit
 
-class ResultTableView: UITableView {
+
+class ResultTableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var detailsArray = ["Finance","Education","Transportation", "Demographics"]
     
-//    override func dequeueReusableCellWithIdentifier(identifier: String, forIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        // not implemented
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor()
+        statsTableView()
+        ratingTextView()
+    }
     
-//    override func indexPathForCell(cell: UITableViewCell) -> NSIndexPath? {
-//        return indexPathForCell(cell)
-//       //not implemented
-//    }
+    func ratingTextView() {
+        let ratingsView = ResultView()
+        self.view.addSubview(ratingsView!)
+    }
     
-    override func dequeueReusableCellWithIdentifier(identifier: String) -> UITableViewCell? {
-        let resultCell = ResultCell(style:.Default, reuseIdentifier: "resultCell")
-        let cell = UITableViewCell.init(style:UITableViewCellStyle.Default, reuseIdentifier: resultCell.reuseIdentifier)
+    func statsTableView() {
+        let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+        view.sendSubviewToBack(tableView)
+        tableView.frame.origin.y += 366
+        
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 66
+    }
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        //return 2
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return detailsArray.count
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
         return cell
     }
     
-//    override func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell? {
-//        self.indexPathForCell(cell:UITableViewCell)
-//        
-//        //not implemented
-//    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //        if self.detailsArray[indexPath.row] == "Finance" {
+        //            let destinationVC = EconomicDataViewController()
+        //            self.navigationController?.pushViewController(destinationVC, animated: true)
+        //        }  else if self.detailsArray[indexPath.row] == "Education" {
+        //            let destinationVC = EducationDataViewController()
+        //            self.navigationController?.pushViewController(destinationVC, animated: true)
+        //        } else if self.detailsArray[indexPath.row] == "Transportation" {
+        //            let destinationVC = DetailViewController()
+        //            self.navigationController?.pushViewController(destinationVC, animated: true)
+        //        } else if self.detailsArray[indexPath.row] == "Demographics" {
+        //            let destinationVC = DemographicDataViewController()
+        //            self.navigationController?.pushViewController(destinationVC, animated: true)
+        //        }
+        print(detailsArray[indexPath.row])
+    }
     
 }
