@@ -173,14 +173,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.view.addConstraint(topConstraint)
     }
     func initHeaderBanner() {
-        let projectName = UIButton(frame: CGRectMake(20, 630, self.view.frame.width-40, 40))
-        projectName.backgroundColor=UIColor.lightGrayColor()
-        projectName.setTitle("PROJECT OVALTINE", forState: .Normal)
-        projectName.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        projectName.alpha = 0.3
-        projectName.layer.zPosition = 3
-        projectName.layer.borderWidth = 0.3
-        projectName.layer.cornerRadius = 2
+        let projectName = ProjectButton().setup()
         self.view.addSubview(projectName)
     }
 }

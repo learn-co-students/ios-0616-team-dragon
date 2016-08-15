@@ -21,4 +21,8 @@ struct ProjectButton {
         self.nameButton.layer.borderWidth = 0.3
         self.nameButton.layer.cornerRadius = 2
     }
+    
+    func setup() -> UIButton {
+        return self.nameButton
+    }
 }
