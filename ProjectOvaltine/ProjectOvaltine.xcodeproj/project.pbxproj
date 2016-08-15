@@ -42,6 +42,7 @@
 		AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460131D551BE400FBE63B /* LaborStaticsData.swift */; };
 		AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460141D551BE400FBE63B /* USAJobsData.swift */; };
 		AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601D1D551C4D00FBE63B /* ViewController.swift */; };
+		AFE7592F1D625B710072FF76 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE7592E1D625B710072FF76 /* NavBar.swift */; };
 		AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */; };
 		AFE906A81D5E3D2600CEA2C9 /* EconomicDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A71D5E3D2600CEA2C9 /* EconomicDataViewController.swift */; };
 		AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A91D5E3D3D00CEA2C9 /* DemographicDataViewController.swift */; };
@@ -94,6 +95,7 @@
 		AFE460131D551BE400FBE63B /* LaborStaticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaborStaticsData.swift; sourceTree = "<group>"; };
 		AFE460141D551BE400FBE63B /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
 		AFE4601D1D551C4D00FBE63B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
+		AFE7592E1D625B710072FF76 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Controllers/NavBar.swift; sourceTree = "<group>"; };
 		AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		AFE906A71D5E3D2600CEA2C9 /* EconomicDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EconomicDataViewController.swift; path = Controllers/EconomicDataViewController.swift; sourceTree = "<group>"; };
 		AFE906A91D5E3D3D00CEA2C9 /* DemographicDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemographicDataViewController.swift; path = Controllers/DemographicDataViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				AFE906B11D5E455200CEA2C9 /* AppController.swift */,
 				AFE906B31D5E458700CEA2C9 /* DetailViewController.swift */,
 				AFE906B51D5E481400CEA2C9 /* TabViewController.swift */,
+				AFE7592E1D625B710072FF76 /* NavBar.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				AF1FC7C81D5B72C0004973A2 /* ScoreModel.swift in Sources */,
 				AF24B1C91D5987150031FEEB /* USAJobsTests.swift in Sources */,
 				AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */,
+				AFE7592F1D625B710072FF76 /* NavBar.swift in Sources */,
 				AF7777E91D6103C000303DBB /* ProjectButton.swift in Sources */,
 				AFE906B21D5E455200CEA2C9 /* AppController.swift in Sources */,
 				AF04F1C71D5A404C005B7F26 /* CensusAPIClient.swift in Sources */,
