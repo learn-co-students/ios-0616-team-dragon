@@ -41,7 +41,6 @@
 		AFE460161D551BE400FBE63B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460121D551BE400FBE63B /* DataStore.swift */; };
 		AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460131D551BE400FBE63B /* LaborStaticsData.swift */; };
 		AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460141D551BE400FBE63B /* USAJobsData.swift */; };
-		AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4601D1D551C4D00FBE63B /* ViewController.swift */; };
 		AFE7592F1D625B710072FF76 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE7592E1D625B710072FF76 /* NavBar.swift */; };
 		AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */; };
 		AFE906A81D5E3D2600CEA2C9 /* EconomicDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A71D5E3D2600CEA2C9 /* EconomicDataViewController.swift */; };
@@ -92,7 +91,6 @@
 		AFE460121D551BE400FBE63B /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		AFE460131D551BE400FBE63B /* LaborStaticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaborStaticsData.swift; sourceTree = "<group>"; };
 		AFE460141D551BE400FBE63B /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
-		AFE4601D1D551C4D00FBE63B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
 		AFE7592E1D625B710072FF76 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Controllers/NavBar.swift; sourceTree = "<group>"; };
 		AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		AFE906A71D5E3D2600CEA2C9 /* EconomicDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EconomicDataViewController.swift; path = Controllers/EconomicDataViewController.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				AF1786351D595B09008C834D /* MapKitViewController.swift */,
-				AFE4601D1D551C4D00FBE63B /* ViewController.swift */,
 				AF1FC7C91D5B736F004973A2 /* ResultViewController.swift */,
 				AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */,
 				AFE906A71D5E3D2600CEA2C9 /* EconomicDataViewController.swift */,
@@ -427,7 +424,6 @@
 				AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */,
 				AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */,
 				AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */,
-				AFE4601E1D551C4D00FBE63B /* ViewController.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
 				AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */,
 				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
