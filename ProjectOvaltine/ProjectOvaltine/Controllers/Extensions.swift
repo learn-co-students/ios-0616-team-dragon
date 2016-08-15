@@ -15,11 +15,12 @@ protocol Tabable: UITabBarControllerDelegate {
 }
 
 extension Tabable {
-    var resultViewController : ResultViewController { return ResultViewController() }
+    var statsViewController : StatsViewController { return StatsViewController() }
     var mapkitViewController : MapKitViewController { return MapKitViewController() }
     var demographicDataViewController : DemographicDataViewController { return DemographicDataViewController() }
-    var economicDataViewController : EconomicDataViewController { return EconomicDataViewController() }
+    var financeDataViewController : FinanceDataViewController { return FinanceDataViewController() }
     var educationDataViewController : EducationDataViewController { return EducationDataViewController() }
+    var transportationDataViewController : TransportationDataViewController { return TransportationDataViewController() }
     
     var statisticIcon : UITabBarItem { return UITabBarItem(title: "Statistics", image: UIImage(named: "rating.png"), tag: 0) }
     var economicIcon : UITabBarItem { return UITabBarItem(title: "Finance", image: UIImage(named: "emp.png"), tag: 1) }
@@ -32,9 +33,9 @@ extension Tabable {
         tabBarVC.delegate = self
         
         let mapItem = self.mapkitViewController
-        let resultItem = self.resultViewController
+        let resultItem = self.statsViewController
         let demographicItem = self.demographicDataViewController
-        let economicItem = self.economicDataViewController
+        let economicItem = self.financeDataViewController
         let educationItem = self.educationDataViewController
         
         mapItem.tabBarItem = statisticIcon

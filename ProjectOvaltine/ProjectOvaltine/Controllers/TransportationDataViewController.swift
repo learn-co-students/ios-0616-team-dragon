@@ -1,5 +1,5 @@
 //
-//  DemographicDataViewController.swift
+//  ResultTableViewController.swift
 //  ProjectOvaltine
 //
 //  Created by John Hussain on 8/7/16.
@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MapKit
+import SwiftSpinner
 
-class DemographicDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TransportationDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var myArray = ["Diversity","Population","etc."]
+    var myArray = ["Commute Time","Public Transportation","etc."]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.frame.origin.y += 55
-        tableView.backgroundColor = UIColor(patternImage: UIImage(named:"demographic.png")!)
+        tableView.backgroundColor = UIColor(patternImage: UIImage(named:"commute.png")!)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -37,7 +39,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
-        let color = UIColor(netHex:0x3A4BDE)
+        let color = UIColor(netHex:0xDE4138)
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myLabel1.font = UIFont(name:"Futura", size:25)
         cell.myLabel1?.layer.shadowColor = color.CGColor
@@ -46,8 +48,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         cell.myLabel1?.layer.shadowRadius = 2.0
         
         //cell.myLabel2.text = "\(indexPath.row + 1)"
-        cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.myButton1.addTarget(self, action: #selector(TransportationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.myButton2.addTarget(self, action: #selector(TransportationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         //        let color = UIColor(netHex:0x6CD4E8)
         //        let color2 = UIColor(netHex:0x2DC5E8)
@@ -73,8 +75,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func navBar() {
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
         self.view.addSubview(navBar)
-        navBar.backgroundColor = UIColor.blueColor()
-        let navItem = UINavigationItem(title: "Demographics")
+        navBar.backgroundColor = UIColor.redColor()
+        let navItem = UINavigationItem(title: "Transportation")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor.blackColor()
         
@@ -100,4 +102,3 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         print("Settings Pushed")
     }
 }
-

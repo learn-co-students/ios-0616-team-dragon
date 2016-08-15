@@ -134,7 +134,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         dispatch_after(time, dispatch_get_main_queue()) {
             //let detailVC = DetailViewController()
             let tabVC = TabBarController()
-            //let resultVC = ResultViewController()
+            //let resultVC = StatsViewController()
             self.showViewController(tabVC, sender: nil)
             self.searchController.text?.removeAll()
         }

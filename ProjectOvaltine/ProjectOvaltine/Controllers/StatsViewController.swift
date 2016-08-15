@@ -9,7 +9,7 @@
 import UIKit
 import SwiftSpinner
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var detailsArray = ["Finance","Education","Transportation", "Demographics"]
     
     override func viewDidLoad() {
@@ -101,7 +101,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        if self.detailsArray[indexPath.row] == "Finance" {
-//            let destinationVC = EconomicDataViewController()
+//            let destinationVC = FinanceDataViewController()
 //            self.navigationController?.pushViewController(destinationVC, animated: true)
 //        }  else if self.detailsArray[indexPath.row] == "Education" {
 //            let destinationVC = EducationDataViewController()
