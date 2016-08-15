@@ -62,8 +62,6 @@ class TabViewController1: UIViewController, UITableViewDelegate, UITableViewData
         return detailsArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cellID",parameterDescription: "New York City", description:"Description", score:"90")
         return cell
     }

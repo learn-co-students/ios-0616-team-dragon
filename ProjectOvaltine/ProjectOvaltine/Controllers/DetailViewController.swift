@@ -21,8 +21,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func ratingTextView() {
-        let ratingsView = ResultView()!
-        self.view.addSubview(ratingsView)
+        let ratingsView = ResultView()
+        self.view.addSubview(ratingsView!)
        // self.ratingsView.sendSubviewToBack(ratingsView)
 //        let ratingsText = "9.5"
 //        let graphDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -125,13 +125,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Statistics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        
         navItem.leftBarButtonItem = homeItem
-        
         navBar.setItems([navItem], animated: false)
         navBar.alpha = 1.0
         navBar.layer.zPosition = 3
-        
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)

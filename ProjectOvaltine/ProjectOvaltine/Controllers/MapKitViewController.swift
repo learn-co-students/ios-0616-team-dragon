@@ -48,21 +48,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         super.viewDidLoad()
         //self.testPrint()
         self.drawInMapView()
-        
         self.searchBar()
-        
         self.initHeaderBanner()
-        
         self.populateCoordinateArray{(someArray) in
-            
             for i in 0...someArray.count-1 {
-                
                 self.convertArrayDataToPoints(someArray[i] as! [AnyObject])
             }
-            
-            
             print(self.boundary)
-            
         }
         centerMapOnLocation(self.initialLocation)
     }
@@ -91,28 +83,17 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     func testPrint(){
         self.store.getCitySDKData({
             if let geo = self.store.cityDataPoints.first?.coordinates {
-                print(geo)}
-            
+                print(geo) }
             if let age = self.store.cityDataPoints.first?.age {
-                print(age)
-            }
-            
+                print(age) }
             if let name = self.store.cityDataPoints.first?.locationName {
-                print(name)
-            }
-            
+                print(name) }
             if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
-                print(commute)
-            }
-            
+                print(commute) }
             if let income = self.store.cityDataPoints.first?.incomePerCapita {
-                print(income)
-            }
-            
+                print(income) }
             if let education = self.store.cityDataPoints.first?.highSchoolEducation {
-                print(education)
-            }
-            
+                print(education) }
         })
     }
     
@@ -120,7 +101,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
         let longCoord = array[0] as! Double
         let latCoord = array[1] as! Double
-        
         let point = CLLocationCoordinate2D(latitude: latCoord, longitude: longCoord)
         boundary.append(point)
         
@@ -129,7 +109,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     func drawPolylines(){
         let polyline = MKPolyline(coordinates: &boundary, count: boundary.count)
         mapView.addOverlay(polyline)
-        
     }
     
     //Delegate method from mapView in order to render the polyline
@@ -138,7 +117,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         polylineRenderer.strokeColor = UIColor.blueColor()
         polylineRenderer.lineWidth = 5
         return polylineRenderer
-        
     }
     
     //Centers Map on a given coordinate
@@ -146,23 +124,20 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   self.regionRadius * 2.0,
                                                                   self.regionRadius * 2.0)
-        
-        
         self.mapView.setRegion(coordinateRegion, animated: true)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.getLocationFromZipcode(self.searchController.text!)
         self.drawPolylines()
-        
         let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
         dispatch_after(time, dispatch_get_main_queue()) {
-            
-            let detailVC = DetailViewController()
-            self.showViewController(detailVC, sender: nil)
+            //let detailVC = DetailViewController()
+            //let tabVC = TabBarController()
+            let resultVC = ResultViewController()
+            self.showViewController(resultVC, sender: nil)
             self.searchController.text?.removeAll()
         }
-        
     }
     
     //    func getLocationFromSearchField(userSearch: String) {
@@ -189,9 +164,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
             }
         })
     }
-    
-    
-    
     func searchBar() {
         self.searchController.placeholder = "Enter Location"
         self.searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 66)
@@ -199,7 +171,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.searchController.delegate = self
         self.view.addSubview(self.searchController)
         self.view.addConstraint(topConstraint)
-        
     }
     func initHeaderBanner() {
         let projectName = UIButton(frame: CGRectMake(20, 630, self.view.frame.width-40, 40))
@@ -213,5 +184,3 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.view.addSubview(projectName)
     }
 }
-
-

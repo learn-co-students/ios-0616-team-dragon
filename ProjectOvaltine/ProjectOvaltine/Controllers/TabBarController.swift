@@ -13,6 +13,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         super.viewDidLoad()
         delegate = self
         self.view.addSubview(self.setupNavBar())
+        
     }
     
     override func viewWillAppear(animated: Bool) {
