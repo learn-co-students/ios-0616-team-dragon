@@ -32,6 +32,7 @@
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
 		AF7777E91D6103C000303DBB /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7777E81D6103C000303DBB /* ProjectButton.swift */; };
+		AF7777F11D620D6A00303DBB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7777F01D620D6A00303DBB /* Constants.swift */; };
 		AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */; };
 		AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */; };
 		AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */; };
@@ -84,6 +85,7 @@
 		AF75DFA31D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF75DFA51D53D30400DDF173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7777E81D6103C000303DBB /* ProjectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectButton.swift; path = Views/ProjectButton.swift; sourceTree = "<group>"; };
+		AF7777F01D620D6A00303DBB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySDKAPIClient.swift; path = Utilities/CitySDKAPIClient.swift; sourceTree = "<group>"; };
 		AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GovDataAPIClient.swift; path = Utilities/GovDataAPIClient.swift; sourceTree = "<group>"; };
 		AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaborStatisticsAPIClient.swift; path = Utilities/LaborStatisticsAPIClient.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				AF04F1C81D5A75B1005B7F26 /* CityAPIClientStruct.swift */,
 				AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */,
 				BDC78DF61D6202E5007F719C /* Constants.swift */,
+
 			);
 			name = Utilities;
 			sourceTree = "<group>";

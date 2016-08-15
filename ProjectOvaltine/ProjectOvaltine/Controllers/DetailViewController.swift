@@ -70,11 +70,26 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        if self.detailsArray[indexPath.row] == "Finance" {
+//            let destinationVC = EconomicDataViewController()
+//            self.navigationController?.pushViewController(destinationVC, animated: true)
+//        }  else if self.detailsArray[indexPath.row] == "Education" {
+//            let destinationVC = EducationDataViewController()
+//            self.navigationController?.pushViewController(destinationVC, animated: true)
+//        } else if self.detailsArray[indexPath.row] == "Transportation" {
+//            let destinationVC = DetailViewController()
+//            self.navigationController?.pushViewController(destinationVC, animated: true)
+//        } else if self.detailsArray[indexPath.row] == "Demographics" {
+//            let destinationVC = DemographicDataViewController()
+//            self.navigationController?.pushViewController(destinationVC, animated: true)
+//        }
         print(detailsArray[indexPath.row])
         
     }
+    
+    
+    
     
     func navBar() {
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 50))
