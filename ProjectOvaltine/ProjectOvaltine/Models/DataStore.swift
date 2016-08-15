@@ -22,7 +22,7 @@ class DataStore {
     var USAJobsDataPoints:[USAJobsData] = []
     
     let level = "county"
-    let zip = "08540"
+    var zip = "00000"
     let api = "acs5"
     let year = "2014"
     let variablesToAdd = Array(CensusConstants.CENSUS_REQUEST_PARAMS.keys)
@@ -38,7 +38,6 @@ class DataStore {
     
     func getCitySDKData(completion: () -> ()) {
         cityAPI.sendAPIRequest(["level":level, "zip": zip, "api": api, "year": year, "variables": variables]) { (cityData) in
-            print(cityData)
             self.cityDataPoints = cityData
             completion()
         }

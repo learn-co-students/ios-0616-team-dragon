@@ -30,8 +30,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     //Initialize alert - used in GeoCoder function when user enters an invalid zipcode
     let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
-    //Hardcoded array of coordinates to test drawing a bounding box
-    let coordinates: [(Double, Double)] = [(34.4313,-118.59890),(34.4274,-118.60246), (34.4268,-118.60181), (34.4202,-118.6004), (34.42013,-118.59239), (34.42049,-118.59051), (34.42305,-118.59276), (34.42557,-118.59289), (34.42739,-118.59171), (34.4313,-118.59890)]
     
     //Calculates a location from array of location data - will be deprecated eventually
     var initialLocation : CLLocation {
@@ -40,6 +38,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     //Necessary to convert point data to CLLocationCoordinate2D array
     var boundary: [CLLocationCoordinate2D] = []
+    
+    //Initialized array of MKOverlays
+    var overlayArray: [MKOverlay] = []
     
     //Init searchBar
     let searchController = UISearchBar.init()
@@ -51,19 +52,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
         self.searchBar()
         
-        self.initHeaderBanner()
+        //self.initHeaderBanner()
         
-        self.populateCoordinateArray{(someArray) in
-            
-            for i in 0...someArray.count-1 {
-                
-                self.convertArrayDataToPoints(someArray[i] as! [AnyObject])
-            }
-            
-            
-            print(self.boundary)
-            
-        }
         centerMapOnLocation(self.initialLocation)
     }
     
@@ -88,34 +78,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         })
     }
     
-    func testPrint(){
-        self.store.getCitySDKData({
-            if let geo = self.store.cityDataPoints.first?.coordinates {
-                print(geo)}
-            
-            if let age = self.store.cityDataPoints.first?.age {
-                print(age)
-            }
-            
-            if let name = self.store.cityDataPoints.first?.locationName {
-                print(name)
-            }
-            
-            if let commute = self.store.cityDataPoints.first?.walkingCommuteTime {
-                print(commute)
-            }
-            
-            if let income = self.store.cityDataPoints.first?.incomePerCapita {
-                print(income)
-            }
-            
-            if let education = self.store.cityDataPoints.first?.highSchoolEducation {
-                print(education)
-            }
-            
-        })
-    }
-    
     func convertArrayDataToPoints(array: [AnyObject]) {
         
         let longCoord = array[0] as! Double
@@ -126,18 +88,17 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
     }
     
-    func drawPolylines(){
-        let polyline = MKPolyline(coordinates: &boundary, count: boundary.count)
-        mapView.addOverlay(polyline)
-        
-    }
-    
     //Delegate method from mapView in order to render the polyline
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-        polylineRenderer.strokeColor = UIColor.blueColor()
-        polylineRenderer.lineWidth = 5
-        return polylineRenderer
+        let polygonRenderer = MKPolygonRenderer(overlay: overlay)
+        polygonRenderer.lineWidth = 3
+        polygonRenderer.fillColor = UIColor.greenColor()
+        polygonRenderer.alpha = 0.15
+        
+//        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+//        polylineRenderer.strokeColor = UIColor.greenColor()
+//        polylineRenderer.lineWidth = 5
+        return polygonRenderer
         
     }
     
@@ -152,16 +113,18 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        mapView.removeOverlays(overlayArray)
+        self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
-        self.drawPolylines()
         
-        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            
-            let detailVC = DetailViewController()
-            self.showViewController(detailVC, sender: nil)
-            self.searchController.text?.removeAll()
-        }
+        
+//        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
+//        dispatch_after(time, dispatch_get_main_queue()) {
+//            
+//            let detailVC = DetailViewController()
+//            self.showViewController(detailVC, sender: nil)
+//            self.searchController.text?.removeAll()
+//        }
         
     }
     
@@ -171,20 +134,37 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
+        self.store.zip = zipcode
         var placemark: CLPlacemark!
-        CLGeocoder().geocodeAddressString(zipcode, completionHandler: {(placemarks, error) in
+        CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if ((error) != nil) {
-                self.alert.title = "Zip not found!"
-                self.alert.message = "You entered an invalid zip"
-                self.alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(self.alert, animated: true, completion: nil)
+                self!.alert.title = "Zip not found!"
+                self!.alert.message = "You entered an invalid zip"
+                self!.alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                self!.presentViewController(self!.alert, animated: true, completion: nil)
                 print("\(error)")
             } else {
                 placemark = (placemarks?.last)!
+                print(placemark)
                 
-                //print(placemarks)
-                self.zipLocation = placemark?.location
-                self.centerMapOnLocation(self.zipLocation)
+                
+                self!.populateCoordinateArray{[weak self] (someArray) in
+                    self!.boundary.removeAll()
+                    
+                    for i in 0...someArray.count-1 {
+                        
+                        self!.convertArrayDataToPoints(someArray[i] as! [AnyObject])
+                    }
+                    
+                    let polygon = MKPolygon(coordinates: &self!.boundary, count: self!.boundary.count)
+                   // let polyline = MKPolyline(coordinates: &self!.boundary, count: self!.boundary.count)
+                    self!.overlayArray.append(polygon)
+                    self!.mapView.addOverlays(self!.overlayArray)
+                }
+                
+               
+                self!.zipLocation = placemark?.location
+                self!.centerMapOnLocation(self!.zipLocation)
                 
             }
         })
@@ -201,17 +181,17 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.view.addConstraint(topConstraint)
         
     }
-    func initHeaderBanner() {
-        let projectName = UIButton(frame: CGRectMake(20, 630, self.view.frame.width-40, 40))
-        projectName.backgroundColor=UIColor.lightGrayColor()
-        projectName.setTitle("PROJECT OVALTINE", forState: .Normal)
-        projectName.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        projectName.alpha = 0.3
-        projectName.layer.zPosition = 3
-        projectName.layer.borderWidth = 0.3
-        projectName.layer.cornerRadius = 2
-        self.view.addSubview(projectName)
-    }
+//    func initHeaderBanner() {
+//        let projectName = UIButton(frame: CGRectMake(20, 630, self.view.frame.width-40, 40))
+//        projectName.backgroundColor=UIColor.lightGrayColor()
+//        projectName.setTitle("PROJECT OVALTINE", forState: .Normal)
+//        projectName.setTitleColor(UIColor.blackColor(), forState: .Normal)
+//        projectName.alpha = 0.3
+//        projectName.layer.zPosition = 3
+//        projectName.layer.borderWidth = 0.3
+//        projectName.layer.cornerRadius = 2
+//        self.view.addSubview(projectName)
+//    }
 }
 
 
