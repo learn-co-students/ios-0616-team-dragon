@@ -16,8 +16,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         super.viewDidLoad()
         print("Loaded DemographicDataViewController")
         self.view.backgroundColor = UIColor.whiteColor()
-        self.navBar()
         self.resultsTableView()
+        self.navBar()
     }
     func resultsTableView() {
         

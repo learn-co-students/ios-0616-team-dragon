@@ -30,7 +30,7 @@ class ResultView: UIView {
     }
     
     func createLabels() {
-        self.locationNameLabel.frame = CGRect(x:0, y: 0, width: 150, height: 40)
+        self.locationNameLabel.frame = CGRect(x:-10, y: 0, width: 150, height: 40)
         //self.locationNameLabel.backgroundColor = UIColor.blueColor()
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Left
