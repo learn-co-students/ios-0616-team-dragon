@@ -13,6 +13,8 @@ import SwiftSpinner
 
 class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControllerDelegate, UISearchBarDelegate {
     
+    var window: UIWindow?
+    
     //Data store instances
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient.sharedInstance
@@ -51,7 +53,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.drawInMapView()
         self.searchBar()
         
-        //self.initHeaderBanner()
         centerMapOnLocation(self.initialLocation)
     }
     
@@ -110,18 +111,14 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
         
-                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-                dispatch_after(time, dispatch_get_main_queue()) {
-        
-                    let detailVC = TabBarController()
-                    self.showViewController(detailVC, sender: nil)
-                    self.searchController.text?.removeAll()
-                }
+        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            
+            let detailVC = TabBarController()
+            self.showViewController(detailVC, sender: nil)
+            self.searchController.text?.removeAll()
+        }
     }
-    
-    //    func getLocationFromSearchField(userSearch: String) {
-    //        var placemark: CLPlacemark!
-    //        CLGeocoder().geocodeAddressString(userSearch, completionHandler: {(placemarks, error) in })}
     
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
@@ -131,9 +128,20 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
             if ((error) != nil) {
                 self!.alert.title = "Zip not found!"
                 self!.alert.message = "You entered an invalid zip"
-                self!.alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                self!.alert.addAction(UIAlertAction(title: "PLEASE ENTER VALID LOCATION", style: UIAlertActionStyle.Default, handler: nil))
                 self!.presentViewController(self!.alert, animated: true, completion: nil)
                 print("\(error)")
+                
+                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
+                dispatch_after(time, dispatch_get_main_queue()) {
+                    SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
+                    SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+                    self!.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                    self!.window!.makeKeyAndVisible()
+                    self!.window?.rootViewController = MapKitViewController()
+                    SwiftSpinner.hide()
+                }
+                
             } else {
                 placemark = (placemarks?.last)!
                 print(placemark)
@@ -168,17 +176,5 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.view.addSubview(self.searchController)
         self.view.addConstraint(topConstraint)
     }
-    
-    //    func initHeaderBanner() {
-    //        let projectName = UIButton(frame: CGRectMake(20, 630, self.view.frame.width-40, 40))
-    //        projectName.backgroundColor=UIColor.lightGrayColor()
-    //        projectName.setTitle("PROJECT OVALTINE", forState: .Normal)
-    //        projectName.setTitleColor(UIColor.blackColor(), forState: .Normal)
-    //        projectName.alpha = 0.3
-    //        projectName.layer.zPosition = 3
-    //        projectName.layer.borderWidth = 0.3
-    //        projectName.layer.cornerRadius = 2
-    //        self.view.addSubview(projectName)
-    //    }
 }
 
