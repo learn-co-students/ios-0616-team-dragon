@@ -52,23 +52,4 @@ class DetailView: UIView {
     func setupConstraints() {
         
     }
-//    override init (frame : CGRect) {
-//        super.init(frame : frame)
-//    }
-//    
-//    
-//    convenience init () {
-//       super.init(frame:CGRectMake(0, 0, self.screenWidth, self.sceenHeight))
-//    }
-//
-//    required init?(coder: NSCoder = NSCoder.empty()) {
-//        super.init(coder: coder)
-//    }
-    
-//    init?(topic: String, score:String, description:String) {
-//        self.topicLabel.text = topic
-//        self.scoreLabel.text = score
-//        self.descriptionLabel.text = description
-//        super.init(coder: NSCoder.empty())
-//    }
 }
