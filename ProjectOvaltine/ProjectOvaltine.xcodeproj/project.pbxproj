@@ -39,6 +39,7 @@
 		AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460141D551BE400FBE63B /* USAJobsData.swift */; };
 		AFE759371D62BBC50072FF76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE759361D62BBC50072FF76 /* Constants.swift */; };
 		AFE759391D62BC3D0072FF76 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE759381D62BC3D0072FF76 /* DetailView.swift */; };
+		AFE7593B1D6346C20072FF76 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE7593A1D6346C20072FF76 /* NavBar.swift */; };
 		AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */; };
 		AFE906A81D5E3D2600CEA2C9 /* FinanceDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A71D5E3D2600CEA2C9 /* FinanceDataViewController.swift */; };
 		AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A91D5E3D3D00CEA2C9 /* DemographicDataViewController.swift */; };
@@ -85,6 +86,7 @@
 		AFE460141D551BE400FBE63B /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
 		AFE759361D62BBC50072FF76 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFE759381D62BC3D0072FF76 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailView.swift; path = Views/DetailView.swift; sourceTree = "<group>"; };
+		AFE7593A1D6346C20072FF76 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Controllers/NavBar.swift; sourceTree = "<group>"; };
 		AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		AFE906A71D5E3D2600CEA2C9 /* FinanceDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinanceDataViewController.swift; path = Controllers/FinanceDataViewController.swift; sourceTree = "<group>"; };
 		AFE906A91D5E3D3D00CEA2C9 /* DemographicDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemographicDataViewController.swift; path = Controllers/DemographicDataViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				AF1FC7C91D5B736F004973A2 /* TransportationDataViewController.swift */,
 				AFE906A91D5E3D3D00CEA2C9 /* DemographicDataViewController.swift */,
 				AFE906AD1D5E3D7800CEA2C9 /* Extensions.swift */,
+				AFE7593A1D6346C20072FF76 /* NavBar.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				AFE906B41D5E458700CEA2C9 /* StatsViewController.swift in Sources */,
 				AFE906A81D5E3D2600CEA2C9 /* FinanceDataViewController.swift in Sources */,
 				AF1FC7C31D5B6F8C004973A2 /* ResultView.swift in Sources */,
+				AFE7593B1D6346C20072FF76 /* NavBar.swift in Sources */,
 				AF1FC7C81D5B72C0004973A2 /* ScoreModel.swift in Sources */,
 				AF24B1C91D5987150031FEEB /* USAJobsTests.swift in Sources */,
 				AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */,
