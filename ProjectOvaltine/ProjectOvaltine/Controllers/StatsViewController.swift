@@ -67,7 +67,6 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //            self.navigationController?.pushViewController(destinationVC, animated: true)
 //        }
         print(detailsArray[indexPath.row])
-        
     }
 
     func dismissView() {

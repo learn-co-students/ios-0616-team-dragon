@@ -47,7 +47,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         //cell.myLabel2.text = "\(indexPath.row + 1)"
         cell.myButton1.addTarget(self, action: #selector(FinanceDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+//        cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         //        let color = UIColor(netHex:0x6CD4E8)
         //        let color2 = UIColor(netHex:0x2DC5E8)

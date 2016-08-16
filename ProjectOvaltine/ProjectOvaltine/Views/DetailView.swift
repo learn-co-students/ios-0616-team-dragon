@@ -53,4 +53,3 @@ class DetailView: UIView {
         
     }
 }
-
