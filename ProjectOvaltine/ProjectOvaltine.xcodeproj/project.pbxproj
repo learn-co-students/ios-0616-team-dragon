@@ -38,7 +38,6 @@
 		AFE460161D551BE400FBE63B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460121D551BE400FBE63B /* DataStore.swift */; };
 		AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460131D551BE400FBE63B /* LaborStaticsData.swift */; };
 		AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460141D551BE400FBE63B /* USAJobsData.swift */; };
-		AFE7592F1D625B710072FF76 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE7592E1D625B710072FF76 /* NavBar.swift */; };
 		AFE759391D62BC3D0072FF76 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE759381D62BC3D0072FF76 /* DetailView.swift */; };
 		AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */; };
 		AFE906A81D5E3D2600CEA2C9 /* FinanceDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A71D5E3D2600CEA2C9 /* FinanceDataViewController.swift */; };
@@ -46,8 +45,9 @@
 		AFE906AC1D5E3D5900CEA2C9 /* EducationDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906AB1D5E3D5900CEA2C9 /* EducationDataViewController.swift */; };
 		AFE906AE1D5E3D7800CEA2C9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906AD1D5E3D7800CEA2C9 /* Extensions.swift */; };
 		AFE906B01D5E3F0500CEA2C9 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */; };
-		AFE906B41D5E458700CEA2C9 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906B31D5E458700CEA2C9 /* StatsViewController.swift */; };
+		AFE906B41D5E458700CEA2C9 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BD20C70E1D634B5C0065CADF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20C70D1D634B5C0065CADF /* Constants.swift */; };
+		BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20C70F1D6355CE0065CADF /* StatsViewController.swift */; };
 		D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,8 +95,9 @@
 		AFE906AB1D5E3D5900CEA2C9 /* EducationDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EducationDataViewController.swift; path = Controllers/EducationDataViewController.swift; sourceTree = "<group>"; };
 		AFE906AD1D5E3D7800CEA2C9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Controllers/Extensions.swift; sourceTree = "<group>"; };
 		AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultCell.swift; path = Views/SearchResultCell.swift; sourceTree = "<group>"; };
-		BD20C70D1D634B5C0065CADF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFE906B11D5E455200CEA2C9 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = Controllers/AppController.swift; sourceTree = "<group>"; };
+		BD20C70D1D634B5C0065CADF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
+		BD20C70F1D6355CE0065CADF /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = Controllers/StatsViewController.swift; sourceTree = "<group>"; };
 		CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC048C74F799EF73ABF209A0 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,13 +240,13 @@
 			children = (
 				AF1786351D595B09008C834D /* MapKitViewController.swift */,
 				AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */,
+				BD20C70F1D6355CE0065CADF /* StatsViewController.swift */,
 				AFE906A71D5E3D2600CEA2C9 /* FinanceDataViewController.swift */,
 				AFE906AB1D5E3D5900CEA2C9 /* EducationDataViewController.swift */,
 				AF1FC7C91D5B736F004973A2 /* TransportationDataViewController.swift */,
 				AFE906A91D5E3D3D00CEA2C9 /* DemographicDataViewController.swift */,
 				AFE906AD1D5E3D7800CEA2C9 /* Extensions.swift */,
 				AFE906B11D5E455200CEA2C9 /* AppController.swift */,
-				AFE906B31D5E458700CEA2C9 /* StatsViewController.swift */,
 				AFE7592E1D625B710072FF76 /* NavBar.swift */,
 				AF0916071D634B5D00138D86 /* TableViewCell.swift */,
 			);
@@ -404,7 +405,7 @@
 				AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */,
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
 				AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */,
-				AFE906B41D5E458700CEA2C9 /* StatsViewController.swift in Sources */,
+				AFE906B41D5E458700CEA2C9 /* (null) in Sources */,
 				AFE906A81D5E3D2600CEA2C9 /* FinanceDataViewController.swift in Sources */,
 				AF1FC7C31D5B6F8C004973A2 /* ResultView.swift in Sources */,
 				AF1FC7C81D5B72C0004973A2 /* ScoreModel.swift in Sources */,
@@ -419,6 +420,7 @@
 				AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */,
 				AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
+				BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */,
 				AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */,
 				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
 				AF04F1C91D5A75B1005B7F26 /* CityAPIClientStruct.swift in Sources */,
