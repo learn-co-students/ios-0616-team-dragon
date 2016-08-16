@@ -25,11 +25,11 @@ class SearchResultCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-    convenience init(style: UITableViewCellStyle, reuseIdentifier: String?, locationName: String, description:String, score:String) {
+    convenience init(style: UITableViewCellStyle, reuseIdentifier: String?, parameterDescription: String, description:String, score:String) {
         self.init(style: style, reuseIdentifier: reuseIdentifier)
         self.scoreLabel.text = score
         self.resultDescription.text = description
-        self.resultLocationNameLabel.text = locationName
+        self.resultLocationNameLabel.text = parameterDescription
         self.createGraph()
         self.createLabels()
         self.contentView.addSubview(self.scoreLabel)

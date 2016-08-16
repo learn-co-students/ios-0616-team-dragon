@@ -49,11 +49,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         super.viewDidLoad()
         //self.testPrint()
         self.drawInMapView()
-        
         self.searchBar()
         
         //self.initHeaderBanner()
-        
         centerMapOnLocation(self.initialLocation)
     }
     
@@ -82,7 +80,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
         let longCoord = array[0] as! Double
         let latCoord = array[1] as! Double
-        
         let point = CLLocationCoordinate2D(latitude: latCoord, longitude: longCoord)
         boundary.append(point)
         
@@ -95,20 +92,16 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         polygonRenderer.fillColor = UIColor.greenColor()
         polygonRenderer.alpha = 0.15
         
-//        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-//        polylineRenderer.strokeColor = UIColor.greenColor()
-//        polylineRenderer.lineWidth = 5
-        return polygonRenderer
-        
-    }
+        //        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+        //        polylineRenderer.strokeColor = UIColor.greenColor()
+        //        polylineRenderer.lineWidth = 5
+        return polygonRenderer}
     
     //Centers Map on a given coordinate
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   self.regionRadius * 2.0,
                                                                   self.regionRadius * 2.0)
-        
-        
         self.mapView.setRegion(coordinateRegion, animated: true)
     }
     
@@ -118,14 +111,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.getLocationFromZipcode(self.searchController.text!)
         
         
-//        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-//        dispatch_after(time, dispatch_get_main_queue()) {
-//            
-//            let detailVC = DetailViewController()
-//            self.showViewController(detailVC, sender: nil)
-//            self.searchController.text?.removeAll()
-//        }
-        
+        //        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
+        //        dispatch_after(time, dispatch_get_main_queue()) {
+        //
+        //            let detailVC = DetailViewController()
+        //            self.showViewController(detailVC, sender: nil)
+        //            self.searchController.text?.removeAll()
+        //        }
     }
     
     //    func getLocationFromSearchField(userSearch: String) {
@@ -157,21 +149,18 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     }
                     
                     let polygon = MKPolygon(coordinates: &self!.boundary, count: self!.boundary.count)
-                   // let polyline = MKPolyline(coordinates: &self!.boundary, count: self!.boundary.count)
+                    
                     self!.overlayArray.append(polygon)
                     self!.mapView.addOverlays(self!.overlayArray)
                 }
                 
-               
+                
                 self!.zipLocation = placemark?.location
                 self!.centerMapOnLocation(self!.zipLocation)
                 
             }
-        })
+            })
     }
-    
-    
-    
     func searchBar() {
         self.searchController.placeholder = "Enter Location"
         self.searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 66)
@@ -179,19 +168,17 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.searchController.delegate = self
         self.view.addSubview(self.searchController)
         self.view.addConstraint(topConstraint)
-        
     }
-//    func initHeaderBanner() {
-//        let projectName = UIButton(frame: CGRectMake(20, 630, self.view.frame.width-40, 40))
-//        projectName.backgroundColor=UIColor.lightGrayColor()
-//        projectName.setTitle("PROJECT OVALTINE", forState: .Normal)
-//        projectName.setTitleColor(UIColor.blackColor(), forState: .Normal)
-//        projectName.alpha = 0.3
-//        projectName.layer.zPosition = 3
-//        projectName.layer.borderWidth = 0.3
-//        projectName.layer.cornerRadius = 2
-//        self.view.addSubview(projectName)
-//    }
+    
+    //    func initHeaderBanner() {
+    //        let projectName = UIButton(frame: CGRectMake(20, 630, self.view.frame.width-40, 40))
+    //        projectName.backgroundColor=UIColor.lightGrayColor()
+    //        projectName.setTitle("PROJECT OVALTINE", forState: .Normal)
+    //        projectName.setTitleColor(UIColor.blackColor(), forState: .Normal)
+    //        projectName.alpha = 0.3
+    //        projectName.layer.zPosition = 3
+    //        projectName.layer.borderWidth = 0.3
+    //        projectName.layer.cornerRadius = 2
+    //        self.view.addSubview(projectName)
+    //    }
 }
-
-
