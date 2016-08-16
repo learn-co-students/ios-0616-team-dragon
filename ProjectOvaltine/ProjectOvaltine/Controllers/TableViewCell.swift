@@ -2,6 +2,14 @@
 //  TableViewCell.swift
 //  ProjectOvaltine
 //
+//  Created by Christopher Webb-Orenstein on 8/16/16.
+//  Copyright © 2016 Christopher Webb-Orenstein. All rights reserved.
+//
+
+//
+//  TableViewCell.swift
+//  ProjectOvaltine
+//
 //  Created by John Hussain on 8/11/16.
 //  Copyright © 2016 Christopher Webb-Orenstein. All rights reserved.
 //
@@ -38,8 +46,8 @@ class TableViewCell: UITableViewCell {
         myLabel3.frame = CGRectMake(333, 16, 150, 30)
         myLabel3.textColor = UIColor.blackColor()
         contentView.addSubview(myLabel3)
-//        myLabel3.backgroundColor = UIColor.cyanColor()
-//        contentView.layer.zPosition = 3
+        //        myLabel3.backgroundColor = UIColor.cyanColor()
+        //        contentView.layer.zPosition = 3
         
         
         myButton1 = UIButton()
@@ -48,10 +56,10 @@ class TableViewCell: UITableViewCell {
         contentView.addSubview(myButton1)
         contentView.sendSubviewToBack(myButton1)
         
-//        myButton2 = UIButton()
-//        myButton2.frame = CGRectMake(375, 16, 30, 30)
-//        myButton2.setImage(UIImage(named: "blue-round-9.png"), forState: UIControlState.Normal)
-//        contentView.addSubview(myButton2)
+        //        myButton2 = UIButton()
+        //        myButton2.frame = CGRectMake(375, 16, 30, 30)
+        //        myButton2.setImage(UIImage(named: "blue-round-9.png"), forState: UIControlState.Normal)
+        //        contentView.addSubview(myButton2)
     }
-    
 }
+

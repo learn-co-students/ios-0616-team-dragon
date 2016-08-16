@@ -9,7 +9,7 @@
 import UIKit
 import SwiftSpinner
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var detailsArray = ["Finance","Education","Transportation", "Demographics"]
     
     override func viewDidLoad() {
@@ -53,19 +53,19 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if self.detailsArray[indexPath.row] == "Finance" {
-            let destinationVC = EconomicDataViewController()
-            self.navigationController?.pushViewController(destinationVC, animated: true)
-        }  else if self.detailsArray[indexPath.row] == "Education" {
-            let destinationVC = EducationDataViewController()
-            self.navigationController?.pushViewController(destinationVC, animated: true)
-        } else if self.detailsArray[indexPath.row] == "Transportation" {
-            let destinationVC = DetailViewController()
-            self.navigationController?.pushViewController(destinationVC, animated: true)
-        } else if self.detailsArray[indexPath.row] == "Demographics" {
-            let destinationVC = DemographicDataViewController()
-            self.navigationController?.pushViewController(destinationVC, animated: true)
-        }
+//        if self.detailsArray[indexPath.row] == "Finance" {
+//            let destinationVC = FinanceDataViewController()
+//            self.navigationController?.pushViewController(destinationVC, animated: true)
+//        }  else if self.detailsArray[indexPath.row] == "Education" {
+//            let destinationVC = EducationDataViewController()
+//            self.navigationController?.pushViewController(destinationVC, animated: true)
+//        } else if self.detailsArray[indexPath.row] == "Transportation" {
+//            let destinationVC = DetailViewController()
+//            self.navigationController?.pushViewController(destinationVC, animated: true)
+//        } else if self.detailsArray[indexPath.row] == "Demographics" {
+//            let destinationVC = DemographicDataViewController()
+//            self.navigationController?.pushViewController(destinationVC, animated: true)
+//        }
         print(detailsArray[indexPath.row])
     }
 
