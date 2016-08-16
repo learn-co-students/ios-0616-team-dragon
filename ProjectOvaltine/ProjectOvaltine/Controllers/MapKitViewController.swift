@@ -119,13 +119,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 }
     }
     
-    //    func getLocationFromSearchField(userSearch: String) {
-    //        var placemark: CLPlacemark!
-    //        CLGeocoder().geocodeAddressString(userSearch, completionHandler: {(placemarks, error) in })}
-    
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
-        self.store.zip = zipcode
         var placemark: CLPlacemark!
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if ((error) != nil) {
@@ -136,6 +131,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 print("\(error)")
             } else {
                 placemark = (placemarks?.last)!
+                self!.store.zip = (placemark.postalCode)!
                 print(placemark)
                 
                 
