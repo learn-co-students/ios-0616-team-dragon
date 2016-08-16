@@ -26,13 +26,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         
         statsTab.tabBarItem.title = "Statistics"
         statsTab.tabBarItem.image = UIImage(named: "futures.png")
-        financeTab.tabBarItem.title = "Results"
+        financeTab.tabBarItem.title = "Finance"
         financeTab.tabBarItem.image = UIImage(named: "money_bag.png")
-        educationTab.tabBarItem.title = "Finance"
+        educationTab.tabBarItem.title = "Education"
         educationTab.tabBarItem.image = UIImage(named: "classroom.png")
-        transportationTab.tabBarItem.title = "Education"
+        transportationTab.tabBarItem.title = "Transportation"
         transportationTab.tabBarItem.image = UIImage(named: "bus.png")
-        demographicsTab.tabBarItem.title = "Transportation"
+        demographicsTab.tabBarItem.title = "Demographics"
         demographicsTab.tabBarItem.image = UIImage(named: "conference.png")
         
         let controllers = [statsTab, financeTab, educationTab, transportationTab, demographicsTab]
@@ -40,7 +40,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        print("Should select viewController: \(viewController.title) ?")
-        return true;
+        print("viewController selected: \(viewController.tabBarItem.title!)")
+        return true
     }
 }

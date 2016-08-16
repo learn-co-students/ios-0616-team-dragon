@@ -1,6 +1,6 @@
 //
 //  EducationDataViewController.swift
-//  ProjectOvaltine
+//  ProgrammaticTabBar
 //
 //  Created by John Hussain on 8/7/16.
 //  Copyright © 2016 John Hussain. All rights reserved.
