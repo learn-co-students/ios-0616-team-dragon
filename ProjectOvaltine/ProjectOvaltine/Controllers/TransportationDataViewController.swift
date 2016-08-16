@@ -76,17 +76,13 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     func navBar() {
         
         let transportNavBar = NavBar().setup()
-        //let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
         self.view.addSubview(transportNavBar)
-        //navBar.backgroundColor = UIColor.redColor()
         let navItem = UINavigationItem(title: "Transportation")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor.blackColor()
         
         navItem.leftBarButtonItem = homeItem
         transportNavBar.setItems([navItem], animated: false)
-     //   navBar.alpha = 1.0
-        
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)

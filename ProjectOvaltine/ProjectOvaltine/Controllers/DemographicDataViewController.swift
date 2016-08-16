@@ -72,17 +72,13 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     
     func navBar() {
         let demoNavBar = NavBar().setup()
-        //let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
         self.view.addSubview(demoNavBar)
-        //navBar.backgroundColor = UIColor.blueColor()
         let navItem = UINavigationItem(title: "Demographics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor.blackColor()
         
         navItem.leftBarButtonItem = homeItem
         demoNavBar.setItems([navItem], animated: false)
-        //navBar.alpha = 1.0
-        
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)

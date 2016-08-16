@@ -72,9 +72,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     func navBar() {
         let financeNavBar = NavBar().setup()
-//        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
         self.view.addSubview(financeNavBar)
-        //navBar.backgroundColor = UIColor.yellowColor()
+        
         let navItem = UINavigationItem(title: "Finance")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor.blackColor()
