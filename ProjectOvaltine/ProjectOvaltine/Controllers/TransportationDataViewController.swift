@@ -1,5 +1,5 @@
 //
-//  EducationDataViewController.swift
+//  ResultTableViewController.swift
 //  ProgrammaticTabBar
 //
 //  Created by John Hussain on 8/7/16.
@@ -7,9 +7,12 @@
 //
 
 import UIKit
-class EducationDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+import MapKit
+import SwiftSpinner
+
+class TransportationDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var myArray = ["High School Graduate","College Graduate","etc."]
+    var myArray = ["Commute Time","Public Transportation","etc."]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.frame.origin.y += 55
-        tableView.backgroundColor = UIColor(patternImage: UIImage(named:"edu.png")!)
+        tableView.backgroundColor = UIColor(patternImage: UIImage(named:"commute.png")!)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -36,7 +39,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
-        let color = UIColor(netHex:0xFF853B)
+        let color = UIColor(netHex:0xDE4138)
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myLabel1.font = UIFont(name:"Futura", size:25)
         cell.myLabel1?.layer.shadowColor = color.CGColor
@@ -45,8 +48,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         cell.myLabel1?.layer.shadowRadius = 2.0
         
         //cell.myLabel2.text = "\(indexPath.row + 1)"
-        cell.myButton1.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.myButton1.addTarget(self, action: #selector(TransportationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.myButton2.addTarget(self, action: #selector(TransportationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         //        let color = UIColor(netHex:0x6CD4E8)
         //        let color2 = UIColor(netHex:0x2DC5E8)
@@ -72,8 +75,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func navBar() {
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
         self.view.addSubview(navBar)
-        navBar.backgroundColor = UIColor.orangeColor()
-        let navItem = UINavigationItem(title: "Education")
+        navBar.backgroundColor = UIColor.redColor()
+        let navItem = UINavigationItem(title: "Transportation")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor.blackColor()
         

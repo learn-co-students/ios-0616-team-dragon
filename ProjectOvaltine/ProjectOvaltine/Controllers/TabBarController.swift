@@ -18,25 +18,30 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let tabOne: DetailViewController! = DetailViewController()
-        let tabTwo: ResultViewController! = ResultViewController()
-        let tabThree: EconomicDataViewController = EconomicDataViewController()
-        let tabFour: EducationDataViewController! = EducationDataViewController()
+        let statsTab: StatsViewController! = StatsViewController()
+        let financeTab: FinanceDataViewController! = FinanceDataViewController()
+        let educationTab: EducationDataViewController! = EducationDataViewController()
+        let transportationTab: TransportationDataViewController! = TransportationDataViewController()
+        let demographicsTab: DemographicDataViewController! = DemographicDataViewController()
         
-        tabOne.tabBarItem.title = "Details"
-        tabOne.tabBarItem.image = UIImage(named: "heart")
-        tabTwo.tabBarItem.title = "Results"
-        tabTwo.tabBarItem.image = UIImage(named: "star")
-        tabThree.tabBarItem.title = "Economics"
-        tabFour.tabBarItem.title = "Education"
+        statsTab.tabBarItem.title = "Statistics"
+        statsTab.tabBarItem.image = UIImage(named: "futures.png")
+        financeTab.tabBarItem.title = "Finance"
+        financeTab.tabBarItem.image = UIImage(named: "money_bag.png")
+        educationTab.tabBarItem.title = "Education"
+        educationTab.tabBarItem.image = UIImage(named: "classroom.png")
+        transportationTab.tabBarItem.title = "Transportation"
+        transportationTab.tabBarItem.image = UIImage(named: "bus.png")
+        demographicsTab.tabBarItem.title = "Demographics"
+        demographicsTab.tabBarItem.image = UIImage(named: "conference.png")
         
-        let controllers = [tabOne, tabTwo, tabThree, tabFour]
+        let controllers = [statsTab, financeTab, educationTab, transportationTab, demographicsTab]
         self.viewControllers = controllers
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        print("Should select viewController: \(viewController.title) ?")
-        return true;
+        print("viewController selected: \(viewController.tabBarItem.title!)")
+        return true
     }
     
     func setupNav() {
