@@ -15,9 +15,9 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
+        self.statsTableView()
+        self.ratingTextView()
         self.navBar()
-        statsTableView()
-        ratingTextView()
     }
     
     func ratingTextView() {
@@ -70,24 +70,18 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         print(detailsArray[indexPath.row])
     }
 
-    func dismissView() {
-        SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
-        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-        dismissViewControllerAnimated(true, completion: nil)
-        SwiftSpinner.hide()
-    }
     
     func navBar() {
         let statsNavBar = NavBar().setup()
         self.view.addSubview(statsNavBar)
-        statsNavBar.backgroundColor = UIColor.blueColor()
         
-        let navItem = UINavigationItem(title: "Demographics")
+        let navItem = UINavigationItem(title: "Stats")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor.blackColor()
         
         navItem.leftBarButtonItem = homeItem
         statsNavBar.setItems([navItem], animated: false)
+        
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
@@ -96,10 +90,11 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
         navItem.rightBarButtonItem = barButton
-        
     }
     
-    
+    func dismissView() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     func settingButtonPushed() {
         print("Settings Pushed")

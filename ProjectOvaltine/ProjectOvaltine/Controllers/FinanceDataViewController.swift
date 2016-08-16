@@ -15,8 +15,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
-        navBar()
-        resultsTableView()
+        self.navBar()
+        self.resultsTableView()
     }
     func resultsTableView() {
         

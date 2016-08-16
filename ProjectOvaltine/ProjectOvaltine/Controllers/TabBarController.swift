@@ -44,10 +44,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
     }
     
     func dismissView() {
-        SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
-        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+        //SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
+        //SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
         dismissViewControllerAnimated(true, completion: nil)
-        SwiftSpinner.hide()
+        //SwiftSpinner.hide()
     }
     
     func settingButtonPushed() {
