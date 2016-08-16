@@ -83,9 +83,12 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         statsNavBar.setItems([navItem], animated: false)
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+        button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 33, 33)
+        button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
+        
+
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
