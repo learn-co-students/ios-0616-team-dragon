@@ -44,12 +44,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     //Initialized array of MKOverlays
     var overlayArray: [MKOverlay] = []
     
+    var polygon: MKPolygon!
+    
     //Init searchBar
     let searchController = UISearchBar.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.testPrint()
         self.drawInMapView()
         self.searchBar()
         
@@ -90,12 +91,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         let polygonRenderer = MKPolygonRenderer(overlay: overlay)
         polygonRenderer.lineWidth = 3
-        polygonRenderer.fillColor = UIColor.greenColor()
+        polygonRenderer.fillColor = UIColor.blueColor()
         polygonRenderer.alpha = 0.15
-        
-        //        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-        //        polylineRenderer.strokeColor = UIColor.greenColor()
-        //        polylineRenderer.lineWidth = 5
         return polygonRenderer}
     
     //Centers Map on a given coordinate
@@ -111,13 +108,14 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
         
-        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            
-            let detailVC = TabBarController()
-            self.showViewController(detailVC, sender: nil)
-            self.searchController.text?.removeAll()
-        }
+//                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
+//                dispatch_after(time, dispatch_get_main_queue()) {
+//        
+//                    let detailVC = TabBarController()
+//                    self.showViewController(detailVC, sender: nil)
+//                    self.searchController.text?.removeAll()
+//                }
+
     }
     
     //Takes a string of numbers and gets a lat/long - Async
@@ -144,30 +142,40 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
             } else {
                 placemark = (placemarks?.last)!
-                print(placemark)
                 
                 
                 self!.populateCoordinateArray{[weak self] (someArray) in
                     self!.boundary.removeAll()
                     
                     for i in 0...someArray.count-1 {
-                        
                         self!.convertArrayDataToPoints(someArray[i] as! [AnyObject])
                     }
                     
-                    let polygon = MKPolygon(coordinates: &self!.boundary, count: self!.boundary.count)
                     
-                    self!.overlayArray.append(polygon)
+                    self!.polygon = MKPolygon(coordinates: &self!.boundary, count: self!.boundary.count)
+                    
+                    self!.overlayArray.append(self!.polygon)
                     self!.mapView.addOverlays(self!.overlayArray)
+                    self!.zoomToPolygon(self!.polygon, animated: true)
                 }
                 
-                
+            
                 self!.zipLocation = placemark?.location
-                self!.centerMapOnLocation(self!.zipLocation)
+//                self!.centerMapOnLocation(self!.zipLocation)
+                
                 
             }
             })
     }
+    
+    func zoomToPolygon(map: MKPolygon, animated: Bool) {
+        self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, animated: true)
+    }
+//    -(void)zoomToPolyLine: (MKMapView*)map polyline: (MKPolyline*)polyline animated: (BOOL)animated
+//    {
+//    [map setVisibleMapRect:[polyline boundingMapRect] edgePadding:UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0) animated:animated];
+//    }
+    
     func searchBar() {
         self.searchController.placeholder = "Enter Location"
         self.searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 66)

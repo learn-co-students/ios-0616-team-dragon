@@ -29,36 +29,58 @@ class CitySDKAPIClient {
             else {
                 print("ERROR: Unable to get url path for API call")
                 return
-            }
-
+        }
+        
         let request = NSMutableURLRequest(URL:url)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         request.setValue(self.key, forHTTPHeaderField: "Authorization")
         
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
         
         Alamofire.request(request).responseJSON { (response) in
             switch response.result {
-
+                
             case .Success(let responseObject):
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
-
-    
+                
+                
                 if let feat = response["features"] as? NSArray {
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
                     
-
                     if let geo = feat[0]["geometry"] as? NSDictionary {
                         
-                        if let coords = geo["coordinates"]![0] as? NSArray {
-                            let newData = CitySDKData(json: jsonProperties, geoJSON:coords)
-                            cityDataPoints.append(newData)
+                        if let coords = geo["coordinates"] as? NSArray {
+                            //                            print(coords[0].count)
+                            //                            print(coords[0][0].count)
+                            
+                            
+                            //This could probably be implemented better, but this fixes the bug where the app would crash if you were to query New York or California since they were nested differently.  It only checks for two cases, but I think it's the extent of the bug - if you find one let me know
+                            if coords[0].count > 100 {
+                                let newData = CitySDKData(json: jsonProperties, geoJSON: coords[0] as! NSArray)
+                                cityDataPoints.append(newData)
+                                
+                            } else if coords[0][0].count > 100 {
+                                
+                                if let deeperCoords = coords[0][0] as? NSArray {
+                                    print(deeperCoords)
+                                    let otherData = CitySDKData(json: jsonProperties, geoJSON: deeperCoords)
+                                    cityDataPoints.append(otherData)
+                                } else {
+                                    print("error!")}
+                            }
+                            
+                            
+                            
+                            
+                            
                         }
+                        
+                        
                     }
-
+                    
                     completion(cityDataPoints)
                 }
             default:
@@ -71,5 +93,5 @@ class CitySDKAPIClient {
         //code goes here
         //soon
     }
-
+    
 }

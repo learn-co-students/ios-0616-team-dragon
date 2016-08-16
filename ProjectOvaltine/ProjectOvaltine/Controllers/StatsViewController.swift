@@ -77,7 +77,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let navItem = UINavigationItem(title: "Stats")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        homeItem.tintColor = UIColor.blackColor()
+        homeItem.tintColor = UIColor.blueColor()
         
         navItem.leftBarButtonItem = homeItem
         statsNavBar.setItems([navItem], animated: false)
