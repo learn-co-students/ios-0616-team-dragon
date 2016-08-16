@@ -14,8 +14,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
-        navBar()
-        resultsTableView()
+        self.navBar()
+        self.resultsTableView()
     }
     func resultsTableView() {
         
@@ -70,16 +70,14 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func navBar() {
-        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
-        self.view.addSubview(navBar)
-        navBar.backgroundColor = UIColor.orangeColor()
+        let eduNavBar = NavBar().setup()
+        self.view.addSubview(eduNavBar)
         let navItem = UINavigationItem(title: "Education")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor.blackColor()
         
         navItem.leftBarButtonItem = homeItem
-        navBar.setItems([navItem], animated: false)
-        navBar.alpha = 1.0
+        eduNavBar.setItems([navItem], animated: false)
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
