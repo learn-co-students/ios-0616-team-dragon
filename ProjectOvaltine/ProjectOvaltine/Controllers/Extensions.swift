@@ -65,6 +65,15 @@ extension Navigable {
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: nil)
         navigationItem.leftBarButtonItem = homeItem
         navigationBar.setItems([navigationItem], animated: false)
+        
+        let button: UIButton = UIButton(type: .Custom)
+        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+        button.frame = CGRectMake(3, 3, 33, 33)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        navigationItem.rightBarButtonItem = barButton
+        navigationBar.setItems([navigationItem], animated: false)
+        
         return navigationBar
     }
 }
