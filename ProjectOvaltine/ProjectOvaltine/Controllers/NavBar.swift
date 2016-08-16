@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class NavBar {
     let width: CGFloat = UIScreen.mainScreen().bounds.width
     
