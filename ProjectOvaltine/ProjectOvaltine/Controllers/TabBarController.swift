@@ -13,7 +13,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        self.setupNav()
+        //self.setupNav()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -44,21 +44,21 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         return true
     }
     
-    func setupNav() {
-        let nav = self.setupNavBar()
-        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        let navItem = UINavigationItem(title: "Results")
-        navItem.leftBarButtonItem = homeItem
-        nav.setItems([navItem], animated: false)
-        let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
-        button.frame = CGRectMake(3, 3, 33, 33)
-        let barButton = UIBarButtonItem(customView: button)
-        self.navigationItem.rightBarButtonItem = barButton
-        navItem.rightBarButtonItem = barButton
-        self.view.addSubview(nav)
-    }
+//    func setupNav() {
+//        let nav = self.setupNavBar()
+//        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
+//        let navItem = UINavigationItem(title: "Results")
+//        navItem.leftBarButtonItem = homeItem
+//        nav.setItems([navItem], animated: false)
+//        let button: UIButton = UIButton(type: .Custom)
+//        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+//        button.frame = CGRectMake(3, 3, 33, 33)
+//        let barButton = UIBarButtonItem(customView: button)
+//        self.navigationItem.rightBarButtonItem = barButton
+//        navItem.rightBarButtonItem = barButton
+//        self.view.addSubview(nav)
+//    }
     
     func dismissView() {
         SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")

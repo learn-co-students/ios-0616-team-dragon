@@ -72,17 +72,20 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         print("Pressed Button 2")
     }
     
+    
     func navBar() {
-        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
-        self.view.addSubview(navBar)
-        navBar.backgroundColor = UIColor.redColor()
+        
+        let transportNavBar = NavBar().setup()
+        //let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
+        self.view.addSubview(transportNavBar)
+        //navBar.backgroundColor = UIColor.redColor()
         let navItem = UINavigationItem(title: "Transportation")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor.blackColor()
         
         navItem.leftBarButtonItem = homeItem
-        navBar.setItems([navItem], animated: false)
-        navBar.alpha = 1.0
+        transportNavBar.setItems([navItem], animated: false)
+     //   navBar.alpha = 1.0
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)

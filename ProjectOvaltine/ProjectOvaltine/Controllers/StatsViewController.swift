@@ -15,6 +15,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
+        self.navBar()
         statsTableView()
         ratingTextView()
     }
@@ -75,6 +76,30 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dismissViewControllerAnimated(true, completion: nil)
         SwiftSpinner.hide()
     }
+    
+    func navBar() {
+        let statsNavBar = NavBar().setup()
+        self.view.addSubview(statsNavBar)
+        statsNavBar.backgroundColor = UIColor.blueColor()
+        
+        let navItem = UINavigationItem(title: "Demographics")
+        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
+        homeItem.tintColor = UIColor.blackColor()
+        
+        navItem.leftBarButtonItem = homeItem
+        statsNavBar.setItems([navItem], animated: false)
+        let button: UIButton = UIButton(type: .Custom)
+        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+        button.frame = CGRectMake(3, 3, 33, 33)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = barButton
+        navItem.rightBarButtonItem = barButton
+        
+    }
+    
+    
     
     func settingButtonPushed() {
         print("Settings Pushed")
