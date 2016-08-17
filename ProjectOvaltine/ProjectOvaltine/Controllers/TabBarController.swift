@@ -13,7 +13,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        self.tabBar.tintColor = UIColor.blackColor()
+        self.tabBar.tintColor = UIColor(netHex:0x3C93DE)
     }
     
     override func viewWillAppear(animated: Bool) {

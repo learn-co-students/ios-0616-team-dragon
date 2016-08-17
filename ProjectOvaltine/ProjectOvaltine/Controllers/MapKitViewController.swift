@@ -109,7 +109,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         mapView.removeOverlays(overlayArray)
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
-        
                 let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
                 dispatch_after(time, dispatch_get_main_queue()) {
         
@@ -117,8 +116,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self.showViewController(detailVC, sender: nil)
                     self.searchController.text?.removeAll()
                 }
-        
-
     }
     
     //Takes a string of numbers and gets a lat/long - Async
