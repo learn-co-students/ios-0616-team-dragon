@@ -11,7 +11,7 @@ import SwiftSpinner
 
 class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let store = DataStore.sharedInstance
-    var detailsArray = ["Economic","Education","Transit", "Demographics"]
+    var detailsArray = ["Economic","Education","Transit", "Demographic"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +49,8 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return detailsArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let text: String
         let points = self.store.scoreData?.getScoresDictionary()
-        for point in points! {
-            print(point.0)
-            print(point.1)
-        }
+      
         
         if let key = points![detailsArray[indexPath.row]] {
             let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:key)

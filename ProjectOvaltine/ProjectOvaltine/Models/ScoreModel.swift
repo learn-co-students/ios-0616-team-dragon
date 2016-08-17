@@ -85,7 +85,10 @@ struct ScoreModel {
     
     mutating func getScoresDictionary() -> [String: String] {
         self.getEducationScore()
-        let returnDict = ["Education": String(self.educationScore), "Transit": self.getTransitScore(), "Economic": self.getEconomicScore(), "Demographic": getDemographicScore()]
+        self.getTransitScore()
+        self.getEconomicScore()
+        self.getDemographicScore()
+        let returnDict = ["Education": String(self.educationScore), "Transit": String(self.transitScore), "Economic": String(self.economicScore), "Demographic": String(self.demographicScore)]
         return returnDict
     }
     
