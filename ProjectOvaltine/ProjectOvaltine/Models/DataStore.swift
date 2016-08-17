@@ -21,6 +21,8 @@ class DataStore {
     var laborDataPoints:[LaborStatisticsData] = []
     var USAJobsDataPoints:[USAJobsData] = []
     
+    var scoreData: ScoreModel?
+    
     let level = "county"
     var zip = "00000"
     let api = "acs5"
@@ -40,8 +42,7 @@ class DataStore {
         cityAPI.sendAPIRequest(["level":level, "zip": zip, "api": api, "year": year, "variables": variables]) { (cityData) in
             self.cityDataPoints = cityData
             let score = ScoreModel(name: "Name", dataPoints: self.cityDataPoints[0].sendDataPoints())
-            print(score)
-            print(score.demographicScore)
+            self.scoreData = score 
             completion()
         }
     }

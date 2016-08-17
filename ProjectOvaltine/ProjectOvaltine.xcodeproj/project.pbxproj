@@ -48,6 +48,8 @@
 		AFE906B01D5E3F0500CEA2C9 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */; };
 		AFE906B41D5E458700CEA2C9 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AFEA1C2F1D64A01500148BAE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEA1C2E1D64A01500148BAE /* Constants.swift */; };
+		AFEA1C311D64B55C00148BAE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEA1C301D64B55C00148BAE /* SettingsView.swift */; };
+		AFEA1C331D64B6A300148BAE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */; };
 		AFEE32161D635A5600884D42 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE32151D635A5600884D42 /* NavBar.swift */; };
 		BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20C70F1D6355CE0065CADF /* StatsViewController.swift */; };
 		D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */; };
@@ -89,7 +91,6 @@
 		AFE460131D551BE400FBE63B /* LaborStaticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaborStaticsData.swift; sourceTree = "<group>"; };
 		AFE460141D551BE400FBE63B /* USAJobsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USAJobsData.swift; sourceTree = "<group>"; };
 		AFE66AA51D63B43600150D39 /* CensusAPIProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CensusAPIProperties.swift; sourceTree = "<group>"; };
-		AFE759301D626ADC0072FF76 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailView.swift; path = Views/DetailView.swift; sourceTree = "<group>"; };
 		AFE759381D62BC3D0072FF76 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailView.swift; path = Views/DetailView.swift; sourceTree = "<group>"; };
 		AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		AFE906A71D5E3D2600CEA2C9 /* FinanceDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinanceDataViewController.swift; path = Controllers/FinanceDataViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +99,8 @@
 		AFE906AD1D5E3D7800CEA2C9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Controllers/Extensions.swift; sourceTree = "<group>"; };
 		AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultCell.swift; path = Views/SearchResultCell.swift; sourceTree = "<group>"; };
 		AFEA1C2E1D64A01500148BAE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
+		AFEA1C301D64B55C00148BAE /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
+		AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		AFEE32151D635A5600884D42 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Controllers/NavBar.swift; sourceTree = "<group>"; };
 		BD20C70F1D6355CE0065CADF /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = Controllers/StatsViewController.swift; sourceTree = "<group>"; };
 		CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,9 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				AF7777E81D6103C000303DBB /* ProjectButton.swift */,
+				AFEA1C301D64B55C00148BAE /* SettingsView.swift */,
 				AF1FC7C21D5B6F8C004973A2 /* ResultView.swift */,
 				AF1FC7D11D5B8A20004973A2 /* MapView.swift */,
-				AFE759301D626ADC0072FF76 /* DetailView.swift */,
 				AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */,
 				AFE759381D62BC3D0072FF76 /* DetailView.swift */,
 				AF1FC7D51D5B8A58004973A2 /* Cells */,
@@ -251,6 +254,7 @@
 				AFE906AD1D5E3D7800CEA2C9 /* Extensions.swift */,
 				AF0916071D634B5D00138D86 /* TableViewCell.swift */,
 				AFEE32151D635A5600884D42 /* NavBar.swift */,
+				AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -409,6 +413,7 @@
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
 				AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */,
 				AFE906B41D5E458700CEA2C9 /* (null) in Sources */,
+				AFEA1C311D64B55C00148BAE /* SettingsView.swift in Sources */,
 				AFE906A81D5E3D2600CEA2C9 /* FinanceDataViewController.swift in Sources */,
 				AF1FC7C31D5B6F8C004973A2 /* ResultView.swift in Sources */,
 				AF1FC7C81D5B72C0004973A2 /* ScoreModel.swift in Sources */,
@@ -420,6 +425,7 @@
 				AF04F1C71D5A404C005B7F26 /* CensusAPIClient.swift in Sources */,
 				AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */,
 				AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */,
+				AFEA1C331D64B6A300148BAE /* SettingsViewController.swift in Sources */,
 				AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */,
 				AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */,
 				AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */,
