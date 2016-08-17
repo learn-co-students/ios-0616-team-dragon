@@ -109,13 +109,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
         
-//                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-//                dispatch_after(time, dispatch_get_main_queue()) {
-//        
-//                    let detailVC = TabBarController()
-//                    self.showViewController(detailVC, sender: nil)
-//                    self.searchController.text?.removeAll()
-//                }
+                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 7 * Int64(NSEC_PER_SEC))
+                dispatch_after(time, dispatch_get_main_queue()) {
+        
+                    let detailVC = TabBarController()
+                    self.showViewController(detailVC, sender: nil)
+                    self.searchController.text?.removeAll()
+                }
 
     }
     

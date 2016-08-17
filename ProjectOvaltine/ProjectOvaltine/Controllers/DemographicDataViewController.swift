@@ -14,20 +14,19 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-        self.resultsTableView()
-        self.navBar()
+        self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
+        navBar()
+        resultsTableView()
     }
     func resultsTableView() {
         
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
-        let color = UIColor(netHex:0x4F57DE)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.frame.origin.y += 66
-        //tableView.backgroundColor = UIColor(patternImage: UIImage(named:"edu.png")!)
-        tableView.backgroundColor = color
+        //tableView.backgroundColor = UIColor(patternImage: UIImage(named:"blueBlur.png")!)
+        tableView.backgroundColor = UIColor(netHex:0x4F57DE)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -39,10 +38,9 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
-        let color = UIColor(netHex:0x4F57DE)
         cell.myLabel1.text = myArray[indexPath.row]
-        cell.myLabel1.font = UIFont(name:"Futura", size:20)
-        cell.myLabel1?.layer.shadowColor = color.CGColor
+        cell.myLabel1.font = UIFont(name:"Univers Ultra Condensed", size:21)
+        cell.myLabel1?.layer.shadowColor = UIColor(netHex:0x4F57DE).CGColor
         cell.myLabel1?.layer.shadowOffset = CGSizeMake(2.0, 2.0)
         cell.myLabel1?.layer.shadowOpacity = 1.0
         cell.myLabel1?.layer.shadowRadius = 2.0
@@ -51,14 +49,12 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        //        let color = UIColor(netHex:0x6CD4E8)
-        //        let color2 = UIColor(netHex:0x2DC5E8)
         if(indexPath.row % 2 == 0)
         {
-            cell.backgroundColor = UIColor.whiteColor()        }
+            cell.backgroundColor = UIColor(netHex:0xFFFFFF)        }
         else
         {
-            cell.backgroundColor = UIColor.whiteColor()
+            cell.backgroundColor = UIColor(netHex:0xFFFFFF)
         }
         
         return cell
@@ -80,10 +76,10 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func navBar() {
         let demographicNavBar = NavBar().setup()
         self.view.addSubview(demographicNavBar)
-        demographicNavBar.barTintColor = UIColor.blueColor()
+        demographicNavBar.barTintColor = UIColor(netHex:0x0015DE)
         let navItem = UINavigationItem(title: "Demographics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        homeItem.tintColor = UIColor.blackColor()
+        homeItem.tintColor = UIColor(netHex:0x000000)
         
         navItem.leftBarButtonItem = homeItem
         demographicNavBar.setItems([navItem], animated: false)
