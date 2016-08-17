@@ -10,7 +10,8 @@ import UIKit
 import SwiftSpinner
 
 class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var detailsArray = ["Finance","Education","Transportation", "Demographics"]
+    let store = DataStore.sharedInstance
+    var detailsArray = ["Economic","Education","Transit", "Demographics"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,29 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return detailsArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let text: String
+        let points = self.store.scoreData?.getScoresDictionary()
+        for point in points! {
+            print(point.0)
+            print(point.1)
+        }
+        
+        if let key = points![detailsArray[indexPath.row]] {
+            let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:key)
+            return cell
+        }
+        
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
+        
+//        if let points = self.store.scoreData?.getScoresDictionary() {
+//            for point in points {
+//                print(point)
+//            }
+//        }
+        
+//        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription:detailsArray[indexPath.row], description: "Description", score:points![detailsArray[indexPath.row]]!)
+        
+//        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
         return cell
     }
     

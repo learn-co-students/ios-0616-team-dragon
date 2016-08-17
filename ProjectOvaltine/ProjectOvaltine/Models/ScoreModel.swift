@@ -9,6 +9,7 @@
 import Foundation
 
 struct ScoreModel {
+    
     var scoreName: String
     var score: Int
     var dataPoints: [String: String]
@@ -25,7 +26,6 @@ struct ScoreModel {
         self.transitScore = 0
         self.demographicScore = 0
         self.educationScore = 0
-        print("Demographic Score)\(self.getDemographicScore())")
         print(self.getScoresDictionary())
     }
     
@@ -37,9 +37,9 @@ struct ScoreModel {
                 sum = sum + data
             }
         }
-        self.economicScore = sum
+        self.economicScore = sum / self.dataPoints.count
         returnValue = String(sum)
-        return "Economic Score \(returnValue)"
+        return returnValue
     }
     
     mutating func getTransitScore() -> String {
@@ -50,9 +50,9 @@ struct ScoreModel {
                 sum = sum + data
             }
         }
-        self.transitScore = sum
+        self.transitScore = sum / self.dataPoints.count
         returnValue = String(sum)
-        return "Transit Score \(returnValue)"
+        return returnValue
     }
     
     mutating func getEducationScore() -> String {
@@ -64,9 +64,9 @@ struct ScoreModel {
             }
             
         }
-        self.educationScore = sum
+        self.educationScore = sum / (self.dataPoints.count * 10)
         returnValue = String(sum)
-        return "Education Score \(returnValue)"
+        return returnValue
     }
     
     mutating func getDemographicScore() -> String {
@@ -78,13 +78,14 @@ struct ScoreModel {
             }
             
         }
-        self.demographicScore = sum 
+        self.demographicScore = sum / self.dataPoints.count
         returnValue = String(sum)
-        return "Demographic Score \(returnValue)"
+        return returnValue
     }
     
     mutating func getScoresDictionary() -> [String: String] {
-        let returnDict = ["Education": self.getEducationScore(), "Transit": self.getTransitScore(), "Economic": self.getEconomicScore(), "Demographic": getDemographicScore()]
+        self.getEducationScore()
+        let returnDict = ["Education": String(self.educationScore), "Transit": self.getTransitScore(), "Economic": self.getEconomicScore(), "Demographic": getDemographicScore()]
         return returnDict
     }
     

@@ -38,7 +38,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         let controllers = [statsTab, financeTab, educationTab, transportationTab, demographicsTab]
         self.viewControllers = controllers
         self.tabBar.tintColor = UIColor.whiteColor()
-        self.tabBar.barTintColor = UIColor(red:0.00, green:0.49, blue:0.90, alpha:1.0)
+        self.tabBar.barTintColor = UIColor(red:0.00, green:0.00, blue:0.90, alpha:1.0)
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {

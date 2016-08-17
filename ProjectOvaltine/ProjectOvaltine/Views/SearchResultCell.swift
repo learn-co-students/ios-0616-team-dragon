@@ -40,7 +40,7 @@ class SearchResultCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.scoreLabel.frame = CGRect(x: 20, y: 15, width: 30, height: 35)
+        self.scoreLabel.frame = CGRect(x: 20, y: 15, width: 80, height: 35)
         self.resultLocationNameLabel.frame = CGRect(x: 140, y: 15, width: 200, height: 30)
     }
     
