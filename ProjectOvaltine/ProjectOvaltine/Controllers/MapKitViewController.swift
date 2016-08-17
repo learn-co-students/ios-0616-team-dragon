@@ -82,33 +82,39 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         let polygonRenderer = MKPolygonRenderer(overlay: overlay)
         
         polygonRenderer.lineWidth = 1
-        polygonRenderer.fillColor = UIColor.blueColor()
-        polygonRenderer.alpha = 0.15
+        polygonRenderer.fillColor = UIColor.cyanColor()
+        polygonRenderer.alpha = 0.25
         return polygonRenderer
     }
     
-//        func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-//    
-//            let identifier = "MyPin"
-//    
-//            if annotation.isKindOfClass(MKUserLocation) {
-//                return nil
-//            }
-//    
-//            let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
-//    
-//            if var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
-//                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-//                annotationView.canShowCallout = true
-//                annotationView.image = UIImage(named: "custom_pin.png")
-//                annotationView.rightCalloutAccessoryView = detailButton
-//            } else {
-//                annotationView.annotation = annotation
-//            }
-//            
-//            return annotationView
-//        }
     
+    //Following two functions from: http://stackoverflow.com/questions/33123724/swift-adding-a-button-to-my-mkpointannotation
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationReuseId = "Place"
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationReuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationReuseId)
+        } else {
+            anView!.annotation = annotation
+        }
+        
+        anView?.rightCalloutAccessoryView = UIButton(type: UIButtonType.DetailDisclosure)
+        anView!.backgroundColor = UIColor.clearColor()
+        anView!.canShowCallout = true
+        return anView
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
+        if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
+          
+            let detailVC = TabBarController()
+            self.showViewController(detailVC, sender: nil)
+            self.searchController.text?.removeAll()
+        }
+    }
+
+
     func populateCoordinateArray(completionHandler: (NSArray) -> ()){
         
         self.store.getCitySDKData({
@@ -142,13 +148,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         mapView.removeOverlays(overlayArray)
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
-                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-                dispatch_after(time, dispatch_get_main_queue()) {
-        
-                    let detailVC = TabBarController()
-                    self.showViewController(detailVC, sender: nil)
-                    self.searchController.text?.removeAll()
-                }
+//                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
+//                dispatch_after(time, dispatch_get_main_queue()) {
+//        
+//                    let detailVC = TabBarController()
+//                    self.showViewController(detailVC, sender: nil)
+//                    self.searchController.text?.removeAll()
+//                }
     }
     
     //Takes a string of numbers and gets a lat/long - Async
@@ -194,8 +200,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.overlayArray.append(self!.polygon)
                     
                     self!.mapView.addOverlays(self!.overlayArray)
-                    self!.zoomToPolygon(self!.polygon, animated: true)
-                    print(self!.mapView.centerCoordinate)
+                
+                     self!.zoomToPolygon(self!.polygon, animated: true)
                 }
                 
                 
@@ -206,9 +212,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 self!.anotation.title = placemark?.locality
                 self!.anotation.subtitle = "\(placemark!.subAdministrativeArea!) County"
                 self!.mapView.addAnnotation(self!.anotation)
+                self!.mapView.selectAnnotation(self!.anotation, animated: true)
                 //                self!.centerMapOnLocation(self!.zipLocation)
                 
-                
+               
             }
             })
     }
