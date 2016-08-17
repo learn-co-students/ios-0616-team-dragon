@@ -10,11 +10,21 @@ import Foundation
 
 struct ScoreModel {
     var scoreName: String
-    var score:Int = 0
-    var dataPoints: [String] = []
+    var score: Int
+    var dataPoints: [String]
+    var economicScore: Int
+    var transitScore: Int
+    var demographicScore: Int
+    var educationScore: Int
     
     init(name: String, dataPoints: [String]) {
         self.scoreName = name
+        self.dataPoints = dataPoints
+        self.score = 0
+        self.economicScore = 0
+        self.transitScore = 0
+        self.demographicScore = 0
+        self.educationScore = 0 
     }
     
     
