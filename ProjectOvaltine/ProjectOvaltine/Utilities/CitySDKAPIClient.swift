@@ -65,7 +65,6 @@ class CitySDKAPIClient {
                             } else if coords[0][0].count > 100 {
                                 
                                 if let deeperCoords = coords[0][0] as? NSArray {
-                                    print(deeperCoords)
                                     let otherData = CitySDKData(json: jsonProperties, geoJSON: deeperCoords)
                                     cityDataPoints.append(otherData)
                                 } else {
