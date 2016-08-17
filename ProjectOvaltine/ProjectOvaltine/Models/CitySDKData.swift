@@ -56,5 +56,18 @@ class CitySDKData {
         self.laborForceEmployed = laborEmployment
         self.coordinates = geoJSON
     }
+    
+    func sendDataPoints() -> [String: String]{
+        let returnData = ["walkingTimeCommute":self.walkingCommuteTime,
+                          "age":self.age,
+                          "incomePerCapita":self.incomePerCapita,
+                          "poverty":self.poverty,
+                          "highSchoolEducation":self.highSchoolEducation,
+                          "medianRent":self.medianRent,
+                          "locationName":self.locationName,
+                          "laborForceParticipation":self.laborForceParticipation,
+                          "laborForceEmployed":self.laborForceEmployed]
+        return returnData
+    }
 
 }

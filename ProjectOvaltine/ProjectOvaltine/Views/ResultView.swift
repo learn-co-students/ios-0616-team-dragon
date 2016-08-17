@@ -3,6 +3,8 @@ import SnapKit
 import GaugeView
 
 class ResultView: UIView {
+    
+    let store = DataStore.sharedInstance
     private var graphView: GaugeView!
     var scoreLabel: UILabel! = UILabel()
     var locationNameLabel: UILabel! = UILabel()

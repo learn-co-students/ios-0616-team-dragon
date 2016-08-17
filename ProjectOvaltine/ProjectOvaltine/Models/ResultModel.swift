@@ -15,6 +15,7 @@ struct ResultModel {
     let dataParameter: String
     let countyLogo: UIImage?
 
+
     init(score:ScoreModel) {
         self.resultScore = score
         self.resultLocationName = score.scoreName

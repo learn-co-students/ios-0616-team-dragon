@@ -20,6 +20,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     let cityAPI = CitySDKAPIClient.sharedInstance
     let jobsAPI = USAJobsAPIClient.sharedInstance
     
+    
     //Array of citySDK data
     var cityData: [CitySDKData] = []
     
@@ -116,6 +117,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 completionHandler(geo)
             }
         })
+        print(self.store.scoreData)
     }
     
     func convertArrayDataToPoints(array: [AnyObject]) {
@@ -140,15 +142,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         mapView.removeOverlays(overlayArray)
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
+                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
+                dispatch_after(time, dispatch_get_main_queue()) {
         
-        //                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-        //                dispatch_after(time, dispatch_get_main_queue()) {
-        //
-        //                    let detailVC = TabBarController()
-        //                    self.showViewController(detailVC, sender: nil)
-        //                    self.searchController.text?.removeAll()
-        //                }
-        
+                    let detailVC = TabBarController()
+                    self.showViewController(detailVC, sender: nil)
+                    self.searchController.text?.removeAll()
+                }
     }
     
     //Takes a string of numbers and gets a lat/long - Async
