@@ -85,27 +85,27 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         return polygonRenderer
     }
     
-//        func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-//    
-//            let identifier = "MyPin"
-//    
-//            if annotation.isKindOfClass(MKUserLocation) {
-//                return nil
-//            }
-//    
-//            let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
-//    
-//            if var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
-//                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-//                annotationView.canShowCallout = true
-//                annotationView.image = UIImage(named: "custom_pin.png")
-//                annotationView.rightCalloutAccessoryView = detailButton
-//            } else {
-//                annotationView.annotation = annotation
-//            }
-//            
-//            return annotationView
-//        }
+    //        func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    //
+    //            let identifier = "MyPin"
+    //
+    //            if annotation.isKindOfClass(MKUserLocation) {
+    //                return nil
+    //            }
+    //
+    //            let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+    //
+    //            if var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
+    //                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+    //                annotationView.canShowCallout = true
+    //                annotationView.image = UIImage(named: "custom_pin.png")
+    //                annotationView.rightCalloutAccessoryView = detailButton
+    //            } else {
+    //                annotationView.annotation = annotation
+    //            }
+    //
+    //            return annotationView
+    //        }
     
     func populateCoordinateArray(completionHandler: (NSArray) -> ()){
         
@@ -140,13 +140,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         mapView.removeOverlays(overlayArray)
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
-                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-                dispatch_after(time, dispatch_get_main_queue()) {
-        
-                    let detailVC = TabBarController()
-                    self.showViewController(detailVC, sender: nil)
-                    self.searchController.text?.removeAll()
-                }
+        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            
+            let detailVC = TabBarController()
+            self.showViewController(detailVC, sender: nil)
+            self.searchController.text?.removeAll()
+        }
     }
     
     //Takes a string of numbers and gets a lat/long - Async
@@ -211,7 +211,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
             })
     }
     
-
+    
     
     func searchBar() {
         self.searchController.placeholder = "Enter Location"

@@ -19,12 +19,12 @@ class USAJobsAPIClient {
     let key = Constants.USAJOBS_API_KEY
     let email = Constants.USAJOBS_USER_AGENT
     
-    //MARK request 
+    //MARK request
     func sendAPIRequest() {
         guard self.baseURL != nil
             else {
                 print("ERROR: Unable to get url path for API call")
-                return 
+                return
         }
         let params = ["not":"implemented"]
         let url = NSURL(string: self.baseURL! + self.path!)
@@ -39,6 +39,6 @@ class USAJobsAPIClient {
         Alamofire.request(request)
             .responseJSON { response in
                 print(response.response)
-            }
+        }
     }
 }

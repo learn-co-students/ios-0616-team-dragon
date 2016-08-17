@@ -18,7 +18,7 @@ class GovDataAPIClient {
     let parameters = ["parameterOne": "Not implemented"]
     let variables = ["education_high_school", "income_per_capita", "median_contract_rent"]
     let key = Constants.GOVDATA_API_KEY
-
+    
     //MARK request
     func sendAPIRequest() {
         guard NSURL(string:baseURL) != nil

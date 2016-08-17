@@ -39,7 +39,7 @@ extension Tabable {
         let educationItem = self.educationDataViewController
         
         mapItem.tabBarItem = statisticIcon
-       resultItem.tabBarItem = statisticIcon
+        resultItem.tabBarItem = statisticIcon
         demographicItem.tabBarItem = educationIcon
         economicItem.tabBarItem = economicIcon
         educationItem.tabBarItem = educationIcon

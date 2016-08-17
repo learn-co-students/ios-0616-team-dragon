@@ -26,7 +26,7 @@ struct CensusAPIClient: Request {
             if param.containsString(CensusConstants.CENSUS_REQUEST_PARAMS.values.first!) {
                 paramString = param
             } else {
-               paramString = "\(paramString),\(param)"
+                paramString = "\(paramString),\(param)"
             }
         }
         let URLRequestPath = URLPath + paramString + urlZipPath

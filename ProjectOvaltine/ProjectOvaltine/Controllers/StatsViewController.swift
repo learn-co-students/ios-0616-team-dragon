@@ -50,7 +50,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let points = self.store.scoreData?.getScoresDictionary()
-      
+        
         
         if let key = points![detailsArray[indexPath.row]] {
             let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:key)
@@ -59,36 +59,36 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
         
-//        if let points = self.store.scoreData?.getScoresDictionary() {
-//            for point in points {
-//                print(point)
-//            }
-//        }
+        //        if let points = self.store.scoreData?.getScoresDictionary() {
+        //            for point in points {
+        //                print(point)
+        //            }
+        //        }
         
-//        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription:detailsArray[indexPath.row], description: "Description", score:points![detailsArray[indexPath.row]]!)
+        //        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription:detailsArray[indexPath.row], description: "Description", score:points![detailsArray[indexPath.row]]!)
         
-//        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
+        //        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
         return cell
     }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if self.detailsArray[indexPath.row] == "Finance" {
-//            let destinationVC = FinanceDataViewController()
-//            self.navigationController?.pushViewController(destinationVC, animated: true)
-//        }  else if self.detailsArray[indexPath.row] == "Education" {
-//            let destinationVC = EducationDataViewController()
-//            self.navigationController?.pushViewController(destinationVC, animated: true)
-//        } else if self.detailsArray[indexPath.row] == "Transportation" {
-//            let destinationVC = DetailViewController()
-//            self.navigationController?.pushViewController(destinationVC, animated: true)
-//        } else if self.detailsArray[indexPath.row] == "Demographics" {
-//            let destinationVC = DemographicDataViewController()
-//            self.navigationController?.pushViewController(destinationVC, animated: true)
-//        }
+        //        if self.detailsArray[indexPath.row] == "Finance" {
+        //            let destinationVC = FinanceDataViewController()
+        //            self.navigationController?.pushViewController(destinationVC, animated: true)
+        //        }  else if self.detailsArray[indexPath.row] == "Education" {
+        //            let destinationVC = EducationDataViewController()
+        //            self.navigationController?.pushViewController(destinationVC, animated: true)
+        //        } else if self.detailsArray[indexPath.row] == "Transportation" {
+        //            let destinationVC = DetailViewController()
+        //            self.navigationController?.pushViewController(destinationVC, animated: true)
+        //        } else if self.detailsArray[indexPath.row] == "Demographics" {
+        //            let destinationVC = DemographicDataViewController()
+        //            self.navigationController?.pushViewController(destinationVC, animated: true)
+        //        }
         print(detailsArray[indexPath.row])
     }
-
+    
     
     func navBar() {
         let statsNavBar = NavBar().setup()

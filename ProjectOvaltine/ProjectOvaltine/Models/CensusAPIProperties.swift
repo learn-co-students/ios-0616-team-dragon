@@ -10,17 +10,17 @@
 //
 //
 //struct CensusAPIProperties {
-//    
+//
 //    static let eduTransProperties: [String : [String : String]] = [
-//        
+//
 //        // TRANSPORATION DATA SETS
-//        
+//
 //        "B08136": [ // Special Case - average time to be calculated based on other data set value
 //            Hints.description: "Travel time to work",
 //            Hints.type: Hints.transporation,
 //            "001E": "Total travel time to work in minutes"
 //        ],
-//        
+//
 //        "B08301": [
 //            Hints.description: "Means of transporation to work",
 //            Hints.type: Hints.transporation,
@@ -31,10 +31,10 @@
 //            "018E": "Commuting to work by bicycle",
 //            "019E": "Walking to work"
 //        ],
-//        
-//        
+//
+//
 //        // EDUCATION DATA SET
-//        
+//
 //        "B15003": [
 //            Hints.description: "Educational attainment for population 25 years and over",
 //            Hints.type: Hints.education,
@@ -48,18 +48,18 @@
 //            "025E": "Doctorate degree",
 //        ]
 //    ]
-//    
-//    
+//
+//
 //    // DEMOGRAPHICS DATA SETS
-//    
+//
 //    static let demoProperties: [String : [String : String]] = [
-//        
+//
 //        "B01003": [
 //            Hints.description: "Population",
 //            Hints.type: Hints.demographics,
 //            "001E": "Population"
 //        ],
-//        
+//
 //        "B01002": [
 //            Hints.description: "Median age",
 //            Hints.type: Hints.demographics,
@@ -67,13 +67,13 @@
 //            "002E": "Median age - male",
 //            "003E": "Median age - female"
 //        ],
-//        
+//
 //        "B25035": [
 //            Hints.description: "Median year structure built",
 //            Hints.type: Hints.demographics,
 //            "001E": "Median year structure built",
 //        ],
-//        
+//
 //        "B01001": [
 //            Hints.description: "Population by sex",
 //            Hints.type: Hints.demographics,
@@ -81,13 +81,13 @@
 //            "002E": "Males",
 //            "026E": "Females"
 //        ],
-//        
+//
 //        "B25001": [
 //            Hints.description: "Number of houses",
 //            Hints.type: Hints.demographics,
 //            "001E": "Number of houses",
 //        ],
-//        
+//
 //        "B25003": [
 //            Hints.description: "Houses by occupation",
 //            Hints.type: Hints.demographics,
@@ -95,14 +95,14 @@
 //            "002E": "Owner occupied",
 //            "003E": "Renter occupied"
 //        ],
-//        
+//
 //        "B05002": [
 //            Hints.description: "Place of birth",
 //            Hints.type: Hints.demographics,
 //            "001E": Hints.total,
 //            "013E": "Foreign born"
 //        ],
-//        
+//
 //        "B03002": [
 //            Hints.description: "Diversity",
 //            Hints.type: Hints.demographics,
@@ -115,52 +115,52 @@
 //            "012E": "Hispanic or Latino"
 //        ]
 //    ]
-//    
-//    
+//
+//
 //    // ECONOMY DATA SETS
-//    
+//
 //    static let econProperties: [String : [String : String]] = [
-//        
+//
 //        "B19013": [
 //            Hints.description: "Median household income",
 //            Hints.type: Hints.economy,
 //            "001E": "Median household income"
 //        ],
-//        
+//
 //        "B25077": [
 //            Hints.description: "Median house value",
 //            Hints.type: Hints.economy,
 //            "001E": "Median house value"
 //        ],
-//        
+//
 //        "B25064": [
 //            Hints.description: "Median gross rent",
 //            Hints.type: Hints.economy,
 //            "001E": "Median gross rent"
 //        ],
-//        
+//
 //        "B25071": [
 //            Hints.description: "Median gross rent as percentage of household income",
 //            Hints.type: Hints.economy,
 //            "001E": "Median gross rent as percentage of household income"
 //        ],
-//        
+//
 //        // Have to calculate affordabily index based on above data, special case
-//        
+//
 //        "B23025": [
 //            Hints.description: "Employment",
 //            Hints.type: Hints.economy,
 //            "001E": Hints.total,
 //            "005E": "Unemployed"
 //        ],
-//        
+//
 //        "B17001": [
 //            Hints.description: "Poverty",
 //            Hints.type: Hints.economy,
 //            "001E": Hints.total,
 //            "002E": "Below poverty level"
 //        ],
-//        
+//
 //        "C24050": [
 //            Hints.description: "Industry by occupation",
 //            Hints.type: Hints.economy,
@@ -179,14 +179,14 @@
 //            "014E": "Public administration"
 //        ]
 //    ]
-//    
+//
 //    static let propertyTypesDictionary: [String : [String : [String : String]]] = [
 //        Hints.economy : econProperties,
 //        Hints.demographics : demoProperties,
 //        Hints.eduAndTrans : eduTransProperties
 //    ]
-//    
+//
 //    private init() {}
-//    
+//
 //}
 //

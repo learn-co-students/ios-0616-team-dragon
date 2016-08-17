@@ -75,9 +75,9 @@ class ResultView: UIView {
             
         }
         
-//        self.resultDescriptionTextView.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(self).offset(40)
-//        }
+        //        self.resultDescriptionTextView.snp_makeConstraints { (make) -> Void in
+        //            make.top.equalTo(self).offset(40)
+        //        }
     }
     
 }
