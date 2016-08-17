@@ -15,8 +15,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        navBar()
-        resultsTableView()
+        self.navBar()
+        self.resultsTableView()
     }
     func resultsTableView() {
         
@@ -25,7 +25,6 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.frame.origin.y += 66
-        //tableView.backgroundColor = UIColor(patternImage: UIImage(named:"yellowSunny.png")!)
         tableView.backgroundColor = UIColor(netHex:0xFFFE9F)
     }
     
@@ -50,14 +49,11 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         cell.myButton1.addTarget(self, action: #selector(FinanceDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor(netHex:0xFFFFFF)        }
-        else
-        {
+        else {
             cell.backgroundColor = UIColor(netHex:0xFFFFFF)
         }
-        
         return cell
     }
     
@@ -76,19 +72,14 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     func navBar() {
         let financeNavBar = NavBar().setup()
-        //let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
-        //self.view.addSubview(navBar)
         self.view.addSubview(financeNavBar)
-        //navBar.backgroundColor = UIColor(netHex:0xFFFF03)
         financeNavBar.barTintColor = UIColor(netHex:0xFFFF03)
         let navItem = UINavigationItem(title: "Finance")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor(netHex:0x000000)
         
         navItem.leftBarButtonItem = homeItem
-        //navBar.setItems([navItem], animated: false)
         financeNavBar.setItems([navItem], animated: false)
-        //navBar.alpha = 1.0
         financeNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)

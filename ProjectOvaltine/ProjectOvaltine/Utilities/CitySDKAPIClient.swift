@@ -30,7 +30,6 @@ class CitySDKAPIClient {
                 print("ERROR: Unable to get url path for API call")
                 return
         }
-        
         let request = NSMutableURLRequest(URL:url)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -53,10 +52,6 @@ class CitySDKAPIClient {
                     if let geo = feat[0]["geometry"] as? NSDictionary {
                         
                         if let coords = geo["coordinates"] as? NSArray {
-                            //                            print(coords[0].count)
-                            //                            print(coords[0][0].count)
-                            
-                            
                             //This could probably be implemented better, but this fixes the bug where the app would crash if you were to query New York or California since they were nested differently.  It only checks for two cases, but I think it's the extent of the bug - if you find one let me know
                             if coords[0].count > 100 {
                                 let newData = CitySDKData(json: jsonProperties, geoJSON: coords[0] as! NSArray)
@@ -71,15 +66,8 @@ class CitySDKAPIClient {
                                     print("error!")}
                             }
                             
-                            
-                            
-                            
-                            
                         }
-                        
-                        
                     }
-                    
                     completion(cityDataPoints)
                 }
             default:

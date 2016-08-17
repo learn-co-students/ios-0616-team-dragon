@@ -107,8 +107,6 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         button.frame = CGRectMake(3, 3, 33, 33)
         button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
         
-
-        
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
         navItem.rightBarButtonItem = barButton

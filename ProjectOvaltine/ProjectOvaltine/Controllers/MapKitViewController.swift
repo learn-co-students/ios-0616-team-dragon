@@ -77,8 +77,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     //Delegate method from mapView in order to render the polyline
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        
-        
         let polygonRenderer = MKPolygonRenderer(overlay: overlay)
         
         polygonRenderer.lineWidth = 1
