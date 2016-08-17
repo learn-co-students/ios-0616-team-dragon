@@ -27,45 +27,63 @@ struct ScoreModel {
         self.educationScore = 0
     }
     
-    
-    func getEconomicScore() -> String {
+    mutating func getEconomicScore() -> String {
         var returnValue = " "
         var sum = 0
         for data in self.dataPoints.values {
             sum = sum + Int(data)!
         }
+        self.economicScore = sum
         returnValue = String(sum)
         return "Economic Score \(returnValue)"
     }
     
-    func getTransitScore() -> String {
+    mutating func getTransitScore() -> String {
         var returnValue = " "
         var sum = 0
         for data in self.dataPoints.values {
             sum = sum + Int(data)!
         }
+        self.transitScore = sum
         returnValue = String(sum)
         return "Transit Score \(returnValue)"
     }
     
-    func getEducationScore() -> String {
+    mutating func getEducationScore() -> String {
         var returnValue = " "
         var sum = 0
         for data in self.dataPoints.values {
             sum = sum + Int(data)!
         }
+        self.educationScore = sum
         returnValue = String(sum)
         return "Education Score \(returnValue)"
     }
     
-    func getDemographicScore() -> String {
+    mutating func getDemographicScore() -> String {
         var returnValue = " "
         var sum = 0
         for data in self.dataPoints.values {
             sum = sum + Int(data)!
         }
+        self.demographicScore = sum 
         returnValue = String(sum)
         return "Demographic Score \(returnValue)"
+    }
+    
+    mutating func getScoresDictionary() -> [String: String] {
+        let returnDict = ["Education": self.getEducationScore(), "Transit": self.getTransitScore(), "Economic": self.getEconomicScore(), "Demographic": getDemographicScore()]
+        return returnDict
+    }
+    
+    mutating func getAggregateScore() -> String {
+        let scores = getScoresDictionary()
+        var aggregateScore = 0
+        for score in scores.values {
+            aggregateScore = aggregateScore + Int(score)!
+        }
+        aggregateScore = aggregateScore / scores.values.count
+        return String(aggregateScore)
     }
     
     

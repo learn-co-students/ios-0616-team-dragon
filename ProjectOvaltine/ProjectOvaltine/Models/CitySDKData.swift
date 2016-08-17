@@ -57,7 +57,7 @@ class CitySDKData {
         self.coordinates = geoJSON
     }
     
-    func sendDataPoints() -> [String:String]{
+    func sendDataPoints() -> [String: String]{
         let returnData = ["walkingTimeCommute":self.walkingCommuteTime,
                           "age":self.age,
                           "incomePerCapita":self.incomePerCapita,

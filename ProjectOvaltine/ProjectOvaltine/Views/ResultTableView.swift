@@ -10,6 +10,8 @@ import UIKit
 
 
 class ResultTableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
     var detailsArray = ["Finance","Education","Transportation", "Demographics"]
     
     override func viewDidLoad() {
