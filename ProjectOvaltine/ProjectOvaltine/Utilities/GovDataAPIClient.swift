@@ -29,8 +29,8 @@ class GovDataAPIClient {
         
         let url = NSURL(string: self.baseURL)
         let json = ["jsonParameterOne": "not implemented"]
-        
         let request = NSMutableURLRequest(URL: url!)
+        
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(self.key, forHTTPHeaderField: "Authorization")

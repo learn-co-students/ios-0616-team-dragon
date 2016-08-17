@@ -31,6 +31,8 @@
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
 		AF7777E91D6103C000303DBB /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7777E81D6103C000303DBB /* ProjectButton.swift */; };
 		AFDA12431D6503A500A11FCA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA12421D6503A500A11FCA /* Constants.swift */; };
+		AFDA12451D65134300A11FCA /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA12441D65134300A11FCA /* ErrorView.swift */; };
+		AFDA12471D6513BF00A11FCA /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA12461D6513BF00A11FCA /* ErrorViewController.swift */; };
 		AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */; };
 		AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */; };
 		AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */; };
@@ -82,6 +84,8 @@
 		AF75DFA51D53D30400DDF173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7777E81D6103C000303DBB /* ProjectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectButton.swift; path = Views/ProjectButton.swift; sourceTree = "<group>"; };
 		AFDA12421D6503A500A11FCA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
+		AFDA12441D65134300A11FCA /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorView.swift; path = Views/ErrorView.swift; sourceTree = "<group>"; };
+		AFDA12461D6513BF00A11FCA /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorViewController.swift; path = Controllers/ErrorViewController.swift; sourceTree = "<group>"; };
 		AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySDKAPIClient.swift; path = Utilities/CitySDKAPIClient.swift; sourceTree = "<group>"; };
 		AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GovDataAPIClient.swift; path = Utilities/GovDataAPIClient.swift; sourceTree = "<group>"; };
 		AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaborStatisticsAPIClient.swift; path = Utilities/LaborStatisticsAPIClient.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				AF1FC7D11D5B8A20004973A2 /* MapView.swift */,
 				AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */,
 				AFE759381D62BC3D0072FF76 /* DetailView.swift */,
+				AFDA12441D65134300A11FCA /* ErrorView.swift */,
 				AF1FC7D51D5B8A58004973A2 /* Cells */,
 			);
 			name = Views;
@@ -154,6 +159,7 @@
 			children = (
 				AF1FC7C01D5B6F1F004973A2 /* ResultCell.swift */,
 				AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */,
+				AF0916071D634B5D00138D86 /* TableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -251,9 +257,9 @@
 				AF1FC7C91D5B736F004973A2 /* TransportationDataViewController.swift */,
 				AFE906A91D5E3D3D00CEA2C9 /* DemographicDataViewController.swift */,
 				AFE906AD1D5E3D7800CEA2C9 /* Extensions.swift */,
-				AF0916071D634B5D00138D86 /* TableViewCell.swift */,
 				AFEE32151D635A5600884D42 /* NavBar.swift */,
 				AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */,
+				AFDA12461D6513BF00A11FCA /* ErrorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 				AF1FC7D71D5B8D78004973A2 /* LocationData.swift in Sources */,
 				AFE906B01D5E3F0500CEA2C9 /* SearchResultCell.swift in Sources */,
 				AF1FC7CA1D5B736F004973A2 /* TransportationDataViewController.swift in Sources */,
+				AFDA12471D6513BF00A11FCA /* ErrorViewController.swift in Sources */,
 				AF24B1C71D5986EA0031FEEB /* CitySDKTests.swift in Sources */,
 				AFE906AC1D5E3D5900CEA2C9 /* EducationDataViewController.swift in Sources */,
 				AFE460161D551BE400FBE63B /* DataStore.swift in Sources */,
@@ -428,6 +435,7 @@
 				AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */,
 				AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
+				AFDA12451D65134300A11FCA /* ErrorView.swift in Sources */,
 				BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */,
 				AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */,
 				AFE4600C1D551B7900FBE63B /* GovDataAPIClient.swift in Sources */,
