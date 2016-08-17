@@ -19,7 +19,6 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         self.resultsTableView()
     }
     func resultsTableView() {
-        
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,7 +34,6 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         return myArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myLabel1.font = UIFont(name:"Univers Ultra Condensed", size:21)
@@ -48,7 +46,6 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         //cell.myLabel2.text = "\(indexPath.row + 1)"
         cell.myButton1.addTarget(self, action: #selector(FinanceDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        
         if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor(netHex:0xFFFFFF)        }
         else {
@@ -66,7 +63,6 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         print(myArray[indexPath.row])
     }
     

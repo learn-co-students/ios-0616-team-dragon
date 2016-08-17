@@ -15,17 +15,15 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        navBar()
-        resultsTableView()
+        self.navBar()
+        self.resultsTableView()
     }
     func resultsTableView() {
-        
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.frame.origin.y += 66
-        //tableView.backgroundColor = UIColor(patternImage: UIImage(named:"blueBlur.png")!)
         tableView.backgroundColor = UIColor(netHex:0x4F57DE)
     }
     
@@ -36,7 +34,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         return myArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myLabel1.font = UIFont(name:"Univers Ultra Condensed", size:21)
@@ -44,19 +41,14 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         cell.myLabel1?.layer.shadowOffset = CGSizeMake(2.0, 2.0)
         cell.myLabel1?.layer.shadowOpacity = 1.0
         cell.myLabel1?.layer.shadowRadius = 2.0
-        
-        //cell.myLabel2.text = "\(indexPath.row + 1)"
         cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor(netHex:0xFFFFFF)        }
-        else
-        {
+        else {
             cell.backgroundColor = UIColor(netHex:0xFFFFFF)
         }
-        
         return cell
     }
     
@@ -69,7 +61,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         print(myArray[indexPath.row])
     }
     
@@ -103,4 +94,3 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         print("Settings Pushed")
     }
 }
-

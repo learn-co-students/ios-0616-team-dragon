@@ -17,17 +17,15 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        navBar()
-        resultsTableView()
+        self.navBar()
+        self.resultsTableView()
     }
     func resultsTableView() {
-        
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.frame.origin.y += 66
-        //tableView.backgroundColor = UIColor(patternImage: UIImage(named:"edu.png")!)
         tableView.backgroundColor = UIColor(netHex:0xFF6154)
     }
     
@@ -51,15 +49,11 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         cell.myButton1.addTarget(self, action: #selector(TransportationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(TransportationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor(netHex:0xFFFFFF)        }
-        else
-        {
+        else {
             cell.backgroundColor = UIColor(netHex:0xFFFFFF)
         }
-        
         return cell
     }
     
@@ -72,14 +66,11 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         print(myArray[indexPath.row])
     }
     
     func navBar() {
-        
         let transportNavBar = NavBar().setup()
-        
         self.view.addSubview(transportNavBar)
         
         transportNavBar.barTintColor = UIColor(netHex:0xFF0300)
