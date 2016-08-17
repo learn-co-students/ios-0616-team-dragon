@@ -13,7 +13,26 @@ struct ScoreModel {
     var score:Int = 0
     var dataPoints: [String] = []
     
-    init(name: String) {
+    init(name: String, dataPoints: [String]) {
         self.scoreName = name
     }
+    
+    
+    func getEconomicScore() -> String {
+        return "Finance Score"
+    }
+    
+    func getTransitScore() -> String {
+        return "Transit Score"
+    }
+    
+    func getEducationScore() -> String {
+        return "Education Score"
+    }
+    
+    func getDemographicScore() -> String {
+        return "Demographic Score"
+    }
+    
+    
 }
