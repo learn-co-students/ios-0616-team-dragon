@@ -46,6 +46,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     var polygon: MKPolygon!
     
+    var anotation = MKPointAnnotation()
+    
     //Init searchBar
     let searchController = UISearchBar.init()
     
@@ -68,6 +70,44 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         view.addSubview(mapView)
     }
     
+    func zoomToPolygon(map: MKPolygon, animated: Bool) {
+        self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, animated: true)
+    }
+    
+    //Delegate method from mapView in order to render the polyline
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        
+        let polygonRenderer = MKPolygonRenderer(overlay: overlay)
+        
+        polygonRenderer.lineWidth = 1
+        polygonRenderer.fillColor = UIColor.blueColor()
+        polygonRenderer.alpha = 0.15
+        return polygonRenderer
+    }
+    
+//        func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+//    
+//            let identifier = "MyPin"
+//    
+//            if annotation.isKindOfClass(MKUserLocation) {
+//                return nil
+//            }
+//    
+//            let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+//    
+//            if var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
+//                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+//                annotationView.canShowCallout = true
+//                annotationView.image = UIImage(named: "custom_pin.png")
+//                annotationView.rightCalloutAccessoryView = detailButton
+//            } else {
+//                annotationView.annotation = annotation
+//            }
+//            
+//            return annotationView
+//        }
+    
     func populateCoordinateArray(completionHandler: (NSArray) -> ()){
         
         self.store.getCitySDKData({
@@ -87,15 +127,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
     }
     
-    //Delegate method from mapView in order to render the polyline
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        let polygonRenderer = MKPolygonRenderer(overlay: overlay)
-        polygonRenderer.lineWidth = 3
-        polygonRenderer.fillColor = UIColor.blueColor()
-        polygonRenderer.alpha = 0.15
-        return polygonRenderer}
     
-    //Centers Map on a given coordinate
+    
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   self.regionRadius * 2.0,
@@ -108,19 +141,19 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
         
-//                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-//                dispatch_after(time, dispatch_get_main_queue()) {
-//        
-//                    let detailVC = TabBarController()
-//                    self.showViewController(detailVC, sender: nil)
-//                    self.searchController.text?.removeAll()
-//                }
-
+        //                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
+        //                dispatch_after(time, dispatch_get_main_queue()) {
+        //
+        //                    let detailVC = TabBarController()
+        //                    self.showViewController(detailVC, sender: nil)
+        //                    self.searchController.text?.removeAll()
+        //                }
+        
     }
     
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
-        self.store.zip = zipcode
+        // self.store.zip = zipcode
         var placemark: CLPlacemark!
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if ((error) != nil) {
@@ -141,8 +174,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 }
                 
             } else {
-                placemark = (placemarks?.last)!
                 
+                
+                placemark = (placemarks?.last)!
+                self!.store.zip = (placemark.postalCode)!
                 
                 self!.populateCoordinateArray{[weak self] (someArray) in
                     self!.boundary.removeAll()
@@ -154,27 +189,31 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     
                     self!.polygon = MKPolygon(coordinates: &self!.boundary, count: self!.boundary.count)
                     
+                    self!.polygon.title = "county_borders"
+                    
                     self!.overlayArray.append(self!.polygon)
+                    
                     self!.mapView.addOverlays(self!.overlayArray)
                     self!.zoomToPolygon(self!.polygon, animated: true)
+                    print(self!.mapView.centerCoordinate)
                 }
                 
-            
+                
                 self!.zipLocation = placemark?.location
-//                self!.centerMapOnLocation(self!.zipLocation)
+                self!.mapView.removeAnnotation(self!.anotation)
+                
+                self!.anotation.coordinate = (placemark?.location?.coordinate)!
+                self!.anotation.title = placemark?.locality
+                self!.anotation.subtitle = "\(placemark!.subAdministrativeArea!) County"
+                self!.mapView.addAnnotation(self!.anotation)
+                //                self!.centerMapOnLocation(self!.zipLocation)
                 
                 
             }
             })
     }
     
-    func zoomToPolygon(map: MKPolygon, animated: Bool) {
-        self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, animated: true)
-    }
-//    -(void)zoomToPolyLine: (MKMapView*)map polyline: (MKPolyline*)polyline animated: (BOOL)animated
-//    {
-//    [map setVisibleMapRect:[polyline boundingMapRect] edgePadding:UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0) animated:animated];
-//    }
+
     
     func searchBar() {
         self.searchController.placeholder = "Enter Location"
