@@ -20,6 +20,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     let cityAPI = CitySDKAPIClient.sharedInstance
     let jobsAPI = USAJobsAPIClient.sharedInstance
     
+    
     //Array of citySDK data
     var cityData: [CitySDKData] = []
     

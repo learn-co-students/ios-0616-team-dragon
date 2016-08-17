@@ -39,6 +39,9 @@ class DataStore {
     func getCitySDKData(completion: () -> ()) {
         cityAPI.sendAPIRequest(["level":level, "zip": zip, "api": api, "year": year, "variables": variables]) { (cityData) in
             self.cityDataPoints = cityData
+            let score = ScoreModel(name: "Name", dataPoints: self.cityDataPoints[0].sendDataPoints())
+            print(score)
+            print(score.demographicScore)
             completion()
         }
     }

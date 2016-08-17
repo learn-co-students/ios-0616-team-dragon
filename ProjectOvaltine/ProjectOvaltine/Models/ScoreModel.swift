@@ -25,13 +25,17 @@ struct ScoreModel {
         self.transitScore = 0
         self.demographicScore = 0
         self.educationScore = 0
+        print("Demographic Score)\(self.getDemographicScore())")
+        print(self.getScoresDictionary())
     }
     
     mutating func getEconomicScore() -> String {
         var returnValue = " "
         var sum = 0
         for data in self.dataPoints.values {
-            sum = sum + Int(data)!
+            if let data = Int(data) {
+                sum = sum + data
+            }
         }
         self.economicScore = sum
         returnValue = String(sum)
@@ -42,7 +46,9 @@ struct ScoreModel {
         var returnValue = " "
         var sum = 0
         for data in self.dataPoints.values {
-            sum = sum + Int(data)!
+            if let data = Int(data) {
+                sum = sum + data
+            }
         }
         self.transitScore = sum
         returnValue = String(sum)
@@ -53,7 +59,10 @@ struct ScoreModel {
         var returnValue = " "
         var sum = 0
         for data in self.dataPoints.values {
-            sum = sum + Int(data)!
+            if let data = Int(data) {
+                sum = sum + data
+            }
+            
         }
         self.educationScore = sum
         returnValue = String(sum)
@@ -64,7 +73,10 @@ struct ScoreModel {
         var returnValue = " "
         var sum = 0
         for data in self.dataPoints.values {
-            sum = sum + Int(data)!
+            if let data = Int(data) {
+                sum = sum + data
+            }
+            
         }
         self.demographicScore = sum 
         returnValue = String(sum)
