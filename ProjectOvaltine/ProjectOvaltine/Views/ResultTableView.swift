@@ -22,8 +22,8 @@ class ResultTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func ratingTextView() {
-        let ratingsView = ResultView()
-        self.view.addSubview(ratingsView!)
+//        let ratingsView = ResultView()
+//        self.view.addSubview(ratingsView!)
     }
     
     func statsTableView() {

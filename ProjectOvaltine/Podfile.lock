@@ -4,6 +4,7 @@ PODS:
   - SnapKit (0.15.0)
   - SwiftSpinner (0.9.5)
   - SwiftyJSON (2.3.2)
+  - YOChartImageKit (1.2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - SnapKit (~> 0.15.0)
   - SwiftSpinner
   - SwiftyJSON
+  - YOChartImageKit (~> 1.1)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
@@ -18,7 +20,8 @@ SPEC CHECKSUMS:
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftSpinner: c6585a0ae5c67eb33e737695cce88f0262008cce
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  YOChartImageKit: bd73e66857c848325bef87edc40595d72a6b5fbe
 
-PODFILE CHECKSUM: 07405e978d94fd03608ee7d7b75ce4653b05b7f1
+PODFILE CHECKSUM: 7c2d9321ba014d4ddd9d6e7cea7e315d1ccef70e
 
 COCOAPODS: 1.0.1
