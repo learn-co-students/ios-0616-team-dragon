@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
         self.window!.makeKeyAndVisible()
-        
-        self.window?.rootViewController = MapKitViewController()
+        self.window?.rootViewController = TestViewController()
+        //self.window?.rootViewController = MapKitViewController()
         return true
     }
     
