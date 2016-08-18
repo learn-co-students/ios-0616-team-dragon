@@ -74,6 +74,7 @@
 		AFEA1C331D64B6A300148BAE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */; };
 		AFEE32161D635A5600884D42 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE32151D635A5600884D42 /* NavBar.swift */; };
 		BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20C70F1D6355CE0065CADF /* StatsViewController.swift */; };
+		BDDCC5DA1D6641EE00E97CF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC5D91D6641EE00E97CF3 /* Constants.swift */; };
 		D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +150,7 @@
 		AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		AFEE32151D635A5600884D42 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Controllers/NavBar.swift; sourceTree = "<group>"; };
 		BD20C70F1D6355CE0065CADF /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = Controllers/StatsViewController.swift; sourceTree = "<group>"; };
+		BDDCC5D91D6641EE00E97CF3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC048C74F799EF73ABF209A0 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,6 +327,7 @@
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
 				AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */,
 				AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */,
+				BDDCC5D91D6641EE00E97CF3 /* Constants.swift */,
 				AFE460081D551B7900FBE63B /* Request.swift */,
 				AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */,
 				AF04F1C81D5A75B1005B7F26 /* CityAPIClientStruct.swift */,

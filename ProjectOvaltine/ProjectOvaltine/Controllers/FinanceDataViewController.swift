@@ -46,12 +46,9 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         cell.myButton1.addTarget(self, action: #selector(FinanceDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
-        }
-        else
-        {
+        } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
         

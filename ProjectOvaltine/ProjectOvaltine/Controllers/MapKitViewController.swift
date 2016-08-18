@@ -32,7 +32,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     let regionRadius: CLLocationDistance = 1000
     
     //Initialize alert - used in GeoCoder function when user enters an invalid zipcode
-    let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+    let alert = UIAlertController.init(title: "Invalid Entry", message: "You entered an invalid Zipcode", preferredStyle: .Alert)
+    
     
     //Calculates a location from array of location data - will be deprecated eventually
     var initialLocation : CLLocation {
@@ -58,11 +59,11 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.searchBar()
         
         centerMapOnLocation(self.initialLocation)
+        self.alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
     }
     
     override func viewDidAppear(animated: Bool) {
-        SwiftSpinner.showWithDuration(0.9, title: "TEAM DRAGON")
-        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+       
     }
     
     func drawInMapView(){
@@ -83,7 +84,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
         polygonRenderer.lineWidth = 1
         polygonRenderer.fillColor = UIColor.cyanColor()
-        polygonRenderer.alpha = 0.50
+        polygonRenderer.alpha = 0.20
         return polygonRenderer
     }
     
@@ -149,8 +150,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.mapView.removeOverlays(overlayArray)
-        self.overlayArray.removeAll()
+        
         self.getLocationFromZipcode(self.searchController.text!)
         self.view.endEditing(true)
         
@@ -162,21 +162,24 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     func getLocationFromZipcode(zipcode: String){
         // self.store.zip = zipcode
         var placemark: CLPlacemark!
+        
+        if zipcode.characters.count == 5 {
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
-            if ((error) != nil) {
-                self!.alert.title = "Zip not found!"
-                self!.alert.message = "You entered an invalid zip"
-                self!.alert.addAction(UIAlertAction(title: "PLEASE ENTER VALID LOCATION", style: UIAlertActionStyle.Default, handler: nil))
+            if error != nil {
                 self!.presentViewController(self!.alert, animated: true, completion: nil)
                 print("\(error)")
                 
             } else {
                 
+                print(placemarks)
                 
                 placemark = (placemarks?.last)!
+                
+                if placemark.country == "United States" {
                 print(placemark.subAdministrativeArea)
                 print(placemark.administrativeArea)
                 print(placemark.locality)
+                print(placemark?.postalCode)
                 self!.store.zip = (placemark.postalCode)!
                 
                 self!.populateCoordinateArray{[weak self] (someArray) in
@@ -185,6 +188,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     for i in 0...someArray.count-1 {
                         self!.convertArrayDataToPoints(someArray[i] as! [AnyObject])
                     }
+                    
+                    
+                    
+                    self!.mapView.removeOverlays(self!.overlayArray)
+                    if self!.overlayArray.count != 0 {
+                        self!.overlayArray.removeAll()}
                     
                     
                     self!.polygon = MKPolygon(coordinates: &self!.boundary, count: self!.boundary.count)
@@ -196,29 +205,36 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.mapView.addOverlays(self!.overlayArray)
                     
                     self!.zoomToPolygon(self!.polygon, animated: true)
+                    
+                    self!.mapView.removeAnnotation(self!.anotation)
+                    self!.anotation.coordinate = (placemark?.location?.coordinate)!
+                    self!.anotation.title = placemark?.locality
+                    self!.anotation.subtitle = "\(placemark!.subAdministrativeArea!) County"
+                    self!.mapView.addAnnotation(self!.anotation)
+                    self!.mapView.selectAnnotation(self!.anotation, animated: true)
                 }
                 
-                print(placemark?.country)
                 self!.zipLocation = placemark?.location
-                self!.mapView.removeAnnotation(self!.anotation)
+                
+                    SwiftSpinner.showWithDuration(0.9, title: "Ovaltine")
+                    SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
                 
                 
-                self!.anotation.coordinate = (placemark?.location?.coordinate)!
-                self!.anotation.title = placemark?.locality
-                self!.anotation.subtitle = "\(placemark!.subAdministrativeArea!) County"
-                self!.mapView.addAnnotation(self!.anotation)
-                self!.mapView.selectAnnotation(self!.anotation, animated: true)
-                //                self!.centerMapOnLocation(self!.zipLocation)
-                
-                
+                } else {
+                    self!.presentViewController(self!.alert, animated: true, completion: {self!.mapView.addOverlays(self!.overlayArray)})
+                }
             }
             })
+        } else {
+            self.presentViewController(self.alert, animated: true, completion: {self.mapView.addOverlays(self.overlayArray)})
+        }
+        
     }
     
     
     
     func searchBar() {
-        self.searchController.placeholder = "Enter Location"
+        self.searchController.placeholder = "Enter Zipcode"
         self.searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 66)
         let topConstraint = NSLayoutConstraint(item: searchController, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
         self.searchController.delegate = self
