@@ -30,7 +30,6 @@
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
 		AF7777E91D6103C000303DBB /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7777E81D6103C000303DBB /* ProjectButton.swift */; };
-		AFDA12431D6503A500A11FCA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA12421D6503A500A11FCA /* Constants.swift */; };
 		AFDA12451D65134300A11FCA /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA12441D65134300A11FCA /* ErrorView.swift */; };
 		AFDA12471D6513BF00A11FCA /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA12461D6513BF00A11FCA /* ErrorViewController.swift */; };
 		AFDA12491D65166200A11FCA /* SplashScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA12481D65166200A11FCA /* SplashScreenController.swift */; };
@@ -55,6 +54,7 @@
 		AFEA1C331D64B6A300148BAE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */; };
 		AFEE32161D635A5600884D42 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE32151D635A5600884D42 /* NavBar.swift */; };
 		BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20C70F1D6355CE0065CADF /* StatsViewController.swift */; };
+		BDDCC5CE1D65E76F00E97CF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC5CD1D65E76F00E97CF3 /* Constants.swift */; };
 		D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +85,6 @@
 		AF75DFA31D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF75DFA51D53D30400DDF173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7777E81D6103C000303DBB /* ProjectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectButton.swift; path = Views/ProjectButton.swift; sourceTree = "<group>"; };
-		AFDA12421D6503A500A11FCA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFDA12441D65134300A11FCA /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorView.swift; path = Views/ErrorView.swift; sourceTree = "<group>"; };
 		AFDA12461D6513BF00A11FCA /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorViewController.swift; path = Controllers/ErrorViewController.swift; sourceTree = "<group>"; };
 		AFDA12481D65166200A11FCA /* SplashScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashScreenController.swift; path = Controllers/SplashScreenController.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		AFEE32151D635A5600884D42 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Controllers/NavBar.swift; sourceTree = "<group>"; };
 		BD20C70F1D6355CE0065CADF /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = Controllers/StatsViewController.swift; sourceTree = "<group>"; };
+		BDDCC5CD1D65E76F00E97CF3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC048C74F799EF73ABF209A0 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,9 +221,9 @@
 		AFE45FFF1D551B2900FBE63B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				AFDA12421D6503A500A11FCA /* Constants.swift */,
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
 				AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */,
+				BDDCC5CD1D65E76F00E97CF3 /* Constants.swift */,
 				AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */,
 				AFE460081D551B7900FBE63B /* Request.swift */,
 				AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */,
@@ -416,7 +416,6 @@
 				AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */,
 				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,
 				AFE460181D551BE400FBE63B /* USAJobsData.swift in Sources */,
-				AFDA12431D6503A500A11FCA /* Constants.swift in Sources */,
 				AF1FC7D21D5B8A20004973A2 /* MapView.swift in Sources */,
 				AF1FC7C61D5B70B4004973A2 /* ResultModel.swift in Sources */,
 				AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */,
@@ -433,6 +432,7 @@
 				AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */,
 				AFEE32161D635A5600884D42 /* NavBar.swift in Sources */,
 				AF7777E91D6103C000303DBB /* ProjectButton.swift in Sources */,
+				BDDCC5CE1D65E76F00E97CF3 /* Constants.swift in Sources */,
 				AFE759391D62BC3D0072FF76 /* DetailView.swift in Sources */,
 				AF04F1C71D5A404C005B7F26 /* CensusAPIClient.swift in Sources */,
 				AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */,
