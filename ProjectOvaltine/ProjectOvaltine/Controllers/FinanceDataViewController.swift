@@ -15,16 +15,18 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        self.navBar()
-        self.resultsTableView()
+        navBar()
+        resultsTableView()
     }
     func resultsTableView() {
+        
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
-        tableView.frame.origin.y += 66
-        tableView.backgroundColor = UIColor(netHex:0xFFFE9F)
+        tableView.frame.origin.y += 60
+        tableView.backgroundColor = UIColor(patternImage: UIImage(named:"yellow.png")!)
+        //tableView.backgroundColor = UIColor(netHex:0xFFFE9F)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -34,23 +36,25 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         return myArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myLabel1.font = UIFont(name:"Univers Ultra Condensed", size:21)
         cell.myLabel1.textColor = UIColor(netHex:0x000000)
-        cell.myLabel1?.layer.shadowColor = UIColor(netHex:0xFFFE9F).CGColor
-        cell.myLabel1?.layer.shadowOffset = CGSizeMake(2.0, 2.0)
-        cell.myLabel1?.layer.shadowOpacity = 1.0
-        cell.myLabel1?.layer.shadowRadius = 2.0
         
         //cell.myLabel2.text = "\(indexPath.row + 1)"
         cell.myButton1.addTarget(self, action: #selector(FinanceDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        if(indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor(netHex:0xFFFFFF)        }
-        else {
-            cell.backgroundColor = UIColor(netHex:0xFFFFFF)
+        
+        if(indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
+        else
+        {
+            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
+        }
+        
         return cell
     }
     
@@ -63,25 +67,31 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         print(myArray[indexPath.row])
     }
     
     func navBar() {
         let financeNavBar = NavBar().setup()
+        //let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
+        //self.view.addSubview(navBar)
         self.view.addSubview(financeNavBar)
+        //navBar.backgroundColor = UIColor(netHex:0xFFFF03)
         financeNavBar.barTintColor = UIColor(netHex:0xFFFF03)
         let navItem = UINavigationItem(title: "Finance")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor(netHex:0x000000)
         
         navItem.leftBarButtonItem = homeItem
+        //navBar.setItems([navItem], animated: false)
         financeNavBar.setItems([navItem], animated: false)
+        //navBar.alpha = 1.0
         financeNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
-        button.frame = CGRectMake(3, 3, 33, 33)
+        button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton

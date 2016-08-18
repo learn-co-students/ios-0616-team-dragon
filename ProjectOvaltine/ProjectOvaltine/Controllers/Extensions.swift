@@ -68,7 +68,7 @@ extension Navigable {
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-        button.frame = CGRectMake(3, 3, 33, 33)
+        button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
         navigationItem.rightBarButtonItem = barButton
