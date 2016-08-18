@@ -429,7 +429,7 @@ extension CoreDataHelper {
     }
     
     
-    private func fetchEntity(countyCode countyCode: String?, stateCode: String?, completion:(county: County?, state: State?, us: US?) -> Void) {
+    func fetchEntity(countyCode countyCode: String?, stateCode: String?, completion:(county: County?, state: State?, us: US?) -> Void) {
         
         var us: US? = nil
         var state: State? = nil
@@ -481,10 +481,10 @@ extension CoreDataHelper {
     }
     
     
-    func loadCodes(countyName countyName: String?, stateName: String, completion:(countyCode: String?, stateCode: String?, error: ErrorType?) -> Void) {
+    func loadCodes(countyName countyName: String?, stateAbbreviation: String, completion:(countyCode: String?, stateCode: String?, error: ErrorType?) -> Void) {
         
         let stateFetchRequest = NSFetchRequest(entityName: Hints.state)
-        let statePredicate = NSPredicate(format: "%K == %@", Hints.abbreviation, stateName)
+        let statePredicate = NSPredicate(format: "%K == %@", Hints.abbreviation, stateAbbreviation)
         stateFetchRequest.predicate = statePredicate
         
         do {
