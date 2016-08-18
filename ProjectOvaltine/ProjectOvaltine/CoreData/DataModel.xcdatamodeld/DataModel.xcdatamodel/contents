@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Xcode 7.0">
+    <entity name="City" representedClassName=".City" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="county" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="County" inverseName="cities" inverseEntity="County" syncable="YES"/>
+        <relationship name="dataSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DataSet" inverseName="city" inverseEntity="DataSet" syncable="YES"/>
+        <relationship name="state" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="cities" inverseEntity="State" syncable="YES"/>
+    </entity>
+    <entity name="County" representedClassName=".County" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stateCode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="City" inverseName="county" inverseEntity="City" syncable="YES"/>
+        <relationship name="dataSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DataSet" inverseName="county" inverseEntity="DataSet" syncable="YES"/>
+        <relationship name="state" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="counties" inverseEntity="State" syncable="YES"/>
+    </entity>
+    <entity name="DataSet" representedClassName=".DataSet" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="dataSets" inverseEntity="City" syncable="YES"/>
+        <relationship name="county" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="County" inverseName="dataSets" inverseEntity="County" syncable="YES"/>
+        <relationship name="state" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="dataSets" inverseEntity="State" syncable="YES"/>
+        <relationship name="us" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="US" inverseName="dataSets" inverseEntity="US" syncable="YES"/>
+        <relationship name="values" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DataSetValues" inverseName="dataSet" inverseEntity="DataSetValues" syncable="YES"/>
+    </entity>
+    <entity name="DataSetValues" representedClassName=".DataSetValues" syncable="YES">
+        <attribute name="absoluteValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="percentValue" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dataSet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DataSet" inverseName="values" inverseEntity="DataSet" syncable="YES"/>
+    </entity>
+    <entity name="State" representedClassName=".State" syncable="YES">
+        <attribute name="abbreviation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="City" inverseName="state" inverseEntity="City" syncable="YES"/>
+        <relationship name="counties" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="County" inverseName="state" inverseEntity="County" syncable="YES"/>
+        <relationship name="dataSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DataSet" inverseName="state" inverseEntity="DataSet" syncable="YES"/>
+        <relationship name="us" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="US" inverseName="states" inverseEntity="US" syncable="YES"/>
+    </entity>
+    <entity name="US" representedClassName=".US" syncable="YES">
+        <attribute name="loaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="dataSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DataSet" inverseName="us" inverseEntity="DataSet" syncable="YES"/>
+        <relationship name="states" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="State" inverseName="us" inverseEntity="State" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="City" positionX="-423" positionY="-162" width="128" height="120"/>
+        <element name="County" positionX="-180" positionY="-108" width="128" height="148"/>
+        <element name="DataSet" positionX="-315" positionY="153" width="128" height="180"/>
+        <element name="DataSetValues" positionX="-36" positionY="171" width="128" height="118"/>
+        <element name="State" positionX="-641" positionY="-45" width="128" height="163"/>
+        <element name="US" positionX="16" positionY="-63" width="128" height="88"/>
+    </elements>
+</model>
