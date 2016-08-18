@@ -72,7 +72,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func zoomToPolygon(map: MKPolygon, animated: Bool) {
-        self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, animated: true)
+        let insets = UIEdgeInsets.init(top: 5.0, left: 50.0, bottom: 5.0, right: 50.0)
+        self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, edgePadding: insets, animated: true)
+        //self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, animated: true)
     }
     
     //Delegate method from mapView in order to render the polyline
@@ -81,7 +83,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
         polygonRenderer.lineWidth = 1
         polygonRenderer.fillColor = UIColor.cyanColor()
-        polygonRenderer.alpha = 0.25
+        polygonRenderer.alpha = 0.50
         return polygonRenderer
     }
     
@@ -98,20 +100,25 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         anView?.rightCalloutAccessoryView = UIButton(type: UIButtonType.DetailDisclosure)
         anView!.backgroundColor = UIColor.clearColor()
         anView!.canShowCallout = true
+        let testImage = UIImage(named: "annotation_test")
+        
+        let scaledImage = UIImage.init(CGImage: (testImage?.CGImage)!, scale: 7, orientation: UIImageOrientation.Up)
+        
+        anView!.image = scaledImage
         return anView
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
         if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
-          
+            
             let detailVC = TabBarController()
             self.showViewController(detailVC, sender: nil)
             self.searchController.text?.removeAll()
         }
     }
-
-
+    
+    
     func populateCoordinateArray(completionHandler: (NSArray) -> ()){
         
         self.store.getCitySDKData({
@@ -142,13 +149,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        mapView.removeOverlays(overlayArray)
+        self.mapView.removeOverlays(overlayArray)
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
+        self.view.endEditing(true)
         
         
-   
-
+        
     }
     
     //Takes a string of numbers and gets a lat/long - Async
@@ -162,16 +169,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 self!.alert.addAction(UIAlertAction(title: "PLEASE ENTER VALID LOCATION", style: UIAlertActionStyle.Default, handler: nil))
                 self!.presentViewController(self!.alert, animated: true, completion: nil)
                 print("\(error)")
-                
-                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
-                dispatch_after(time, dispatch_get_main_queue()) {
-                    SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
-                    SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-                    self!.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-                    self!.window!.makeKeyAndVisible()
-                    self!.window?.rootViewController = MapKitViewController()
-                    SwiftSpinner.hide()
-                }
                 
             } else {
                 
@@ -194,8 +191,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.overlayArray.append(self!.polygon)
                     
                     self!.mapView.addOverlays(self!.overlayArray)
-                
-                     self!.zoomToPolygon(self!.polygon, animated: true)
+                    
+                    self!.zoomToPolygon(self!.polygon, animated: true)
                 }
                 
                 
@@ -209,7 +206,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 self!.mapView.selectAnnotation(self!.anotation, animated: true)
                 //                self!.centerMapOnLocation(self!.zipLocation)
                 
-               
+                
             }
             })
     }
