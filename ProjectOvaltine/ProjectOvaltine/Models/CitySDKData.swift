@@ -40,7 +40,8 @@ class CitySDKData {
             laborParticipation = json["B23025_002E"].string,
             laborEmployment = json["B23025_004E"].string
             else {
-                fatalError("FatalError")
+               fatalError("FatalError")
+               
         }
         
         self.walkingCommuteTime = commuteWalk
