@@ -23,7 +23,7 @@ class DetailView: UIView {
     }
     
     required init?(coder: NSCoder = NSCoder.empty()) {
-        super.init(coder: coder);
+        super.init(coder: coder)
     }
     
     convenience init(topic: String, score: String, description: String) {
