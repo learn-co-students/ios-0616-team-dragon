@@ -27,7 +27,7 @@
 		8E74E7011D65EC1C0056E866 /* State+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6ED1D65EC1C0056E866 /* State+CoreDataProperties.swift */; };
 		8E74E7021D65EC1C0056E866 /* US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6EE1D65EC1C0056E866 /* US.swift */; };
 		8E74E7031D65EC1C0056E866 /* US+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6EF1D65EC1C0056E866 /* US+CoreDataProperties.swift */; };
-		8E74E70A1D65ECC40056E866 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E7091D65ECC40056E866 /* Test.swift */; };
+		8EEF6BB51D660B31007DF18F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF6BB41D660B31007DF18F /* Constants.swift */; };
 		AF04F1C91D5A75B1005B7F26 /* CityAPIClientStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF04F1C81D5A75B1005B7F26 /* CityAPIClientStruct.swift */; };
 		AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF04F1CA1D5A8DC6005B7F26 /* CensusConstants.swift */; };
 		AF0916081D634B5D00138D86 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0916071D634B5D00138D86 /* TableViewCell.swift */; };
@@ -99,7 +99,7 @@
 		8E74E6ED1D65EC1C0056E866 /* State+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "State+CoreDataProperties.swift"; path = "CoreData/State+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8E74E6EE1D65EC1C0056E866 /* US.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = US.swift; path = CoreData/US.swift; sourceTree = "<group>"; };
 		8E74E6EF1D65EC1C0056E866 /* US+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "US+CoreDataProperties.swift"; path = "CoreData/US+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8E74E7091D65ECC40056E866 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		8EEF6BB41D660B31007DF18F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AF04F1C81D5A75B1005B7F26 /* CityAPIClientStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityAPIClientStruct.swift; path = Utilities/CityAPIClientStruct.swift; sourceTree = "<group>"; };
 		AF04F1CA1D5A8DC6005B7F26 /* CensusConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CensusConstants.swift; sourceTree = "<group>"; };
 		AF0916071D634B5D00138D86 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = Controllers/TableViewCell.swift; sourceTree = "<group>"; };
@@ -184,11 +184,10 @@
 		8E74E6B21D65EB160056E866 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				8E74E7081D65ECA20056E866 /* Hints */,
+				8E74E7061D65EC7F0056E866 /* CoreDataExecution */,
 				8E74E7041D65EC230056E866 /* CoreDataClasses */,
 				8E74E7051D65EC630056E866 /* CensusAPI */,
-				8E74E7061D65EC7F0056E866 /* CoreDataExecution */,
-				8E74E7091D65ECC40056E866 /* Test.swift */,
+				8E74E7081D65ECA20056E866 /* Hints */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -323,6 +322,7 @@
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
 				AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */,
 				AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */,
+				8EEF6BB41D660B31007DF18F /* Constants.swift */,
 				AFE460081D551B7900FBE63B /* Request.swift */,
 				BDDCC5D31D6629F800E97CF3 /* Constants.swift */,
 				AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */,
@@ -385,6 +385,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF75DFA81D53D30400DDF173 /* Build configuration list for PBXNativeTarget "ProjectOvaltine" */;
 			buildPhases = (
+				3E9912CD08BFAD4E46F34246 /* 📦 Check Pods Manifest.lock */,
 				EFC093FF674B59495424E8F2 /* [CP] Check Pods Manifest.lock */,
 				9B885B32EF5A44A6D02174B3 /* [CP] Check Pods Manifest.lock */,
 				AF75DF921D53D30300DDF173 /* Sources */,
@@ -416,7 +417,7 @@
 				TargetAttributes = {
 					AF75DF951D53D30300DDF173 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = Q844VW9UW4;
+						DevelopmentTeam = 62Z8B753FR;
 					};
 				};
 			};
@@ -480,6 +481,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E9912CD08BFAD4E46F34246 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		50ECEB2E9D7812FBA8216720 /* [CP] Copy Pods Resources */ = {
@@ -553,7 +569,6 @@
 				8E74E6FE1D65EC1C0056E866 /* DataSetValues+CoreDataProperties.swift in Sources */,
 				AF1FC7D71D5B8D78004973A2 /* LocationData.swift in Sources */,
 				8E74E6F91D65EC1C0056E866 /* County+CoreDataProperties.swift in Sources */,
-				8E74E70A1D65ECC40056E866 /* Test.swift in Sources */,
 				AFE906B01D5E3F0500CEA2C9 /* SearchResultCell.swift in Sources */,
 				AF1FC7CA1D5B736F004973A2 /* TransportationDataViewController.swift in Sources */,
 				8E74E6FD1D65EC1C0056E866 /* DataSetValues.swift in Sources */,

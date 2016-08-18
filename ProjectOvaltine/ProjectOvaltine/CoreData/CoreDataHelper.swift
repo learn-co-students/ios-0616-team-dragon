@@ -13,59 +13,6 @@ import CoreData
 class CoreDataHelper {
 
     
-//    func fetchCounty(countyCode: String, stateCode: String, completion:(county: County?, error: NSError?) -> Void) {
-//        
-//        let stateFetchRequest = NSFetchRequest(entityName: Hints.state)
-//        let statePredicate = NSPredicate(format: "%K == %@", Hints.code, stateCode)
-//        stateFetchRequest.predicate = statePredicate
-//        
-//        do {
-//            
-//            let stateResult = try self.managedObjectContext.executeFetchRequest(stateFetchRequest) as! [State]
-//            if stateResult.isEmpty {
-//                print("Error - state not found!")
-//                completion(county: nil, error: nil)
-//                
-//            } else {
-//                
-//                let state = stateResult[0]
-//                
-//                let countyFetchRequest = NSFetchRequest(entityName: Hints.county)
-//                let countyPredicate = NSPredicate(format: "%K == %@ && %K CONTAINS %@",Hints.stateLowercase, state, Hints.code, countyCode)
-//                countyFetchRequest.predicate = countyPredicate
-//                
-//                do {
-//                    
-//                    let countyResult = try self.managedObjectContext.executeFetchRequest(countyFetchRequest) as! [County]
-//                    if countyResult.isEmpty {
-//                        print("Error - county not found!")
-//                        completion(county: nil, error: nil)
-//                        
-//                    } else {
-//                        
-//                        let county = countyResult[0]
-//                        completion(county: county, error: nil)
-//                        
-//                    }
-//                    
-//                } catch {
-//                    let fetchError = error as NSError
-//                    print("Error fetching county: \(fetchError.localizedDescription)") /////////////// HANDLE
-//                    completion(county: nil, error: fetchError)
-//                }
-//            }
-//            
-//        } catch {
-//            let fetchError = error as NSError
-//            print("Error fetching state: \(fetchError.localizedDescription)") /////////////// HANDLE
-//            completion(county: nil, error: fetchError)
-//        }
-//    }
-    
-    
-    
-    
-    
 // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: NSURL = {

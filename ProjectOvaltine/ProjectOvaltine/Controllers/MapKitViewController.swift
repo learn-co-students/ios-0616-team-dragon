@@ -174,6 +174,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 
                 placemark = (placemarks?.last)!
+                print(placemark.subAdministrativeArea)
+                print(placemark.administrativeArea)
+                print(placemark.locality)
                 self!.store.zip = (placemark.postalCode)!
                 
                 self!.populateCoordinateArray{[weak self] (someArray) in
