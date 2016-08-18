@@ -27,6 +27,23 @@ class TestView: UIView {
 
         self.containerLayoutConstraint = NSLayoutConstraint(item: self.containerView, attribute: .Height, relatedBy: .Equal, toItem: self,  attribute: .Height, multiplier: 1.0, constant: 0.0)
         self.addConstraint(containerLayoutConstraint)
+        
+        
+        let newView: UIView = UIView.init()
+        newView.translatesAutoresizingMaskIntoConstraints = false
+        newView.backgroundColor = UIColor.blueColor()
+        newView.clipsToBounds = true
+        newView.contentMode = .ScaleAspectFill
+        self.containerView.addSubview(newView)
+        self.containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H: [newView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["newView": newView]))
+        self.bottomLayoutConstraint = NSLayoutConstraint(item: newView, attribute: .Bottom, relatedBy: .Equal, toItem: containerView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
+        self.containerView.addConstraint(bottomLayoutConstraint)
+        self.heightLayoutConstraint = NSLayoutConstraint(item: newView, attribute: .Height, relatedBy: .Equal, toItem: containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
+        self.containerView.addConstraint(heightLayoutConstraint)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }
 
