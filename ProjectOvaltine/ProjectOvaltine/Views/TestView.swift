@@ -13,7 +13,7 @@ class TestView: UIView {
     var bottomLayoutConstraint = NSLayoutConstraint()
     
     var containerView = UIView()
-    var containerViewLayoutConstraint =  NSLayoutConstraint()
+    var containerLayoutConstraint =  NSLayoutConstraint()
     
     
     override init(frame: CGRect) {
@@ -23,8 +23,48 @@ class TestView: UIView {
         self.containerView.backgroundColor = UIColor.redColor()
         self.addSubview(containerView)
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[containerView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView": containerView]))
-        
-        
-        
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView": containerView]))
+
+        self.containerLayoutConstraint = NSLayoutConstraint(item: self.containerView, attribute: .Height, relatedBy: .Equal, toItem: self,  attribute: .Height, multiplier: 1.0, constant: 0.0)
+        self.addConstraint(containerLayoutConstraint)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
