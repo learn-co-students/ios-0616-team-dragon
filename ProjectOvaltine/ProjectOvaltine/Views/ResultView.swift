@@ -80,9 +80,9 @@ class ResultView: UIView {
         self.graphView.percentage = self.graphPercentage
         self.graphView.thickness = 9
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
-        self.graphView.labelColor = UIColor.blueColor()
-        self.graphView.gaugeBackgroundColor = randomColor()
-        self.addSubview(graphView)
+        self.graphView.labelColor = self.randomColor()
+        self.graphView.gaugeBackgroundColor = self.randomColor()
+        self.addSubview(self.graphView)
     }
     
     func createLabels() {

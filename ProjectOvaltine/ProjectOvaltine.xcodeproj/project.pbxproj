@@ -48,7 +48,6 @@
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
 		AF7777E91D6103C000303DBB /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7777E81D6103C000303DBB /* ProjectButton.swift */; };
-		AF7B72871D66133E008C366E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B72861D66133E008C366E /* TestViewController.swift */; };
 		AF7B72891D663E3F008C366E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B72881D663E3F008C366E /* Constants.swift */; };
 		AFDA12451D65134300A11FCA /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA12441D65134300A11FCA /* ErrorView.swift */; };
 		AFDA12471D6513BF00A11FCA /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA12461D6513BF00A11FCA /* ErrorViewController.swift */; };
@@ -74,7 +73,6 @@
 		AFEA1C331D64B6A300148BAE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */; };
 		AFEE32161D635A5600884D42 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE32151D635A5600884D42 /* NavBar.swift */; };
 		BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20C70F1D6355CE0065CADF /* StatsViewController.swift */; };
-		BDDCC5DA1D6641EE00E97CF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC5D91D6641EE00E97CF3 /* Constants.swift */; };
 		D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,7 +122,6 @@
 		AF75DFA31D53D30400DDF173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF75DFA51D53D30400DDF173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7777E81D6103C000303DBB /* ProjectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectButton.swift; path = Views/ProjectButton.swift; sourceTree = "<group>"; };
-		AF7B72861D66133E008C366E /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewController.swift; path = Controllers/TestViewController.swift; sourceTree = "<group>"; };
 		AF7B72881D663E3F008C366E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFDA12441D65134300A11FCA /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorView.swift; path = Views/ErrorView.swift; sourceTree = "<group>"; };
 		AFDA12461D6513BF00A11FCA /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorViewController.swift; path = Controllers/ErrorViewController.swift; sourceTree = "<group>"; };
@@ -367,7 +364,6 @@
 				AFEA1C321D64B6A300148BAE /* SettingsViewController.swift */,
 				AFDA12461D6513BF00A11FCA /* ErrorViewController.swift */,
 				AFDA12481D65166200A11FCA /* SplashScreenController.swift */,
-				AF7B72861D66133E008C366E /* TestViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -603,7 +599,6 @@
 				AFE759391D62BC3D0072FF76 /* DetailView.swift in Sources */,
 				AFE4600D1D551B7900FBE63B /* LaborStatisticsAPIClient.swift in Sources */,
 				AFE460171D551BE400FBE63B /* LaborStaticsData.swift in Sources */,
-				AF7B72871D66133E008C366E /* TestViewController.swift in Sources */,
 				AFEA1C331D64B6A300148BAE /* SettingsViewController.swift in Sources */,
 				AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */,
 				AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */,
