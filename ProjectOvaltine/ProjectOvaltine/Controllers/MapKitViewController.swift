@@ -195,9 +195,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.zoomToPolygon(self!.polygon, animated: true)
                 }
                 
-                
+                print(placemark?.country)
                 self!.zipLocation = placemark?.location
                 self!.mapView.removeAnnotation(self!.anotation)
+                
                 
                 self!.anotation.coordinate = (placemark?.location?.coordinate)!
                 self!.anotation.title = placemark?.locality
