@@ -22,8 +22,8 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func ratingTextView() {
-        //        let ratingsView = ResultView()
-        //        self.view.addSubview(ratingsView!)
+        let ratingsView = ResultView(coder: NSCoder.empty())
+        self.view.addSubview(ratingsView!)
     }
     
     func statsTableView() {

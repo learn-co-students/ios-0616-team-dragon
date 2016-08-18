@@ -82,7 +82,7 @@ class ResultView: UIView {
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
         self.graphView.labelColor = self.randomColor()
         self.graphView.gaugeBackgroundColor = self.randomColor()
-        self.addSubview(self.graphView)
+        self.addSubview(graphView)
     }
     
     func createLabels() {
