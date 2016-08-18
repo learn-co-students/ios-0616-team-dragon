@@ -85,28 +85,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         return polygonRenderer
     }
     
-    //        func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-    //
-    //            let identifier = "MyPin"
-    //
-    //            if annotation.isKindOfClass(MKUserLocation) {
-    //                return nil
-    //            }
-    //
-    //            let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
-    //
-    //            if var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
-    //                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-    //                annotationView.canShowCallout = true
-    //                annotationView.image = UIImage(named: "custom_pin.png")
-    //                annotationView.rightCalloutAccessoryView = detailButton
-    //            } else {
-    //                annotationView.annotation = annotation
-    //            }
-    //
-    //            return annotationView
-    //        }
-    
     //Following two functions from: http://stackoverflow.com/questions/33123724/swift-adding-a-button-to-my-mkpointannotation
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationReuseId = "Place"
@@ -167,20 +145,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         mapView.removeOverlays(overlayArray)
         self.overlayArray.removeAll()
         self.getLocationFromZipcode(self.searchController.text!)
-        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            
-            let detailVC = TabBarController()
-            self.showViewController(detailVC, sender: nil)
-            self.searchController.text?.removeAll()
-        }
-//                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-//                dispatch_after(time, dispatch_get_main_queue()) {
-//        
-//                    let detailVC = TabBarController()
-//                    self.showViewController(detailVC, sender: nil)
-//                    self.searchController.text?.removeAll()
-//                }
+        
+        
+   
+
     }
     
     //Takes a string of numbers and gets a lat/long - Async
