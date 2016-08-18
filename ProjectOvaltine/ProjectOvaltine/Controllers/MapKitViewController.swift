@@ -63,8 +63,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     override func viewDidAppear(animated: Bool) {
-        SwiftSpinner.showWithDuration(0.9, title: "TEAM DRAGON")
-        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+       
     }
     
     func drawInMapView(){
@@ -85,7 +84,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
         polygonRenderer.lineWidth = 1
         polygonRenderer.fillColor = UIColor.cyanColor()
-        polygonRenderer.alpha = 0.50
+        polygonRenderer.alpha = 0.20
         return polygonRenderer
     }
     
@@ -151,6 +150,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
         self.getLocationFromZipcode(self.searchController.text!)
         self.view.endEditing(true)
         
@@ -162,6 +162,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     func getLocationFromZipcode(zipcode: String){
         // self.store.zip = zipcode
         var placemark: CLPlacemark!
+        
+        if zipcode.characters.count == 5 {
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if error != nil {
                 self!.presentViewController(self!.alert, animated: true, completion: nil)
@@ -169,6 +171,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
             } else {
                 
+                print(placemarks)
                 
                 placemark = (placemarks?.last)!
                 
@@ -176,6 +179,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 print(placemark.subAdministrativeArea)
                 print(placemark.administrativeArea)
                 print(placemark.locality)
+                print(placemark?.postalCode)
                 self!.store.zip = (placemark.postalCode)!
                 
                 self!.populateCoordinateArray{[weak self] (someArray) in
@@ -185,9 +189,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         self!.convertArrayDataToPoints(someArray[i] as! [AnyObject])
                     }
                     
+                    
+                    
                     self!.mapView.removeOverlays(self!.overlayArray)
                     if self!.overlayArray.count != 0 {
                         self!.overlayArray.removeAll()}
+                    
                     
                     self!.polygon = MKPolygon(coordinates: &self!.boundary, count: self!.boundary.count)
                     
@@ -198,18 +205,19 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.mapView.addOverlays(self!.overlayArray)
                     
                     self!.zoomToPolygon(self!.polygon, animated: true)
+                    
+                    self!.mapView.removeAnnotation(self!.anotation)
+                    self!.anotation.coordinate = (placemark?.location?.coordinate)!
+                    self!.anotation.title = placemark?.locality
+                    self!.anotation.subtitle = "\(placemark!.subAdministrativeArea!) County"
+                    self!.mapView.addAnnotation(self!.anotation)
+                    self!.mapView.selectAnnotation(self!.anotation, animated: true)
                 }
                 
-                print(placemark?.country)
                 self!.zipLocation = placemark?.location
-                self!.mapView.removeAnnotation(self!.anotation)
                 
-                self!.anotation.coordinate = (placemark?.location?.coordinate)!
-                self!.anotation.title = placemark?.locality
-                self!.anotation.subtitle = "\(placemark!.subAdministrativeArea!) County"
-                self!.mapView.addAnnotation(self!.anotation)
-                self!.mapView.selectAnnotation(self!.anotation, animated: true)
-                //                self!.centerMapOnLocation(self!.zipLocation)
+                    SwiftSpinner.showWithDuration(0.9, title: "Ovaltine")
+                    SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
                 
                 
                 } else {
@@ -217,13 +225,16 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 }
             }
             })
+        } else {
+            self.presentViewController(self.alert, animated: true, completion: {self.mapView.addOverlays(self.overlayArray)})
+        }
         
     }
     
     
     
     func searchBar() {
-        self.searchController.placeholder = "Enter Location"
+        self.searchController.placeholder = "Enter Zipcode"
         self.searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 66)
         let topConstraint = NSLayoutConstraint(item: searchController, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
         self.searchController.delegate = self
