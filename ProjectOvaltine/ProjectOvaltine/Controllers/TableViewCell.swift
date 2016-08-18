@@ -50,9 +50,16 @@ class TableViewCell: UITableViewCell {
         contentView.sendSubviewToBack(myButton1)
         
         myButton2 = UIButton()
-        myButton2.frame = CGRectMake(375, 16, 30, 30)
+        //myButton2.frame = CGRectMake(375, 16, 30, 30)
         myButton2.setImage(UIImage(named: "circledChevron.png"), forState: UIControlState.Normal)
         contentView.addSubview(myButton2)
+        
+        myButton2.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(contentView).offset(-20)
+            make.top.equalTo(contentView).offset(16)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
     }
 }
 
