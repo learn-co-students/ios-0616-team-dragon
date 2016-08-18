@@ -10,10 +10,11 @@ import UIKit
 import SwiftSpinner
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigable {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        self.tabBar.tintColor = UIColor(netHex:0x3C93DE)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,10 +36,15 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         demographicsTab.tabBarItem.title = "Demographics"
         demographicsTab.tabBarItem.image = UIImage(named: "conference.png")
         
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGrayColor()], forState:.Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(netHex:0xFFFFFF)], forState:.Selected)
+        
         let controllers = [statsTab, financeTab, educationTab, transportationTab, demographicsTab]
         self.viewControllers = controllers
         self.tabBar.tintColor = UIColor.whiteColor()
-        self.tabBar.barTintColor = UIColor(red:0.00, green:0.00, blue:0.90, alpha:1.0)
+        //self.tabBar.barTintColor = UIColor(red:0.00, green:0.49, blue:0.90, alpha:1.0)
+        self.tabBar.barTintColor = UIColor(netHex: 0x000000)
+        
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
@@ -55,15 +61,5 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
     
     func settingButtonPushed() {
         print("Settings Pushed")
-    }
-}
-
-extension UITabBar {
-    
-    override public func sizeThatFits(size: CGSize) -> CGSize {
-        super.sizeThatFits(size)
-        var sizeThatFits = super.sizeThatFits(size)
-        sizeThatFits.height = 71
-        return sizeThatFits
     }
 }
