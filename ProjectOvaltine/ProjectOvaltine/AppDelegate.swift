@@ -18,6 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         self.window?.rootViewController = MapKitViewController()
+        
+        
+        // Parcing county and state codes on the first launch
+        let userDefaults = NSUserDefaults()
+        if !userDefaults.boolForKey("Codes parsed") { /////////////////// REMOVE THIS FOR SPEED TESTS
+            let parser = CensusAPICodesParser()
+            parser.parseCodes() { success in
+                if success {
+                    print("Parcing state & county codes successful! ")
+                    userDefaults.setBool(true, forKey: "Codes parsed")
+                } else {
+                    print("Error parcing state & county codes, fix it or app won't work!")
+                }
+            }
+        }
+        
         return true
     }
     

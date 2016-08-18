@@ -8,17 +8,102 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 
 class CensusAPIClient {
     
     let coreDataHelper = CoreDataHelper()
-    let stateCode = "25"
-    let countyCode = "027"
     let key = Constants.CENSUS_API_KEY
     
     
-    func request(countyCode countyCode: String, stateCode: String, completion: (Bool) -> Void) {
+    func requestDataForLocation(placemark placemark: CLPlacemark, completion:(city: City?, county: County?, state: State?, us: US?) -> Void) {
+        
+        guard let cityName = placemark.locality else {
+            print("Error getting city name from placemark")
+            completion(city: nil, county: nil, state: nil, us: nil)
+            return
+        }
+        
+        guard let countyName = placemark.subAdministrativeArea else {
+            print("Error getting county name from placemark")
+            completion(city: nil, county: nil, state: nil, us: nil)
+            return
+        }
+        
+        guard let stateAbbreviation = placemark.administrativeArea else {
+            print("Error getting state name from placemark")
+            completion(city: nil, county: nil, state: nil, us: nil)
+            return
+        }
+        
+        self.coreDataHelper.loadCodes(countyName: countyName, stateAbbreviation: stateAbbreviation) { (countyCode, stateCode, error) in
+            if error != nil {
+                print("Error performing data request for location")
+                completion(city: nil, county: nil, state: nil, us: nil)
+                return
+            }
+            if countyCode == nil {
+                print("Unable to get county code")
+            }
+            if stateCode == nil {
+                print("Unable to get state code")
+            }
+            
+            self.coreDataHelper.fetchEntity(countyCode: countyCode, stateCode: stateCode, completion: { (countyOptional, stateOptional, us) in
+                guard let county = countyOptional else {
+                    print("Unable to fetch county")
+                    completion(city: nil, county: countyOptional, state: stateOptional, us: us)
+                    return
+                }
+                
+                guard let state = stateOptional else {
+                    print("Unable to fetch state")
+                    completion(city: nil, county: countyOptional, state: stateOptional, us: us)
+                    return
+                }
+                
+                if us == nil {
+                    print("Unable to fetch us. This is super weird! Have you parced codes?")
+                }
+                
+                let city = self.findCity(cityName: cityName, inCounty: county)
+
+                if county.loaded {
+                    print("Data available in CoreData, Census.gov API request not performed")
+                    completion(city: city, county: county, state: state, us: us)
+                } else {
+                    print("Data not available in CoreData, performing Census.gov API request")
+                    self.censusAPIrequest(countyCode: county.code!, stateCode: state.code!, completion: { (success) in
+                        if success {
+                            self.requestDataForLocation(placemark: placemark, completion: { (city, county, state, us) in
+                                completion(city: city, county: county, state: state, us: us)
+                            })
+                        }
+                    })
+                }
+            })
+        }
+    }
+    
+    
+    private func findCity(cityName cityName: String, inCounty: County) -> City? {
+        if let cities = inCounty.cities {
+            for city in cities {
+                if let name = city.name {
+                    if name == cityName {
+                        return city
+                    }
+                }
+            }
+        }
+        print("City < \(cityName) > not found in county < \(inCounty.name) > ")
+        return nil
+    }
+    
+    
+    
+    private func censusAPIrequest(countyCode countyCode: String, stateCode: String, completion: (Bool) -> Void) {
         
         var errors = false
         var requestsToBeCompleted = CensusAPIProperties.propertyTypesDictionary.keys.count * 3 /* levels count from below */ {
