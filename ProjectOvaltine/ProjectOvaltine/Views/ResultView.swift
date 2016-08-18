@@ -36,10 +36,39 @@ class ResultView: UIView {
         self.setupView()
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.containerLayoutConstraint.constant = scrollView.contentInset.top;
+        let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top);
+        self.containerView.clipsToBounds = offsetY <= 0
+        self.bottomLayoutConstraint.constant = offsetY >= 0 ? 0 : -offsetY / 2
+        self.heightLayoutConstraint.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)
+    }
+    
     convenience init?(score: String, percentage: Float) {
         self.init(coder: NSCoder.empty())
         self.scoreLabel.text = score
         self.graphPercentage = percentage
+    }
+    
+    
+    func setupConstraints() {
+        self.containerView.translatesAutoresizingMaskIntoConstraints = false
+        self.containerView.backgroundColor = UIColor.grayColor()
+        self.createGraph()
+        self.addSubview(self.containerView)
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : self.containerView]))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : self.containerView]))
+        self.containerLayoutConstraint = NSLayoutConstraint(item: self.containerView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0)
+        self.addConstraint(self.containerLayoutConstraint)
+        let newView: UIView = UIView.init()
+        newView.frame = CGRectMake(0, 0, 150, 150)
+        newView.translatesAutoresizingMaskIntoConstraints = false
+        newView.backgroundColor = UIColor.blueColor()
+        newView.clipsToBounds = true
+        newView.contentMode = .ScaleAspectFill
+        self.createGraph()
+        newView.addSubview(self.graphView)
+        self.containerView.addSubview(newView)
     }
     
     func createGraph() {
@@ -77,21 +106,6 @@ class ResultView: UIView {
     
     
     func setupView() {
-//        self.graphView.snp_makeConstraints { (make) -> Void in
-//            //make.size.equalTo(1
-//            make.top.equalTo(self).offset(20)
-//            make.center.equalTo(self)
-//            make.size.equalTo(110)
-//        }
-//        self.locationNameLabel.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(self).offset(95)
-//            make.left.equalTo(self).offset(130)
-//            
-//        }
-        
-        //        self.resultDescriptionTextView.snp_makeConstraints { (make) -> Void in
-        //            make.top.equalTo(self).offset(40)
-        //        }
     }
     
 }

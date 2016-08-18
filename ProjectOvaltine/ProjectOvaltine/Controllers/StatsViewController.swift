@@ -35,6 +35,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.frame.origin.y += 366
         
     }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         self.window?.rootViewController = MapKitViewController()
-        
+        //self.window?.rootViewController = TestViewController()
         
         // Parcing county and state codes on the first launch
         let userDefaults = NSUserDefaults()

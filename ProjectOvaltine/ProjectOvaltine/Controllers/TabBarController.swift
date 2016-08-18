@@ -19,7 +19,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let statsTab: StatsViewController! = StatsViewController()
+        //let statsTab: StatsViewController! = StatsViewController()
+        let statsTab: TestViewController! = TestViewController()
         let financeTab: FinanceDataViewController! = FinanceDataViewController()
         let educationTab: EducationDataViewController! = EducationDataViewController()
         let transportationTab: TransportationDataViewController! = TransportationDataViewController()
