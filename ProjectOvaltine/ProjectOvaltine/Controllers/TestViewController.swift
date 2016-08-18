@@ -17,11 +17,11 @@ class TestViewController: UITableViewController {
         let transportNavBar = NavBar().setup()
         self.view.addSubview(transportNavBar)
         
-        self.tableView.tableHeaderView = TestView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
+        self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        let headerView = self.tableView.tableHeaderView as! TestView
+        let headerView = self.tableView.tableHeaderView as! ResultView
         headerView.scrollViewDidScroll(scrollView)
     }
     
