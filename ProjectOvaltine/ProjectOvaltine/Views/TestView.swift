@@ -90,61 +90,61 @@ class TestView: UIView {
         self.containerView.addSubview(newView)
     }
     
-//    func setupConstraints() {
-//        self.containerView.translatesAutoresizingMaskIntoConstraints = false
-//        self.containerView.backgroundColor = UIColor.grayColor()
-//        self.createGraph()
-//        self.addSubview(self.containerView)
-//        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : self.containerView]))
-//        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : self.containerView]))
-//        self.containerLayoutConstraint = NSLayoutConstraint(item: self.containerView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0)
-//        self.addConstraint(self.containerLayoutConstraint)
-//        let newView: UIView = UIView.init()
-//        newView.frame = CGRectMake(0, 0, 150, 150)
-//        newView.translatesAutoresizingMaskIntoConstraints = false
-//        newView.backgroundColor = UIColor.blueColor()
-//        newView.clipsToBounds = true
-//        newView.contentMode = .ScaleAspectFill
-//        self.createGraph()
-//        newView.addSubview(self.graphView)
-//        self.containerView.addSubview(newView)
-//        
-//        //
-//        //
-//        //        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        //        //imageView.backgroundColor = UIColor.whiteColor()
-//        //        imageView.clipsToBounds = true
-//        //        imageView.contentMode = .ScaleAspectFill
-//        //        //imageView.image = UIImage(named: "Apple-Touch-ID-Promo")
-//        //        self.containerView.addSubview(imageView)
-//        //
-//        //
-//        self.containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[newView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["newView": newView]))
-//        self.bottomLayoutConstraint = NSLayoutConstraint(item: newView, attribute: .Bottom, relatedBy: .Equal, toItem: containerView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
-//        self.containerView.addConstraint(bottomLayoutConstraint)
-//        self.heightLayoutConstraint = NSLayoutConstraint(item: newView, attribute: .Height, relatedBy: .Equal, toItem: containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
-//        self.containerView.addConstraint(heightLayoutConstraint)
-        //self.createGraph()
-        
-        //        self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        //        self.imageView.backgroundColor = UIColor.whiteColor()
-        //        self.imageView.clipsToBounds = true
-        //        self.imageView.contentMode = .ScaleAspectFill
-        //        self.imageView.image = self.drawImage(frame, scale:(UIScreen.mainScreen().scale))
-        //        self.imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 60))
-        // self.imageView.
-        //        self.containerView.addSubview(self.imageView)
-        
-        
-        //        self.containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[imageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["imageView" : self.imageView]))
-        //       self.bottomLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .Bottom, relatedBy: .Equal, toItem: self.containerView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
-        //        self.containerView.addConstraint(self.bottomLayoutConstraint)
-        //        self.heightLayoutConstraint = NSLayoutConstraint(item: self.imageView, attribute: .Height, relatedBy: .Equal, toItem: self.containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
-        //self.containerView.addConstraint(self.heightLayoutConstraint)
-        //        imageView.snp_makeConstraints { (make) -> Void in
-        //            make.size.equalTo(50)
-        //        }
-//    }
+    //    func setupConstraints() {
+    //        self.containerView.translatesAutoresizingMaskIntoConstraints = false
+    //        self.containerView.backgroundColor = UIColor.grayColor()
+    //        self.createGraph()
+    //        self.addSubview(self.containerView)
+    //        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : self.containerView]))
+    //        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : self.containerView]))
+    //        self.containerLayoutConstraint = NSLayoutConstraint(item: self.containerView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0)
+    //        self.addConstraint(self.containerLayoutConstraint)
+    //        let newView: UIView = UIView.init()
+    //        newView.frame = CGRectMake(0, 0, 150, 150)
+    //        newView.translatesAutoresizingMaskIntoConstraints = false
+    //        newView.backgroundColor = UIColor.blueColor()
+    //        newView.clipsToBounds = true
+    //        newView.contentMode = .ScaleAspectFill
+    //        self.createGraph()
+    //        newView.addSubview(self.graphView)
+    //        self.containerView.addSubview(newView)
+    //
+    //        //
+    //        //
+    //        //        imageView.translatesAutoresizingMaskIntoConstraints = false
+    //        //        //imageView.backgroundColor = UIColor.whiteColor()
+    //        //        imageView.clipsToBounds = true
+    //        //        imageView.contentMode = .ScaleAspectFill
+    //        //        //imageView.image = UIImage(named: "Apple-Touch-ID-Promo")
+    //        //        self.containerView.addSubview(imageView)
+    //        //
+    //        //
+    //        self.containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[newView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["newView": newView]))
+    //        self.bottomLayoutConstraint = NSLayoutConstraint(item: newView, attribute: .Bottom, relatedBy: .Equal, toItem: containerView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
+    //        self.containerView.addConstraint(bottomLayoutConstraint)
+    //        self.heightLayoutConstraint = NSLayoutConstraint(item: newView, attribute: .Height, relatedBy: .Equal, toItem: containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
+    //        self.containerView.addConstraint(heightLayoutConstraint)
+    //self.createGraph()
+    
+    //        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+    //        self.imageView.backgroundColor = UIColor.whiteColor()
+    //        self.imageView.clipsToBounds = true
+    //        self.imageView.contentMode = .ScaleAspectFill
+    //        self.imageView.image = self.drawImage(frame, scale:(UIScreen.mainScreen().scale))
+    //        self.imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 60))
+    // self.imageView.
+    //        self.containerView.addSubview(self.imageView)
+    
+    
+    //        self.containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[imageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["imageView" : self.imageView]))
+    //       self.bottomLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .Bottom, relatedBy: .Equal, toItem: self.containerView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
+    //        self.containerView.addConstraint(self.bottomLayoutConstraint)
+    //        self.heightLayoutConstraint = NSLayoutConstraint(item: self.imageView, attribute: .Height, relatedBy: .Equal, toItem: self.containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
+    //self.containerView.addConstraint(self.heightLayoutConstraint)
+    //        imageView.snp_makeConstraints { (make) -> Void in
+    //            make.size.equalTo(50)
+    //        }
+    //    }
     
     
     // func drawImage(frame: CGRect, scale: CGFloat) -> UIImage {
