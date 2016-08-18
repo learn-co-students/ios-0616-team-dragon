@@ -57,13 +57,3 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         print("Settings Pushed")
     }
 }
-
-extension UITabBar {
-    
-    override public func sizeThatFits(size: CGSize) -> CGSize {
-        super.sizeThatFits(size)
-        var sizeThatFits = super.sizeThatFits(size)
-        sizeThatFits.height = 71
-        return sizeThatFits
-    }
-}
