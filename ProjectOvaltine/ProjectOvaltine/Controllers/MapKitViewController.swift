@@ -180,7 +180,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 print(placemark.administrativeArea)
                 print(placemark.locality)
                 print(placemark?.postalCode)
-                self!.store.zip = (placemark.postalCode)!
+                self!.store.zipCode = (placemark.postalCode)!
                 
                 self!.populateCoordinateArray{[weak self] (someArray) in
                     self!.boundary.removeAll()
@@ -235,11 +235,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     func searchBar() {
         self.searchController.placeholder = "Enter Zipcode"
-        self.searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 66)
+        self.searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 70)
         let topConstraint = NSLayoutConstraint(item: searchController, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
         self.searchController.delegate = self
         self.view.addSubview(self.searchController)
         self.view.addConstraint(topConstraint)
+        self.searchController.barTintColor = UIColor.blackColor()
+        self.searchController.alpha = 0.8
     }
 }
 

@@ -17,39 +17,140 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        self.navBar()
-        self.resultsTableView()
+        navBar()
+        resultsTableView()
+        ratingTextView()
+        comparisonTextView()
+        currentLocationLabel()
+        searchedLocationLabel()
     }
+    
+    func currentLocationLabel() {
+        
+        let currentLabel = UILabel()
+        
+        view.addSubview(currentLabel)
+        
+        currentLabel.text = "Bergen County"
+        
+        currentLabel.textColor = UIColor.blackColor()
+        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        currentLabel.sendSubviewToBack(currentLabel)
+        currentLabel.layer.masksToBounds = true
+        //currentLabel.textAlignment = NSTextAlignment.Center
+        currentLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(15)
+            make.top.equalTo(view).offset(66)
+            make.width.equalTo(200)
+            make.height.equalTo(30)
+        }
+    }
+    
+    func searchedLocationLabel() {
+        
+        let searchedLabel = UILabel()
+        
+        view.addSubview(searchedLabel)
+        
+        searchedLabel.text = "New York City"
+        
+        searchedLabel.textColor = UIColor.blackColor()
+        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        searchedLabel.sendSubviewToBack(searchedLabel)
+        searchedLabel.layer.masksToBounds = true
+        //searchedLabel.textAlignment = NSTextAlignment.Center
+        searchedLabel.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(view).offset(75)
+            make.top.equalTo(view).offset(66)
+            make.width.equalTo(200)
+            make.height.equalTo(30)
+        }
+    }
+    
+    func ratingTextView() {
+        
+        let ratingLabel = UILabel()
+        
+        view.addSubview(ratingLabel)
+        
+        ratingLabel.text = "9.5"
+        
+        ratingLabel.backgroundColor = UIColor(netHex:0x000000)
+        ratingLabel.textColor = UIColor.redColor()
+        ratingLabel.font = UIFont(name:"Futura", size:33)
+        ratingLabel.sendSubviewToBack(ratingLabel)
+        ratingLabel.layer.masksToBounds = true
+        ratingLabel.layer.cornerRadius = 50
+        ratingLabel.textAlignment = NSTextAlignment.Center
+        
+        ratingLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(20)
+            make.top.equalTo(view).offset(110)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+    }
+    
+    func comparisonTextView() {
+        
+        let comparisonLabel = UILabel()
+        
+        view.addSubview(comparisonLabel)
+        
+        comparisonLabel.text = "9.5"
+        
+        comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
+        comparisonLabel.textColor = UIColor.redColor()
+        comparisonLabel.font = UIFont(name:"Futura", size:33)
+        comparisonLabel.sendSubviewToBack(comparisonLabel)
+        comparisonLabel.layer.masksToBounds = true
+        comparisonLabel.layer.cornerRadius = 50
+        comparisonLabel.textAlignment = NSTextAlignment.Center
+        
+        comparisonLabel.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(view).offset(-20)
+            make.top.equalTo(view).offset(110)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+    }
+    
     func resultsTableView() {
         
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
-        self.view.addSubview(tableView)
-        tableView.frame.origin.y += 60
-        tableView.backgroundColor = UIColor(patternImage: UIImage(named:"red.png")!)
+        view.addSubview(tableView)
+        tableView.frame.origin.y += 190
+        //tableView.backgroundColor = UIColor(patternImage: UIImage(named:"red.png")!)
+        tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.myArray.count
+        return myArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
-        cell.myLabel1.text = self.myArray[indexPath.row]
+        cell.myLabel1.text = myArray[indexPath.row]
         cell.myLabel1.font = UIFont(name:"Univers Ultra Condensed", size:21)
-        cell.myLabel1.textColor = UIColor(netHex:0xFFFFFF)
+        cell.myLabel1.textColor = UIColor(netHex:0x000000)
+        
+        //cell.myLabel2.text = "\(indexPath.row + 1)"
         cell.myButton1.addTarget(self, action: #selector(TransportationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(TransportationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         
-        if(indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.clearColor()
-        } else {
-            cell.backgroundColor = UIColor.clearColor()
+        if(indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
+        }
+        else
+        {
+            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
         
         return cell
@@ -65,7 +166,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print(self.myArray[indexPath.row])
+        print(myArray[indexPath.row])
     }
     
     func navBar() {
@@ -94,7 +195,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func dismissView() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func settingButtonPushed() {

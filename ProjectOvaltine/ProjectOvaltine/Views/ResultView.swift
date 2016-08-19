@@ -84,6 +84,7 @@ class ResultView: UIView {
         self.graphView.labelColor = self.randomColor()
         self.graphView.gaugeBackgroundColor = self.randomColor()
         self.addSubview(graphView)
+        
     }
     
     func createLabels() {
