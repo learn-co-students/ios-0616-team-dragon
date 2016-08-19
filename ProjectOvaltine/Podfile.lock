@@ -1,24 +1,30 @@
 PODS:
   - Alamofire (3.4.1)
+  - FoldingCell (0.8.7)
   - GaugeView (0.1.4)
   - SnapKit (0.15.0)
   - SwiftSpinner (0.9.5)
   - SwiftyJSON (2.3.2)
+  - YOChartImageKit (1.2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - FoldingCell (~> 0.8.1)
   - GaugeView
   - SnapKit (~> 0.15.0)
   - SwiftSpinner
   - SwiftyJSON
+  - YOChartImageKit (~> 1.1)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  FoldingCell: 95cc3a13a8c020b12a9af6eb3496f4563444149d
   GaugeView: c086ed105981d51d16ad903fb03138a1ae718e16
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftSpinner: c6585a0ae5c67eb33e737695cce88f0262008cce
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  YOChartImageKit: bd73e66857c848325bef87edc40595d72a6b5fbe
 
-PODFILE CHECKSUM: 07405e978d94fd03608ee7d7b75ce4653b05b7f1
+PODFILE CHECKSUM: bd5ca23a5c3ca2ea2c6ea66a61e66526846639cf
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

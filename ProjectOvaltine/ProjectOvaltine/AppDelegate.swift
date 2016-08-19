@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         self.window?.rootViewController = MapKitViewController()
-        
+        //self.window?.rootViewController = TestViewController()
         
         // Parcing county and state codes on the first launch
         let userDefaults = NSUserDefaults()
@@ -31,9 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 } else {
                     print("Error parcing state & county codes, fix it or app won't work!")
                 }
-            }
-        //}
-        
+        }
         return true
     }
     

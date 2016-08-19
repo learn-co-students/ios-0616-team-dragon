@@ -25,9 +25,10 @@ class TableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         myLabel1 = UILabel()
-        myLabel1.frame = CGRectMake(50, 16, 333, 30)
+        myLabel1.frame = CGRectMake(15, 16, 333, 30)
         myLabel1.textColor = UIColor.blackColor()
         contentView.addSubview(myLabel1)
+        myLabel1.textAlignment = .Center
         
         myLabel2 = UILabel()
         myLabel2.frame = CGRectMake(16, 16, 30, 30)
@@ -44,15 +45,29 @@ class TableViewCell: UITableViewCell {
         
         
         myButton1 = UIButton()
-        myButton1.frame = CGRectMake(10, 16, 30, 30)
-        myButton1.setImage(UIImage(named: "blackTarget.png"), forState: UIControlState.Normal)
+        //myButton1.frame = CGRectMake(10, 16, 30, 30)
+        myButton1.setImage(UIImage(named: "ratingTarget.png"), forState: UIControlState.Normal)
         contentView.addSubview(myButton1)
         contentView.sendSubviewToBack(myButton1)
         
         myButton2 = UIButton()
-        myButton2.frame = CGRectMake(375, 16, 30, 30)
-        myButton2.setImage(UIImage(named: "circledChevron.png"), forState: UIControlState.Normal)
+        //myButton2.frame = CGRectMake(375, 16, 30, 30)
+        myButton2.setImage(UIImage(named: "ratingTarget.png"), forState: UIControlState.Normal)
         contentView.addSubview(myButton2)
+        
+        myButton1.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(contentView).offset(55)
+            make.top.equalTo(contentView).offset(16)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
+        
+        myButton2.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(contentView).offset(-55)
+            make.top.equalTo(contentView).offset(16)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
     }
 }
 

@@ -17,16 +17,111 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         navBar()
         resultsTableView()
+        ratingTextView()
+        comparisonTextView()
+        currentLocationLabel()
+        searchedLocationLabel()
     }
+    
+    func currentLocationLabel() {
+        
+        let currentLabel = UILabel()
+        
+        view.addSubview(currentLabel)
+        
+        currentLabel.text = "Bergen County"
+        
+        currentLabel.textColor = UIColor.blackColor()
+        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        currentLabel.sendSubviewToBack(currentLabel)
+        currentLabel.layer.masksToBounds = true
+        //currentLabel.textAlignment = NSTextAlignment.Center
+        currentLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(15)
+            make.top.equalTo(view).offset(66)
+            make.width.equalTo(200)
+            make.height.equalTo(30)
+        }
+    }
+    
+    func searchedLocationLabel() {
+        
+        let searchedLabel = UILabel()
+        
+        view.addSubview(searchedLabel)
+        
+        searchedLabel.text = "New York City"
+        
+        searchedLabel.textColor = UIColor.blackColor()
+        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        searchedLabel.sendSubviewToBack(searchedLabel)
+        searchedLabel.layer.masksToBounds = true
+        //searchedLabel.textAlignment = NSTextAlignment.Center
+        searchedLabel.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(view).offset(75)
+            make.top.equalTo(view).offset(66)
+            make.width.equalTo(200)
+            make.height.equalTo(30)
+        }
+    }
+    
+    func ratingTextView() {
+        
+        let ratingLabel = UILabel()
+        
+        view.addSubview(ratingLabel)
+        
+        ratingLabel.text = "9.5"
+        
+        ratingLabel.backgroundColor = UIColor(netHex:0x000000)
+        ratingLabel.textColor = UIColor.orangeColor()
+        ratingLabel.font = UIFont(name:"Futura", size:33)
+        ratingLabel.sendSubviewToBack(ratingLabel)
+        ratingLabel.layer.masksToBounds = true
+        ratingLabel.layer.cornerRadius = 50
+        ratingLabel.textAlignment = NSTextAlignment.Center
+        
+        ratingLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(20)
+            make.top.equalTo(view).offset(110)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+    }
+    
+    func comparisonTextView() {
+        
+        let comparisonLabel = UILabel()
+        
+        view.addSubview(comparisonLabel)
+        
+        comparisonLabel.text = "9.5"
+        
+        comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
+        comparisonLabel.textColor = UIColor.orangeColor()
+        comparisonLabel.font = UIFont(name:"Futura", size:33)
+        comparisonLabel.sendSubviewToBack(comparisonLabel)
+        comparisonLabel.layer.masksToBounds = true
+        comparisonLabel.layer.cornerRadius = 50
+        comparisonLabel.textAlignment = NSTextAlignment.Center
+        
+        comparisonLabel.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(view).offset(-20)
+            make.top.equalTo(view).offset(110)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+    }
+    
     func resultsTableView() {
         
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
-        tableView.frame.origin.y += 60
-        tableView.backgroundColor = UIColor(patternImage: UIImage(named:"orange.png")!)
-        //tableView.backgroundColor = UIColor(netHex:0xE8BD7C)
+        tableView.frame.origin.y += 190
+        //tableView.backgroundColor = UIColor(patternImage: UIImage(named:"orange.png")!)
+        tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -75,7 +170,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func navBar() {
         let educationNavBar = NavBar().setup()
         self.view.addSubview(educationNavBar)
-        educationNavBar.barTintColor = UIColor(netHex:0xFFDA00)
+        educationNavBar.barTintColor = UIColor(netHex:0xE86F00)
         let navItem = UINavigationItem(title: "Education")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor(netHex:0x000000)
