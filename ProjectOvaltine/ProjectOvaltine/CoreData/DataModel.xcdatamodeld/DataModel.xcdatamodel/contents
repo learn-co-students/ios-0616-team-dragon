@@ -9,7 +9,7 @@
     </entity>
     <entity name="County" representedClassName=".County" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="loaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="loaded" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stateCode" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="cities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="City" inverseName="county" inverseEntity="City" syncable="YES"/>
@@ -37,7 +37,7 @@
     <entity name="State" representedClassName=".State" syncable="YES">
         <attribute name="abbreviation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="loaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="loaded" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="cities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="City" inverseName="state" inverseEntity="City" syncable="YES"/>
         <relationship name="counties" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="County" inverseName="state" inverseEntity="County" syncable="YES"/>
@@ -45,16 +45,16 @@
         <relationship name="us" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="US" inverseName="states" inverseEntity="US" syncable="YES"/>
     </entity>
     <entity name="US" representedClassName=".US" syncable="YES">
-        <attribute name="loaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="loaded" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <relationship name="dataSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DataSet" inverseName="us" inverseEntity="DataSet" syncable="YES"/>
         <relationship name="states" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="State" inverseName="us" inverseEntity="State" syncable="YES"/>
     </entity>
     <elements>
         <element name="City" positionX="-423" positionY="-162" width="128" height="120"/>
-        <element name="County" positionX="-180" positionY="-108" width="128" height="148"/>
+        <element name="County" positionX="-180" positionY="-108" width="128" height="150"/>
         <element name="DataSet" positionX="-315" positionY="153" width="128" height="180"/>
         <element name="DataSetValues" positionX="-36" positionY="171" width="128" height="118"/>
-        <element name="State" positionX="-641" positionY="-45" width="128" height="163"/>
-        <element name="US" positionX="16" positionY="-63" width="128" height="88"/>
+        <element name="State" positionX="-641" positionY="-45" width="128" height="165"/>
+        <element name="US" positionX="16" positionY="-63" width="128" height="90"/>
     </elements>
 </model>

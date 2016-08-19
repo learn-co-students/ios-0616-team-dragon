@@ -174,9 +174,17 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 
                 placemark = (placemarks?.last)!
-                print(placemark.subAdministrativeArea)
-                print(placemark.administrativeArea)
-                print(placemark.locality)
+                CensusAPIClient().requestDataForLocation(placemark: placemark, completion: { (city, county, state, us) in
+                    print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
+                    print("City name: \(city?.name)")
+                    print("County name: \(county?.name!)")
+                    print("State abbreviation: \(state?.abbreviation!)")
+                    print("PRINTING DATA SET NAMES AND TYPES")
+                    for dataSet in (county?.dataSets!)! {
+                        print("Dataset name: \(dataSet.name!), dataset type: \(dataSet.type!)")
+                    }
+                    
+                })
                 self!.store.zip = (placemark.postalCode)!
                 
                 self!.populateCoordinateArray{[weak self] (someArray) in

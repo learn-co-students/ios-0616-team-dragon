@@ -14,7 +14,7 @@ import CoreData
 
 extension US {
 
-    @NSManaged var loaded: Bool
+    @NSManaged var loaded: NSNumber?
     @NSManaged var dataSets: Set<DataSet>?
     @NSManaged var states: Set<State>?
 

@@ -67,12 +67,13 @@ class CensusAPIClient {
                     print("Unable to fetch us. This is super weird! Have you parced codes?")
                 }
                 
-                let city = self.findCity(cityName: cityName, inCounty: county)
-
-                if county.loaded {
+                if county.loaded == CensusAPIProperties.propertyTypesDictionary.count {
+                    let city = self.findCity(cityName: cityName, inCounty: county)
                     print("Data available in CoreData, Census.gov API request not performed")
                     completion(city: city, county: county, state: state, us: us)
                 } else {
+                    print(county.code!) ///////////////////////////////////////////////////////
+                    print(state.code!) ///////////////////////////////////////////////////////
                     print("Data not available in CoreData, performing Census.gov API request")
                     self.censusAPIrequest(countyCode: county.code!, stateCode: state.code!, completion: { (success) in
                         if success {
@@ -88,19 +89,33 @@ class CensusAPIClient {
     
     
     private func findCity(cityName cityName: String, inCounty: County) -> City? {
+        // print("Inside FIND CITY")
+        // print("City Name: \(cityName)")
+        //print("In County: \(inCounty.name!)")
         if let cities = inCounty.cities {
             for city in cities {
                 if let name = city.name {
-                    if name == cityName {
+                    print(name)
+                    if self.actualName(name) == self.actualName(cityName) {
                         return city
                     }
                 }
             }
         }
-        print("City < \(cityName) > not found in county < \(inCounty.name) > ")
+        print("City < \(cityName) > not found in county < \(inCounty.name!) > ")
         return nil
     }
     
+    
+    private func actualName(name: String) -> String {
+        let wordsArray = name.componentsSeparatedByString(" ")
+        let uppercaseWords = wordsArray.filter { (word) -> Bool in
+            word == word.capitalizedString && word != word.uppercaseString
+        }
+        let actualName = uppercaseWords.joinWithSeparator(" ")
+        return actualName
+        
+    }
     
     
     private func censusAPIrequest(countyCode countyCode: String, stateCode: String, completion: (Bool) -> Void) {

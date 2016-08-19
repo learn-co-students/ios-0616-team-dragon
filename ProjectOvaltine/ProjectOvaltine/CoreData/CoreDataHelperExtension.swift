@@ -28,7 +28,7 @@ extension CoreDataHelper {
                     return
                 }
                 
-                if county.loaded {
+                if county.loaded == CensusAPIProperties.propertyTypesDictionary.count {
                     print("County info already loaded")
                     completion(true)
                     return
@@ -137,7 +137,14 @@ extension CoreDataHelper {
                     }
                 }
                 
-                county.loaded = true
+                
+                if let typesLoaded = county.loaded {
+                    county.loaded = Int(typesLoaded) + 1 as NSNumber
+                } else {
+                    county.loaded = 1
+                }
+                
+                
                 print("Setting county to loaded") ////////////////////////////////////////////
                 
                 do {
@@ -162,7 +169,7 @@ extension CoreDataHelper {
                     return
                 }
                 
-                if state.loaded {
+                if state.loaded == CensusAPIProperties.propertyTypesDictionary.count {
                     print("State counties info already loaded")
                     completion(true)
                     return
@@ -292,7 +299,12 @@ extension CoreDataHelper {
                     }
                 }
                 
-                state.loaded = true
+                if let typesLoaded = state.loaded {
+                    state.loaded = Int(typesLoaded) + 1 as NSNumber
+                } else {
+                    state.loaded = 1
+                }
+                
                 print("Setting state to loaded") ////////////////////////////////////////////
                 
                 do {
@@ -317,7 +329,7 @@ extension CoreDataHelper {
                     return
                 }
                 
-                if us.loaded {
+                if us.loaded == CensusAPIProperties.propertyTypesDictionary.count {
                     print("US info already loaded")
                     completion(true)
                     return
@@ -356,8 +368,6 @@ extension CoreDataHelper {
                 }
                 
                 for values in data.dropFirst() {
-                    
-                    us.loaded = true
                     
                     for tmpDataSet in tmpDataSetsInfo {
                         
@@ -422,7 +432,22 @@ extension CoreDataHelper {
                     }
                 }
                 
-                completion(true)
+                if let typesLoaded = us.loaded {
+                    us.loaded = Int(typesLoaded) + 1 as NSNumber
+                } else {
+                    us.loaded = 1
+                }
+                
+                print("Setting us to loaded") ////////////////////////////////////////////
+                
+                do {
+                    try us.managedObjectContext!.save()
+                    completion(true)
+                } catch {
+                    print("Error setting state status to loaded: \(error)") ////////////////////
+                    completion(false)
+                    return
+                }
                 
             })
         }

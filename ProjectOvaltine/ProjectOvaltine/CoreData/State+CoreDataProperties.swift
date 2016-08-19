@@ -17,7 +17,7 @@ extension State {
     @NSManaged var code: String?
     @NSManaged var name: String?
     @NSManaged var abbreviation: String?
-    @NSManaged var loaded: Bool
+    @NSManaged var loaded: NSNumber?
     @NSManaged var cities: Set<City>?
     @NSManaged var counties: Set<County>?
     @NSManaged var dataSets: Set<DataSet>?
