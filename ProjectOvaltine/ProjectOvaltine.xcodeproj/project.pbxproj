@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8E1DCF8B1D663605003B2B25 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF8A1D663605003B2B25 /* Constants.swift */; };
+		8E1DCF961D67C35A003B2B25 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF941D67C35A003B2B25 /* City.swift */; };
+		8E1DCF971D67C35A003B2B25 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF951D67C35A003B2B25 /* City+CoreDataProperties.swift */; };
 		8E74E6F01D65EC1C0056E866 /* CensusAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DB1D65EC1C0056E866 /* CensusAPIClient.swift */; };
 		8E74E6F11D65EC1C0056E866 /* CensusAPICodes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8E74E6DC1D65EC1C0056E866 /* CensusAPICodes.csv */; };
 		8E74E6F21D65EC1C0056E866 /* CensusAPICodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DD1D65EC1C0056E866 /* CensusAPICodesParser.swift */; };
 		8E74E6F31D65EC1C0056E866 /* CensusAPIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DE1D65EC1C0056E866 /* CensusAPIProperties.swift */; };
-		8E74E6F41D65EC1C0056E866 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DF1D65EC1C0056E866 /* City.swift */; };
-		8E74E6F51D65EC1C0056E866 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6E01D65EC1Cgi0056E866 /* City+CoreDataProperties.swift */; };
+		8E74E6F51D65EC1C0056E866 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		8E74E6F61D65EC1C0056E866 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6E11D65EC1C0056E866 /* CoreDataHelper.swift */; };
 		8E74E6F71D65EC1C0056E866 /* CoreDataHelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6E21D65EC1C0056E866 /* CoreDataHelperExtension.swift */; };
 		8E74E6F81D65EC1C0056E866 /* County.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6E31D65EC1C0056E866 /* County.swift */; };
@@ -75,12 +76,12 @@
 		60C2129E72DDDDF5234858A7 /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
 		8E1DCF8A1D663605003B2B25 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E1DCF901D67B3B6003B2B25 /* OperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationQueue.swift; sourceTree = "<group>"; };
+		8E1DCF941D67C35A003B2B25 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = CoreData/City.swift; sourceTree = "<group>"; };
+		8E1DCF951D67C35A003B2B25 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "City+CoreDataProperties.swift"; path = "CoreData/City+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8E74E6DB1D65EC1C0056E866 /* CensusAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CensusAPIClient.swift; path = CoreData/CensusAPIClient.swift; sourceTree = "<group>"; };
 		8E74E6DC1D65EC1C0056E866 /* CensusAPICodes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CensusAPICodes.csv; path = CoreData/CensusAPICodes.csv; sourceTree = "<group>"; };
 		8E74E6DD1D65EC1C0056E866 /* CensusAPICodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CensusAPICodesParser.swift; path = CoreData/CensusAPICodesParser.swift; sourceTree = "<group>"; };
 		8E74E6DE1D65EC1C0056E866 /* CensusAPIProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CensusAPIProperties.swift; path = CoreData/CensusAPIProperties.swift; sourceTree = "<group>"; };
-		8E74E6DF1D65EC1C0056E866 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = CoreData/City.swift; sourceTree = "<group>"; };
-		8E74E6E01D65EC1C0056E866 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "City+CoreDataProperties.swift"; path = "CoreData/City+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8E74E6E11D65EC1C0056E866 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = CoreData/CoreDataHelper.swift; sourceTree = "<group>"; };
 		8E74E6E21D65EC1C0056E866 /* CoreDataHelperExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataHelperExtension.swift; path = CoreData/CoreDataHelperExtension.swift; sourceTree = "<group>"; };
 		8E74E6E31D65EC1C0056E866 /* County.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = County.swift; path = CoreData/County.swift; sourceTree = "<group>"; };
@@ -185,13 +186,13 @@
 		8E74E7041D65EC230056E866 /* CoreDataClasses */ = {
 			isa = PBXGroup;
 			children = (
-				8E74E6DF1D65EC1C0056E866 /* City.swift */,
+				8E1DCF941D67C35A003B2B25 /* City.swift */,
 				8E74E6E31D65EC1C0056E866 /* County.swift */,
 				8E74E6EC1D65EC1C0056E866 /* State.swift */,
 				8E74E6EE1D65EC1C0056E866 /* US.swift */,
 				8E74E6E71D65EC1C0056E866 /* DataSet.swift */,
 				8E74E6E91D65EC1C0056E866 /* DataSetValues.swift */,
-				8E74E6E01D65EC1C0056E866 /* City+CoreDataProperties.swift */,
+				8E1DCF951D67C35A003B2B25 /* City+CoreDataProperties.swift */,
 				8E74E6E41D65EC1C0056E866 /* County+CoreDataProperties.swift */,
 				8E74E6ED1D65EC1C0056E866 /* State+CoreDataProperties.swift */,
 				8E74E6EF1D65EC1C0056E866 /* US+CoreDataProperties.swift */,
@@ -558,7 +559,6 @@
 				AF1FC7CA1D5B736F004973A2 /* TransportationDataViewController.swift in Sources */,
 				8E74E6FD1D65EC1C0056E866 /* DataSetValues.swift in Sources */,
 				AFDA12471D6513BF00A11FCA /* ErrorViewController.swift in Sources */,
-				8E74E6F41D65EC1C0056E866 /* City.swift in Sources */,
 				AF24B1C71D5986EA0031FEEB /* CitySDKTests.swift in Sources */,
 				AFE644331D67503D00E85930 /* TableViewCell.swift in Sources */,
 				8E74E7021D65EC1C0056E866 /* US.swift in Sources */,
@@ -568,7 +568,6 @@
 				8E74E6F21D65EC1C0056E866 /* CensusAPICodesParser.swift in Sources */,
 				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,
 				8E74E6FF1D65EC1C0056E866 /* Hints.swift in Sources */,
-				8E1DCF931D67BEAD003B2B25 /* Constants.swift in Sources */,
 				8E74E6FA1D65EC1C0056E866 /* DataModel.xcdatamodeld in Sources */,
 				AF1FC7C61D5B70B4004973A2 /* ResultModel.swift in Sources */,
 				AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */,
@@ -577,9 +576,11 @@
 				AF588A641D5CB78400F228C7 /* AppFont.swift in Sources */,
 				8E74E6F81D65EC1C0056E866 /* County.swift in Sources */,
 				8E74E6FB1D65EC1C0056E866 /* DataSet.swift in Sources */,
+				8E1DCF961D67C35A003B2B25 /* City.swift in Sources */,
 				AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */,
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
 				AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */,
+				8E1DCF971D67C35A003B2B25 /* City+CoreDataProperties.swift in Sources */,
 				8E74E6F71D65EC1C0056E866 /* CoreDataHelperExtension.swift in Sources */,
 				AFEA1C311D64B55C00148BAE /* SettingsView.swift in Sources */,
 				AFE906A81D5E3D2600CEA2C9 /* FinanceDataViewController.swift in Sources */,
@@ -603,7 +604,7 @@
 				AF4E94791D660E1F00515266 /* TestView.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
 				8E1DCF8B1D663605003B2B25 /* Constants.swift in Sources */,
-				8E74E6F51D65EC1C0056E866 /* City+CoreDataProperties.swift in Sources */,
+				8E74E6F51D65EC1C0056E866 /* (null) in Sources */,
 				AFDA12451D65134300A11FCA /* ErrorView.swift in Sources */,
 				BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */,
 				AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */,
