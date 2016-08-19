@@ -14,9 +14,9 @@ class CitySDKAPIClient {
     static let sharedInstance = CitySDKAPIClient()
     // MARK: Path Router
     enum URLRouter {
-        static let baseURL: String = "http://citysdk.commerce.gov"
+        static let baseURL: String = Constants.CITYSDK_URL
     }
-    let baseURL: String = "http://citysdk.commerce.gov"
+    let baseURL: String = Constants.CITYSDK_URL
     let method: String = "POST"
     let URLPath: String = "/"
     let headers: Dictionary<String, String> = ["Not":"Implemented"]

@@ -15,25 +15,24 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        navBar()
-        resultsTableView()
+        self.navBar()
+        self.resultsTableView()
     }
     func resultsTableView() {
         
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
-        view.addSubview(tableView)
+        self.view.addSubview(tableView)
         tableView.frame.origin.y += 60
         tableView.backgroundColor = UIColor(patternImage: UIImage(named:"yellow.png")!)
-        //tableView.backgroundColor = UIColor(netHex:0xFFFE9F)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        return self.myArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -65,7 +64,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print(myArray[indexPath.row])
+        print(self.myArray[indexPath.row])
     }
     
     func navBar() {
@@ -91,7 +90,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func dismissView() {
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func settingButtonPushed() {

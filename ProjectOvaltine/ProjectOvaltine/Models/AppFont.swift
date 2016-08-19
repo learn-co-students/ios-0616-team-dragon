@@ -7,7 +7,25 @@
 //
 
 import UIKit
-struct AppFont {
-    let appFontName = "HelveticaNeue-UltraLight"
-    let appFontSize = CGFloat(20)
+struct ApplicationFont {
+    //let applicationFontName = "HelveticaNeue-UltraLight"
+    var fontType: String
+    var fontSize: CGFloat
+    //let appicaptionFontSize = CGFloat(20)
+    
+    mutating func getFontType(fontType:String) {
+        self.fontType = fontType
+    }
+    
+    mutating func forFontSize(fontSize:CGFloat) {
+        self.fontSize = fontSize
+    }
+    
+    mutating func font() -> UIFont {
+        return UIFont(name: self.fontType, size: self.fontSize)!
+    }
+    
+    
+    
+    
 }

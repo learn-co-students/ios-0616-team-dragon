@@ -15,8 +15,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        navBar()
-        resultsTableView()
+        self.navBar()
+        self.resultsTableView()
     }
     func resultsTableView() {
         
@@ -32,7 +32,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         return 66
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        return self.myArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -44,12 +44,9 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
-        }
-        else
-        {
+        } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
         

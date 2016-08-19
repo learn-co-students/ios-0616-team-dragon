@@ -64,7 +64,7 @@ class StatsViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(detailsArray[indexPath.row])
+        print(self.detailsArray[indexPath.row])
     }
     
     

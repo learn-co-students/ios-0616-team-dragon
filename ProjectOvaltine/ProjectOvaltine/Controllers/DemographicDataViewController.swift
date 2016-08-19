@@ -43,15 +43,11 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.clearColor()
+        } else {
             cell.backgroundColor = UIColor.clearColor()
         }
-        else
-        {
-            cell.backgroundColor = UIColor.clearColor()
-        }
-        
         return cell
     }
     
@@ -64,7 +60,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         print(myArray[indexPath.row])
     }
     

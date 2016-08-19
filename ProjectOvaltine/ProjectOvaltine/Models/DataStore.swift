@@ -18,12 +18,12 @@ class DataStore {
     
     var scoreData: ScoreModel?
     
-    let level = "county"
-    var zip = "00000"
-    let api = "acs5"
-    let year = "2014"
+    let levelOfLocationDetails = "county"
+    var zipCode = "00000"
+    let censusSurveyAPI = "acs5"
+    let yearOfSurvey = "2014"
     let variablesToAdd = Array(CensusConstants.CENSUS_REQUEST_PARAMS.keys)
-    let variables = ["age",
+    let requestParameters = ["age",
                      "education_high_school",
                      "income_per_capita",
                      "median_contract_rent",
@@ -34,7 +34,7 @@ class DataStore {
                      "employment_employed"]
     
     func getCitySDKData(completion: () -> ()) {
-        cityAPI.sendAPIRequest(["level":level, "zip": zip, "api": api, "year": year, "variables": variables]) { (cityData) in
+        cityAPI.sendAPIRequest(["level":self.levelOfLocationDetails, "zip":self.zipCode, "api":self.censusSurveyAPI, "year":self.yearOfSurvey, "variables":self.requestParameters]) { (cityData) in
             self.cityDataPoints = cityData
             let score = ScoreModel(name: "Name", dataPoints: self.cityDataPoints[0].sendDataPoints())
             self.scoreData = score

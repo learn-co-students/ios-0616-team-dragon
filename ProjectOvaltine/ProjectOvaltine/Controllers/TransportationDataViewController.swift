@@ -17,15 +17,15 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        navBar()
-        resultsTableView()
+        self.navBar()
+        self.resultsTableView()
     }
     func resultsTableView() {
         
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
-        view.addSubview(tableView)
+        self.view.addSubview(tableView)
         tableView.frame.origin.y += 60
         tableView.backgroundColor = UIColor(patternImage: UIImage(named:"red.png")!)
     }
@@ -34,12 +34,12 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         return 66
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        return self.myArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
-        cell.myLabel1.text = myArray[indexPath.row]
+        cell.myLabel1.text = self.myArray[indexPath.row]
         cell.myLabel1.font = UIFont(name:"Univers Ultra Condensed", size:21)
         cell.myLabel1.textColor = UIColor(netHex:0xFFFFFF)
         cell.myButton1.addTarget(self, action: #selector(TransportationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
@@ -65,7 +65,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print(myArray[indexPath.row])
+        print(self.myArray[indexPath.row])
     }
     
     func navBar() {
@@ -94,7 +94,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func dismissView() {
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func settingButtonPushed() {
