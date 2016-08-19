@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B11A28A1D6781F80023CB68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11A2891D6781F80023CB68 /* Constants.swift */; };
+		8E1DCF931D67BEAD003B2B25 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF921D67BEAD003B2B25 /* Constants.swift */; };
 		8E74E6F01D65EC1C0056E866 /* CensusAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DB1D65EC1C0056E866 /* CensusAPIClient.swift */; };
 		8E74E6F11D65EC1C0056E866 /* CensusAPICodes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8E74E6DC1D65EC1C0056E866 /* CensusAPICodes.csv */; };
 		8E74E6F21D65EC1C0056E866 /* CensusAPICodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DD1D65EC1C0056E866 /* CensusAPICodesParser.swift */; };
@@ -72,8 +72,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B11A2891D6781F80023CB68 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../Constants.swift; sourceTree = "<group>"; };
 		60C2129E72DDDDF5234858A7 /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
+		8E1DCF921D67BEAD003B2B25 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E74E6DB1D65EC1C0056E866 /* CensusAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CensusAPIClient.swift; path = CoreData/CensusAPIClient.swift; sourceTree = "<group>"; };
 		8E74E6DC1D65EC1C0056E866 /* CensusAPICodes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CensusAPICodes.csv; path = CoreData/CensusAPICodes.csv; sourceTree = "<group>"; };
 		8E74E6DD1D65EC1C0056E866 /* CensusAPICodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CensusAPICodesParser.swift; path = CoreData/CensusAPICodesParser.swift; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 				AFE460081D551B7900FBE63B /* Request.swift */,
 				AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */,
 				AF04F1C81D5A75B1005B7F26 /* CityAPIClientStruct.swift */,
-				2B11A2891D6781F80023CB68 /* Constants.swift */,
+				8E1DCF921D67BEAD003B2B25 /* Constants.swift */,
 				AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */,
 			);
 			name = Utilities;
@@ -369,6 +369,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF75DFA81D53D30400DDF173 /* Build configuration list for PBXNativeTarget "ProjectOvaltine" */;
 			buildPhases = (
+				B62093A08C3BE16126F3EDB4 /* 📦 Check Pods Manifest.lock */,
 				EFC093FF674B59495424E8F2 /* [CP] Check Pods Manifest.lock */,
 				9B885B32EF5A44A6D02174B3 /* [CP] Check Pods Manifest.lock */,
 				AF75DF921D53D30300DDF173 /* Sources */,
@@ -511,6 +512,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B62093A08C3BE16126F3EDB4 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		EFC093FF674B59495424E8F2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,7 +554,6 @@
 				8E74E6F91D65EC1C0056E866 /* County+CoreDataProperties.swift in Sources */,
 				AFE906B01D5E3F0500CEA2C9 /* SearchResultCell.swift in Sources */,
 				AF1FC7CA1D5B736F004973A2 /* TransportationDataViewController.swift in Sources */,
-				2B11A28A1D6781F80023CB68 /* Constants.swift in Sources */,
 				8E74E6FD1D65EC1C0056E866 /* DataSetValues.swift in Sources */,
 				AFDA12471D6513BF00A11FCA /* ErrorViewController.swift in Sources */,
 				8E74E6F41D65EC1C0056E866 /* City.swift in Sources */,
@@ -551,6 +566,7 @@
 				8E74E6F21D65EC1C0056E866 /* CensusAPICodesParser.swift in Sources */,
 				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,
 				8E74E6FF1D65EC1C0056E866 /* Hints.swift in Sources */,
+				8E1DCF931D67BEAD003B2B25 /* Constants.swift in Sources */,
 				8E74E6FA1D65EC1C0056E866 /* DataModel.xcdatamodeld in Sources */,
 				AF1FC7C61D5B70B4004973A2 /* ResultModel.swift in Sources */,
 				AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */,
