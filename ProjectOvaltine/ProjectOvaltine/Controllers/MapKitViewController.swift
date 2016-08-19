@@ -17,7 +17,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     //Data store instances
     let store = DataStore.sharedInstance
-    let cityAPI = CitySDKAPIClient.sharedInstance
+    let cityAPI = CitySDKAPIClient()
     let jobsAPI = USAJobsAPIClient.sharedInstance
     
     

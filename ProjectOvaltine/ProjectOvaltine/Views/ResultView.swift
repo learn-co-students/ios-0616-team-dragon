@@ -28,6 +28,7 @@ class ResultView: UIView {
         self.backgroundColor = UIColor.whiteColor()
         self.createGraph()
         self.createLabels()
+        self.layer.borderColor = UIColor.blackColor().CGColor
         self.setupView()
     }
     
@@ -86,20 +87,20 @@ class ResultView: UIView {
     }
     
     func createLabels() {
-        self.locationNameLabel.frame = CGRect(x:self.width/2, y: 90, width: 150, height: 40)
+        self.locationNameLabel.frame = CGRect(x:self.width/3, y: 90, width: 150, height: 40)
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Left
         self.locationNameLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:20)
         self.locationNameLabel.text = "New York County"
         
-        self.scoreLabel.frame = CGRect(x:self.width / 2, y:164, width: 150, height: 40)
+        self.scoreLabel.frame = CGRect(x:self.width/2.15, y: 165, width: 150, height: 40)
         self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Left
         self.scoreLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:40)
         self.scoreLabel.text = "90"
         
         
-        self.resultDescriptionTextView.frame = CGRect(x:10, y:245, width:self.width - 20, height:90)
+        self.resultDescriptionTextView.frame = CGRect(x:10, y:275, width:self.width - 20, height:90)
         self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
         self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
         self.resultDescriptionTextView.font = UIFont(name:"AppleSDGothicNeo-Light", size:16)

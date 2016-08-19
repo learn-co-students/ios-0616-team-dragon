@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class CitySDKAPIClient {
-    static let sharedInstance = CitySDKAPIClient()
+    //static let sharedInstance = CitySDKAPIClient()
     // MARK: Path Router
     enum URLRouter {
         static let baseURL: String = "http://citysdk.commerce.gov"
@@ -44,7 +44,7 @@ class CitySDKAPIClient {
             case .Success(let responseObject):
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
-                
+                print(response)
                 
                 if let feat = response["features"] as? NSArray {
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
