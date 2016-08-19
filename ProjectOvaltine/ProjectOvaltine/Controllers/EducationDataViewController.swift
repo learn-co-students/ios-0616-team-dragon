@@ -26,7 +26,6 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         view.addSubview(tableView)
         tableView.frame.origin.y += 60
         tableView.backgroundColor = UIColor(patternImage: UIImage(named:"orange.png")!)
-        //tableView.backgroundColor = UIColor(netHex:0xE8BD7C)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -41,8 +40,6 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myLabel1.font = UIFont(name:"Univers Ultra Condensed", size:21)
         cell.myLabel1.textColor = UIColor(netHex:0x000000)
-        
-        //cell.myLabel2.text = "\(indexPath.row + 1)"
         cell.myButton1.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         

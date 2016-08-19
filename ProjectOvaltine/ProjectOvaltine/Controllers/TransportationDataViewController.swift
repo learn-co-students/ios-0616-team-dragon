@@ -28,7 +28,6 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         view.addSubview(tableView)
         tableView.frame.origin.y += 60
         tableView.backgroundColor = UIColor(patternImage: UIImage(named:"red.png")!)
-        //tableView.backgroundColor = UIColor(netHex:0xFF6154)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -43,19 +42,14 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myLabel1.font = UIFont(name:"Univers Ultra Condensed", size:21)
         cell.myLabel1.textColor = UIColor(netHex:0xFFFFFF)
-        
-        //cell.myLabel2.text = "\(indexPath.row + 1)"
         cell.myButton1.addTarget(self, action: #selector(TransportationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(TransportationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         
-        if(indexPath.row % 2 == 0)
-        {
-            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
-        }
-        else
-        {
-            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
+        if(indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.clearColor()
+        } else {
+            cell.backgroundColor = UIColor.clearColor()
         }
         
         return cell
