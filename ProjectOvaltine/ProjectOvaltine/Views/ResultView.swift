@@ -76,7 +76,7 @@ class ResultView: UIView {
     }
     
     func createGraph() {
-        self.graphView = GaugeView(frame: CGRect(x:100, y:130, width: 100, height: 100))
+        self.graphView = GaugeView(frame: CGRect(x:self.width / 2.5, y:130, width: 100, height: 100))
         self.graphView.percentage = self.graphPercentage
         self.graphView.thickness = 9
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
@@ -86,20 +86,20 @@ class ResultView: UIView {
     }
     
     func createLabels() {
-        self.locationNameLabel.frame = CGRect(x:72, y: 90, width: 150, height: 40)
+        self.locationNameLabel.frame = CGRect(x:self.width/2, y: 90, width: 150, height: 40)
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Left
         self.locationNameLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:20)
         self.locationNameLabel.text = "New York County"
         
-        self.scoreLabel.frame = CGRect(x:128, y:164, width: 150, height: 40)
+        self.scoreLabel.frame = CGRect(x:self.width / 2, y:164, width: 150, height: 40)
         self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Left
         self.scoreLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:40)
         self.scoreLabel.text = "90"
         
         
-        self.resultDescriptionTextView.frame = CGRect(x:10, y:245, width:300, height:90)
+        self.resultDescriptionTextView.frame = CGRect(x:10, y:245, width:self.width - 20, height:90)
         self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
         self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
         self.resultDescriptionTextView.font = UIFont(name:"AppleSDGothicNeo-Light", size:16)

@@ -32,6 +32,7 @@ class SearchResultCell: UITableViewCell {
         self.resultLocationNameLabel.text = parameterDescription
         self.createGraph()
         self.createLabels()
+        self.contentView.clipsToBounds = true
         self.contentView.addSubview(self.scoreLabel)
         self.contentView.addSubview(self.resultLocationNameLabel)
         self.contentView.addSubview(self.graphView)
@@ -41,12 +42,12 @@ class SearchResultCell: UITableViewCell {
         super.layoutSubviews()
         
         self.scoreLabel.frame = CGRect(x: 20, y: 15, width: 80, height: 35)
-        self.resultLocationNameLabel.frame = CGRect(x: 140, y: 15, width: 200, height: 30)
+        self.resultLocationNameLabel.frame = CGRect(x: 180, y: 15, width:180, height: 30)
     }
     
     
     func createGraph() {
-        self.graphView = GaugeView(frame: CGRect(x:self.contentView.frame.width, y:10, width: self.contentView.frame.height, height:self.contentView.frame.height))
+        self.graphView = GaugeView(frame: CGRect(x:self.contentView.frame.width/1.5, y:10, width: self.contentView.frame.width, height:self.contentView.frame.height))
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
     }
     
@@ -59,6 +60,5 @@ class SearchResultCell: UITableViewCell {
         self.scoreLabel.layer.backgroundColor = UIColor.lightGrayColor().CGColor
         //        self.scoreLabel.layer.cornerRadius = (20/2)
         self.scoreLabel.layer.borderWidth = 1.0
-        
     }
 }
