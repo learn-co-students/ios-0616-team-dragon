@@ -13,7 +13,7 @@
 		8E74E6F21D65EC1C0056E866 /* CensusAPICodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DD1D65EC1C0056E866 /* CensusAPICodesParser.swift */; };
 		8E74E6F31D65EC1C0056E866 /* CensusAPIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DE1D65EC1C0056E866 /* CensusAPIProperties.swift */; };
 		8E74E6F41D65EC1C0056E866 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DF1D65EC1C0056E866 /* City.swift */; };
-		8E74E6F51D65EC1C0056E866 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6E01D65EC1C0056E866 /* City+CoreDataProperties.swift */; };
+		8E74E6F51D65EC1C0056E866 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6E01D65EC1Cgi0056E866 /* City+CoreDataProperties.swift */; };
 		8E74E6F61D65EC1C0056E866 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6E11D65EC1C0056E866 /* CoreDataHelper.swift */; };
 		8E74E6F71D65EC1C0056E866 /* CoreDataHelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6E21D65EC1C0056E866 /* CoreDataHelperExtension.swift */; };
 		8E74E6F81D65EC1C0056E866 /* County.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6E31D65EC1C0056E866 /* County.swift */; };
@@ -568,6 +568,7 @@
 				8E74E6F21D65EC1C0056E866 /* CensusAPICodesParser.swift in Sources */,
 				AFE4600E1D551B7900FBE63B /* Request.swift in Sources */,
 				8E74E6FF1D65EC1C0056E866 /* Hints.swift in Sources */,
+				8E1DCF931D67BEAD003B2B25 /* Constants.swift in Sources */,
 				8E74E6FA1D65EC1C0056E866 /* DataModel.xcdatamodeld in Sources */,
 				AF1FC7C61D5B70B4004973A2 /* ResultModel.swift in Sources */,
 				AF24B1CC1D5987530031FEEB /* MapUITests.swift in Sources */,
