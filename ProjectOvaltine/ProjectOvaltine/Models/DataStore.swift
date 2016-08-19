@@ -13,13 +13,8 @@ class DataStore {
     static let sharedInstance = DataStore()
     
     let cityAPI = CitySDKAPIClient.sharedInstance
-    let govDataAPI = GovDataAPIClient.sharedInstance
-    let laborStatisticsAPI = LaborStatisticsAPIClient.sharedInstance
-    let USAJobsAPI = USAJobsAPIClient.sharedInstance
     
     var cityDataPoints:[CitySDKData] = []
-    var laborDataPoints:[LaborStatisticsData] = []
-    var USAJobsDataPoints:[USAJobsData] = []
     
     var scoreData: ScoreModel?
     
@@ -45,15 +40,5 @@ class DataStore {
             self.scoreData = score
             completion()
         }
-    }
-    
-    func getUSAJobsData() {
-        govDataAPI.sendAPIRequest()
-        //not implemented yet
-    }
-    
-    func getLaborStatisticsData() {
-        laborStatisticsAPI.sendAPIRequest()
-        //not implemented yet
     }
 }
