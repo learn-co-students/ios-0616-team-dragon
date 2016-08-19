@@ -17,6 +17,7 @@ class NavBar {
         navBar.layer.zPosition = 3
         navBar.barTintColor = UIColor.whiteColor()
         navBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name:"AppleSDGothicNeo-Regular", size: 20)!,  NSForegroundColorAttributeName: UIColor.blackColor()]
+        navBar.layer.borderColor = UIColor.blueColor().CGColor
         return navBar
     }
 }

@@ -12,12 +12,12 @@ import Foundation
 class DataStore {
     static let sharedInstance = DataStore()
     
-    let cityAPI = CitySDKAPIClient.sharedInstance
+    let cityAPI = CitySDKAPIClient()
     
     var cityDataPoints:[CitySDKData] = []
     
     var scoreData: ScoreModel?
-    
+
     let levelOfLocationDetails = "county"
     var zipCode = "00000"
     let censusSurveyAPI = "acs5"
