@@ -12,25 +12,21 @@ import CoreData
 
 extension CoreDataHelper {
     
-    func processData(data: [[String]], countyCode: String?, stateCode: String?, type: String, completion:(Bool) -> Void) {
+    func processData(data: [[String]], level: String, stateCode: String?, type: String, completion:(Bool) -> Void) {
         
         var totalCommuteTime: Double? = nil // Special case handling, calculating average commute time
         var totalNumberOfPeopleCommuting: Double? = nil // Special case handling, calculating average commute time
         
-        ////////////////////////////// CITIES IN COUNTY LEVEL CASE //////////////////////////////
-        if let countyCode = countyCode, let stateCode = stateCode {
+        switch level {
             
-            self.fetchEntity(countyCode: countyCode, stateCode: stateCode, completion: { county, state, us in
+        ////////////////////////////// CITIES IN A STATE LEVEL CASE //////////////////////////////
+        case Hints.city:
+            
+            self.fetchState(stateCode: stateCode!, completion: { state in
                 
-                guard let county = county else {
-                    print("Error county for found!")
+                guard let state = state else {
+                    print("Error state for found!")
                     completion(false)
-                    return
-                }
-                
-                if county.loaded == CensusAPIProperties.propertyTypesDictionary.count {
-                    print("County info already loaded")
-                    completion(true)
                     return
                 }
                 
@@ -68,12 +64,13 @@ extension CoreDataHelper {
                 
                 for values in data.dropFirst() {
                     
-                    let city = NSEntityDescription.insertNewObjectForEntityForName(Hints.city, inManagedObjectContext: self.managedObjectContext) as! City
-                    city.county = county
-                    city.state = state
-                    city.code = values[values.count - 1]
-                    city.name = values[0].componentsSeparatedByString(", ")[0]
+                    let cityName = values[0].componentsSeparatedByString(", ")[0]
+                    let cityCode = values[values.count - 1]
                     
+                    let city = NSEntityDescription.insertNewObjectForEntityForName(Hints.city, inManagedObjectContext: self.managedObjectContext) as! City
+                    city.name = cityName
+                    city.code = cityCode
+                    city.state = state
                     
                     for tmpDataSet in tmpDataSetsInfo {
                         
@@ -131,37 +128,18 @@ extension CoreDataHelper {
                     do {
                         try self.managedObjectContext.save()
                     } catch {
-                        print("Error inserting county: \(error)") //////////////////////////
+                        print("Error inserting city: \(error)") //////////////////////////
                         completion(false)
                         return
                     }
                 }
-                
-                
-                if let typesLoaded = county.loaded {
-                    county.loaded = Int(typesLoaded) + 1 as NSNumber
-                } else {
-                    county.loaded = 1
-                }
-                
-                
-                print("Setting county to loaded") ////////////////////////////////////////////
-                
-                do {
-                    try county.managedObjectContext!.save()
-                    completion(true)
-                } catch {
-                    print("Error setting county status to loaded: \(error)") ////////////////////
-                    completion(false)
-                    return
-                }
-                
             })
             
-            ////////////////////////////// COUNTIES IN STATE LEVEL CASE //////////////////////////////
-        } else if let stateCode = stateCode {
             
-            self.fetchEntity(countyCode: nil, stateCode: stateCode, completion: { county, state, us in
+        ////////////////////////////// COUNTIES IN A STATE LEVEL CASE //////////////////////////////
+        case Hints.county:
+            
+            self.fetchState(stateCode: stateCode!, completion: { state in
                 
                 guard let state = state else {
                     print("Error state for found!")
@@ -169,12 +147,6 @@ extension CoreDataHelper {
                     return
                 }
                 
-                if state.loaded == CensusAPIProperties.propertyTypesDictionary.count {
-                    print("State counties info already loaded")
-                    completion(true)
-                    return
-                }
-                
                 var tmpDataSetsInfo: [TmpDataSet] = []
                 let template = data[0]
                 
@@ -209,41 +181,21 @@ extension CoreDataHelper {
                 
                 for values in data.dropFirst() {
                     
-                    var fetchedCounty: County? = nil
-                    
                     let countyName = values[0].componentsSeparatedByString(", ")[0]
-                    let countyFetchRequest = NSFetchRequest(entityName: Hints.county)
-                    let countyPredicate = NSPredicate(format: "%K == %@ && %K CONTAINS %@", Hints.stateCode, stateCode, Hints.name, countyName)
-                    countyFetchRequest.predicate = countyPredicate
+                    let countyCode = values[values.count - 1]
                     
-                    do {
-                        let countyResult = try self.managedObjectContext.executeFetchRequest(countyFetchRequest) as! [County]
-                        if countyResult.isEmpty {
-                            print("Error fetching county, search produced 0 results!") /////////////////////////////
-                            completion(false)
-                            return
-                        } else {
-                            fetchedCounty = countyResult[0]
-                        }
-                    } catch {
-                        let fetchError = error as NSError
-                        print("Error fetching county: \(fetchError.localizedDescription)") /////////////// HANDLE
-                    }
+                    let county = NSEntityDescription.insertNewObjectForEntityForName(Hints.county, inManagedObjectContext: self.managedObjectContext) as! County
+                    county.name = countyName
+                    county.code = countyCode
+                    county.state = state
                     
-                    guard let currentCounty = fetchedCounty else {
-                        print("Some weird error with county in counties in state") ////////////////////////////////
-                        completion(false)
-                        return
-                    }
-                    
-            
                     for tmpDataSet in tmpDataSetsInfo {
                         
                         let dataSet = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSet, inManagedObjectContext: self.managedObjectContext) as! DataSet
                         dataSet.code = tmpDataSet.code
                         dataSet.type = tmpDataSet.type
                         dataSet.name = tmpDataSet.name
-                        dataSet.county = currentCounty
+                        dataSet.county = county
                         dataSet.total = values[tmpDataSet.index]
                         
                         // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
@@ -265,7 +217,7 @@ extension CoreDataHelper {
                             
                         }
                         
-                        currentCounty.dataSets?.insert(dataSet)
+                        county.dataSets?.insert(dataSet)
                         
                     }
                     
@@ -276,7 +228,7 @@ extension CoreDataHelper {
                             let roundedAverageTime = Double(round(10 * averageTime) / 10)
                             let averageTimeString = "\(roundedAverageTime)%"
                             
-                            for set in currentCounty.dataSets! {
+                            for set in county.dataSets! {
                                 if set.code == "B08136" {
                                     set.total = averageTimeString
                                     for value in set.values! {
@@ -298,30 +250,12 @@ extension CoreDataHelper {
                         return
                     }
                 }
-                
-                if let typesLoaded = state.loaded {
-                    state.loaded = Int(typesLoaded) + 1 as NSNumber
-                } else {
-                    state.loaded = 1
-                }
-                
-                print("Setting state to loaded") ////////////////////////////////////////////
-                
-                do {
-                    try state.managedObjectContext!.save()
-                    completion(true)
-                } catch {
-                    print("Error setting state status to loaded: \(error)") ////////////////////
-                    completion(false)
-                    return
-                }
-                
             })
             
-            ////////////////////////////// US LEVEL CASE //////////////////////////////
-        } else {
+        ////////////////////////////// STATES IN US LEVEL CASE //////////////////////////////
+        case Hints.state:
             
-            self.fetchEntity(countyCode: nil, stateCode: nil, completion: { county, state, us in
+            self.fetchUS({ us in
                 
                 guard let us = us else {
                     print("Error US for found!")
@@ -329,12 +263,6 @@ extension CoreDataHelper {
                     return
                 }
                 
-                if us.loaded == CensusAPIProperties.propertyTypesDictionary.count {
-                    print("US info already loaded")
-                    completion(true)
-                    return
-                }
-                
                 var tmpDataSetsInfo: [TmpDataSet] = []
                 let template = data[0]
                 
@@ -369,13 +297,22 @@ extension CoreDataHelper {
                 
                 for values in data.dropFirst() {
                     
+                    let stateName = values[0].componentsSeparatedByString(", ")[0]
+                    let stateCode = values[values.count - 1]
+                    
+                    let state = NSEntityDescription.insertNewObjectForEntityForName(Hints.state, inManagedObjectContext: self.managedObjectContext) as! State
+                    state.name = stateName
+                    state.code = stateCode
+                    state.abbreviation = StateCodes.stateCodesDictionary.allKeysForValue(stateCode)[0]
+                    state.us = us
+                    
                     for tmpDataSet in tmpDataSetsInfo {
                         
                         let dataSet = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSet, inManagedObjectContext: self.managedObjectContext) as! DataSet
                         dataSet.code = tmpDataSet.code
                         dataSet.type = tmpDataSet.type
                         dataSet.name = tmpDataSet.name
-                        dataSet.us = us
+                        dataSet.state = state
                         dataSet.total = values[tmpDataSet.index]
                         
                         // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
@@ -397,7 +334,7 @@ extension CoreDataHelper {
                             
                         }
                         
-                        us.dataSets?.insert(dataSet)
+                        state.dataSets?.insert(dataSet)
                         
                     }
                     
@@ -408,7 +345,7 @@ extension CoreDataHelper {
                             let roundedAverageTime = Double(round(10 * averageTime) / 10)
                             let averageTimeString = "\(roundedAverageTime)%"
                             
-                            for set in us.dataSets! {
+                            for set in state.dataSets! {
                                 if set.code == "B08136" {
                                     set.total = averageTimeString
                                     for value in set.values! {
@@ -424,32 +361,163 @@ extension CoreDataHelper {
                     
                     do {
                         try self.managedObjectContext.save()
-                        
                     } catch {
-                        print("Error inserting county: \(error)") //////////////////////////
+                        print("Error inserting state: \(error)") //////////////////////////
                         completion(false)
                         return
                     }
                 }
+            })
+            
+            
+        ////////////////////////////// US LEVEL CASE //////////////////////////////
+        case Hints.us:
+            
+            
+            
+            var tmpDataSetsInfo: [TmpDataSet] = []
+            let template = data[0]
+            
+            for (index, valueName) in template.enumerate() {
+                if valueName.containsString("_001E") {
+                    let dataSetCode = valueName.componentsSeparatedByString("_001E")[0]
+                    
+                    if let dataSetProperties = CensusAPIProperties.propertyTypesDictionary[type]![dataSetCode] {
+                        
+                        let tmpDataSet = TmpDataSet()
+                        tmpDataSet.index = index
+                        tmpDataSet.name = dataSetProperties[Hints.description]!
+                        tmpDataSet.type = dataSetProperties[Hints.type]!
+                        tmpDataSet.code = dataSetCode
+                        tmpDataSet.dataSet = dataSetProperties
+                        
+                        for (innerLoopIndex, innerLoopValueName) in template.enumerate() {
+                            if innerLoopValueName.containsString(dataSetCode) {
+                                tmpDataSet.valueIndexes.append(innerLoopIndex)
+                            }
+                        }
+                        
+                        tmpDataSetsInfo.append(tmpDataSet)
+                        
+                    } else {
+                        print("Error - corresponding data set not found!") ////////////////////////////////////////
+                        completion(false)
+                        return
+                    }
+                }
+            }
+            
+            for values in data.dropFirst() {
                 
-                if let typesLoaded = us.loaded {
-                    us.loaded = Int(typesLoaded) + 1 as NSNumber
-                } else {
-                    us.loaded = 1
+                let usName = values[0].componentsSeparatedByString(", ")[0]
+                
+                let us = NSEntityDescription.insertNewObjectForEntityForName(Hints.us, inManagedObjectContext: self.managedObjectContext) as! US
+                us.name = usName
+                
+                for tmpDataSet in tmpDataSetsInfo {
+                    
+                    let dataSet = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSet, inManagedObjectContext: self.managedObjectContext) as! DataSet
+                    dataSet.code = tmpDataSet.code
+                    dataSet.type = tmpDataSet.type
+                    dataSet.name = tmpDataSet.name
+                    dataSet.us = us
+                    dataSet.total = values[tmpDataSet.index]
+                    
+                    // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
+                    if type == Hints.eduAndTrans {
+                        if dataSet.code == "B08136" { totalCommuteTime = Double(dataSet.total!) }
+                        else if dataSet.code == "B08301" { totalNumberOfPeopleCommuting = Double(dataSet.total!) }
+                    }
+                    
+                    for valueSetIndex in tmpDataSet.valueIndexes {
+                        
+                        let dataSetValues = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSetValues, inManagedObjectContext: self.managedObjectContext) as! DataSetValues
+                        dataSetValues.dataSet = dataSet
+                        dataSetValues.code = template[valueSetIndex].componentsSeparatedByString("\(dataSet.code!)_")[1]
+                        dataSetValues.name = tmpDataSet.dataSet[dataSetValues.code!]
+                        dataSetValues.absoluteValue = values[valueSetIndex]
+                        dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
+                        
+                        dataSet.values?.insert(dataSetValues)
+                        
+                    }
+                    
+                    us.dataSets?.insert(dataSet)
+                    
                 }
                 
-                print("Setting us to loaded") ////////////////////////////////////////////
+                // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
+                if type == Hints.eduAndTrans {
+                    if let totalCommuteTime = totalCommuteTime, let totalNumberOfPeopleCommuting = totalNumberOfPeopleCommuting {
+                        let averageTime = totalCommuteTime / totalNumberOfPeopleCommuting
+                        let roundedAverageTime = Double(round(10 * averageTime) / 10)
+                        let averageTimeString = "\(roundedAverageTime)%"
+                        
+                        for set in us.dataSets! {
+                            if set.code == "B08136" {
+                                set.total = averageTimeString
+                                for value in set.values! {
+                                    if value.code == "001E" {
+                                        value.absoluteValue = averageTimeString
+                                        value.percentValue = "100%"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 
                 do {
-                    try us.managedObjectContext!.save()
-                    completion(true)
+                    try self.managedObjectContext.save()
                 } catch {
-                    print("Error setting state status to loaded: \(error)") ////////////////////
+                    print("Error inserting state: \(error)") //////////////////////////
                     completion(false)
                     return
                 }
-                
-            })
+            }
+            
+            
+        default:
+            print("Error - invalid level!")
+            completion(false)
+            return
+        }
+        
+        completion(true)
+        
+    }
+    
+    
+    func fetchState(stateCode stateCode: String, completion:(state: State?) -> Void) {
+        let fetchRequest = NSFetchRequest(entityName: Hints.state)
+        let predicate = NSPredicate(format: "%K == %@", Hints.code, stateCode)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let result = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [State]
+            let state = result[0]
+            completion(state: state)
+        } catch {
+            let fetchError = error as NSError
+            print("Error fetching state: \(fetchError.localizedDescription)") /////////////// HANDLE
+            completion(state: nil)
+        }
+    }
+    
+    
+    func fetchUS(completion:(us: US?) -> Void) {
+        let fetchRequest = NSFetchRequest(entityName: Hints.us)
+        let predicate = NSPredicate(value: true)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let usResult = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [US]
+            let us = usResult[0]
+            completion(us: us)
+        } catch {
+            let fetchError = error as NSError
+            print("Error fetching us: \(fetchError.localizedDescription)") /////////////// HANDLE
+            completion(us: nil)
         }
     }
     
@@ -506,67 +574,6 @@ extension CoreDataHelper {
     }
     
     
-    func loadCodes(countyName countyName: String?, stateAbbreviation: String, completion:(countyCode: String?, stateCode: String?, error: ErrorType?) -> Void) {
-        
-        let stateFetchRequest = NSFetchRequest(entityName: Hints.state)
-        let statePredicate = NSPredicate(format: "%K == %@", Hints.abbreviation, stateAbbreviation)
-        stateFetchRequest.predicate = statePredicate
-        
-        do {
-            
-            let stateResult = try self.managedObjectContext.executeFetchRequest(stateFetchRequest) as! [State]
-            if stateResult.isEmpty {
-                print("Error - state not found!")
-                completion(countyCode: nil, stateCode: nil, error: nil)
-                
-            } else {
-                
-                let state = stateResult[0]
-                
-                if let countyName = countyName {
-                    
-                    let countyFetchRequest = NSFetchRequest(entityName: Hints.county)
-                    let countyPredicate = NSPredicate(format: "%K == %@ && %K CONTAINS %@",Hints.stateLowercase, state, Hints.name, countyName)
-                    countyFetchRequest.predicate = countyPredicate
-                    
-                    do {
-                        
-                        let countyResult = try self.managedObjectContext.executeFetchRequest(countyFetchRequest) as! [County]
-                        if countyResult.isEmpty {
-                            print("Error - county not found!")
-                            completion(countyCode: nil, stateCode: nil, error: nil)
-                            
-                        } else {
-                            
-                            let county = countyResult[0]
-                            
-                            let stateCode = state.code
-                            let countyCode = county.code
-                            
-                            completion(countyCode: countyCode, stateCode: stateCode, error: nil)
-                        }
-                        
-                    } catch {
-                        let fetchError = error as NSError
-                        print("Error fetching county: \(fetchError.localizedDescription)") /////////////// HANDLE
-                        completion(countyCode: nil, stateCode: nil, error: fetchError)
-                    }
-                    
-                } else {
-                    
-                    completion(countyCode: nil, stateCode: state.code, error: nil)
-                    
-                }
-            }
-            
-        } catch {
-            let fetchError = error as NSError
-            print("Error fetching state: \(fetchError.localizedDescription)") /////////////// HANDLE
-            completion(countyCode: nil, stateCode: nil, error: fetchError)
-        }
-    }
-    
-    
     private func calculatePercentValue(part: String?, total: String?) -> String {
         
         if let part = part, let total = total {
@@ -592,4 +599,11 @@ private class TmpDataSet {
     var dataSet: [String: String] = [:]
     var index: Int = 0
     var valueIndexes: [Int] = []
+}
+
+
+extension Dictionary where Value : Equatable {
+    func allKeysForValue(val : Value) -> [Key] {
+        return self.filter { $1 == val }.map { $0.0 }
+    }
 }
