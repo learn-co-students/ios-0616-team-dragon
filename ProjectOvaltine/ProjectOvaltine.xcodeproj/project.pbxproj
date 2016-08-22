@@ -352,10 +352,10 @@
 		AFEEC1FB1D54DD1F00EEAECA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AF75DF991D53D30300DDF173 /* AppDelegate.swift */,
 				AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */,
 				AF75DFA51D53D30400DDF173 /* Info.plist */,
 				AF75DFA01D53D30400DDF173 /* Assets.xcassets */,
-				AF75DF991D53D30300DDF173 /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

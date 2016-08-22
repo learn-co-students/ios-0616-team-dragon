@@ -126,7 +126,7 @@ class CensusAPIClient {
         for type in CensusAPIProperties.propertyTypesDictionary.keys {
             self.requestAPIData(level: Hints.us, stateCode: nil, type: type, completion: { data in
                 if let data = data {
-                    self.coreDataHelper.processData(data, level: Hints.us, stateCode: nil, type: type, completion: { success in
+                    self.coreDataHelper.processData(data, level: Hints.us, cityName: nil, stateCode: nil, type: type, completion: { success in
                         requestsToBeCompleted -= 1
                         if !success {
                             errors += 1
@@ -158,7 +158,7 @@ class CensusAPIClient {
         for type in CensusAPIProperties.propertyTypesDictionary.keys {
             self.requestAPIData(level: Hints.state, stateCode: stateCode, type: type, completion: { data in
                 if let data = data {
-                    self.coreDataHelper.processData(data, level: Hints.state, stateCode: stateCode, type: type, completion: { success in
+                    self.coreDataHelper.processData(data, level: Hints.state, cityName: nil, stateCode: stateCode, type: type, completion: { success in
                         requestsToBeCompleted -= 1
                         if !success {
                             errors += 1
@@ -178,9 +178,20 @@ class CensusAPIClient {
     private func getCity(cityName cityName: String, inState: State, completion:(City?) -> Void) {
         if let cities = inState.cities {
             if !cities.isEmpty {
-                completion(self.findCity(cityName: cityName, inState: inState))
+                if let coreDataCity = self.findCity(cityName: cityName, inState: inState) {
+                    completion(coreDataCity)
+                } else {
+                    self.getCityDataFromAPI(cityName: cityName, stateCode: inState.code!, completion: { success in
+                        if success {
+                            completion(self.findCity(cityName: cityName, inState: inState))
+                        } else {
+                            print("Error getting cities for state < \(inState.name!) > from the API")
+                            completion(nil)
+                        }
+                    })
+                }
             } else {
-                self.getCityDataFromAPI(stateCode: inState.code!, completion: { success in
+                self.getCityDataFromAPI(cityName: cityName, stateCode: inState.code!, completion: { success in
                     if success {
                         completion(self.findCity(cityName: cityName, inState: inState))
                     } else {
@@ -196,8 +207,7 @@ class CensusAPIClient {
     }
     
     
-    private func getCityDataFromAPI(stateCode stateCode: String, completion:(Bool) -> Void) {
-        print("INSIDE GET CITY DATA FROM API, STATE CODE: \(stateCode)") /////////////////////////////////////////////////////////
+    private func getCityDataFromAPI(cityName cityName: String,  stateCode: String, completion:(Bool) -> Void) {
         var errors = 0
         
         var requestsToBeCompleted = CensusAPIProperties.propertyTypesDictionary.keys.count {
@@ -212,7 +222,7 @@ class CensusAPIClient {
         for type in CensusAPIProperties.propertyTypesDictionary.keys {
             self.requestAPIData(level: Hints.city, stateCode: stateCode, type: type, completion: { data in
                 if let data = data {
-                    self.coreDataHelper.processData(data, level: Hints.city, stateCode: stateCode, type: type, completion: { success in
+                    self.coreDataHelper.processData(data, level: Hints.city, cityName: cityName, stateCode: stateCode, type: type, completion: { success in
                         requestsToBeCompleted -= 1
                         if !success {
                             errors += 1
@@ -233,14 +243,12 @@ class CensusAPIClient {
         if let cities = inState.cities {
             for city in cities {
                 if let name = city.name {
-                    print(name)
                     if self.actualName(name) == self.actualName(cityName) {
                         return city
                     }
                 }
             }
         }
-        print("City < \(cityName) > not found in state < \(inState.name!) > ")
         return nil
     }
     
@@ -267,7 +275,6 @@ class CensusAPIClient {
     
     
     private func getCountyDataFromAPI(stateCode stateCode: String, completion:(Bool) -> Void) {
-        print("INSIDE GET COUNTY DATA FROM API, STATE CODE: \(stateCode)") /////////////////////////////////////////////////////////
         var errors = 0
         var requestsToBeCompleted = CensusAPIProperties.propertyTypesDictionary.keys.count {
             didSet {
@@ -281,7 +288,7 @@ class CensusAPIClient {
         for type in CensusAPIProperties.propertyTypesDictionary.keys {
             self.requestAPIData(level: Hints.county, stateCode: stateCode, type: type, completion: { data in
                 if let data = data {
-                    self.coreDataHelper.processData(data, level: Hints.county, stateCode: stateCode, type: type, completion: { success in
+                    self.coreDataHelper.processData(data, level: Hints.county, cityName: nil, stateCode: stateCode, type: type, completion: { success in
                         requestsToBeCompleted -= 1
                         if !success {
                             errors += 1
@@ -302,22 +309,20 @@ class CensusAPIClient {
         if let counties = inState.counties {
             for county in counties {
                 if let name = county.name {
-                    print(name)
                     if self.actualName(name) == self.actualName(countyName) {
                         return county
                     }
                 }
             }
         }
-        print("County < \(countyName) > not found in state < \(inState.name!) > ")
         return nil
     }
     
     
-    private func actualName(name: String) -> String {
+    func actualName(name: String) -> String {
         let wordsArray = name.componentsSeparatedByString(" ")
         let uppercaseWords = wordsArray.filter { (word) -> Bool in
-            word == word.capitalizedString && word != word.uppercaseString
+            word == word.capitalizedString && word != word.uppercaseString && word != Hints.county
         }
         let actualName = uppercaseWords.joinWithSeparator(" ")
         return actualName
@@ -333,7 +338,7 @@ class CensusAPIClient {
         switch level {
             
         case Hints.city:
-            url = NSURL(string: "http://api.census.gov/data/2014/acsse?get=NAME,\(self.constructAPIRequestCodes(type))&for=place:*&in=state:\(stateCode!)&key=\(key)")!
+            url = NSURL(string: "\(urlStartString)place:*&in=state:\(stateCode!)&key=\(key)")!
         case Hints.county:
             url = NSURL(string: "\(urlStartString)county:*&in=state:\(stateCode!)&key=\(key)")!
         case Hints.state:
@@ -369,8 +374,7 @@ class CensusAPIClient {
                     completion(resultsAsArrays)
                     
                 } catch {
-                    print("Error parcing JSON\n") ////////////// Handle
-                    print(response) /////////////////////////////////
+                    print("Error parcing JSON!\nResponse: \(response)") ////////////// Handle
                     completion(nil)
                     return
                 }

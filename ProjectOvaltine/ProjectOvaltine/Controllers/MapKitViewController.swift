@@ -180,26 +180,11 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     print("State cities count: \(state?.cities?.count)")
                     print("State counties count: \(state?.counties?.count)")
                     print("State dataSets count: \(state?.dataSets?.count)")
-//                    for stateDataSet in (state?.dataSets)! {
-//                        print("State Data set: \(stateDataSet.type)")
-//                        print("State Data set: \(stateDataSet.name)")
-//                    }
                     print("US: \(us?.name)")
                     print("US states count: \(us?.states?.count)")
                     print("US dataSets count: \(us?.dataSets?.count)")
-//                    for usDataSet in (us?.dataSets)! {
-//                        print("US Data set: \(usDataSet.type)")
-//                        for dataSetValue in usDataSet.values! {
-//                            print("Data set < \(usDataSet.name!) >, value: \(dataSetValue.name!)")
-//                        }
-//                        print("US Data set: \(usDataSet.name)")
-//                    }
-//                    print("PRINTING DATA SET NAMES AND TYPES")
-//                    for dataSet in (city?.dataSets!)! {
-//                        print("Dataset name: \(dataSet.name!), dataset type: \(dataSet.type!)")
-//                    }
-                    
                 })
+                
                 self!.store.zipCode = (placemark.postalCode)!
                 self!.populateCoordinateArray{[weak self] (someArray) in
                     self!.boundary.removeAll()
