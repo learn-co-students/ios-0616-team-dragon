@@ -36,6 +36,7 @@ class Hints { // Autocomplete for commonly used strings
     static let abbreviation = "abbreviation"
     static let name = "name"
     static let code = "code"
+    static let place = "place"
     
     
     private init() {}

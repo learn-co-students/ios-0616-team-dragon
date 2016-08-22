@@ -36,7 +36,6 @@ struct ScoreModel {
         self.transitScore = 0
         self.demographicScore = 0
         self.educationScore = 0
-
     }
     
     mutating func getEconomicScore() -> String {

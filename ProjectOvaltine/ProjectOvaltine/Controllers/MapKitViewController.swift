@@ -174,13 +174,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
             } else {
                 
-                print(placemarks)
-                
                 self!.placemark = (placemarks?.last)!
                 CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
                     print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
-                    print("City name: \(city?.name)")
+                    print("City name: \(city?.name!)")
                     print("County name: \(county?.name!)")
+
                     print("State abbreviation: \(state?.abbreviation!)")
                     print("PRINTING DATA SET NAMES AND TYPES")
                     for dataSet in (county?.dataSets!)! {
@@ -192,7 +191,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 SwiftSpinner.showWithDuration(2.0, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-                
+        
                 self!.store.zipCode = (self!.placemark!.postalCode)!
                 self!.populateCoordinateArray{[weak self] (someArray) in
                     self!.boundary.removeAll()

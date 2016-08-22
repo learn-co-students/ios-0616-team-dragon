@@ -16,7 +16,6 @@ extension City {
 
     @NSManaged var code: String?
     @NSManaged var name: String?
-    @NSManaged var county: County?
     @NSManaged var dataSets: Set<DataSet>?
     @NSManaged var state: State?
 

@@ -11,6 +11,8 @@ import CoreData
 
 
 class CoreDataHelper {
+    
+    //let censusAPIClient = CensusAPIClient()
 
     
 // MARK: - Core Data stack
