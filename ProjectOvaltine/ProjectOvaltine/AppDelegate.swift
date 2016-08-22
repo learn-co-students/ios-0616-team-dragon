@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = MapKitViewController()
         //self.window?.rootViewController = TestViewController()
         
+        CoreDataHelper().clearCoreData()
+
         return true
     }
     

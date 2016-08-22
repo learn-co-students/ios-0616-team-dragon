@@ -44,7 +44,7 @@ class CitySDKAPIClient {
             case .Success(let responseObject):
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
-                print(response)
+                //print(response)
                 
                 if let feat = response["features"] as? NSArray {
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)

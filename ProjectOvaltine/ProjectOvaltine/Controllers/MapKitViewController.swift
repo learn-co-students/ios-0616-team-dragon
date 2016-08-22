@@ -170,18 +170,34 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
             } else {
                 
-                print(placemarks)
-                
                 placemark = (placemarks?.last)!
+                
                 CensusAPIClient().requestDataForLocation(placemark: placemark, completion: { (city, county, state, us) in
                     print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
-                    print("City name: \(city?.name)")
+                    print("City name: \(city?.name!)")
                     print("County name: \(county?.name!)")
-                    print("State abbreviation: \(state?.abbreviation!)")
-                    print("PRINTING DATA SET NAMES AND TYPES")
-                    for dataSet in (county?.dataSets!)! {
-                        print("Dataset name: \(dataSet.name!), dataset type: \(dataSet.type!)")
-                    }
+                    print("State abbreviation: \(state?.abbreviation)")
+                    print("State cities count: \(state?.cities?.count)")
+                    print("State counties count: \(state?.counties?.count)")
+                    print("State dataSets count: \(state?.dataSets?.count)")
+//                    for stateDataSet in (state?.dataSets)! {
+//                        print("State Data set: \(stateDataSet.type)")
+//                        print("State Data set: \(stateDataSet.name)")
+//                    }
+                    print("US: \(us?.name)")
+                    print("US states count: \(us?.states?.count)")
+                    print("US dataSets count: \(us?.dataSets?.count)")
+//                    for usDataSet in (us?.dataSets)! {
+//                        print("US Data set: \(usDataSet.type)")
+//                        for dataSetValue in usDataSet.values! {
+//                            print("Data set < \(usDataSet.name!) >, value: \(dataSetValue.name!)")
+//                        }
+//                        print("US Data set: \(usDataSet.name)")
+//                    }
+//                    print("PRINTING DATA SET NAMES AND TYPES")
+//                    for dataSet in (city?.dataSets!)! {
+//                        print("Dataset name: \(dataSet.name!), dataset type: \(dataSet.type!)")
+//                    }
                     
                 })
                 self!.store.zipCode = (placemark.postalCode)!

@@ -23,6 +23,7 @@ extension CoreDataHelper {
         case Hints.city:
             
             self.fetchState(stateCode: stateCode!, completion: { state in
+                print("INSIDE FETCH STATE FOR CITY COMPLETION BLOCK, state code: \(stateCode), state fetched: \(state?.abbreviation)") /////////////////
                 
                 guard let state = state else {
                     print("Error state for found!")
@@ -65,12 +66,16 @@ extension CoreDataHelper {
                 for values in data.dropFirst() {
                     
                     let cityName = values[0].componentsSeparatedByString(", ")[0]
-                    let cityCode = values[values.count - 1]
                     
-                    let city = NSEntityDescription.insertNewObjectForEntityForName(Hints.city, inManagedObjectContext: self.managedObjectContext) as! City
-                    city.name = cityName
-                    city.code = cityCode
-                    city.state = state
+                    var city = CensusAPIClient().findCity(cityName: cityName, inState: state)
+                    
+                    if city == nil {
+                        let cityCode = values[values.count - 1]
+                        city = NSEntityDescription.insertNewObjectForEntityForName(Hints.city, inManagedObjectContext: self.managedObjectContext) as? City
+                        city!.name = cityName
+                        city!.code = cityCode
+                        city!.state = state
+                    }
                     
                     for tmpDataSet in tmpDataSetsInfo {
                         
@@ -100,7 +105,7 @@ extension CoreDataHelper {
                             
                         }
                         
-                        city.dataSets?.insert(dataSet)
+                        city!.dataSets?.insert(dataSet)
                         
                     }
                     
@@ -111,7 +116,7 @@ extension CoreDataHelper {
                             let roundedAverageTime = Double(round(10 * averageTime) / 10)
                             let averageTimeString = "\(roundedAverageTime)%"
                             
-                            for set in city.dataSets! {
+                            for set in city!.dataSets! {
                                 if set.code == "B08136" {
                                     set.total = averageTimeString
                                     for value in set.values! {
@@ -182,12 +187,16 @@ extension CoreDataHelper {
                 for values in data.dropFirst() {
                     
                     let countyName = values[0].componentsSeparatedByString(", ")[0]
-                    let countyCode = values[values.count - 1]
                     
-                    let county = NSEntityDescription.insertNewObjectForEntityForName(Hints.county, inManagedObjectContext: self.managedObjectContext) as! County
-                    county.name = countyName
-                    county.code = countyCode
-                    county.state = state
+                    var county = CensusAPIClient().findCounty(countyName: countyName, inState: state)
+                    
+                    if county == nil {
+                        let countyCode = values[values.count - 1]
+                        county = NSEntityDescription.insertNewObjectForEntityForName(Hints.county, inManagedObjectContext: self.managedObjectContext) as? County
+                        county!.name = countyName
+                        county!.code = countyCode
+                        county!.state = state
+                    }
                     
                     for tmpDataSet in tmpDataSetsInfo {
                         
@@ -217,7 +226,7 @@ extension CoreDataHelper {
                             
                         }
                         
-                        county.dataSets?.insert(dataSet)
+                        county!.dataSets?.insert(dataSet)
                         
                     }
                     
@@ -228,7 +237,7 @@ extension CoreDataHelper {
                             let roundedAverageTime = Double(round(10 * averageTime) / 10)
                             let averageTimeString = "\(roundedAverageTime)%"
                             
-                            for set in county.dataSets! {
+                            for set in county!.dataSets! {
                                 if set.code == "B08136" {
                                     set.total = averageTimeString
                                     for value in set.values! {
@@ -297,84 +306,90 @@ extension CoreDataHelper {
                 
                 for values in data.dropFirst() {
                     
-                    let stateName = values[0].componentsSeparatedByString(", ")[0]
+                    var state: State? = nil
                     let stateCode = values[values.count - 1]
                     
-                    let state = NSEntityDescription.insertNewObjectForEntityForName(Hints.state, inManagedObjectContext: self.managedObjectContext) as! State
-                    state.name = stateName
-                    state.code = stateCode
-                    state.abbreviation = StateCodes.stateCodesDictionary.allKeysForValue(stateCode)[0]
-                    state.us = us
-                    
-                    for tmpDataSet in tmpDataSetsInfo {
+                    self.fetchState(stateCode: stateCode, completion: { fetchedState in
                         
-                        let dataSet = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSet, inManagedObjectContext: self.managedObjectContext) as! DataSet
-                        dataSet.code = tmpDataSet.code
-                        dataSet.type = tmpDataSet.type
-                        dataSet.name = tmpDataSet.name
-                        dataSet.state = state
-                        dataSet.total = values[tmpDataSet.index]
+                        if fetchedState != nil {
+                            state = fetchedState
+                        } else {
+                            state = NSEntityDescription.insertNewObjectForEntityForName(Hints.state, inManagedObjectContext: self.managedObjectContext) as? State
+                            let stateName = values[0].componentsSeparatedByString(", ")[0]
+                            state!.name = stateName
+                            state!.code = stateCode
+                            state!.abbreviation = StateCodes.stateCodesDictionary.allKeysForValue(stateCode)[0]
+                            state!.us = us
+                        }
+                        
+                        for tmpDataSet in tmpDataSetsInfo {
+                            
+                            let dataSet = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSet, inManagedObjectContext: self.managedObjectContext) as! DataSet
+                            dataSet.code = tmpDataSet.code
+                            dataSet.type = tmpDataSet.type
+                            dataSet.name = tmpDataSet.name
+                            dataSet.state = state
+                            dataSet.total = values[tmpDataSet.index]
+                            
+                            // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
+                            if type == Hints.eduAndTrans {
+                                if dataSet.code == "B08136" { totalCommuteTime = Double(dataSet.total!) }
+                                else if dataSet.code == "B08301" { totalNumberOfPeopleCommuting = Double(dataSet.total!) }
+                            }
+                            
+                            for valueSetIndex in tmpDataSet.valueIndexes {
+                                
+                                let dataSetValues = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSetValues, inManagedObjectContext: self.managedObjectContext) as! DataSetValues
+                                dataSetValues.dataSet = dataSet
+                                dataSetValues.code = template[valueSetIndex].componentsSeparatedByString("\(dataSet.code!)_")[1]
+                                dataSetValues.name = tmpDataSet.dataSet[dataSetValues.code!]
+                                dataSetValues.absoluteValue = values[valueSetIndex]
+                                dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
+                                
+                                dataSet.values?.insert(dataSetValues)
+                                
+                            }
+                            
+                            state!.dataSets?.insert(dataSet)
+                            
+                        }
                         
                         // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
                         if type == Hints.eduAndTrans {
-                            if dataSet.code == "B08136" { totalCommuteTime = Double(dataSet.total!) }
-                            else if dataSet.code == "B08301" { totalNumberOfPeopleCommuting = Double(dataSet.total!) }
-                        }
-                        
-                        for valueSetIndex in tmpDataSet.valueIndexes {
-                            
-                            let dataSetValues = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSetValues, inManagedObjectContext: self.managedObjectContext) as! DataSetValues
-                            dataSetValues.dataSet = dataSet
-                            dataSetValues.code = template[valueSetIndex].componentsSeparatedByString("\(dataSet.code!)_")[1]
-                            dataSetValues.name = tmpDataSet.dataSet[dataSetValues.code!]
-                            dataSetValues.absoluteValue = values[valueSetIndex]
-                            dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
-                            
-                            dataSet.values?.insert(dataSetValues)
-                            
-                        }
-                        
-                        state.dataSets?.insert(dataSet)
-                        
-                    }
-                    
-                    // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
-                    if type == Hints.eduAndTrans {
-                        if let totalCommuteTime = totalCommuteTime, let totalNumberOfPeopleCommuting = totalNumberOfPeopleCommuting {
-                            let averageTime = totalCommuteTime / totalNumberOfPeopleCommuting
-                            let roundedAverageTime = Double(round(10 * averageTime) / 10)
-                            let averageTimeString = "\(roundedAverageTime)%"
-                            
-                            for set in state.dataSets! {
-                                if set.code == "B08136" {
-                                    set.total = averageTimeString
-                                    for value in set.values! {
-                                        if value.code == "001E" {
-                                            value.absoluteValue = averageTimeString
-                                            value.percentValue = "100%"
+                            if let totalCommuteTime = totalCommuteTime, let totalNumberOfPeopleCommuting = totalNumberOfPeopleCommuting {
+                                let averageTime = totalCommuteTime / totalNumberOfPeopleCommuting
+                                let roundedAverageTime = Double(round(10 * averageTime) / 10)
+                                let averageTimeString = "\(roundedAverageTime)%"
+                                
+                                for set in state!.dataSets! {
+                                    if set.code == "B08136" {
+                                        set.total = averageTimeString
+                                        for value in set.values! {
+                                            if value.code == "001E" {
+                                                value.absoluteValue = averageTimeString
+                                                value.percentValue = "100%"
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
-                    }
-                    
-                    do {
-                        try self.managedObjectContext.save()
-                    } catch {
-                        print("Error inserting state: \(error)") //////////////////////////
-                        completion(false)
-                        return
-                    }
+                        
+                        do {
+                            try self.managedObjectContext.save()
+                        } catch {
+                            print("Error inserting state: \(error)") //////////////////////////
+                            completion(false)
+                            return
+                        }
+                    })
                 }
             })
             
             
         ////////////////////////////// US LEVEL CASE //////////////////////////////
         case Hints.us:
-            
-            
-            
+            print("PROCESSING US DATA OF TYPE: \(type)") /////////////////////////////////////////////////////////
             var tmpDataSetsInfo: [TmpDataSet] = []
             let template = data[0]
             
@@ -409,70 +424,80 @@ extension CoreDataHelper {
             
             for values in data.dropFirst() {
                 
-                let usName = values[0].componentsSeparatedByString(", ")[0]
+                var us: US? = nil
                 
-                let us = NSEntityDescription.insertNewObjectForEntityForName(Hints.us, inManagedObjectContext: self.managedObjectContext) as! US
-                us.name = usName
                 
-                for tmpDataSet in tmpDataSetsInfo {
+                self.fetchUS { fetchedUS in
                     
-                    let dataSet = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSet, inManagedObjectContext: self.managedObjectContext) as! DataSet
-                    dataSet.code = tmpDataSet.code
-                    dataSet.type = tmpDataSet.type
-                    dataSet.name = tmpDataSet.name
-                    dataSet.us = us
-                    dataSet.total = values[tmpDataSet.index]
+                    if fetchedUS != nil {
+                        us = fetchedUS
+                    } else {
+                        us = NSEntityDescription.insertNewObjectForEntityForName(Hints.us, inManagedObjectContext: self.managedObjectContext) as? US
+                        let usName = values[0].componentsSeparatedByString(", ")[0]
+                        us!.name = usName
+                        
+                    }
+                    
+                    for tmpDataSet in tmpDataSetsInfo {
+                        
+                        let dataSet = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSet, inManagedObjectContext: self.managedObjectContext) as! DataSet
+                        dataSet.code = tmpDataSet.code
+                        dataSet.type = tmpDataSet.type
+                        dataSet.name = tmpDataSet.name
+                        dataSet.us = us
+                        dataSet.total = values[tmpDataSet.index]
+                        
+                        // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
+                        if type == Hints.eduAndTrans {
+                            if dataSet.code == "B08136" { totalCommuteTime = Double(dataSet.total!) }
+                            else if dataSet.code == "B08301" { totalNumberOfPeopleCommuting = Double(dataSet.total!) }
+                        }
+                        
+                        for valueSetIndex in tmpDataSet.valueIndexes {
+                            
+                            let dataSetValues = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSetValues, inManagedObjectContext: self.managedObjectContext) as! DataSetValues
+                            dataSetValues.dataSet = dataSet
+                            dataSetValues.code = template[valueSetIndex].componentsSeparatedByString("\(dataSet.code!)_")[1]
+                            dataSetValues.name = tmpDataSet.dataSet[dataSetValues.code!]
+                            dataSetValues.absoluteValue = values[valueSetIndex]
+                            dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
+                            
+                            dataSet.values?.insert(dataSetValues)
+                            
+                        }
+                        
+                        us!.dataSets?.insert(dataSet)
+                        
+                    }
                     
                     // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
                     if type == Hints.eduAndTrans {
-                        if dataSet.code == "B08136" { totalCommuteTime = Double(dataSet.total!) }
-                        else if dataSet.code == "B08301" { totalNumberOfPeopleCommuting = Double(dataSet.total!) }
-                    }
-                    
-                    for valueSetIndex in tmpDataSet.valueIndexes {
-                        
-                        let dataSetValues = NSEntityDescription.insertNewObjectForEntityForName(Hints.dataSetValues, inManagedObjectContext: self.managedObjectContext) as! DataSetValues
-                        dataSetValues.dataSet = dataSet
-                        dataSetValues.code = template[valueSetIndex].componentsSeparatedByString("\(dataSet.code!)_")[1]
-                        dataSetValues.name = tmpDataSet.dataSet[dataSetValues.code!]
-                        dataSetValues.absoluteValue = values[valueSetIndex]
-                        dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
-                        
-                        dataSet.values?.insert(dataSetValues)
-                        
-                    }
-                    
-                    us.dataSets?.insert(dataSet)
-                    
-                }
-                
-                // SPECIAL CASE HANDLING, CALCULATING AVERAGE COMMUTE TIME
-                if type == Hints.eduAndTrans {
-                    if let totalCommuteTime = totalCommuteTime, let totalNumberOfPeopleCommuting = totalNumberOfPeopleCommuting {
-                        let averageTime = totalCommuteTime / totalNumberOfPeopleCommuting
-                        let roundedAverageTime = Double(round(10 * averageTime) / 10)
-                        let averageTimeString = "\(roundedAverageTime)%"
-                        
-                        for set in us.dataSets! {
-                            if set.code == "B08136" {
-                                set.total = averageTimeString
-                                for value in set.values! {
-                                    if value.code == "001E" {
-                                        value.absoluteValue = averageTimeString
-                                        value.percentValue = "100%"
+                        if let totalCommuteTime = totalCommuteTime, let totalNumberOfPeopleCommuting = totalNumberOfPeopleCommuting {
+                            let averageTime = totalCommuteTime / totalNumberOfPeopleCommuting
+                            let roundedAverageTime = Double(round(10 * averageTime) / 10)
+                            let averageTimeString = "\(roundedAverageTime)%"
+                            
+                            for set in us!.dataSets! {
+                                if set.code == "B08136" {
+                                    set.total = averageTimeString
+                                    for value in set.values! {
+                                        if value.code == "001E" {
+                                            value.absoluteValue = averageTimeString
+                                            value.percentValue = "100%"
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-                
-                do {
-                    try self.managedObjectContext.save()
-                } catch {
-                    print("Error inserting state: \(error)") //////////////////////////
-                    completion(false)
-                    return
+                    
+                    do {
+                        try self.managedObjectContext.save()
+                    } catch {
+                        print("Error inserting state: \(error)") //////////////////////////
+                        completion(false)
+                        return
+                    }
                 }
             }
             
@@ -495,8 +520,11 @@ extension CoreDataHelper {
         
         do {
             let result = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [State]
-            let state = result[0]
-            completion(state: state)
+            if !result.isEmpty {
+                completion(state: result[0])
+            } else {
+                completion(state: nil)
+            }
         } catch {
             let fetchError = error as NSError
             print("Error fetching state: \(fetchError.localizedDescription)") /////////////// HANDLE
@@ -511,9 +539,12 @@ extension CoreDataHelper {
         fetchRequest.predicate = predicate
         
         do {
-            let usResult = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [US]
-            let us = usResult[0]
-            completion(us: us)
+            let result = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [US]
+            if !result.isEmpty {
+                completion(us: result[0])
+            } else {
+                completion(us: nil)
+            }
         } catch {
             let fetchError = error as NSError
             print("Error fetching us: \(fetchError.localizedDescription)") /////////////// HANDLE
@@ -585,6 +616,34 @@ extension CoreDataHelper {
         }
         //print("Error - cannot calculate Percent Value")
         return "N/A"
+    }
+    
+    
+    func clearCoreData() { // DELETE IN THE PRODUCTION VERSION, FUNCTION EXISTS FOR TESTING ONLY
+        self.removeData("City")
+        self.removeData("County") ////////////////////// REMOVE
+        self.removeData("State") ////////////////////// REMOVE FOR PRODUCTION
+        self.removeData("US") ////////////////////////// REMOVE
+        self.removeData("DataSet")
+        self.removeData("DataSetValues")
+    }
+    
+    
+    private func removeData(entity: String) { // DELETE IN THE PRODUCTION VERSION, FUNCTION EXISTS FOR TESTING ONLY
+        print("Removing from CoreData: \(entity)")
+        let managedObjectContext = self.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: entity)
+        
+        do {
+            let items = try managedObjectContext.executeFetchRequest(fetchRequest)
+            print("\(entity) count: \(items.count)")
+            for item in items {
+                managedObjectContext.deleteObject(item as! NSManagedObject)
+            }
+        } catch {
+            print("Error getting menu item: \(error)")
+            return
+        }
     }
     
     
