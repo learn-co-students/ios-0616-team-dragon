@@ -127,6 +127,10 @@ class ResultView: UIView {
             //make.centerY.equalTo(self).offset(30)
         }
         
+        
+        self.locationNameLabel.snp_makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self)
+        }
          self.graphView.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(120)
             make.centerX.equalTo(self)
