@@ -26,7 +26,7 @@ struct ScoreModel {
     
     init(name: String, dataPoints: [String: String]) {
         //let stateCore = State()
-        print(State())
+       // print(State())
         //print("\n\n\n\n\n\n DATASETS \(dataSets.name)")
         //print("\n\n\n\n\n\n DATASETS \(data?.enumerate())")
         self.scoreName = name

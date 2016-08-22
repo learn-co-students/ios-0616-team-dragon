@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import SwiftSpinner
+import SnapKit
 
 class TransportationDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -37,7 +38,6 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
-        //currentLabel.textAlignment = NSTextAlignment.Center
         currentLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(15)
             make.top.equalTo(view).offset(66)
@@ -58,7 +58,6 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
-        //searchedLabel.textAlignment = NSTextAlignment.Center
         searchedLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(75)
             make.top.equalTo(view).offset(66)
@@ -68,21 +67,18 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func ratingTextView() {
-        
         let ratingLabel = UILabel()
-        
         view.addSubview(ratingLabel)
-        
         ratingLabel.text = "9.5"
-        
         ratingLabel.backgroundColor = UIColor(netHex:0x000000)
-        ratingLabel.textColor = UIColor.redColor()
+        ratingLabel.textColor = UIColor.greenColor()
+        ratingLabel.layer.borderWidth = 3
+        ratingLabel.layer.borderColor = UIColor.greenColor().CGColor
         ratingLabel.font = UIFont(name:"Futura", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
         ratingLabel.layer.masksToBounds = true
         ratingLabel.layer.cornerRadius = 50
         ratingLabel.textAlignment = NSTextAlignment.Center
-        
         ratingLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(20)
             make.top.equalTo(view).offset(110)
@@ -92,21 +88,18 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func comparisonTextView() {
-        
         let comparisonLabel = UILabel()
-        
         view.addSubview(comparisonLabel)
-        
         comparisonLabel.text = "9.5"
-        
         comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
-        comparisonLabel.textColor = UIColor.redColor()
+        comparisonLabel.textColor = UIColor.greenColor()
+        comparisonLabel.layer.borderWidth = 3
+        comparisonLabel.layer.borderColor = UIColor.greenColor().CGColor
         comparisonLabel.font = UIFont(name:"Futura", size:33)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.layer.masksToBounds = true
         comparisonLabel.layer.cornerRadius = 50
         comparisonLabel.textAlignment = NSTextAlignment.Center
-        
         comparisonLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(-20)
             make.top.equalTo(view).offset(110)
@@ -116,13 +109,11 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func resultsTableView() {
-        
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.frame.origin.y += 190
-        //tableView.backgroundColor = UIColor(patternImage: UIImage(named:"red.png")!)
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
     
@@ -136,13 +127,9 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.myLabel1.text = myArray[indexPath.row]
-        cell.myLabel1.font = UIFont(name:"Univers Ultra Condensed", size:21)
-        cell.myLabel1.textColor = UIColor(netHex:0x000000)
-        
         //cell.myLabel2.text = "\(indexPath.row + 1)"
         cell.myButton1.addTarget(self, action: #selector(TransportationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(TransportationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        
         
         if(indexPath.row % 2 == 0)
         {
@@ -175,7 +162,12 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         
         self.view.addSubview(transportNavBar)
         
-        transportNavBar.barTintColor = UIColor(netHex:0xFF0300)
+        transportNavBar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(view).offset(20)
+            make.width.equalTo(view)
+        }
+        
+        transportNavBar.barTintColor = UIColor(netHex:0x00C963)
         let navItem = UINavigationItem(title: "Transportation")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor(netHex:0x000000)
