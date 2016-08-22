@@ -18,7 +18,17 @@ struct ScoreModel {
     var demographicScore: Int
     var educationScore: Int
     
+    //var dataSets = DataSetValues() 
+    
+    //var data = City().dataSets
+    //let coreDataHelper = CoreDataHelper()
+    
+    
     init(name: String, dataPoints: [String: String]) {
+        //let stateCore = State()
+        print(State())
+        //print("\n\n\n\n\n\n DATASETS \(dataSets.name)")
+        //print("\n\n\n\n\n\n DATASETS \(data?.enumerate())")
         self.scoreName = name
         self.dataPoints = dataPoints
         self.score = 0
