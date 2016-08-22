@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class TableViewCell: UITableViewCell {
     
@@ -25,16 +26,31 @@ class TableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         myLabel1 = UILabel()
-        myLabel1.frame = CGRectMake(15, 16, 333, 30)
         myLabel1.textColor = UIColor.blackColor()
         contentView.addSubview(myLabel1)
-        myLabel1.textAlignment = .Center
+        myLabel1.font = UIFont(name:"AppleSDGothicNeo-SemiBold", size:16)
+        //myLabel1.font = UIFont.systemFontOfSize(13.9)
+        myLabel1.textColor = UIColor(netHex:0x000000)
+        myLabel1.textAlignment = NSTextAlignment.Center
+        myLabel1.snp_makeConstraints { (make) -> Void in
+            make.center.equalTo(myLabel1)
+            make.center.equalTo(contentView)//.offset(CGPointMake(0, -3))
+            make.width.equalTo(333)
+            make.height.equalTo(30)
+        }
         
         myLabel2 = UILabel()
         myLabel2.frame = CGRectMake(16, 16, 30, 30)
         myLabel2.font = UIFont.boldSystemFontOfSize(16.0)
         myLabel2.textColor = UIColor.blackColor()
         contentView.addSubview(myLabel2)
+        myLabel2.textAlignment = NSTextAlignment.Center
+        myLabel2.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(contentView).offset(15)
+            make.top.equalTo(contentView).offset(16)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
         
         myLabel3 = UILabel()
         myLabel3.frame = CGRectMake(333, 16, 150, 30)
@@ -45,16 +61,9 @@ class TableViewCell: UITableViewCell {
         
         
         myButton1 = UIButton()
-        //myButton1.frame = CGRectMake(10, 16, 30, 30)
         myButton1.setImage(UIImage(named: "ratingTarget.png"), forState: UIControlState.Normal)
         contentView.addSubview(myButton1)
         contentView.sendSubviewToBack(myButton1)
-        
-        myButton2 = UIButton()
-        //myButton2.frame = CGRectMake(375, 16, 30, 30)
-        myButton2.setImage(UIImage(named: "ratingTarget.png"), forState: UIControlState.Normal)
-        contentView.addSubview(myButton2)
-        
         myButton1.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(contentView).offset(55)
             make.top.equalTo(contentView).offset(16)
@@ -62,6 +71,9 @@ class TableViewCell: UITableViewCell {
             make.height.equalTo(30)
         }
         
+        myButton2 = UIButton()
+        myButton2.setImage(UIImage(named: "ratingTarget.png"), forState: UIControlState.Normal)
+        contentView.addSubview(myButton2)
         myButton2.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(contentView).offset(-55)
             make.top.equalTo(contentView).offset(16)
@@ -70,5 +82,3 @@ class TableViewCell: UITableViewCell {
         }
     }
 }
-
-
