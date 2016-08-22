@@ -54,7 +54,7 @@ class StatsViewController: UITableViewController {
         let points = self.store.scoreData?.getScoresDictionary()
         
         
-        if let key = points![detailsArray[indexPath.row]] {
+        if let key = points?[detailsArray[indexPath.row]] {
             let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:key)
             return cell
         }
