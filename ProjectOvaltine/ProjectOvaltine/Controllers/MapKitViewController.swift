@@ -130,7 +130,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 completionHandler(geo)
             }
         })
-        print(self.store.scoreData)
+        //print(self.store.scoreData)
     }
     
     func convertArrayDataToPoints(array: [AnyObject]) {
@@ -163,10 +163,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
 
+        let zipcode = "\(zipcode)" + " United States"
         
         
-        
-        if zipcode.characters.count == 5 {
+//        if zipcode.characters.count == 5 {
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if error != nil {
                 self!.presentViewController(self!.alert, animated: true, completion: nil)
@@ -175,20 +175,29 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
             } else {
                 
                 self!.placemark = (placemarks?.last)!
+                
+                print(self!.placemark)
                 CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
                     print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
                     print("City name: \(city?.name!)")
                     print("County name: \(county?.name!)")
-                    print("State abbreviation: \(state?.abbreviation)")
-                    print("State cities count: \(state?.cities?.count)")
-                    print("State counties count: \(state?.counties?.count)")
-                    print("State dataSets count: \(state?.dataSets?.count)")
-                    print("US: \(us?.name)")
-                    print("US states count: \(us?.states?.count)")
-                    print("US dataSets count: \(us?.dataSets?.count)")
-                })
 
-                self!.store.zipCode = (self!.placemark!.postalCode)!
+                    print("State abbreviation: \(state?.abbreviation!)")
+                    print("PRINTING DATA SET NAMES AND TYPES")
+                    for dataSet in (county?.dataSets!)! {
+                        print("Dataset name: \(dataSet.name!), dataset type: \(dataSet.type!)")
+                    }
+                
+                   
+                })
+                
+                SwiftSpinner.showWithDuration(2.0, title: "Ovaltine")
+                SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+                
+                print(self!.placemark?.postalCode)
+                
+                if let placemarkZipcode = self!.placemark?.postalCode {
+                    self!.store.zipCode = placemarkZipcode}
                 self!.populateCoordinateArray{[weak self] (someArray) in
                     self!.boundary.removeAll()
                     
@@ -223,16 +232,16 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 self!.zipLocation = self!.placemark?.location
                 
-                    SwiftSpinner.showWithDuration(0.9, title: "Ovaltine")
+                SwiftSpinner.showWithDuration(3.0, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
             
             }
             
             
             })
-        } else {
-            self.presentViewController(self.alert, animated: true, completion: {self.mapView.addOverlays(self.overlayArray)})
-        }
+//        } else {
+//            self.presentViewController(self.alert, animated: true, completion: {self.mapView.addOverlays(self.overlayArray)})
+//        }
         
     }
     

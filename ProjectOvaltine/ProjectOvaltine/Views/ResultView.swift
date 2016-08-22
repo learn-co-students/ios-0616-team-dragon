@@ -6,6 +6,8 @@ class ResultView: UIView {
     
     let store = DataStore.sharedInstance
     
+    let states = [State]()
+    
     private var graphView: GaugeView!
     
     var heightLayoutConstraint = NSLayoutConstraint()
@@ -93,7 +95,7 @@ class ResultView: UIView {
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Left
         self.locationNameLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:20)
-        self.locationNameLabel.text = "New York County"
+        self.locationNameLabel.text = "NYC"
         
         self.scoreLabel.frame = CGRect(x:self.width/2.15, y: 165, width: 150, height: 40)
         self.scoreLabel.textColor = UIColor.blackColor()
