@@ -55,6 +55,7 @@ class ResultView: UIView {
         self.init(coder: NSCoder.empty())
         self.scoreLabel.text = score
         self.graphPercentage = percentage
+        self.setupView()
     }
     
     
@@ -113,6 +114,25 @@ class ResultView: UIView {
     }
     
     func setupView() {
+        self.scoreLabel.snp_makeConstraints { (make) -> Void in
+           
+            make.centerX.equalTo(self)
+            make.top.equalTo(self).inset(20)
+            //make.centerY.equalTo(self).offset(-20)
+        }
+        
+         self.scoreLabel.snp_makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self)
+            make.centerY.equalTo(self)
+            //make.centerY.equalTo(self).offset(30)
+        }
+        
+         self.graphView.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(120)
+            make.centerX.equalTo(self)
+            make.centerY.equalTo(self)
+        }
+
     }
     
     private func randomColor() -> UIColor {
