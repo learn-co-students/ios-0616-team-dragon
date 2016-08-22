@@ -36,19 +36,35 @@ class SearchResultCell: UITableViewCell {
         self.contentView.addSubview(self.scoreLabel)
         self.contentView.addSubview(self.resultLocationNameLabel)
         self.contentView.addSubview(self.graphView)
+        self.setupView()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        //self.scoreLabel.sizeThatFits(CGSize(width: 80, height: 35))
         self.scoreLabel.frame = CGRect(x: 20, y: 15, width: 80, height: 35)
         self.resultLocationNameLabel.frame = CGRect(x: 180, y: 15, width:180, height: 30)
     }
     
     
     func createGraph() {
-        self.graphView = GaugeView(frame: CGRect(x:self.contentView.frame.width/1.5, y:10, width: self.contentView.frame.width, height:self.contentView.frame.height))
+        self.graphView = GaugeView(frame: CGRect(x:self.contentView.frame.width/1.8, y:10, width: self.contentView.frame.width, height:self.contentView.frame.height))
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
+    }
+    
+    func setupView() {
+//        self.scoreLabel.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(200)
+//            make.center.equalTo(self)
+//        }
+//        self.resultDescription.snp_makeConstraints { (make) -> Void in
+//            make.center.equalTo(self)
+//        }
+//        
+//        self.graphView.snp_makeConstraints { (make) -> Void in
+//            make.trailing.equalTo(self)
+//        }
     }
     
     func createLabels() {
