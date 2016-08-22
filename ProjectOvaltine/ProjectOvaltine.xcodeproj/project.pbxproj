@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E1DCF8B1D663605003B2B25 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF8A1D663605003B2B25 /* Constants.swift */; };
 		8E1DCF961D67C35A003B2B25 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF941D67C35A003B2B25 /* City.swift */; };
 		8E1DCF971D67C35A003B2B25 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF951D67C35A003B2B25 /* City+CoreDataProperties.swift */; };
 		8E74E6F01D65EC1C0056E866 /* CensusAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DB1D65EC1C0056E866 /* CensusAPIClient.swift */; };
@@ -45,6 +44,8 @@
 		AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */; };
 		AF588A641D5CB78400F228C7 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A631D5CB78400F228C7 /* AppFont.swift */; };
 		AF588A6E1D5CC11D00F228C7 /* ResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */; };
+		AF68B8611D6B39C100C32B8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF68B8601D6B39C100C32B8C /* Constants.swift */; };
+		AF68B8631D6B46B500C32B8C /* TestCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF68B8621D6B46B500C32B8C /* TestCore.swift */; };
 		AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DF991D53D30300DDF173 /* AppDelegate.swift */; };
 		AF75DFA11D53D30400DDF173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA01D53D30400DDF173 /* Assets.xcassets */; };
 		AF75DFA41D53D30400DDF173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF75DFA21D53D30400DDF173 /* LaunchScreen.storyboard */; };
@@ -74,7 +75,6 @@
 
 /* Begin PBXFileReference section */
 		60C2129E72DDDDF5234858A7 /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
-		8E1DCF8A1D663605003B2B25 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E1DCF901D67B3B6003B2B25 /* OperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationQueue.swift; sourceTree = "<group>"; };
 		8E1DCF941D67C35A003B2B25 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = CoreData/City.swift; sourceTree = "<group>"; };
 		8E1DCF951D67C35A003B2B25 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "City+CoreDataProperties.swift"; path = "CoreData/City+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -113,6 +113,8 @@
 		AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSCoderExtension.swift; path = Utilities/NSCoderExtension.swift; sourceTree = "<group>"; };
 		AF588A631D5CB78400F228C7 /* AppFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		AF588A6D1D5CC11D00F228C7 /* ResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultTableView.swift; path = Views/ResultTableView.swift; sourceTree = "<group>"; };
+		AF68B8601D6B39C100C32B8C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
+		AF68B8621D6B46B500C32B8C /* TestCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCore.swift; sourceTree = "<group>"; };
 		AF75DF961D53D30300DDF173 /* ProjectOvaltine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOvaltine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF75DF991D53D30300DDF173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF75DFA01D53D30400DDF173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -310,7 +312,7 @@
 		AFE45FFF1D551B2900FBE63B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				8E1DCF8A1D663605003B2B25 /* Constants.swift */,
+				AF68B8601D6B39C100C32B8C /* Constants.swift */,
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
 				AFE460061D551B7900FBE63B /* GovDataAPIClient.swift */,
 				AFE460071D551B7900FBE63B /* LaborStatisticsAPIClient.swift */,
@@ -332,6 +334,7 @@
 				AF1FC7C71D5B72C0004973A2 /* ScoreModel.swift */,
 				AF1FC7D61D5B8D78004973A2 /* LocationData.swift */,
 				AF588A631D5CB78400F228C7 /* AppFont.swift */,
+				AF68B8621D6B46B500C32B8C /* TestCore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -372,7 +375,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF75DFA81D53D30400DDF173 /* Build configuration list for PBXNativeTarget "ProjectOvaltine" */;
 			buildPhases = (
-				EC336458BA9BA666C7FD7DBC /* 📦 Check Pods Manifest.lock */,
+				EC336458BA9BA666C7FD7DBC /* [CP] Check Pods Manifest.lock */,
 				EFC093FF674B59495424E8F2 /* [CP] Check Pods Manifest.lock */,
 				9B885B32EF5A44A6D02174B3 /* [CP] Check Pods Manifest.lock */,
 				AF75DF921D53D30300DDF173 /* Sources */,
@@ -515,14 +518,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		EC336458BA9BA666C7FD7DBC /* 📦 Check Pods Manifest.lock */ = {
+		EC336458BA9BA666C7FD7DBC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +581,7 @@
 				8E74E6FB1D65EC1C0056E866 /* DataSet.swift in Sources */,
 				8E1DCF961D67C35A003B2B25 /* City.swift in Sources */,
 				AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */,
+				AF68B8631D6B46B500C32B8C /* TestCore.swift in Sources */,
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
 				AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */,
 				8E1DCF971D67C35A003B2B25 /* City+CoreDataProperties.swift in Sources */,
@@ -587,6 +591,7 @@
 				AF1FC7C31D5B6F8C004973A2 /* ResultView.swift in Sources */,
 				AF1FC7C81D5B72C0004973A2 /* ScoreModel.swift in Sources */,
 				AF24B1C91D5987150031FEEB /* USAJobsTests.swift in Sources */,
+				AF68B8611D6B39C100C32B8C /* Constants.swift in Sources */,
 				AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */,
 				8E74E7001D65EC1C0056E866 /* State.swift in Sources */,
 				8E74E6F01D65EC1C0056E866 /* CensusAPIClient.swift in Sources */,
@@ -603,7 +608,6 @@
 				AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */,
 				AF4E94791D660E1F00515266 /* TestView.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
-				8E1DCF8B1D663605003B2B25 /* Constants.swift in Sources */,
 				8E74E6F51D65EC1C0056E866 /* (null) in Sources */,
 				AFDA12451D65134300A11FCA /* ErrorView.swift in Sources */,
 				BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */,

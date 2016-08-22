@@ -15,6 +15,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     var window: UIWindow?
     
+    var placemark: CLPlacemark?
+    
     //Data store instances
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient()
@@ -160,7 +162,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
-        var placemark: CLPlacemark!
+
+        
+        
         
         if zipcode.characters.count == 5 {
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
@@ -172,8 +176,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 print(placemarks)
                 
-                placemark = (placemarks?.last)!
-                CensusAPIClient().requestDataForLocation(placemark: placemark, completion: { (city, county, state, us) in
+                self!.placemark = (placemarks?.last)!
+                CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
                     print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
                     print("City name: \(city?.name)")
                     print("County name: \(county?.name!)")
@@ -184,7 +188,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     }
                     
                 })
-                self!.store.zipCode = (placemark.postalCode)!
+                self!.store.zipCode = (self!.placemark!.postalCode)!
                 self!.populateCoordinateArray{[weak self] (someArray) in
                     self!.boundary.removeAll()
                     
@@ -210,14 +214,14 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.zoomToPolygon(self!.polygon, animated: true)
                     
                     self!.mapView.removeAnnotation(self!.anotation)
-                    self!.anotation.coordinate = (placemark?.location?.coordinate)!
-                    self!.anotation.title = placemark?.locality
-                    self!.anotation.subtitle = "\(placemark!.subAdministrativeArea!) County"
+                    self!.anotation.coordinate = (self!.placemark?.location?.coordinate)!
+                    self!.anotation.title = self!.placemark?.locality
+                    self!.anotation.subtitle = "\(self!.placemark!.subAdministrativeArea!) County"
                     self!.mapView.addAnnotation(self!.anotation)
                     self!.mapView.selectAnnotation(self!.anotation, animated: true)
                 }
                 
-                self!.zipLocation = placemark?.location
+                self!.zipLocation = self!.placemark?.location
                 
                     SwiftSpinner.showWithDuration(0.9, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
