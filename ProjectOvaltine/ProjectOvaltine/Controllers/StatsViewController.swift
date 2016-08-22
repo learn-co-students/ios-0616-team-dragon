@@ -18,6 +18,7 @@ class StatsViewController: UITableViewController {
         super.viewDidLoad()
         self.navBar()
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
+        
     }
     
     

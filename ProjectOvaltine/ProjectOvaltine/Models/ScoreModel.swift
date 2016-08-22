@@ -9,7 +9,7 @@
 import Foundation
 
 struct ScoreModel {
-    
+
     var scoreName: String
     var score: Int
     var dataPoints: [String: String]
@@ -36,7 +36,7 @@ struct ScoreModel {
         self.transitScore = 0
         self.demographicScore = 0
         self.educationScore = 0
-        print(self.getScoresDictionary())
+
     }
     
     mutating func getEconomicScore() -> String {

@@ -13,7 +13,7 @@ import Foundation
 import CoreData
 
 extension State {
-
+    
     @NSManaged var code: String?
     @NSManaged var name: String?
     @NSManaged var abbreviation: String?

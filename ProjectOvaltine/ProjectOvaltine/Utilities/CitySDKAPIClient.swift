@@ -13,9 +13,9 @@ import SwiftyJSON
 class CitySDKAPIClient {
     //static let sharedInstance = CitySDKAPIClient()
     // MARK: Path Router
-    enum URLRouter {
-        static let baseURL: String = Constants.CITYSDK_URL
-    }
+//    enum URLRouter {
+//        static let baseURL: String = Constants.CITYSDK_URL
+//    }
     let baseURL: String = Constants.CITYSDK_URL
     let method: String = "POST"
     let URLPath: String = "/"
@@ -25,7 +25,7 @@ class CitySDKAPIClient {
     
     // MARK: Request
     func sendAPIRequest(params: NSDictionary, completion: ([CitySDKData]) -> ()) {
-        guard let url = NSURL(string:URLRouter.baseURL)
+        guard let url = NSURL(string:baseURL)
             else {
                 print("ERROR: Unable to get url path for API call")
                 return
@@ -44,7 +44,6 @@ class CitySDKAPIClient {
             case .Success(let responseObject):
                 var cityDataPoints: [CitySDKData] = []
                 let response = responseObject as! NSDictionary
-                print(response)
                 
                 if let feat = response["features"] as? NSArray {
                     let jsonProperties = JSON(feat[0]["properties"] as! NSDictionary)
@@ -63,7 +62,7 @@ class CitySDKAPIClient {
                                     let otherData = CitySDKData(json: jsonProperties, geoJSON: deeperCoords)
                                     cityDataPoints.append(otherData)
                                 } else {
-                                    print("error!")}
+                                    print("ERROR - SOMETHING IS WRONG WITH THE CALL TO THE ARRAYS!")}
                             }
                             
                         }
@@ -71,7 +70,7 @@ class CitySDKAPIClient {
                     completion(cityDataPoints)
                 }
             default:
-                print("ERROR")
+                print("ERROR - CITYSDK CANNOT BE REACHED")
             }
         }
     }

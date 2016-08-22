@@ -130,7 +130,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 completionHandler(geo)
             }
         })
-        print(self.store.scoreData)
+        //print(self.store.scoreData)
     }
     
     func convertArrayDataToPoints(array: [AnyObject]) {
@@ -186,8 +186,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     for dataSet in (county?.dataSets!)! {
                         print("Dataset name: \(dataSet.name!), dataset type: \(dataSet.type!)")
                     }
-                    
+                
+                   
                 })
+                
+                SwiftSpinner.showWithDuration(2.0, title: "Ovaltine")
+                SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+                
                 self!.store.zipCode = (self!.placemark!.postalCode)!
                 self!.populateCoordinateArray{[weak self] (someArray) in
                     self!.boundary.removeAll()
@@ -223,7 +228,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 self!.zipLocation = self!.placemark?.location
                 
-                    SwiftSpinner.showWithDuration(0.9, title: "Ovaltine")
+                SwiftSpinner.showWithDuration(3.0, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
             
             }
