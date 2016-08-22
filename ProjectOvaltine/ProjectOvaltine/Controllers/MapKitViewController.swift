@@ -163,10 +163,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
 
+        let zipcode = "\(zipcode)" + " United States"
         
         
-        
-        if zipcode.characters.count == 5 {
+//        if zipcode.characters.count == 5 {
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if error != nil {
                 self!.presentViewController(self!.alert, animated: true, completion: nil)
@@ -239,9 +239,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
             
             
             })
-        } else {
-            self.presentViewController(self.alert, animated: true, completion: {self.mapView.addOverlays(self.overlayArray)})
-        }
+//        } else {
+//            self.presentViewController(self.alert, animated: true, completion: {self.mapView.addOverlays(self.overlayArray)})
+//        }
         
     }
     
