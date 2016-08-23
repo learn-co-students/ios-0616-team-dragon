@@ -144,7 +144,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "menu-2"),
-                                forState: UIControlState.Normal)
+                        forState: UIControlState.Normal)
         button.addTarget(self,
                          action: #selector(settingButtonPushed),
                          forControlEvents: UIControlEvents.TouchUpInside)

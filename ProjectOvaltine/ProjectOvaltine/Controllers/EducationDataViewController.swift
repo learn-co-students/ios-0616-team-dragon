@@ -19,7 +19,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let educationNavBar = NavBar().setup()
     let navItem = UINavigationItem(title: "Education")
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
@@ -152,10 +152,10 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         self.educationNavBar.alpha = 0.6
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "menu-2"),
-                             forState: UIControlState.Normal)
+                        forState: UIControlState.Normal)
         
         button.addTarget(self, action: #selector(settingButtonPushed),
-                              forControlEvents: UIControlEvents.TouchUpInside)
+                         forControlEvents: UIControlEvents.TouchUpInside)
         
         button.frame = CGRectMake(3, 3, 25, 25)
         let barButton = UIBarButtonItem(customView: button)
