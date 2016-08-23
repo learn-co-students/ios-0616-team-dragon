@@ -29,14 +29,9 @@ class StatsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
-
-        //self.navBar()
         self.comparisonData = self.store.comparisonData
-
         self.setupNavBar()
-
         self.setupConstraints()
-       // print(comparisonData)
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
