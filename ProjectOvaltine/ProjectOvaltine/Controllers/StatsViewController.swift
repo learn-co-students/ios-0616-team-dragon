@@ -10,15 +10,19 @@ import UIKit
 import SwiftSpinner
 
 class StatsViewController: UITableViewController {
+    
     var comparisonData : ScoreModel?
+    
     var detailsArray = ["Economic","Education","Transit", "Demographic"]
+    var statsNavBar: UINavigationBar = UINavigationBar()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
         self.navBar()
-        print(self.comparisonData)
+        self.setupConstraints()
     }
     
     
@@ -26,18 +30,23 @@ class StatsViewController: UITableViewController {
         let headerView = self.tableView.tableHeaderView as! ResultView
         headerView.scrollViewDidScroll(scrollView)
     }
- 
+    
     func statsTableView() {
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
         self.view.addSubview(tableView)
         self.view.sendSubviewToBack(tableView)
+        
         tableView.frame.origin.y += 366
+        
+        self.edgesForExtendedLayout = .None
         
     }
     
-   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 70
     }
     
@@ -46,7 +55,7 @@ class StatsViewController: UITableViewController {
         return 1
     }
     
-   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.detailsArray.count
     }
     
@@ -54,7 +63,7 @@ class StatsViewController: UITableViewController {
         let points = self.comparisonData?.getScoresDictionary()
         
         print(points)
-                
+        
         if let key = points?[detailsArray[indexPath.row]] {
             let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:key)
             return cell
@@ -71,45 +80,20 @@ class StatsViewController: UITableViewController {
     }
     
     
-//    func navBar() {
-//        let statsNavBar = NavBar().setup()
-//        self.view.addSubview(statsNavBar)
-//        
-//        let navItem = UINavigationItem(title: "Stats")
-//        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-//        //homeItem.tintColor = UIColor.blueColor()
-//        
-//        navItem.leftBarButtonItem = homeItem
-//        statsNavBar.setItems([navItem], animated: false)
-//        
-//        let button: UIButton = UIButton(type: .Custom)
-//        button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
-//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
-//        button.frame = CGRectMake(3, 3, 25, 25)
-//        
-//        let barButton = UIBarButtonItem(customView: button)
-//        self.navigationItem.rightBarButtonItem = barButton
-//        navItem.rightBarButtonItem = barButton
-//    }
-//    
-    
     func navBar() {
-        let statsNavBar = NavBar().setup()
+        self.statsNavBar = NavBar().setup()
+        
         self.view.addSubview(statsNavBar)
         
-        statsNavBar.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(view).offset(20)
-            make.width.equalTo(view)
-        }
         
-       
         let navItem = UINavigationItem(title: "Statistics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         
         
         navItem.leftBarButtonItem = homeItem
-        statsNavBar.setItems([navItem], animated: false)
-        statsNavBar.alpha = 0.6
+        
+        self.statsNavBar.setItems([navItem], animated: false)
+        self.statsNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
@@ -123,6 +107,14 @@ class StatsViewController: UITableViewController {
     
     func dismissView() {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func setupConstraints() {
+        self.statsNavBar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(view).offset(20)
+            make.width.equalTo(view)
+        }
+        
     }
     
     func settingButtonPushed() {

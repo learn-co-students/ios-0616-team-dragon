@@ -146,7 +146,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
             make.width.equalTo(view)
         }
         
-       
+        
         let navItem = UINavigationItem(title: "Transportation")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         
