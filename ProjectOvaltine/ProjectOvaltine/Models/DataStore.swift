@@ -16,7 +16,8 @@ class DataStore {
     
     var cityDataPoints:[CitySDKData] = []
     
-    var scoreData: ScoreModel?
+    var USData : ScoreModel?
+    var CityScoreData : ScoreModel?
 
     let levelOfLocationDetails = "county"
     var zipCode = "00000"

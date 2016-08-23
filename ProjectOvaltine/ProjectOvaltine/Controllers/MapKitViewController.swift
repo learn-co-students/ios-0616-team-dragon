@@ -52,6 +52,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     var anotation = MKPointAnnotation()
     
+    
+    
     //Init searchBar
     let searchController = UISearchBar.init()
     
@@ -103,9 +105,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         anView?.rightCalloutAccessoryView = UIButton(type: UIButtonType.DetailDisclosure)
         anView!.backgroundColor = UIColor.clearColor()
         anView!.canShowCallout = true
-        let testImage = UIImage(named: "annotation_test")
+        let testImage = UIImage(named: "Black_Circle")
         
-        let scaledImage = UIImage.init(CGImage: (testImage?.CGImage)!, scale: 7, orientation: UIImageOrientation.Up)
+        let scaledImage = UIImage.init(CGImage: (testImage?.CGImage)!, scale: 35, orientation: UIImageOrientation.Up)
         
         anView!.image = scaledImage
         return anView
@@ -178,17 +180,35 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 print(self!.placemark)
                 CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
-                    print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
-                    print("City name: \(city?.name!)")
-                    print("County name: \(county?.name!)")
-
-                    print("State abbreviation: \(state?.abbreviation!)")
-                    print("PRINTING DATA SET NAMES AND TYPES")
-                    for dataSet in (county?.dataSets!)! {
-                        print("Dataset name: \(dataSet.name!), dataset type: \(dataSet.type!)")
+                    
+                    var USAbsoluteDictionary = [String : String]()
+                    var USPercentDictionary = [String: String]()
+                    
+                    var cityAbsoluteDictionary = [String : String]()
+                    var cityPercentDictionary = [String : String]()
+                    
+                   // print(cityAbsoluteDictionary)
+                    
+                    for USDataSet in (us?.dataSets!)! {
+                        for USDataSetTwo in (USDataSet.values)! {
+                            
+                            USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
+                            USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
+                        }
                     }
-                
-                   
+                    
+                    for cityDataSet in (city?.dataSets!)! {
+                        for cityDataSet2 in (cityDataSet.values)!{
+                            cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
+                            cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
+                        }
+                    }
+                    
+                    var USScore = ScoreModel(originDataPoints: USAbsoluteDictionary, comparisonDataPoints: cityAbsoluteDictionary)
+                    
+                    USScore.getEconomicScore()
+                    
+                    
                 })
                 
                 SwiftSpinner.showWithDuration(2.0, title: "Ovaltine")

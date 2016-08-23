@@ -48,10 +48,14 @@ class StatsViewController: UITableViewController {
     }
     
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.detailsArray.count
+
+        //return self.detailsArray.count
+
+        return 4
+
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let points = self.store.scoreData?.getScoresDictionary()
+        let points = self.store.CityScoreData?.getScoresDictionary()
         
         
         if let key = points?[detailsArray[indexPath.row]] {
