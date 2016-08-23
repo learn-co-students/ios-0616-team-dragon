@@ -17,18 +17,27 @@ class StatsViewController: UITableViewController {
     
     var detailsArray = ["Economic","Education","Transit", "Demographic"]
     var statsNavBar: UINavigationBar = UINavigationBar()
+
     var store = DataStore.sharedInstance
+    let navItem = UINavigationItem(title: "Statistics")
+    let homeItem = UIBarButtonItem.init(title: "Home",
+                                        style: .Done,
+                                        target: nil,
+                                        action: #selector(dismissView))
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
-        self.navBar()
+
+        //self.navBar()
         self.comparisonData = self.store.comparisonData
+
+        self.setupNavBar()
+
         self.setupConstraints()
        // print(comparisonData)
     }
-    
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         let headerView = self.tableView.tableHeaderView as! ResultView
@@ -36,24 +45,19 @@ class StatsViewController: UITableViewController {
     }
     
     func statsTableView() {
-        let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
-        
+        let tableView = UITableView(frame: view.bounds,
+                                    style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
-        
         self.view.addSubview(tableView)
         self.view.sendSubviewToBack(tableView)
-        
         tableView.frame.origin.y += 366
-        
         self.edgesForExtendedLayout = .None
-        
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 70
     }
-    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -75,40 +79,37 @@ class StatsViewController: UITableViewController {
 //        print(economicData)
         
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score: self.dataArray[indexPath.row])
+
         return cell
         
         
     }
-    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(self.detailsArray[indexPath.row])
     }
     
     
-    func navBar() {
+    func setupNavBar() {
+        
         self.statsNavBar = NavBar().setup()
+        self.view.addSubview(self.statsNavBar)
+        self.navItem.leftBarButtonItem = self.homeItem
+        self.statsNavBar.setItems([self.navItem],
+                                  animated: false)
         
-        self.view.addSubview(statsNavBar)
-        
-        
-        let navItem = UINavigationItem(title: "Statistics")
-        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        
-        
-        navItem.leftBarButtonItem = homeItem
-        
-        self.statsNavBar.setItems([navItem], animated: false)
         self.statsNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+        button.setImage(UIImage(named: "menu-2"),
+                        forState: UIControlState.Normal)
+        button.addTarget(self, action: #selector(settingButtonPushed),
+                         forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
-        navItem.rightBarButtonItem = barButton
+        self.navItem.rightBarButtonItem = barButton
     }
     
     func dismissView() {
@@ -120,7 +121,6 @@ class StatsViewController: UITableViewController {
             make.top.equalTo(view).offset(20)
             make.width.equalTo(view)
         }
-        
     }
     
     func settingButtonPushed() {

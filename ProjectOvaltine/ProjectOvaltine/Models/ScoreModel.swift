@@ -40,6 +40,7 @@ struct ScoreModel {
         let origin = Double(self.originDataPoints!["Median household income"]!)
         let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
     
+
         
         //        Subtracts the comparison level with the origin level
         //            Should take the lowever level, for instance, and subtract by the higher level
@@ -49,18 +50,15 @@ struct ScoreModel {
         //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
         let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
         
-       
-        
-        
         
         return String(percentageChange)
+        //return "Economics"
     }
     
     mutating func getTransitScore() -> String {
         
-        let origin = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
-        let comparison = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
-        
+        //let origin = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
+       // let comparison = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
         
         return ""
     }
@@ -68,6 +66,7 @@ struct ScoreModel {
     mutating func getEducationScore() -> String {
         
         //Origin data points
+
         let originNoSchool = Double(self.originDataPoints!["No schooling completed"]!)
         let originHighSchool = Double(self.originDataPoints!["High school diploma"]!)
         let originGED = Double(self.originDataPoints!["GED or alternative credential"]!)

@@ -68,7 +68,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         super.viewDidLoad()
         self.drawInMapView()
         self.searchBar()
-        
         centerMapOnLocation(self.initialLocation)
         self.alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
     }
@@ -113,9 +112,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         anView!.backgroundColor = UIColor.clearColor()
         anView!.canShowCallout = true
         let testImage = UIImage(named: "Black_Circle")
-        
         let scaledImage = UIImage.init(CGImage: (testImage?.CGImage)!, scale: 35, orientation: UIImageOrientation.Up)
-        
         anView!.image = scaledImage
         return anView
     }
@@ -123,7 +120,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
         if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
-            
             
             let detailVC = TabBarController()
             detailVC.scoreData = self.store.comparisonData
@@ -134,9 +130,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     
     func populateCoordinateArray(completionHandler: (NSArray) -> ()){
-        
         self.store.getCitySDKData({
-            
             if let geo = self.store.cityDataPoints.first?.coordinates {
                 completionHandler(geo)
             }
@@ -144,12 +138,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func convertArrayDataToPoints(array: [AnyObject]) {
-        
         let longCoord = array[0] as! Double
         let latCoord = array[1] as! Double
         let point = CLLocationCoordinate2D(latitude: latCoord, longitude: longCoord)
         boundary.append(point)
-        
     }
     
     
@@ -162,20 +154,15 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        
         self.getLocationFromZipcode(self.searchController.text!)
         self.view.endEditing(true)
-        
-        
-        
     }
     
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
         
+        
         let zipcode = "\(zipcode)" + " United States"
-        
-        
         
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if error != nil {
@@ -187,9 +174,16 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 self!.placemark = (placemarks?.last)!
                 
                 print(self!.placemark)
-              
+                
                 CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
                     
+                    for USDataSet in (us?.dataSets!)! {
+                        for USDataSetTwo in (USDataSet.values)! {
+                            
+                            self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
+                            self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
+                        }
+                    }
                     
                     for USDataSet in (us?.dataSets!)! {
                         for USDataSetTwo in (USDataSet.values)! {
@@ -224,12 +218,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     
                 })
                 
-                
-                
                 SwiftSpinner.showWithDuration(2.0, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
                 
-       
+                
                 
                 if let placemarkZipcode = self!.placemark?.postalCode {
                     self!.store.zipCode = placemarkZipcode}
@@ -240,23 +232,16 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         self!.convertArrayDataToPoints(someArray[i] as! [AnyObject])
                     }
                     
-                    
-                    
                     self!.mapView.removeOverlays(self!.overlayArray)
+                    
                     if self!.overlayArray.count != 0 {
-                        self!.overlayArray.removeAll()}
-                    
-                    
+                        self!.overlayArray.removeAll()
+                    }
                     self!.polygon = MKPolygon(coordinates: &self!.boundary, count: self!.boundary.count)
-                    
                     self!.polygon.title = "county_borders"
-                    
                     self!.overlayArray.append(self!.polygon)
-                    
                     self!.mapView.addOverlays(self!.overlayArray)
-                    
                     self!.zoomToPolygon(self!.polygon, animated: true)
-                    
                     self!.mapView.removeAnnotation(self!.anotation)
                     self!.anotation.coordinate = (self!.placemark?.location?.coordinate)!
                     self!.anotation.title = self!.placemark?.locality
@@ -264,23 +249,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.mapView.addAnnotation(self!.anotation)
                     self!.mapView.selectAnnotation(self!.anotation, animated: true)
                 }
-                
                 self!.zipLocation = self!.placemark?.location
-                
                 SwiftSpinner.showWithDuration(3.0, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-                
-                
-                
             }
-            
-            
-            
             })
         
     }
-    
-    
     
     func searchBar() {
         self.searchController.placeholder = "Enter Zipcode"

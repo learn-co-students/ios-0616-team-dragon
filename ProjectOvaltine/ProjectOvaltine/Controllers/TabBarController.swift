@@ -9,7 +9,7 @@
 import UIKit
 import SwiftSpinner
 
-class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigable {
+class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     var scoreData: ScoreModel?
     
