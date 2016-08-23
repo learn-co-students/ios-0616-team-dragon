@@ -43,8 +43,6 @@ class ComparisonCell: UITableViewCell {
         self.comparisonButton = UIButton()
         self.contentView.addSubview(self.originButton)
         self.contentView.addSubview(self.comparisonButton)
-        
-
     }
 }
 

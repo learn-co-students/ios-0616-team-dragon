@@ -110,7 +110,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = TableViewCell(style: UITableViewCellStyle.Default,
+        let cell = ComparisonCell(style: UITableViewCellStyle.Default,
                                  reuseIdentifier: "myIdentifier")
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)),

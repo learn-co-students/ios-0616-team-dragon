@@ -112,7 +112,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = TableViewCell(style: UITableViewCellStyle.Default,
+        let cell = ComparisonCell(style: UITableViewCellStyle.Default,
                                  reuseIdentifier: "myIdentifier")
         
         cell.myLabel1.text = myArray[indexPath.row]

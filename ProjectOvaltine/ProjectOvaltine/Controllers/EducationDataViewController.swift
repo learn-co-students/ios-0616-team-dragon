@@ -107,11 +107,11 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = ComparisonCell(style: UITableViewCellStyle.Default,
                                  reuseIdentifier: "myIdentifier")
-        cell.myLabel1.text = myArray[indexPath.row]
-        cell.myButton1.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)),
+        cell.comparisonLabel.text = myArray[indexPath.row]
+        cell.comparisonButton.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)),
                                  forControlEvents: UIControlEvents.TouchUpInside)
         
-        cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)),
+        cell.originButton.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)),
                                  forControlEvents: UIControlEvents.TouchUpInside)
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()

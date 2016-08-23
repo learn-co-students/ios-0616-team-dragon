@@ -47,7 +47,7 @@
 		AFE4AC741D6BEE6A00C81D86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4AC731D6BEE6A00C81D86 /* Constants.swift */; };
 		AFE4AC761D6C124800C81D86 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4AC751D6C124800C81D86 /* ViewConstants.swift */; };
 		AFE4AC781D6C9AC500C81D86 /* ResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4AC771D6C9AC500C81D86 /* ResultTableView.swift */; };
-		AFE644331D67503D00E85930 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE644321D67503D00E85930 /* TableViewCell.swift */; };
+		AFE644331D67503D00E85930 /* ComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE644321D67503D00E85930 /* ComparisonCell.swift */; };
 		AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */; };
 		AFE906A81D5E3D2600CEA2C9 /* FinanceDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A71D5E3D2600CEA2C9 /* FinanceDataViewController.swift */; };
 		AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A91D5E3D3D00CEA2C9 /* DemographicDataViewController.swift */; };
@@ -103,7 +103,7 @@
 		AFE4AC731D6BEE6A00C81D86 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFE4AC751D6C124800C81D86 /* ViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewConstants.swift; path = Views/ViewConstants.swift; sourceTree = "<group>"; };
 		AFE4AC771D6C9AC500C81D86 /* ResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableView.swift; sourceTree = "<group>"; };
-		AFE644321D67503D00E85930 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		AFE644321D67503D00E85930 /* ComparisonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparisonCell.swift; sourceTree = "<group>"; };
 		AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		AFE906A71D5E3D2600CEA2C9 /* FinanceDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinanceDataViewController.swift; path = Controllers/FinanceDataViewController.swift; sourceTree = "<group>"; };
 		AFE906A91D5E3D3D00CEA2C9 /* DemographicDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemographicDataViewController.swift; path = Controllers/DemographicDataViewController.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 		AF1FC7D51D5B8A58004973A2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				AFE644321D67503D00E85930 /* TableViewCell.swift */,
+				AFE644321D67503D00E85930 /* ComparisonCell.swift */,
 				AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */,
 			);
 			name = Cells;
@@ -516,7 +516,7 @@
 				AFE906B01D5E3F0500CEA2C9 /* SearchResultCell.swift in Sources */,
 				AF1FC7CA1D5B736F004973A2 /* TransportationDataViewController.swift in Sources */,
 				8E74E6FD1D65EC1C0056E866 /* DataSetValues.swift in Sources */,
-				AFE644331D67503D00E85930 /* TableViewCell.swift in Sources */,
+				AFE644331D67503D00E85930 /* ComparisonCell.swift in Sources */,
 				8E74E7021D65EC1C0056E866 /* US.swift in Sources */,
 				AFE906AC1D5E3D5900CEA2C9 /* EducationDataViewController.swift in Sources */,
 				AFE460161D551BE400FBE63B /* DataStore.swift in Sources */,
