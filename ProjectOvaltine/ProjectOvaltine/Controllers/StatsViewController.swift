@@ -11,21 +11,32 @@ import SwiftSpinner
 
 class StatsViewController: UITableViewController {
     
-    var comparisonData : ScoreModel?
+    var comparisonData: ScoreModel?
+    
+    var dataArray = [String]()
     
     var detailsArray = ["Economic","Education","Transit", "Demographic"]
     var statsNavBar: UINavigationBar = UINavigationBar()
+
+    var store = DataStore.sharedInstance
     let navItem = UINavigationItem(title: "Statistics")
     let homeItem = UIBarButtonItem.init(title: "Home",
                                         style: .Done,
                                         target: nil,
                                         action: #selector(dismissView))
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
+
+        //self.navBar()
+        self.comparisonData = self.store.comparisonData
+
         self.setupNavBar()
+
         self.setupConstraints()
+       // print(comparisonData)
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -57,20 +68,21 @@ class StatsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let points = self.comparisonData?.getScoresDictionary()
-        if let key = points?[detailsArray[indexPath.row]] {
-            let cell = SearchResultCell(style: UITableViewCellStyle.Default,
-                                        reuseIdentifier: "myIdentifier",
-                                        parameterDescription: detailsArray[indexPath.row],
-                                        description: "Description", score:key)
-            return cell
-        }
+       // let points = self.comparisonData?.getScoresArray()
         
-        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
-                                    reuseIdentifier: "myIdentifier",
-                                    parameterDescription: detailsArray[indexPath.row],
-                                    description: "Description", score:"90")
+        let economicData = self.comparisonData?.getEconomicScore()
+        let educationData = self.comparisonData?.getEducationScore()
+        
+        
+        self.dataArray = [String(economicData!), String(educationData!), String(0), String(0)]
+//        print(points)
+//        print(economicData)
+        
+        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score: self.dataArray[indexPath.row])
+
         return cell
+        
+        
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

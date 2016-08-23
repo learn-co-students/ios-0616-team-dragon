@@ -19,12 +19,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let educationNavBar = NavBar().setup()
     let navItem = UINavigationItem(title: "Education")
-    let homeItem = UIBarButtonItem.init(title: "Home",
-                                        style: .Done,
-                                        target: nil,
-                                        action: #selector(dismissView))
-    let button: UIButton = UIButton(type: .Custom)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
@@ -137,18 +132,23 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func setupNavBar() {
+        let homeItem = UIBarButtonItem.init(title: "Home",
+                                            style: .Done,
+                                            target: nil,
+                                            action: #selector(dismissView))
         self.view.addSubview(self.educationNavBar)
-        self.navItem.leftBarButtonItem = self.homeItem
+        self.navItem.leftBarButtonItem = homeItem
         self.educationNavBar.setItems([self.navItem],
                                       animated: false)
         self.educationNavBar.alpha = 0.6
-        self.button.setImage(UIImage(named: "menu-2"),
+        let button: UIButton = UIButton(type: .Custom)
+        button.setImage(UIImage(named: "menu-2"),
                              forState: UIControlState.Normal)
         
-        self.button.addTarget(self, action: #selector(settingButtonPushed),
+        button.addTarget(self, action: #selector(settingButtonPushed),
                               forControlEvents: UIControlEvents.TouchUpInside)
         
-        self.button.frame = CGRectMake(3, 3, 25, 25)
+        button.frame = CGRectMake(3, 3, 25, 25)
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
         self.navItem.rightBarButtonItem = barButton

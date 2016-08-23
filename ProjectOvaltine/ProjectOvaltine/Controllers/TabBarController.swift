@@ -11,6 +11,10 @@ import SwiftSpinner
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
+    var scoreData: ScoreModel?
+    
+    var scoreArray: [String]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -26,6 +30,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let demographicsTab: DemographicDataViewController! = DemographicDataViewController()
         
         statsTab.tabBarItem.title = "Statistics"
+        //statsTab.comparisonData = self.scoreData
         statsTab.tabBarItem.image = UIImage(named: "futures.png")
         financeTab.tabBarItem.title = "Finance"
         financeTab.tabBarItem.image = UIImage(named: "dollar-bill")
