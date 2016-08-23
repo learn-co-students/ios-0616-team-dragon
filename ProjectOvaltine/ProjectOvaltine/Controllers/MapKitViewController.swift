@@ -73,7 +73,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     override func viewDidAppear(animated: Bool) {
-       
+        
     }
     
     func drawInMapView(){
@@ -159,7 +159,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
-
+        
         let zipcode = "\(zipcode)" + " United States"
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if error != nil {
@@ -211,7 +211,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     for i in 0...someArray.count-1 {
                         self!.convertArrayDataToPoints(someArray[i] as! [AnyObject])
                     }
-            
+                    
                     self!.mapView.removeOverlays(self!.overlayArray)
                     
                     if self!.overlayArray.count != 0 {

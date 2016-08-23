@@ -75,8 +75,8 @@ extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext() as UIImage
         UIGraphicsEndImageContext()
         
-        return newImage  
-    }  
+        return newImage
+    }
 }
 
 protocol Navigable {
@@ -84,24 +84,24 @@ protocol Navigable {
 }
 
 extension Navigable {
-//    func setupNavBar() -> UINavigationBar {
-//        let appFonty = AppFont()
-//        let width: CGFloat = UIScreen.mainScreen().bounds.size.width
-//        let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, width, 70))
-//        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:appFonty.appFontName, size:appFonty.appFontSize)!, NSForegroundColorAttributeName: UIColor.blueColor()]
-//        let navigationItem = UINavigationItem(title: "Project Ovaltine")
-//        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: nil)
-//        navigationItem.leftBarButtonItem = homeItem
-//        navigationBar.setItems([navigationItem], animated: false)
-//        
-//        let button: UIButton = UIButton(type: .Custom)
-//        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-//        button.frame = CGRectMake(3, 3, 25, 25)
-//        
-//        let barButton = UIBarButtonItem(customView: button)
-//        navigationItem.rightBarButtonItem = barButton
-//        navigationBar.setItems([navigationItem], animated: false)
-//        
-//        return navigationBar
-//    }
+    //    func setupNavBar() -> UINavigationBar {
+    //        let appFonty = AppFont()
+    //        let width: CGFloat = UIScreen.mainScreen().bounds.size.width
+    //        let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, width, 70))
+    //        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:appFonty.appFontName, size:appFonty.appFontSize)!, NSForegroundColorAttributeName: UIColor.blueColor()]
+    //        let navigationItem = UINavigationItem(title: "Project Ovaltine")
+    //        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: nil)
+    //        navigationItem.leftBarButtonItem = homeItem
+    //        navigationBar.setItems([navigationItem], animated: false)
+    //
+    //        let button: UIButton = UIButton(type: .Custom)
+    //        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+    //        button.frame = CGRectMake(3, 3, 25, 25)
+    //
+    //        let barButton = UIBarButtonItem(customView: button)
+    //        navigationItem.rightBarButtonItem = barButton
+    //        navigationBar.setItems([navigationItem], animated: false)
+    //        
+    //        return navigationBar
+    //    }
 }

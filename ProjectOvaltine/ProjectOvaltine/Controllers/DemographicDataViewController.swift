@@ -76,7 +76,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
             make.height.equalTo(30)
         }
     }
-
+    
     
     func resultsTableView() {
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)

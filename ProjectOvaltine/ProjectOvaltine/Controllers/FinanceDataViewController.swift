@@ -35,7 +35,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         self.view.addSubview(searchedLabel)
         self.searchedLabel.sendSubviewToBack(self.searchedLabel)
         self.searchedLabel.layer.masksToBounds = true
-
+        
         
         self.view.addSubview(self.ratingLabel)
         self.ratingLabel.text = "9.5"

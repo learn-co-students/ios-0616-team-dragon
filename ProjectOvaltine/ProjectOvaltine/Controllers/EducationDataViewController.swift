@@ -76,8 +76,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
             make.height.equalTo(30)
         }
     }
-
-
+    
+    
     func resultsTableView() {
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
