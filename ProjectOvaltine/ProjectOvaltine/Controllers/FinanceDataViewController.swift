@@ -26,7 +26,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         self.setupNavBar()
         self.resultsTableView()
         self.setupLabels()
-        self.setupConstraints( )
+        self.resultsTableView()
     }
     
     func setupLabels() {

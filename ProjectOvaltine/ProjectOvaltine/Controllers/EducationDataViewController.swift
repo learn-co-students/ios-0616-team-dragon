@@ -26,6 +26,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         self.setupNavBar()
         self.resultsTableView()
         self.setupLabels()
+        self.resultsTableView()
         self.setupConstraints()
     }
     

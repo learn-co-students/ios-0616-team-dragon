@@ -30,6 +30,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         self.setupNavBar()
         self.resultsTableView()
         self.setupLabels()
+        self.resultsTableView()
         self.setupConstraints()
     }
     

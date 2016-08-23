@@ -32,6 +32,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         self.setupNavBar()
         self.resultsTableView()
         self.setupLabels()
+        self.resultsTableView()
         self.setupConstraints()
     }
     
