@@ -103,7 +103,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.myLabel1.text = myArray[indexPath.row]
-        //cell.myLabel2.text = "\(indexPath.row + 1)"
+  
         cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -138,17 +138,16 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
             make.width.equalTo(view)
         }
         
-        //demographicNavBar.barTintColor = UIColor(netHex:0x00BFFF)
+
         let navItem = UINavigationItem(title: "Demographics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        homeItem.tintColor = UIColor(netHex:0x000000)
         
         navItem.leftBarButtonItem = homeItem
         demographicNavBar.setItems([navItem], animated: false)
         demographicNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+        button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         

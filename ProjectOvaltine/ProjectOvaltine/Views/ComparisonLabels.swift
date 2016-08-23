@@ -19,10 +19,10 @@ struct ComparisonLabel {
     }
     
     func addComparisonLabel() -> UILabel {
-        comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
-        comparisonLabel.textColor = UIColor.orangeColor()
+        //comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
+        //comparisonLabel.textColor = UIColor.orangeColor()
         comparisonLabel.layer.borderWidth = 3
-        comparisonLabel.layer.borderColor = UIColor.orangeColor().CGColor
+        //comparisonLabel.layer.borderColor = UIColor.orangeColor().CGColor
         comparisonLabel.font = UIFont(name:"Helvetica-Light", size:33)
         comparisonLabel.layer.masksToBounds = true
         comparisonLabel.layer.cornerRadius = 50
@@ -31,10 +31,10 @@ struct ComparisonLabel {
     }
     
     func addRatingsLabel() -> UILabel {
-        ratingLabel.backgroundColor = UIColor(netHex:0x000000)
-        ratingLabel.textColor = UIColor.orangeColor()
+        //ratingLabel.backgroundColor = UIColor(netHex:0x000000)
+        //ratingLabel.textColor = UIColor.orangeColor()
         ratingLabel.layer.borderWidth = 3
-        ratingLabel.layer.borderColor = UIColor.orangeColor().CGColor
+        //ratingLabel.layer.borderColor = UIColor.orangeColor().CGColor
         ratingLabel.font = UIFont(name:"Helvetica-Light", size:33)
         ratingLabel.layer.masksToBounds = true
         ratingLabel.layer.cornerRadius = 50
