@@ -16,17 +16,17 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        navBar()
-        resultsTableView()
-        ratingTextView()
-        comparisonTextView()
-        currentLocationLabel()
-        searchedLocationLabel()
+        self.navBar()
+        self.resultsTableView()
+        self.ratingTextView()
+        self.comparisonTextView()
+        self.currentLocationLabel()
+        self.searchedLocationLabel()
     }
     
     func currentLocationLabel() {
         let currentLabel = UILabel()
-        view.addSubview(currentLabel)
+        self.view.addSubview(currentLabel)
         currentLabel.text = "Bergen County"
         currentLabel.textColor = UIColor.blackColor()
         currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
@@ -43,7 +43,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func searchedLocationLabel() {
         
         let searchedLabel = UILabel()
-        view.addSubview(searchedLabel)
+        self.view.addSubview(searchedLabel)
         searchedLabel.text = "New York City"
         searchedLabel.textColor = UIColor.blackColor()
         searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
@@ -59,18 +59,16 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     
     func ratingTextView() {
         
-        let ratingLabel = UILabel()
-        view.addSubview(ratingLabel)
+        let ratingLabel = ComparisonLabel().addRatingsLabel()
+        self.view.addSubview(ratingLabel)
         ratingLabel.text = "9.5"
-        ratingLabel.backgroundColor = UIColor(netHex:0x000000)
-        ratingLabel.textColor = UIColor.yellowColor()
-        ratingLabel.layer.borderWidth = 3
-        ratingLabel.layer.borderColor = UIColor.yellowColor().CGColor
-        ratingLabel.font = UIFont(name:"Futura", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
-        ratingLabel.layer.masksToBounds = true
-        ratingLabel.layer.cornerRadius = 50
-        ratingLabel.textAlignment = NSTextAlignment.Center
+        ratingLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(20)
+            make.top.equalTo(view).offset(110)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
         ratingLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(20)
             make.top.equalTo(view).offset(110)
@@ -80,17 +78,12 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func comparisonTextView() {
-        let comparisonLabel = UILabel()
-        view.addSubview(comparisonLabel)
+        
+        let comparisonLabel = ComparisonLabel().addComparisonLabel()
+        self.view.addSubview(comparisonLabel)
         comparisonLabel.text = "9.5"
-        comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
-        comparisonLabel.textColor = UIColor.yellowColor()
-        comparisonLabel.layer.borderWidth = 3
-        comparisonLabel.layer.borderColor = UIColor.yellowColor().CGColor
-        comparisonLabel.font = UIFont(name:"Futura", size:33)
+        
         comparisonLabel.sendSubviewToBack(comparisonLabel)
-        comparisonLabel.layer.masksToBounds = true
-        comparisonLabel.layer.cornerRadius = 50
         comparisonLabel.textAlignment = NSTextAlignment.Center
         comparisonLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(-20)
@@ -104,7 +97,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
-        view.addSubview(tableView)
+        self.view.addSubview(tableView)
         tableView.frame.origin.y += 190
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
@@ -124,15 +117,11 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         
-        if(indexPath.row % 2 == 0)
-        {
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
+        } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
-        else
-        {
-            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
-        }
-        
         return cell
     }
     
@@ -178,7 +167,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func dismissView() {
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func settingButtonPushed() {
