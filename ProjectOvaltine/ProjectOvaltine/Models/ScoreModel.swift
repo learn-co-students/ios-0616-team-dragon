@@ -34,13 +34,18 @@ struct ScoreModel {
     //Otherwise it should just be the starting destination
     
     mutating func getEconomicScore() -> String {
-        
+        print("Inside getEconomicScore")
         
         let origin = Double(self.originDataPoints!["Median household income"]!)
         let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
+        
+        
         //        Subtracts the comparison level with the origin level
         //            Should take the lowever level, for instance, and subtract by the higher level
         //            Ex. City Avg - US Avg which should produce a positive number
+        
+        
+        
         let subtractedValueForPercentage = comparison! - origin!
         
         //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
@@ -54,15 +59,15 @@ struct ScoreModel {
     mutating func getTransitScore() -> String {
         
         //let origin = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
-       // let comparison = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
+        // let comparison = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
         
         return ""
     }
     
     mutating func getEducationScore() -> String {
-        
+        print("INSIDE getEducationScore")
         //Origin data points
-
+        
         let originNoSchool = Double(self.originDataPoints!["No schooling completed"]!)
         let originHighSchool = Double(self.originDataPoints!["High school diploma"]!)
         let originGED = Double(self.originDataPoints!["GED or alternative credential"]!)
@@ -91,33 +96,31 @@ struct ScoreModel {
         
         let comparisonValues = [comparisonNoSchool, comparisonHighSchool, comparisonGED, comparisonProfessionalDegree, comparisonBachelors, comparisonMasters, comparisonDoctorates]
         
+        print(comparisonValues.enumerate())
+        
         var comparisonSum = 0.0
         for values in comparisonValues {
             comparisonSum += comparisonSum + values!
         }
         
         let originDegreePercentage = ((originBachelors! + originMasters! + originDoctorates!)/originSum) * 100
-        
+        print("originDegreePercentage \(originDegreePercentage)")
         
         let comparisonDegreePercentage = ((comparisonBachelors! + comparisonMasters! + comparisonDoctorates!)/comparisonSum) * 100
         
-     
+        print("originDegreePercentage \(comparisonDegreePercentage)")
         
         if comparisonDegreePercentage > originDegreePercentage * 2 {
-           
             return "High"
-        } else if comparisonDegreePercentage > originDegreePercentage && comparisonDegreePercentage < originDegreePercentage * 2 {
-       
-            return "Moderate"} else {
-          
-            return "Low"}
+        } else if comparisonDegreePercentage > originDegreePercentage && comparisonDegreePercentage < originDegreePercentage * 2 { return "Moderate" } else { return "Low" }
         
     }
     
-        mutating func getDemographicScore() -> String {
-            var returnValue = ""
-            return returnValue
-        }
+    mutating func getDemographicScore() -> String {
+        print("inside get demographic score")
+        var returnValue = ""
+        return returnValue
+    }
     
     mutating func getScoresArray() -> [String] {
         self.getEducationScore()
