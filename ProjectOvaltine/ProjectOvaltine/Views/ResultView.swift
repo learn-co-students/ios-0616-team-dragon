@@ -88,11 +88,9 @@ class ResultView: UIView {
         self.graphView.labelColor = self.randomColor()
         self.graphView.gaugeBackgroundColor = self.randomColor()
         self.addSubview(graphView)
-        
     }
     
     func createLabels() {
-
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Center
         self.locationNameLabel.font = AvenirFont().getFont(CGFloat(20))
@@ -103,12 +101,11 @@ class ResultView: UIView {
         self.scoreLabel.font = AvenirFont().getFont(CGFloat(30))
         self.scoreLabel.text = "90"
         
-        
-        
         self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
         self.resultDescriptionTextView.textColor = UIColor.blackColor()
         self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
         self.resultDescriptionTextView.font = AvenirFont().getFont(CGFloat(20))
+        
         self.addSubview(self.scoreLabel)
         self.addSubview(self.locationNameLabel)
         self.addSubview(self.resultDescriptionTextView)

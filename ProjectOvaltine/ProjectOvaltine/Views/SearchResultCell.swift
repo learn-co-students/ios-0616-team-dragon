@@ -11,6 +11,7 @@ import SnapKit
 import GaugeView
 
 class SearchResultCell: UITableViewCell {
+    
     private var graphView: GaugeView!
     var scoreLabel:UILabel! = UILabel()
     var resultLocationNameLabel:UILabel! = UILabel()
@@ -51,18 +52,6 @@ class SearchResultCell: UITableViewCell {
         self.setupView()
     }
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        
-//        //self.scoreLabel.sizeThatFits(CGSize(width: 20, height: 35))
-//        //self.scoreLabel.backgroundColor = UIColor.orangeColor()
-//        //self.scoreLabel.frame = CGRect(x: 20, y: 15, width: 80, height: 35)
-//        //self.resultLocationNameLabel.sizeThatFits(CGSize(width: 80, height: 35))
-//        //self.resultLocationNameLabel.backgroundColor = UIColor.purpleColor()
-//        //self.resultLocationNameLabel.frame = CGRect(x: 180, y: 15, width:180, height: 30)
-//    }
-    
-    
     func createGraph() {
         self.graphView = GaugeView()
         self.graphView.gaugeColor = self.randomColor()
@@ -85,7 +74,6 @@ class SearchResultCell: UITableViewCell {
             make.size.equalTo(40)
             make.left.equalTo(self.contentView).offset(20)
             make.top.equalTo(self.contentView).offset(15)
-            
         }
         
         self.resultLocationNameLabel.snp_makeConstraints { (make) -> Void in

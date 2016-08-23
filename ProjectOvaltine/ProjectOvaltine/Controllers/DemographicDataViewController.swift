@@ -17,6 +17,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     let currentLabel = ComparisonLabel().addCurrentLabel()
     let ratingLabel = ComparisonLabel().addRatingsLabel()
     let searchedLabel = ComparisonLabel().addSearchedLabel()
+    let demographicNavBar = NavBar().setup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,11 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
             make.width.equalTo(200)
             make.height.equalTo(30)
         }
+        
+        self.demographicNavBar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(view).offset(20)
+            make.width.equalTo(view)
+        }
     }
 
     
@@ -90,14 +96,14 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myArray.count
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.myLabel1.text = myArray[indexPath.row]
-        
         cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -106,7 +112,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
-        
         return cell
     }
     
@@ -123,21 +128,14 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func setupNavBar() {
-        let demographicNavBar = NavBar().setup()
-        self.view.addSubview(demographicNavBar)
-        
-        demographicNavBar.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(view).offset(20)
-            make.width.equalTo(view)
-        }
-        
+        self.view.addSubview(self.demographicNavBar)
         
         let navItem = UINavigationItem(title: "Demographics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         
         navItem.leftBarButtonItem = homeItem
-        demographicNavBar.setItems([navItem], animated: false)
-        demographicNavBar.alpha = 0.6
+        self.demographicNavBar.setItems([navItem], animated: false)
+        self.demographicNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
