@@ -84,53 +84,68 @@ struct ScoreModel {
     //
     mutating func getEducationScore() -> String {
         
-//        "002E": "No schooling completed",
-//        "017E": "High school diploma",
-//        "018E": "GED or alternative credential",
-//        "024E": "Professional school degree",
-//        "022E": "Bachelor's degree",
-//        "023E": "Master's degree",
-//        "025E": "Doctorate degree",
+        //        "002E": "No schooling completed",
+        //        "017E": "High school diploma",
+        //        "018E": "GED or alternative credential",
+        //        "024E": "Professional school degree",
+        //        "022E": "Bachelor's degree",
+        //        "023E": "Master's degree",
+        //        "025E": "Doctorate degree",
         
         //Origin data points
-        let originNoSchool = Int(self.originDataPoints!["No schooling completed"]!)
-        let originHighSchool = Int(self.originDataPoints!["High school diploma"]!)
-        let originGED = Int(self.originDataPoints!["GED or alternative credential"]!)
-        let originProfessionalDegree = Int(self.originDataPoints!["Professional school degree"]!)
-        let originBachelors = Int(self.originDataPoints!["Bachelor's degree"]!)
-        let originMasters = Int(self.originDataPoints!["Master's degree"]!)
-        let originDoctorates = Int(self.originDataPoints!["Doctorate degree"]!)
+        let originNoSchool = Double(self.originDataPoints!["No schooling completed"]!)
+        let originHighSchool = Double(self.originDataPoints!["High school diploma"]!)
+        let originGED = Double(self.originDataPoints!["GED or alternative credential"]!)
+        let originProfessionalDegree = Double(self.originDataPoints!["Professional school degree"]!)
+        let originBachelors = Double(self.originDataPoints!["Bachelor's degree"]!)
+        let originMasters = Double(self.originDataPoints!["Master's degree"]!)
+        let originDoctorates = Double(self.originDataPoints!["Doctorate degree"]!)
         
         //Comparisson data points
-        let comparisonNoSchool = Int(self.comparisonDataPoints!["No schooling completed"]!)
-        let comparisonHighSchool = Int(self.comparisonDataPoints!["High school diploma"]!)
-        let comparisonGED = Int(self.comparisonDataPoints!["GED or alternative credential"]!)
-        let comparisonProfessionalDegree = Int(self.comparisonDataPoints!["Professional school degree"]!)
-        let comparisonBachelors = Int(self.comparisonDataPoints!["Bachelor's degree"]!)
-        let comparisonMasters = Int(self.comparisonDataPoints!["Master's degree"]!)
-        let comparisonDoctorates = Int(self.comparisonDataPoints!["Doctorate degree"]!)
+        let comparisonNoSchool = Double(self.comparisonDataPoints!["No schooling completed"]!)
+        let comparisonHighSchool = Double(self.comparisonDataPoints!["High school diploma"]!)
+        let comparisonGED = Double(self.comparisonDataPoints!["GED or alternative credential"]!)
+        let comparisonProfessionalDegree = Double(self.comparisonDataPoints!["Professional school degree"]!)
+        let comparisonBachelors = Double(self.comparisonDataPoints!["Bachelor's degree"]!)
+        let comparisonMasters = Double(self.comparisonDataPoints!["Master's degree"]!)
+        let comparisonDoctorates = Double(self.comparisonDataPoints!["Doctorate degree"]!)
         
-//        [ x1, x2, ... , xn].map(f) -> [f(x1), f(x2), ... , f(xn)]
+        //        [ x1, x2, ... , xn].map(f) -> [f(x1), f(x2), ... , f(xn)]
         
         let originValues = [originNoSchool, originHighSchool, originGED, originProfessionalDegree, originBachelors, originMasters, originDoctorates]
         
-        let totalOriginValues = originValues.map{$0! + $0!}
+        var originSum = 0.0
+        for values in originValues {
+            originSum += originSum + values!
+        }
         
-        print(totalOriginValues)
+        print(originSum)
         
         let comparisonValues = [comparisonNoSchool, comparisonHighSchool, comparisonGED, comparisonProfessionalDegree, comparisonBachelors, comparisonMasters, comparisonDoctorates]
         
-        let totalComparisonValues = comparisonValues.map{$0! + $0!}
+        var comparisonSum = 0.0
+        for values in comparisonValues {
+            comparisonSum += comparisonSum + values!
+        }
         
-        print(totalComparisonValues)
+        let originDegreePercentage = ((originBachelors! + originMasters! + originDoctorates!)/originSum) * 100
         
+        print(originDegreePercentage)
+        
+        let comparisonDegreePercentage = ((comparisonBachelors! + comparisonMasters! + comparisonDoctorates!)/comparisonSum) * 100
+        
+        if comparisonDegreePercentage > originDegreePercentage * 2 {
+            return "High"
+        } else if comparisonDegreePercentage > originDegreePercentage && comparisonDegreePercentage < originDegreePercentage * 2 {
+            return "Moderate"} else {
+            return "Low"}
         //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
         //let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
         
-//        print(percentageChange)
-//        
-//        return String(percentageChange)
-        return ""
+        //        print(percentageChange)
+        //
+        //        return String(percentageChange)
+        
     }
     //
     //    mutating func getDemographicScore() -> String {
@@ -148,8 +163,8 @@ struct ScoreModel {
     //    }
     
     mutating func getScoresDictionary() -> [String: String] {
-        // self.getEducationScore()
-        // self.getTransitScore()
+        self.getEducationScore()
+        self.getTransitScore()
         self.getEconomicScore()
         // self.getDemographicScore()
         let returnDict = ["Education": String(self.educationScore), "Transit": String(self.transitScore), "Economic": String(self.economicScore), "Demographic": String(self.demographicScore)]
