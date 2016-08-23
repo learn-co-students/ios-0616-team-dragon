@@ -14,17 +14,14 @@ import SwiftSpinner
 class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControllerDelegate, UISearchBarDelegate {
     
     var window: UIWindow?
-    
     var placemark: CLPlacemark?
     
     //Data store instances
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient()
     
-    
     //Array of citySDK data
     var cityData: [CitySDKData] = []
-    
     var destinationVC = StatsViewController()
     
     //Initialized mapView
@@ -35,12 +32,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     let regionRadius: CLLocationDistance = 1000
     
     //Initialize alert - used in GeoCoder function when user enters an invalid zipcode
-    let alert = UIAlertController.init(title: "Invalid Entry", message: "You entered an invalid Zipcode", preferredStyle: .Alert)
-    
-    
+    let alert = UIAlertController.init(title: "Invalid Entry",
+                                       message: "You entered an invalid Zipcode",
+                                       preferredStyle: .Alert)
     //Calculates a location from array of location data - will be deprecated eventually
     var initialLocation : CLLocation {
-        let newLocation = CLLocation.init(latitude: 40.28683599971092, longitude: -75.26431999998206)
+        let newLocation = CLLocation.init(latitude: 40.28683599971092,
+                                          longitude: -75.26431999998206)
         return newLocation}
     
     //Necessary to convert point data to CLLocationCoordinate2D array
@@ -59,8 +57,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     var cityAbsoluteDictionary = [String : String]()
     var cityPercentDictionary = [String : String]()
     
-    
-    
     //Init searchBar
     let searchController = UISearchBar.init()
     
@@ -69,11 +65,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.drawInMapView()
         self.searchBar()
         centerMapOnLocation(self.initialLocation)
-        self.alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        
+        self.alert.addAction(
+            UIAlertAction(title: "OK",
+            style: UIAlertActionStyle.Default,
+            handler: nil))
     }
     
     func drawInMapView(){
@@ -83,15 +78,21 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func zoomToPolygon(map: MKPolygon, animated: Bool) {
-        let insets = UIEdgeInsets.init(top: 5.0, left: 50.0, bottom: 5.0, right: 50.0)
-        self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, edgePadding: insets, animated: true)
+        let insets = UIEdgeInsets.init(top: 5.0,
+                                       left: 50.0,
+                                       bottom: 5.0,
+                                       right: 50.0)
+        self.mapView.setVisibleMapRect(self.polygon.boundingMapRect,
+                                       edgePadding: insets,
+                                       animated: true)
         //self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, animated: true)
     }
     
     //Delegate method from mapView in order to render the polyline
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        let polygonRenderer = MKPolygonRenderer(overlay: overlay)
+    func mapView(mapView: MKMapView,
+                 rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         
+        let polygonRenderer = MKPolygonRenderer(overlay: overlay)
         polygonRenderer.lineWidth = 1
         polygonRenderer.fillColor = UIColor.cyanColor()
         polygonRenderer.alpha = 0.20
@@ -99,11 +100,14 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     //Following two functions from: http://stackoverflow.com/questions/33123724/swift-adding-a-button-to-my-mkpointannotation
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(mapView: MKMapView,
+                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationReuseId = "Place"
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationReuseId)
+        
         if anView == nil {
-            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationReuseId)
+            anView = MKAnnotationView(annotation: annotation,
+                                      reuseIdentifier: annotationReuseId)
         } else {
             anView!.annotation = annotation
         }
@@ -112,7 +116,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         anView!.backgroundColor = UIColor.clearColor()
         anView!.canShowCallout = true
         let testImage = UIImage(named: "Black_Circle")
-        let scaledImage = UIImage.init(CGImage: (testImage?.CGImage)!, scale: 35, orientation: UIImageOrientation.Up)
+        let scaledImage = UIImage.init(CGImage: (testImage?.CGImage)!,
+                                       scale: 35,
+                                       orientation: UIImageOrientation.Up)
         anView!.image = scaledImage
         return anView
     }
@@ -126,7 +132,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         }
     }
     
-    
     func populateCoordinateArray(completionHandler: (NSArray) -> ()){
         self.store.getCitySDKData({
             if let geo = self.store.cityDataPoints.first?.coordinates {
@@ -139,11 +144,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     func convertArrayDataToPoints(array: [AnyObject]) {
         let longCoord = array[0] as! Double
         let latCoord = array[1] as! Double
-        let point = CLLocationCoordinate2D(latitude: latCoord, longitude: longCoord)
+        let point = CLLocationCoordinate2D(latitude: latCoord,
+                                           longitude: longCoord)
         boundary.append(point)
     }
-    
-    
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
@@ -171,8 +175,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 self!.placemark = (placemarks?.last)!
                 
                 print(self!.placemark)
-                CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
-                    
+                CensusAPIClient().requestDataForLocation(placemark: self!.placemark!,
+                    completion: { (city, county, state, us) in
                     for USDataSet in (us?.dataSets!)! {
                         for USDataSetTwo in (USDataSet.values)! {
                             
@@ -189,8 +193,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     }
                     
                     dispatch_async(dispatch_get_main_queue()) { [weak self] in
-                        let USScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
-                        
+                        let USScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary,
+                            comparisonDataPoints: self!.cityAbsoluteDictionary)
                         self!.store.comparisonData = USScore
                         self!.store.comparisonData?.getEconomicScore()
                         self!.store.comparisonData?.getTransitScore()
@@ -202,7 +206,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
                 
                 print(self!.placemark?.postalCode)
-                
                 if let placemarkZipcode = self!.placemark?.postalCode {
                     self!.store.zipCode = placemarkZipcode}
                 self!.populateCoordinateArray{[weak self] (someArray) in
@@ -217,7 +220,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     if self!.overlayArray.count != 0 {
                         self!.overlayArray.removeAll()
                     }
-                    self!.polygon = MKPolygon(coordinates: &self!.boundary, count: self!.boundary.count)
+                    self!.polygon = MKPolygon(coordinates: &self!.boundary,
+                        count: self!.boundary.count)
                     self!.polygon.title = "county_borders"
                     self!.overlayArray.append(self!.polygon)
                     self!.mapView.addOverlays(self!.overlayArray)
@@ -238,8 +242,16 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     func searchBar() {
         self.searchController.placeholder = "Enter Zipcode"
-        self.searchController.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 70)
-        let topConstraint = NSLayoutConstraint(item: searchController, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
+        self.searchController.frame = CGRect(x: 0,
+                                             y: 0,
+                                             width: self.view.frame.size.width,
+                                             height: 70)
+        let topConstraint = NSLayoutConstraint(item: searchController,
+                                               attribute: NSLayoutAttribute.Top,
+                                               relatedBy: NSLayoutRelation.Equal,
+                                               toItem: self.view,
+                                               attribute: NSLayoutAttribute.Top,
+                                               multiplier: 1, constant: 0)
         self.searchController.delegate = self
         self.view.addSubview(self.searchController)
         self.view.addConstraint(topConstraint)

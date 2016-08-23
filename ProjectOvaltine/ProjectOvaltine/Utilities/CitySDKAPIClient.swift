@@ -26,13 +26,15 @@ class CitySDKAPIClient {
                 print("ERROR: Unable to get url path for API call")
                 return
         }
+        
         let request = NSMutableURLRequest(URL:url)
         request.HTTPMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        request.setValue(self.key, forHTTPHeaderField: "Authorization")
-        
-        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
+        request.setValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
+        request.setValue(self.key,
+                         forHTTPHeaderField: "Authorization")
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params,
+                                                                       options: [])
         
         Alamofire.request(request).responseJSON { (response) in
             switch response.result {
@@ -70,10 +72,4 @@ class CitySDKAPIClient {
             }
         }
     }
-    
-    func sendTestAPIRequest(params: NSDictionary) {
-        //code goes here
-        //soon
-    }
-    
 }

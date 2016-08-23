@@ -28,20 +28,14 @@ struct ScoreModel {
         self.transitScore = 0
         self.demographicScore = 0
         self.educationScore = 0
-        
-        
     }
     
     //Origin should be the higher level - US -> State -> County -> City
     //Otherwise it should just be the starting destination
+    
     mutating func getEconomicScore() -> String {
-        
-        
 //        let origin = Double(self.originDataPoints!["Median household income"]!)
 //        let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
-        
-        
-        
         //        Subtracts the comparison level with the origin level
         //            Should take the lowever level, for instance, and subtract by the higher level
         //            Ex. City Avg - US Avg which should produce a positive number
@@ -51,9 +45,6 @@ struct ScoreModel {
         //let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
         
         //print(percentageChange)
-        
-        
-        
         //return String(percentageChange)
         return "Economics"
     }
@@ -75,9 +66,6 @@ struct ScoreModel {
         // let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
         
         //    print(percentageChange)
-        
-        
-        
         //return String(percentageChange)
         
         return ""

@@ -9,7 +9,7 @@
 import UIKit
 import SwiftSpinner
 
-class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigable {
+class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +36,16 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         demographicsTab.tabBarItem.title = "Demographics"
         demographicsTab.tabBarItem.image = UIImage(named: "conference.png")
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGrayColor()], forState:.Normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(netHex:0xFFFFFF)], forState:.Selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGrayColor()],
+                                                         forState:.Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(netHex:0xFFFFFF)],
+                                                         forState:.Selected)
         
         let controllers = [statsTab, financeTab, educationTab, transportationTab, demographicsTab]
         self.viewControllers = controllers
         
         self.tabBar.tintColor = UIColor.whiteColor()
         self.tabBar.barTintColor = UIColor(netHex: 0x000000)
-        
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
