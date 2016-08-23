@@ -83,7 +83,7 @@ class ResultView: UIView {
         self.graphView = GaugeView()
         self.graphView.gaugeColor = self.randomColor()
         self.graphView.percentage = self.graphPercentage
-        self.graphView.thickness = 9
+        self.graphView.thickness = 14
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
         self.graphView.labelColor = self.randomColor()
         self.graphView.gaugeBackgroundColor = self.randomColor()
@@ -95,13 +95,12 @@ class ResultView: UIView {
 
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Center
-        self.locationNameLabel.font = AvenirFont().getFont()
+        self.locationNameLabel.font = AvenirFont().getFont(CGFloat(20))
         self.locationNameLabel.text = "New York"
 
         self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Left
-        self.scoreLabel.font = AvenirFont().getFont()
-        
+        self.scoreLabel.font = AvenirFont().getFont(CGFloat(30))
         self.scoreLabel.text = "90"
         
         
@@ -109,7 +108,7 @@ class ResultView: UIView {
         self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
         self.resultDescriptionTextView.textColor = UIColor.blackColor()
         self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
-        self.resultDescriptionTextView.font = AvenirFont().getFont()
+        self.resultDescriptionTextView.font = AvenirFont().getFont(CGFloat(20))
         self.addSubview(self.scoreLabel)
         self.addSubview(self.locationNameLabel)
         self.addSubview(self.resultDescriptionTextView)

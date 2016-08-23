@@ -193,20 +193,20 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     
                   
                     
-//                    for USDataSet in (us?.dataSets!)! {
-//                        for USDataSetTwo in (USDataSet.values)! {
-//                            
-//                            self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
-//                            self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
-//                        }
-//                    }
-//                    
-//                    for cityDataSet in (city?.dataSets!)! {
-//                        for cityDataSet2 in (cityDataSet.values)!{
-//                            self!.cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
-//                            self!.cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
-//                        }
-//                    }
+                    for USDataSet in (us?.dataSets!)! {
+                        for USDataSetTwo in (USDataSet.values)! {
+                            
+                            self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
+                            self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
+                        }
+                    }
+                    
+                    for cityDataSet in (city?.dataSets!)! {
+                        for cityDataSet2 in (cityDataSet.values)!{
+                            self!.cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
+                            self!.cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
+                        }
+                    }
                     
                     
                     dispatch_async(dispatch_get_main_queue()) { [weak self] in

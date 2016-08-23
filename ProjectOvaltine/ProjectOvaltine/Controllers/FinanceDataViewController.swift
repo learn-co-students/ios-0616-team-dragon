@@ -12,6 +12,9 @@ import SnapKit
 class FinanceDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var myArray = ["Median Income","Unemployment Rate","etc."]
+    let comparisonLabel = ComparisonLabel().addComparisonLabel()
+    let currentLabel = ComparisonLabel().addCurrentLabel()
+    let ratingLabel = ComparisonLabel().addRatingsLabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,22 +25,13 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         self.comparisonTextView()
         self.currentLocationLabel()
         self.searchedLocationLabel()
-        
+        self.setupConstraints()
     }
     func currentLocationLabel() {
-        let currentLabel = UILabel()
-        self.view.addSubview(currentLabel)
-        currentLabel.text = "Bergen County"
-        currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Helvetica-Light", size:20)
-        currentLabel.sendSubviewToBack(currentLabel)
-        currentLabel.layer.masksToBounds = true
-        currentLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(15)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        self.view.addSubview(self.currentLabel)
+        self.currentLabel.text = "Bergen County"
+        self.currentLabel.sendSubviewToBack(self.currentLabel)
+        self.currentLabel.layer.masksToBounds = true
     }
     
     func searchedLocationLabel() {
@@ -57,33 +51,42 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func ratingTextView() {
-        let ratingLabel = ComparisonLabel().addRatingsLabel()
-        self.view.addSubview(ratingLabel)
-        ratingLabel.text = "9.5"
-        ratingLabel.sendSubviewToBack(ratingLabel)
-        ratingLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(20)
-            make.top.equalTo(view).offset(110)
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-        }
+        self.view.addSubview(self.ratingLabel)
+        self.ratingLabel.text = "9.5"
+        self.ratingLabel.sendSubviewToBack(self.ratingLabel)
     }
     
     func comparisonTextView() {
-        
-        let comparisonLabel = ComparisonLabel().addComparisonLabel()
         self.view.addSubview(comparisonLabel)
-        comparisonLabel.text = "9.5"
-        
-        comparisonLabel.sendSubviewToBack(comparisonLabel)
-        comparisonLabel.textAlignment = NSTextAlignment.Center
-        comparisonLabel.snp_makeConstraints { (make) -> Void in
+        self.comparisonLabel.text = "9.5"
+        self.comparisonLabel.sendSubviewToBack(comparisonLabel)
+        self.comparisonLabel.textAlignment = NSTextAlignment.Center
+    }
+    
+    func setupConstraints() {
+        self.comparisonLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(-20)
             make.top.equalTo(view).offset(110)
             make.width.equalTo(100)
             make.height.equalTo(100)
         }
+        
+        self.currentLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(15)
+            make.top.equalTo(view).offset(66)
+            make.width.equalTo(200)
+            make.height.equalTo(30)
+        }
+        
+        self.ratingLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(20)
+            make.top.equalTo(view).offset(110)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+        
     }
+    
     func resultsTableView() {
         
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
@@ -93,12 +96,15 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.frame.origin.y += 190
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myArray.count
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")

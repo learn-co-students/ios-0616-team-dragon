@@ -15,7 +15,9 @@ struct ComparisonLabel {
     var searchedLabel = UILabel()
     
     func addCurrentLabel() -> UILabel {
-        return UILabel() 
+        self.currentLabel.textColor = UIColor.blackColor()
+        self.currentLabel.font = UIFont(name:"Helvetica-Light", size:20)
+        return self.currentLabel
     }
     
     func addComparisonLabel() -> UILabel {

@@ -9,14 +9,16 @@
 import UIKit
 
 struct AvenirFont {
-    func getFont() -> UIFont {
-       return UIFont(name:  "AvenirNext-Regular", size: 20)!
+    func getFont(size:CGFloat) -> UIFont {
+       return UIFont(name:  "AvenirNext-Regular", size: size)!
     }
 }
 
 
 struct HelveticaLight {
-    func getFont() -> UIFont {
-        return UIFont(name: "Helvetica-Light", size: 20)!
+    func getFont(size:CGFloat) -> UIFont {
+        return UIFont(name: "Helvetica-Light", size: size)!
     }
 }
+
+
