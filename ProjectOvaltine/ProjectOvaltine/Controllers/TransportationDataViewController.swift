@@ -30,6 +30,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.setupNavBar()
+        self.resultsTableView()
         self.setupLabels()
         self.setupConstraints()
     }
