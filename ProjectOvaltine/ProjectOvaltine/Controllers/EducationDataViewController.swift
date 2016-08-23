@@ -113,9 +113,9 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         
         
         if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
+            cell.backgroundColor = UIColor.clearColor()
         } else {
-            cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
+            cell.backgroundColor = UIColor.clearColor()
         }
         
         return cell
@@ -143,17 +143,17 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
             make.width.equalTo(view)
         }
         
-        educationNavBar.barTintColor = UIColor(netHex:0xFFFF03)
+
         let navItem = UINavigationItem(title: "Education")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        homeItem.tintColor = UIColor(netHex:0x000000)
+        
         
         navItem.leftBarButtonItem = homeItem
         educationNavBar.setItems([navItem], animated: false)
         educationNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+        button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         

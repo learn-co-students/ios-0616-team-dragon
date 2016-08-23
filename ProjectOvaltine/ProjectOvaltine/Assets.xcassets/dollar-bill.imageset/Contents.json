@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "menu-2.png",
+      "filename" : "dollar-bill.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "menu-2x.png",
       "scale" : "2x"
     },
     {

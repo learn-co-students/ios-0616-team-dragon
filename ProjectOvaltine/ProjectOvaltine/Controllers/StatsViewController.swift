@@ -16,9 +16,8 @@ class StatsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navBar()
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
-        
+        self.navBar()
     }
     
     
@@ -43,14 +42,10 @@ class StatsViewController: UITableViewController {
     
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        //return 2
         return 1
     }
     
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        //return self.detailsArray.count
-
         return 4
 
     }
@@ -73,22 +68,50 @@ class StatsViewController: UITableViewController {
     }
     
     
+//    func navBar() {
+//        let statsNavBar = NavBar().setup()
+//        self.view.addSubview(statsNavBar)
+//        
+//        let navItem = UINavigationItem(title: "Stats")
+//        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
+//        //homeItem.tintColor = UIColor.blueColor()
+//        
+//        navItem.leftBarButtonItem = homeItem
+//        statsNavBar.setItems([navItem], animated: false)
+//        
+//        let button: UIButton = UIButton(type: .Custom)
+//        button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
+//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+//        button.frame = CGRectMake(3, 3, 25, 25)
+//        
+//        let barButton = UIBarButtonItem(customView: button)
+//        self.navigationItem.rightBarButtonItem = barButton
+//        navItem.rightBarButtonItem = barButton
+//    }
+//    
+    
     func navBar() {
         let statsNavBar = NavBar().setup()
         self.view.addSubview(statsNavBar)
         
-        let navItem = UINavigationItem(title: "Stats")
+        statsNavBar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(view).offset(20)
+            make.width.equalTo(view)
+        }
+        
+       
+        let navItem = UINavigationItem(title: "Statistics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        homeItem.tintColor = UIColor.blueColor()
+        
         
         navItem.leftBarButtonItem = homeItem
         statsNavBar.setItems([navItem], animated: false)
+        statsNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
-        button.frame = CGRectMake(3, 3, 33, 33)
-        button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
+        button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
@@ -96,7 +119,7 @@ class StatsViewController: UITableViewController {
     }
     
     func dismissView() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func settingButtonPushed() {

@@ -28,7 +28,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         statsTab.tabBarItem.title = "Statistics"
         statsTab.tabBarItem.image = UIImage(named: "futures.png")
         financeTab.tabBarItem.title = "Finance"
-        financeTab.tabBarItem.image = UIImage(named: "money_bag.png")
+        financeTab.tabBarItem.image = UIImage(named: "dollar-bill")
         educationTab.tabBarItem.title = "Education"
         educationTab.tabBarItem.image = UIImage(named: "classroom.png")
         transportationTab.tabBarItem.title = "Transportation"
