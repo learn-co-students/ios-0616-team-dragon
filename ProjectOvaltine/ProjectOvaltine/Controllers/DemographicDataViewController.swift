@@ -19,7 +19,10 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let demographicNavBar = NavBar().setup()
     let navItem = UINavigationItem(title: "Demographics")
-    let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
+    let homeItem = UIBarButtonItem.init(title: "Home",
+                                        style: .Done,
+                                        target: nil,
+                                        action: #selector(dismissView))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +90,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
 
     
     func resultsTableView() {
-        let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
+        let tableView = UITableView(frame: view.bounds,
+                                    style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
@@ -104,16 +108,22 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
+        let cell = TableViewCell(style: UITableViewCellStyle.Default,
+                                 reuseIdentifier: "myIdentifier")
+        
         cell.myLabel1.text = myArray[indexPath.row]
-        cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)),
+                                 forControlEvents: UIControlEvents.TouchUpInside)
+        
+        cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)),
+                                 forControlEvents: UIControlEvents.TouchUpInside)
         
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
+        
         return cell
     }
     
@@ -137,8 +147,13 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         self.demographicNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        button.setImage(UIImage(named: "menu-2"),
+                        forState: UIControlState.Normal)
+        
+        button.addTarget(self, action: #selector(settingButtonPushed),
+                         forControlEvents: UIControlEvents.TouchUpInside)
+        
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)

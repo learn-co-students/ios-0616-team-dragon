@@ -19,7 +19,10 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let educationNavBar = NavBar().setup()
     let navItem = UINavigationItem(title: "Education")
-    let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
+    let homeItem = UIBarButtonItem.init(title: "Home",
+                                        style: .Done,
+                                        target: nil,
+                                        action: #selector(dismissView))
     let button: UIButton = UIButton(type: .Custom)
     
     override func viewDidLoad() {
@@ -88,7 +91,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func resultsTableView() {
-        let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
+        let tableView = UITableView(frame: view.bounds,
+                                    style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
@@ -105,11 +109,14 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = TableViewCell(style: UITableViewCellStyle.Default,
+                                 reuseIdentifier: "myIdentifier")
         
-        let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.myLabel1.text = myArray[indexPath.row]
-        cell.myButton1.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.myButton1.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)),
+                                 forControlEvents: UIControlEvents.TouchUpInside)
+        cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)),
+                                 forControlEvents: UIControlEvents.TouchUpInside)
         
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()
@@ -135,11 +142,16 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         self.view.addSubview(self.educationNavBar)
         
         self.navItem.leftBarButtonItem = self.homeItem
-        self.educationNavBar.setItems([self.navItem], animated: false)
+        self.educationNavBar.setItems([self.navItem],
+                                      animated: false)
         self.educationNavBar.alpha = 0.6
         
-        self.button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
-        self.button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+        self.button.setImage(UIImage(named: "menu-2"),
+                             forState: UIControlState.Normal)
+        
+        self.button.addTarget(self, action: #selector(settingButtonPushed),
+                              forControlEvents: UIControlEvents.TouchUpInside)
+        
         self.button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
