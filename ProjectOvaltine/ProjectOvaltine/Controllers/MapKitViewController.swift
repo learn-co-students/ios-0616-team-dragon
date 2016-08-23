@@ -25,6 +25,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     //Array of citySDK data
     var cityData: [CitySDKData] = []
     
+    var destinationVC = StatsViewController()
+    
     //Initialized mapView
     let mapView: MKMapView! = MKMapView()
     
@@ -50,6 +52,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     var polygon: MKPolygon!
     
     var anotation = MKPointAnnotation()
+    
+    var USAbsoluteDictionary = [String : String]()
+    var USPercentDictionary = [String: String]()
+    
+    var cityAbsoluteDictionary = [String : String]()
+    var cityPercentDictionary = [String : String]()
     
     
     
@@ -167,7 +175,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         let zipcode = "\(zipcode)" + " United States"
         
         
-//        if zipcode.characters.count == 5 {
+
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if error != nil {
                 self!.presentViewController(self!.alert, animated: true, completion: nil)
@@ -180,32 +188,29 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 print(self!.placemark)
                 CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
                     
-                    var USAbsoluteDictionary = [String : String]()
-                    var USPercentDictionary = [String: String]()
                     
-                    var cityAbsoluteDictionary = [String : String]()
-                    var cityPercentDictionary = [String : String]()
                     
-                   // print(cityAbsoluteDictionary)
+                  
                     
                     for USDataSet in (us?.dataSets!)! {
                         for USDataSetTwo in (USDataSet.values)! {
                             
-                            USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
-                            USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
+                            self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
+                            self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
                         }
                     }
                     
-//                    for cityDataSet in (city?.dataSets!)! {
-//                        for cityDataSet2 in (cityDataSet.values)!{
-//                            cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
-//                            cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
-//                        }
-//                    }
+
+                    for cityDataSet in (city?.dataSets!)! {
+                        for cityDataSet2 in (cityDataSet.values)!{
+                            self!.cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
+                            self!.cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
+                        }
+                    }
                     
-                    var USScore = ScoreModel(originDataPoints: USAbsoluteDictionary, comparisonDataPoints: cityAbsoluteDictionary)
+                    let USScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
                     
-                    USScore.getEconomicScore()
+                    self!.store.comparisonData = USScore
                     
                     
                 })
@@ -253,14 +258,14 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 SwiftSpinner.showWithDuration(3.0, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+                
+               
             
             }
             
+           
             
             })
-//        } else {
-//            self.presentViewController(self.alert, animated: true, completion: {self.mapView.addOverlays(self.overlayArray)})
-//        }
         
     }
     

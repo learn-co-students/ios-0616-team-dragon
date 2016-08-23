@@ -10,7 +10,7 @@ import UIKit
 import SwiftSpinner
 
 class StatsViewController: UITableViewController {
-    let store = DataStore.sharedInstance
+    var comparisonData : ScoreModel?
     var detailsArray = ["Economic","Education","Transit", "Demographic"]
     
     
@@ -18,6 +18,7 @@ class StatsViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
         self.navBar()
+        print(self.comparisonData)
     }
     
     
@@ -46,17 +47,19 @@ class StatsViewController: UITableViewController {
     }
     
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-
+        return self.detailsArray.count
     }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let points = self.store.CityScoreData?.getScoresDictionary()
+        let points = self.comparisonData?.getScoresDictionary()
         
-        
+        print(points)
+                
         if let key = points?[detailsArray[indexPath.row]] {
             let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:key)
             return cell
         }
+        
         
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
         return cell
