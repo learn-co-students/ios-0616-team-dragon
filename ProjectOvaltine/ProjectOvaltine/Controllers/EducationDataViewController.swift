@@ -17,11 +17,12 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     let currentLabel = ComparisonLabel().addCurrentLabel()
     let ratingLabel = ComparisonLabel().addRatingsLabel()
     let searchedLabel = ComparisonLabel().addSearchedLabel()
+    let educationNavBar = NavBar().setup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        self.navBar()
+        self.setupNavBar()
         self.setupLabels()
         self.setupConstraints()
     }
@@ -75,6 +76,11 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
             make.width.equalTo(200)
             make.height.equalTo(30)
         }
+        
+        self.educationNavBar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(view).offset(20)
+            make.width.equalTo(view)
+        }
     }
     
     
@@ -125,24 +131,16 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         print(myArray[indexPath.row])
     }
     
-    func navBar() {
-        let educationNavBar = NavBar().setup()
-        self.view.addSubview(educationNavBar)
+    func setupNavBar() {
         
-        educationNavBar.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(view).offset(20)
-            make.width.equalTo(view)
-        }
-        
-        
+        self.view.addSubview(self.educationNavBar)
         let navItem = UINavigationItem(title: "Education")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         
-        
         navItem.leftBarButtonItem = homeItem
-        educationNavBar.setItems([navItem], animated: false)
-        educationNavBar.alpha = 0.6
-        
+        self.educationNavBar.setItems([navItem], animated: false)
+        self.educationNavBar.alpha = 0.6
+
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)

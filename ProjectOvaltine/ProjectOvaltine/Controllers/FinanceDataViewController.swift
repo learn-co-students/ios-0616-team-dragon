@@ -21,7 +21,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        self.navBar()
+        self.setupNavBar()
         self.setupLabels()
         self.setupConstraints()
     }
@@ -83,7 +83,6 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func resultsTableView() {
-        
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
@@ -130,7 +129,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         print(myArray[indexPath.row])
     }
     
-    func navBar() {
+    func setupNavBar() {
         self.view.addSubview(self.financeNavBar)
         
         let navItem = UINavigationItem(title: "Finance")

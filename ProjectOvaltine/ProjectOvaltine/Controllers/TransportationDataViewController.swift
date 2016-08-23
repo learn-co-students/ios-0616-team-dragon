@@ -19,11 +19,12 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     let currentLabel = ComparisonLabel().addCurrentLabel()
     let ratingLabel = ComparisonLabel().addRatingsLabel()
     let searchedLabel = ComparisonLabel().addSearchedLabel()
+    let transportNavBar = NavBar().setup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        self.navBar()
+        self.setupNavBar()
         self.setupLabels()
         self.setupConstraints()
     }
@@ -77,6 +78,11 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
             make.width.equalTo(200)
             make.height.equalTo(30)
         }
+        
+        self.transportNavBar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(view).offset(20)
+            make.width.equalTo(view)
+        }
     }
     
     func resultsTableView() {
@@ -124,25 +130,14 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         print(self.myArray[indexPath.row])
     }
     
-    func navBar() {
-        
-        let transportNavBar = NavBar().setup()
-        
-        self.view.addSubview(transportNavBar)
-        
-        transportNavBar.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(view).offset(20)
-            make.width.equalTo(view)
-        }
-        
-        
+    func setupNavBar() {
+        self.view.addSubview(self.transportNavBar)
         let navItem = UINavigationItem(title: "Transportation")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         
-        
         navItem.leftBarButtonItem = homeItem
-        transportNavBar.setItems([navItem], animated: false)
-        transportNavBar.alpha = 0.6
+        self.transportNavBar.setItems([navItem], animated: false)
+        self.transportNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
