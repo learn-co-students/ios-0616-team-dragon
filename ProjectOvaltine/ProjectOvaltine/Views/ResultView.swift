@@ -95,7 +95,7 @@ class ResultView: UIView {
         //self.locationNameLabel.frame = CGRect(x:self.width/3, y: 90, width: 150, height: 40)
         self.locationNameLabel.textColor = UIColor.blackColor()
         //self.locationNameLabel.backgroundColor = UIColor.redColor()
-        self.locationNameLabel.textAlignment = NSTextAlignment.Left
+        self.locationNameLabel.textAlignment = NSTextAlignment.Center
         self.locationNameLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:20)
         self.locationNameLabel.text = "New York"
         
@@ -109,6 +109,8 @@ class ResultView: UIView {
         
         //self.resultDescriptionTextView.frame = CGRect(x:10, y:275, width:self.width - 20, height:90)
         self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
+        //self.resultDescriptionTextView.backgroundColor = UIColor.blueColor()
+        self.resultDescriptionTextView.textColor = UIColor.blackColor()
         self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
         self.resultDescriptionTextView.font = UIFont(name:"AppleSDGothicNeo-Light", size:16)
         self.addSubview(self.scoreLabel)
@@ -122,6 +124,14 @@ class ResultView: UIView {
             make.centerY.equalTo(self)
             //make.top.equalTo(self).inset(20)
             //make.centerY.equalTo(self).offset(-20)
+        }
+        
+        self.resultDescriptionTextView.snp_makeConstraints { (make) -> Void in
+            make.height.equalTo(100)
+            make.width.equalTo(350)
+            //make.size.equalTo(200)
+            make.centerX.equalTo(self)
+            make.centerY.equalTo(self).offset(120)
         }
         
 //         self.scoreLabel.snp_makeConstraints { (make) -> Void in
