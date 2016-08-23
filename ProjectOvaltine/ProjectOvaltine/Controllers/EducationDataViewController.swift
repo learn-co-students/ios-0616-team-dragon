@@ -33,18 +33,17 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         self.currentLabel.layer.masksToBounds = true
         
         self.searchedLabel.text = "New York City"
-        self.view.addSubview(searchedLabel)
+        self.view.addSubview(self.searchedLabel)
         self.searchedLabel.sendSubviewToBack(self.searchedLabel)
         self.searchedLabel.layer.masksToBounds = true
-        
         
         self.view.addSubview(self.ratingLabel)
         self.ratingLabel.text = "9.5"
         self.ratingLabel.sendSubviewToBack(self.ratingLabel)
         
-        self.view.addSubview(comparisonLabel)
+        self.view.addSubview(self.comparisonLabel)
         self.comparisonLabel.text = "9.5"
-        self.comparisonLabel.sendSubviewToBack(comparisonLabel)
+        self.comparisonLabel.sendSubviewToBack(self.comparisonLabel)
         self.comparisonLabel.textAlignment = NSTextAlignment.Center
     }
     

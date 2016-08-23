@@ -15,78 +15,67 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     var myArray = ["Commute Time","Public Transportation","etc."]
     
+    let comparisonLabel = ComparisonLabel().addComparisonLabel()
+    let currentLabel = ComparisonLabel().addCurrentLabel()
+    let ratingLabel = ComparisonLabel().addRatingsLabel()
+    let searchedLabel = ComparisonLabel().addSearchedLabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.navBar()
-        self.resultsTableView()
-        self.ratingTextView()
-        self.comparisonTextView()
-        self.currentLocationLabel()
-        self.searchedLocationLabel()
+        self.setupLabels()
+        self.setupConstraints()
     }
     
-    func currentLocationLabel() {
+    func setupLabels() {
+        self.view.addSubview(self.currentLabel)
+        self.currentLabel.text = "Bergen County"
+        self.currentLabel.sendSubviewToBack(self.currentLabel)
+        self.currentLabel.layer.masksToBounds = true
         
-        let currentLabel = UILabel()
+        self.searchedLabel.text = "New York City"
+        self.view.addSubview(self.searchedLabel)
+        self.searchedLabel.sendSubviewToBack(self.searchedLabel)
+        self.searchedLabel.layer.masksToBounds = true
         
-        self.view.addSubview(currentLabel)
+        self.view.addSubview(self.ratingLabel)
+        self.ratingLabel.text = "9.5"
+        self.ratingLabel.sendSubviewToBack(self.ratingLabel)
         
-        currentLabel.text = "Bergen County"
+        self.view.addSubview(self.comparisonLabel)
+        self.comparisonLabel.text = "9.5"
+        self.comparisonLabel.sendSubviewToBack(self.comparisonLabel)
+        self.comparisonLabel.textAlignment = NSTextAlignment.Center
+    }
+    
+    func setupConstraints() {
+        self.comparisonLabel.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(view).offset(-20)
+            make.top.equalTo(view).offset(110)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
         
-        currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Helvetica-Light", size:20)
-        currentLabel.sendSubviewToBack(currentLabel)
-        currentLabel.layer.masksToBounds = true
-        currentLabel.snp_makeConstraints { (make) -> Void in
+        self.currentLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(15)
             make.top.equalTo(view).offset(66)
             make.width.equalTo(200)
             make.height.equalTo(30)
         }
-    }
-    
-    
-    func searchedLocationLabel() {
-        let searchedLabel = ComparisonLabel().addSearchedLabel()
-        searchedLabel.text = "New York City"
-        self.view.addSubview(searchedLabel)
-        searchedLabel.sendSubviewToBack(searchedLabel)
-        searchedLabel.layer.masksToBounds = true
-        searchedLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(75)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
-    }
-    
-    func ratingTextView() {
-        let ratingLabel = ComparisonLabel().addRatingsLabel()
-        self.view.addSubview(ratingLabel)
-        ratingLabel.text = "9.5"
-        ratingLabel.sendSubviewToBack(ratingLabel)
-        ratingLabel.snp_makeConstraints { (make) -> Void in
+        
+        self.ratingLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(20)
             make.top.equalTo(view).offset(110)
             make.width.equalTo(100)
             make.height.equalTo(100)
         }
-    }
-    
-    func comparisonTextView() {
         
-        let comparisonLabel = ComparisonLabel().addComparisonLabel()
-        self.view.addSubview(comparisonLabel)
-        comparisonLabel.text = "9.5"
-        
-        comparisonLabel.sendSubviewToBack(comparisonLabel)
-        comparisonLabel.textAlignment = NSTextAlignment.Center
-        comparisonLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(-20)
-            make.top.equalTo(view).offset(110)
-            make.width.equalTo(100)
-            make.height.equalTo(100)
+        self.searchedLabel.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(self.view).offset(75)
+            make.top.equalTo(self.view).offset(66)
+            make.width.equalTo(200)
+            make.height.equalTo(30)
         }
     }
     
