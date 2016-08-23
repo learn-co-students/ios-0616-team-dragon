@@ -41,4 +41,6 @@ class DataStore {
             completion()
         }
     }
+    
+    func getScoreModel(completion: () -> ()) {}
 }
