@@ -21,11 +21,14 @@ class CensusAPIClient {
         var usOptional: US? = nil
         var stateOptional: State? = nil
         
-        guard let cityName = placemark.locality else {
-            print("Error getting city name from placemark")
-            completion(city: nil, county: nil, state: nil, us: nil)
-            return
-        }
+        let address = placemark.addressDictionary!["FormattedAddressLines"] as! [String]
+        let cityName = address[0].componentsSeparatedByString(",")[0]
+        
+//        guard let cityName = placemark.locality else {
+//            print("Error getting city name from placemark")
+//            completion(city: nil, county: nil, state: nil, us: nil)
+//            return
+//        }
         
         guard let countyName = placemark.subAdministrativeArea else {
             print("Error getting county name from placemark")
