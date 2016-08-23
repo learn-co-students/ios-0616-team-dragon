@@ -25,7 +25,8 @@ class ResultTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func statsTableView() {
-        let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
+        let tableView = UITableView(frame: view.bounds,
+                                    style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
@@ -33,7 +34,8 @@ class ResultTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.frame.origin.y += 366
         
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView,
+                   heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }
     
@@ -42,15 +44,18 @@ class ResultTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return detailsArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView,
+                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView,
+                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
 }

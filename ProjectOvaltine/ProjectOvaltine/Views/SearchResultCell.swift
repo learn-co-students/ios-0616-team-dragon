@@ -18,8 +18,10 @@ class SearchResultCell: UITableViewCell {
     var resultDescription: UITextView! = UITextView()
     
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCellStyle,
+                  reuseIdentifier: String?) {
+        super.init(style: style,
+                   reuseIdentifier: reuseIdentifier)
         self.createGraph()
         self.createLabels()
         self.contentView.addSubview(self.scoreLabel)
@@ -38,8 +40,13 @@ class SearchResultCell: UITableViewCell {
         self.setupView()
     }
     
-    convenience init(style: UITableViewCellStyle, reuseIdentifier: String?, parameterDescription: String, description:String, score:String) {
-        self.init(style: style, reuseIdentifier: reuseIdentifier)
+    convenience init(style: UITableViewCellStyle,
+                     reuseIdentifier: String?,
+                     parameterDescription: String,
+                     description:String,
+                     score:String) {
+        self.init(style: style,
+                  reuseIdentifier: reuseIdentifier)
         self.scoreLabel.text = score
         self.resultDescription.text = description
         self.resultLocationNameLabel.text = parameterDescription

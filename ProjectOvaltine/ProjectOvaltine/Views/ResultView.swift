@@ -64,9 +64,20 @@ class ResultView: UIView {
         self.containerView.backgroundColor = UIColor.grayColor()
         self.createGraph()
         self.addSubview(self.containerView)
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : self.containerView]))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : self.containerView]))
-        self.containerLayoutConstraint = NSLayoutConstraint(item: self.containerView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0)
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|",
+            options: NSLayoutFormatOptions(rawValue: 0),
+            metrics: nil,
+            views: ["containerView" : self.containerView]))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|",
+            options: NSLayoutFormatOptions(rawValue: 0),
+            metrics: nil,
+            views: ["containerView" : self.containerView]))
+        self.containerLayoutConstraint = NSLayoutConstraint(item: self.containerView,
+                                                            attribute: .Height,
+                                                            relatedBy: .Equal,
+                                                            toItem: self,
+                                                            attribute: .Height,
+                                                            multiplier: 1.0, constant: 0.0)
         self.addConstraint(self.containerLayoutConstraint)
         let newView: UIView = UIView.init()
         newView.frame = CGRectMake(0, 0, 150, 150)
