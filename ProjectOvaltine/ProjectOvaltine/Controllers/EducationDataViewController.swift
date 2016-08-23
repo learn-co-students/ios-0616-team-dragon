@@ -96,23 +96,29 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView,
+                   heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return myArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView,
+                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = ComparisonCell(style: UITableViewCellStyle.Default,
-                                 reuseIdentifier: "myIdentifier")
+                                  reuseIdentifier: "myIdentifier")
         cell.comparisonLabel.text = myArray[indexPath.row]
-        cell.comparisonButton.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)),
-                                 forControlEvents: UIControlEvents.TouchUpInside)
         
-        cell.originButton.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)),
-                                 forControlEvents: UIControlEvents.TouchUpInside)
+        cell.comparisonButton.addTarget(self,
+                                        action: #selector(EducationDataViewController.pressedButton1(_:)),
+                                        forControlEvents: UIControlEvents.TouchUpInside)
+        
+        cell.originButton.addTarget(self,
+                                    action: #selector(EducationDataViewController.pressedButton2(_:)),
+                                    forControlEvents: UIControlEvents.TouchUpInside)
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()
         } else {
@@ -129,7 +135,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         print("Pressed Button 2")
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView,
+                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(myArray[indexPath.row])
     }
     

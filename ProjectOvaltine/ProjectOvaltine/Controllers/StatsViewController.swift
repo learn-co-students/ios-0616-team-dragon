@@ -50,7 +50,8 @@ class StatsViewController: UITableViewController {
         self.edgesForExtendedLayout = .None
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(tableView: UITableView,
+                            heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 70
     }
     
@@ -58,11 +59,13 @@ class StatsViewController: UITableViewController {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         return self.detailsArray.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView,
+                            cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // let points = self.comparisonData?.getScoresArray()
         
         let economicData = self.comparisonData?.getEconomicScore()
@@ -73,14 +76,19 @@ class StatsViewController: UITableViewController {
         //        print(points)
         //        print(economicData)
         
-        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score: self.dataArray[indexPath.row])
+        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
+                                    reuseIdentifier: "myIdentifier",
+                                    parameterDescription: detailsArray[indexPath.row],
+                                    description: "Description",
+                                    score: self.dataArray[indexPath.row])
         
         return cell
         
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView,
+                            didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(self.detailsArray[indexPath.row])
     }
     
@@ -108,7 +116,8 @@ class StatsViewController: UITableViewController {
     }
     
     func dismissView() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true,
+                                      completion: nil)
     }
     
     func setupConstraints() {

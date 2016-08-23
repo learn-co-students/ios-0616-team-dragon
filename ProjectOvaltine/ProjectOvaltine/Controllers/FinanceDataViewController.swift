@@ -18,7 +18,10 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let financeNavBar = NavBar().setup()
     let navItem = UINavigationItem(title: "Finance")
-    let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
+    let homeItem = UIBarButtonItem.init(title: "Home",
+                                        style: .Done,
+                                        target: nil,
+                                        action: #selector(dismissView))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +90,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func resultsTableView() {
-        let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
+        let tableView = UITableView(frame: view.bounds,
+                                    style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
@@ -95,16 +99,20 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView,
+                   heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return myArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
+    func tableView(tableView: UITableView,
+                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
+                                    reuseIdentifier: "myIdentifier")
         cell.resultDescription.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
         if (indexPath.row % 2 == 0) {
@@ -123,7 +131,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         print("Pressed Button 2")
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView,
+                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(myArray[indexPath.row])
     }
     
@@ -134,8 +143,12 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         self.financeNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+        button.setImage(UIImage(named: "menu-2"),
+                                forState: UIControlState.Normal)
+        button.addTarget(self,
+                         action: #selector(settingButtonPushed),
+                         forControlEvents: UIControlEvents.TouchUpInside)
+        
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)

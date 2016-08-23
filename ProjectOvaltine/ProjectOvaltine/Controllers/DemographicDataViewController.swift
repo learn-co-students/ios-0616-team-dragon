@@ -101,23 +101,28 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView,
+                   heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return myArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView,
+                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = ComparisonCell(style: UITableViewCellStyle.Default,
                                   reuseIdentifier: "myIdentifier")
-        cell.myLabel1.text = myArray[indexPath.row]
-        cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)),
-                                 forControlEvents: UIControlEvents.TouchUpInside)
+        cell.originLabel.text = myArray[indexPath.row]
+        cell.originButton.addTarget(self,
+                                    action: #selector(DemographicDataViewController.pressedButton1(_:)),
+                                    forControlEvents: UIControlEvents.TouchUpInside)
         
-        cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)),
-                                 forControlEvents: UIControlEvents.TouchUpInside)
+        cell.comparisonButton.addTarget(self,
+                                        action: #selector(DemographicDataViewController.pressedButton2(_:)),
+                                        forControlEvents: UIControlEvents.TouchUpInside)
         
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
@@ -135,7 +140,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         print("Pressed Button 2")
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView,
+                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(myArray[indexPath.row])
     }
     
@@ -151,7 +157,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         button.setImage(UIImage(named: "menu-2"),
                         forState: UIControlState.Normal)
         
-        button.addTarget(self, action: #selector(settingButtonPushed),
+        button.addTarget(self,
+                         action: #selector(settingButtonPushed),
                          forControlEvents: UIControlEvents.TouchUpInside)
         
         button.frame = CGRectMake(3, 3, 25, 25)
