@@ -11,18 +11,22 @@ import SwiftSpinner
 
 class StatsViewController: UITableViewController {
     
-    var comparisonData : ScoreModel?
+    var comparisonData: ScoreModel?
+    
+    var dataArray = [String]()
     
     var detailsArray = ["Economic","Education","Transit", "Demographic"]
     var statsNavBar: UINavigationBar = UINavigationBar()
-    
+    var store = DataStore.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
         self.navBar()
+        self.comparisonData = self.store.comparisonData
         self.setupConstraints()
+       // print(comparisonData)
     }
     
     
@@ -60,18 +64,20 @@ class StatsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let points = self.comparisonData?.getScoresDictionary()
+       // let points = self.comparisonData?.getScoresArray()
         
-        print(points)
-        
-        if let key = points?[detailsArray[indexPath.row]] {
-            let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:key)
-            return cell
-        }
+        let economicData = self.comparisonData?.getEconomicScore()
+        let educationData = self.comparisonData?.getEducationScore()
         
         
-        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
+        self.dataArray = [String(economicData!), String(educationData!), String(0), String(0)]
+//        print(points)
+//        print(economicData)
+        
+        let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score: self.dataArray[indexPath.row])
         return cell
+        
+        
     }
     
     

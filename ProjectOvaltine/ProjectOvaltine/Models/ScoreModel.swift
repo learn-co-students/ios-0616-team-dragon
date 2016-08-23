@@ -39,8 +39,7 @@ struct ScoreModel {
         
         let origin = Double(self.originDataPoints!["Median household income"]!)
         let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
-        
-        
+    
         
         //        Subtracts the comparison level with the origin level
         //            Should take the lowever level, for instance, and subtract by the higher level
@@ -50,7 +49,7 @@ struct ScoreModel {
         //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
         let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
         
-        print(percentageChange)
+       
         
         
         
@@ -63,34 +62,10 @@ struct ScoreModel {
         let comparison = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
         
         
-        print(origin)
-        print(comparison)
-        //        Subtracts the comparison level with the origin level
-        //            Should take the lowever level, for instance, and subtract by the higher level
-        //            Ex. City Avg - US Avg which should produce a positive number
-        //let subtractedValueForPercentage = comparison? - origin?
-        
-        //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
-        // let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
-        
-        //    print(percentageChange)
-        
-        
-        
-        //return String(percentageChange)
-        
         return ""
     }
-    //
+    
     mutating func getEducationScore() -> String {
-        
-        //        "002E": "No schooling completed",
-        //        "017E": "High school diploma",
-        //        "018E": "GED or alternative credential",
-        //        "024E": "Professional school degree",
-        //        "022E": "Bachelor's degree",
-        //        "023E": "Master's degree",
-        //        "025E": "Doctorate degree",
         
         //Origin data points
         let originNoSchool = Double(self.originDataPoints!["No schooling completed"]!)
@@ -119,8 +94,6 @@ struct ScoreModel {
             originSum += originSum + values!
         }
         
-        print(originSum)
-        
         let comparisonValues = [comparisonNoSchool, comparisonHighSchool, comparisonGED, comparisonProfessionalDegree, comparisonBachelors, comparisonMasters, comparisonDoctorates]
         
         var comparisonSum = 0.0
@@ -130,21 +103,19 @@ struct ScoreModel {
         
         let originDegreePercentage = ((originBachelors! + originMasters! + originDoctorates!)/originSum) * 100
         
-        print(originDegreePercentage)
         
         let comparisonDegreePercentage = ((comparisonBachelors! + comparisonMasters! + comparisonDoctorates!)/comparisonSum) * 100
         
+     
+        
         if comparisonDegreePercentage > originDegreePercentage * 2 {
+           
             return "High"
         } else if comparisonDegreePercentage > originDegreePercentage && comparisonDegreePercentage < originDegreePercentage * 2 {
+       
             return "Moderate"} else {
+          
             return "Low"}
-        //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
-        //let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
-        
-        //        print(percentageChange)
-        //
-        //        return String(percentageChange)
         
     }
     //
@@ -162,22 +133,22 @@ struct ScoreModel {
     //        return returnValue
     //    }
     
-    mutating func getScoresDictionary() -> [String: String] {
+    mutating func getScoresArray() -> [String] {
         self.getEducationScore()
         self.getTransitScore()
         self.getEconomicScore()
         // self.getDemographicScore()
-        let returnDict = ["Education": String(self.educationScore), "Transit": String(self.transitScore), "Economic": String(self.economicScore), "Demographic": String(self.demographicScore)]
-        return returnDict
+        let returnArray = [String(self.educationScore), String(self.transitScore), String(self.economicScore), String(self.demographicScore)]
+        return returnArray
     }
     
     mutating func getAggregateScore() -> String {
-        let scores = getScoresDictionary()
+        let scores = getScoresArray()
         var aggregateScore = 0
-        for score in scores.values {
+        for score in scores {
             aggregateScore = aggregateScore + Int(score)!
         }
-        aggregateScore = aggregateScore / scores.values.count
+        aggregateScore = aggregateScore / scores.count
         return String(aggregateScore)
     }
     

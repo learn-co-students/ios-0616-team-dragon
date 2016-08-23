@@ -74,7 +74,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     override func viewDidAppear(animated: Bool) {
-       
+        
     }
     
     func drawInMapView(){
@@ -124,8 +124,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
         if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
             
-        
+            
             let detailVC = TabBarController()
+            detailVC.scoreData = self.store.comparisonData
             self.showViewController(detailVC, sender: nil)
             self.searchController.text?.removeAll()
         }
@@ -140,7 +141,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 completionHandler(geo)
             }
         })
-        //print(self.store.scoreData)
     }
     
     func convertArrayDataToPoints(array: [AnyObject]) {
@@ -172,11 +172,11 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     //Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
-
+        
         let zipcode = "\(zipcode)" + " United States"
         
         
-
+        
         CLGeocoder().geocodeAddressString(zipcode, completionHandler: {[weak self] (placemarks, error) in
             if error != nil {
                 self!.presentViewController(self!.alert, animated: true, completion: nil)
@@ -187,49 +187,49 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 self!.placemark = (placemarks?.last)!
                 
                 print(self!.placemark)
+              
                 CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
                     
                     
+                    for USDataSet in (us?.dataSets!)! {
+                        for USDataSetTwo in (USDataSet.values)! {
+                            
+                            self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
+                            self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
+                        }
+                    }
                     
-                  
-                    
-//                    for USDataSet in (us?.dataSets!)! {
-//                        for USDataSetTwo in (USDataSet.values)! {
-//                            
-//                            self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
-//                            self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
-//                        }
-//                    }
-//                    
-                    for cityDataSet in (city?.dataSets!)! {
-                        for cityDataSet2 in (cityDataSet.values)!{
-                            self!.cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
-                            self!.cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
+                    if let city = city?.dataSets {
+                        for cityDataSet in city {
+                            for cityDataSet2 in (cityDataSet.values)!{
+                                self!.cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
+                                self!.cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
+                            }
                         }
                     }
                     
                     
-                    dispatch_async(dispatch_get_main_queue()) { [weak self] in
-                        let USScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
-                        
-                        self!.store.comparisonData = USScore
-                        
-                        self!.store.comparisonData?.getEconomicScore()
-                        self!.store.comparisonData?.getTransitScore()
-                        self!.store.comparisonData?.getEducationScore()
-                        
-                    }
-                   
+                    
+                    let USScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
+                    
+                    self!.store.comparisonData = USScore
+                    
+                    self!.store.comparisonData?.getEconomicScore()
+                    self!.store.comparisonData?.getTransitScore()
+                    self!.store.comparisonData?.getEducationScore()
+                    
+                    
+                    
                     
                     
                 })
                 
-               
+                
                 
                 SwiftSpinner.showWithDuration(2.0, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
                 
-                print(self!.placemark?.postalCode)
+       
                 
                 if let placemarkZipcode = self!.placemark?.postalCode {
                     self!.store.zipCode = placemarkZipcode}
@@ -270,11 +270,11 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 SwiftSpinner.showWithDuration(3.0, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
                 
-               
-            
+                
+                
             }
             
-           
+            
             
             })
         
