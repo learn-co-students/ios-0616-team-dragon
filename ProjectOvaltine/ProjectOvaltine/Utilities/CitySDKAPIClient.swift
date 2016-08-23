@@ -11,11 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class CitySDKAPIClient {
-    //static let sharedInstance = CitySDKAPIClient()
-    // MARK: Path Router
-//    enum URLRouter {
-//        static let baseURL: String = Constants.CITYSDK_URL
-//    }
+    
     let baseURL: String = Constants.CITYSDK_URL
     let method: String = "POST"
     let URLPath: String = "/"

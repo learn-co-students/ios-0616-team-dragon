@@ -128,13 +128,6 @@ class ResultView: UIView {
             make.centerY.equalTo(self).offset(120)
         }
         
-//         self.scoreLabel.snp_makeConstraints { (make) -> Void in
-//            make.centerX.equalTo(self)
-//            make.centerY.equalTo(self)
-//            //make.centerY.equalTo(self).offset(30)
-//        }
-        
-        
         self.locationNameLabel.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(100)
             make.centerY.equalTo(self).dividedBy(2)
