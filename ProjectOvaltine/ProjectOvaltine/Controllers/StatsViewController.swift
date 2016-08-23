@@ -36,7 +36,6 @@ class StatsViewController: UITableViewController {
         self.view.sendSubviewToBack(tableView)
         tableView.frame.origin.y += 366
         self.edgesForExtendedLayout = .None
-        
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
