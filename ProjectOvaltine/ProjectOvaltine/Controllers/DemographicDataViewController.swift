@@ -78,17 +78,13 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func comparisonTextView() {
-        let comparisonLabel = UILabel()
+        
+        let comparisonLabel = ComparisonLabel().addComparisonLabel()
+        
         self.view.addSubview(comparisonLabel)
+        
         comparisonLabel.text = "9.5"
-        comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
-        comparisonLabel.textColor = UIColor(netHex:0x00BFFF)
-        comparisonLabel.layer.borderWidth = 3
-        comparisonLabel.layer.borderColor = UIColor(netHex:0x00BFFF).CGColor
-        comparisonLabel.font = UIFont(name:"Futura", size:33)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
-        comparisonLabel.layer.masksToBounds = true
-        comparisonLabel.layer.cornerRadius = 50
         comparisonLabel.textAlignment = NSTextAlignment.Center
         comparisonLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(-20)
