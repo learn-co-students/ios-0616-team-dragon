@@ -37,34 +37,35 @@ struct ScoreModel {
     mutating func getEconomicScore() -> String {
         
         
-        let origin = Double(self.originDataPoints!["Median household income"]!)
-        let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
+//        let origin = Double(self.originDataPoints!["Median household income"]!)
+//        let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
         
         
         
         //        Subtracts the comparison level with the origin level
         //            Should take the lowever level, for instance, and subtract by the higher level
         //            Ex. City Avg - US Avg which should produce a positive number
-        let subtractedValueForPercentage = comparison! - origin!
+        //let subtractedValueForPercentage = comparison! - origin!
         
         //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
-        let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
+        //let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
         
-        print(percentageChange)
+        //print(percentageChange)
         
         
         
-        return String(percentageChange)
+        //return String(percentageChange)
+        return "Economics"
     }
     
     mutating func getTransitScore() -> String {
         
-        let origin = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
-        let comparison = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
+        //let origin = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
+       // let comparison = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
         
         
-        print(origin)
-        print(comparison)
+        //print(origin)
+        //print(comparison)
         //        Subtracts the comparison level with the origin level
         //            Should take the lowever level, for instance, and subtract by the higher level
         //            Ex. City Avg - US Avg which should produce a positive number
@@ -93,36 +94,36 @@ struct ScoreModel {
 //        "025E": "Doctorate degree",
         
         //Origin data points
-        let originNoSchool = Int(self.originDataPoints!["No schooling completed"]!)
-        let originHighSchool = Int(self.originDataPoints!["High school diploma"]!)
-        let originGED = Int(self.originDataPoints!["GED or alternative credential"]!)
-        let originProfessionalDegree = Int(self.originDataPoints!["Professional school degree"]!)
-        let originBachelors = Int(self.originDataPoints!["Bachelor's degree"]!)
-        let originMasters = Int(self.originDataPoints!["Master's degree"]!)
-        let originDoctorates = Int(self.originDataPoints!["Doctorate degree"]!)
-        
-        //Comparisson data points
-        let comparisonNoSchool = Int(self.comparisonDataPoints!["No schooling completed"]!)
-        let comparisonHighSchool = Int(self.comparisonDataPoints!["High school diploma"]!)
-        let comparisonGED = Int(self.comparisonDataPoints!["GED or alternative credential"]!)
-        let comparisonProfessionalDegree = Int(self.comparisonDataPoints!["Professional school degree"]!)
-        let comparisonBachelors = Int(self.comparisonDataPoints!["Bachelor's degree"]!)
-        let comparisonMasters = Int(self.comparisonDataPoints!["Master's degree"]!)
-        let comparisonDoctorates = Int(self.comparisonDataPoints!["Doctorate degree"]!)
-        
-//        [ x1, x2, ... , xn].map(f) -> [f(x1), f(x2), ... , f(xn)]
-        
-        let originValues = [originNoSchool, originHighSchool, originGED, originProfessionalDegree, originBachelors, originMasters, originDoctorates]
-        
-        let totalOriginValues = originValues.map{$0! + $0!}
-        
-        print(totalOriginValues)
-        
-        let comparisonValues = [comparisonNoSchool, comparisonHighSchool, comparisonGED, comparisonProfessionalDegree, comparisonBachelors, comparisonMasters, comparisonDoctorates]
-        
-        let totalComparisonValues = comparisonValues.map{$0! + $0!}
-        
-        print(totalComparisonValues)
+//        let originNoSchool = Int(self.originDataPoints!["No schooling completed"]!)
+//        let originHighSchool = Int(self.originDataPoints!["High school diploma"]!)
+//        let originGED = Int(self.originDataPoints!["GED or alternative credential"]!)
+//        let originProfessionalDegree = Int(self.originDataPoints!["Professional school degree"]!)
+//        let originBachelors = Int(self.originDataPoints!["Bachelor's degree"]!)
+//        let originMasters = Int(self.originDataPoints!["Master's degree"]!)
+//        let originDoctorates = Int(self.originDataPoints!["Doctorate degree"]!)
+//        
+//        //Comparisson data points
+//        let comparisonNoSchool = Int(self.comparisonDataPoints!["No schooling completed"]!)
+//        let comparisonHighSchool = Int(self.comparisonDataPoints!["High school diploma"]!)
+//        let comparisonGED = Int(self.comparisonDataPoints!["GED or alternative credential"]!)
+//        let comparisonProfessionalDegree = Int(self.comparisonDataPoints!["Professional school degree"]!)
+//        let comparisonBachelors = Int(self.comparisonDataPoints!["Bachelor's degree"]!)
+//        let comparisonMasters = Int(self.comparisonDataPoints!["Master's degree"]!)
+//        let comparisonDoctorates = Int(self.comparisonDataPoints!["Doctorate degree"]!)
+//        
+////        [ x1, x2, ... , xn].map(f) -> [f(x1), f(x2), ... , f(xn)]
+//        
+//        let originValues = [originNoSchool, originHighSchool, originGED, originProfessionalDegree, originBachelors, originMasters, originDoctorates]
+//        
+//        let totalOriginValues = originValues.map{$0! + $0!}
+//        
+//        print(totalOriginValues)
+//        
+//        let comparisonValues = [comparisonNoSchool, comparisonHighSchool, comparisonGED, comparisonProfessionalDegree, comparisonBachelors, comparisonMasters, comparisonDoctorates]
+//        
+//        let totalComparisonValues = comparisonValues.map{$0! + $0!}
+//        
+//        print(totalComparisonValues)
         
         //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
         //let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)

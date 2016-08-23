@@ -201,12 +201,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
 //                        }
 //                    }
 //                    
-                    for cityDataSet in (city?.dataSets!)! {
-                        for cityDataSet2 in (cityDataSet.values)!{
-                            self!.cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
-                            self!.cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
-                        }
-                    }
+//                    for cityDataSet in (city?.dataSets!)! {
+//                        for cityDataSet2 in (cityDataSet.values)!{
+//                            self!.cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
+//                            self!.cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
+//                        }
+//                    }
                     
                     
                     dispatch_async(dispatch_get_main_queue()) { [weak self] in

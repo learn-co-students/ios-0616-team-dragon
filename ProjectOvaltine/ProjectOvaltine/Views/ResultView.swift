@@ -101,6 +101,7 @@ class ResultView: UIView {
         self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Left
         self.scoreLabel.font = AvenirFont().getFont()
+        
         self.scoreLabel.text = "90"
         
         
