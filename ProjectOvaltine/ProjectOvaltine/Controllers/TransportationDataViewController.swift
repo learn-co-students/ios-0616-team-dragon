@@ -113,7 +113,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = ComparisonCell(style: UITableViewCellStyle.Default,
-                                 reuseIdentifier: "myIdentifier")
+                                  reuseIdentifier: "myIdentifier")
         
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myButton1.addTarget(self, action: #selector(TransportationDataViewController.pressedButton1(_:)),
