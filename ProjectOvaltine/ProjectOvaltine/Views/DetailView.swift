@@ -44,9 +44,9 @@ class DetailView: UIView {
     }
     
     func setupLabels() {
-        self.topicLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:20)
-        self.scoreLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:20)
-        self.descriptionLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:20)
+        self.topicLabel.font = UIFont(name:"Helvetica-Light", size:20)
+        self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:20)
+        self.descriptionLabel.font = UIFont(name:"Helvetica-Light", size:20)
     }
     
     func setupConstraints() {

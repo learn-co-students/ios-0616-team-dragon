@@ -107,7 +107,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        if(indexPath.row % 2 == 0) {
+        if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
@@ -138,7 +138,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
             make.width.equalTo(view)
         }
         
-        demographicNavBar.barTintColor = UIColor(netHex:0x00BFFF)
+        //demographicNavBar.barTintColor = UIColor(netHex:0x00BFFF)
         let navItem = UINavigationItem(title: "Demographics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         homeItem.tintColor = UIColor(netHex:0x000000)

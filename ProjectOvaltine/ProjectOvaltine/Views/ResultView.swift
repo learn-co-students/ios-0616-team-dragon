@@ -81,39 +81,34 @@ class ResultView: UIView {
     
     func createGraph() {
         self.graphView = GaugeView()
-        //self.graphView = GaugeView(frame: CGRect(x:self.width / 2.5, y:130, width: 100, height: 100))
+        self.graphView.gaugeColor = self.randomColor()
         self.graphView.percentage = self.graphPercentage
         self.graphView.thickness = 9
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
         self.graphView.labelColor = self.randomColor()
         self.graphView.gaugeBackgroundColor = self.randomColor()
-        //self.graphView.backgroundColor = UIColor.orangeColor()
         self.addSubview(graphView)
         
     }
     
     func createLabels() {
-        //self.locationNameLabel.frame = CGRect(x:self.width/3, y: 90, width: 150, height: 40)
+
         self.locationNameLabel.textColor = UIColor.blackColor()
-        //self.locationNameLabel.backgroundColor = UIColor.redColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Center
-        self.locationNameLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:20)
+        self.locationNameLabel.font = UIFont(name:"Helvetica-Light", size:20)
         self.locationNameLabel.text = "New York"
-        
-        //self.scoreLabel.frame = CGRect(x:self.width/2.15, y: 165, width: 150, height: 40)
+
         self.scoreLabel.textColor = UIColor.blackColor()
-        //self.scoreLabel.backgroundColor = UIColor.redColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Left
-        self.scoreLabel.font = UIFont(name:"AppleSDGothicNeo-Regular", size:40)
+        self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:40)
         self.scoreLabel.text = "90"
         
         
-        //self.resultDescriptionTextView.frame = CGRect(x:10, y:275, width:self.width - 20, height:90)
+        
         self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
-        //self.resultDescriptionTextView.backgroundColor = UIColor.blueColor()
         self.resultDescriptionTextView.textColor = UIColor.blackColor()
         self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
-        self.resultDescriptionTextView.font = UIFont(name:"AppleSDGothicNeo-Light", size:16)
+        self.resultDescriptionTextView.font = UIFont(name:"Helvetica-Light", size:16)
         self.addSubview(self.scoreLabel)
         self.addSubview(self.locationNameLabel)
         self.addSubview(self.resultDescriptionTextView)
@@ -130,7 +125,6 @@ class ResultView: UIView {
         self.resultDescriptionTextView.snp_makeConstraints { (make) -> Void in
             make.height.equalTo(100)
             make.width.equalTo(350)
-            //make.size.equalTo(200)
             make.centerX.equalTo(self)
             make.centerY.equalTo(self).offset(120)
         }

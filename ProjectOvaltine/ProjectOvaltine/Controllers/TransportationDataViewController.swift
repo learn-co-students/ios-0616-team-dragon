@@ -60,6 +60,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
             make.height.equalTo(30)
         }
     }
+    
     func ratingTextView() {
         let ratingLabel = ComparisonLabel().addRatingsLabel()
         self.view.addSubview(ratingLabel)

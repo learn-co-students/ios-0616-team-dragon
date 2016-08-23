@@ -27,6 +27,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func currentLocationLabel() {
         let currentLabel = UILabel()
         self.view.addSubview(currentLabel)
+        
         currentLabel.text = "Bergen County"
         currentLabel.textColor = UIColor.blackColor()
         currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
@@ -41,12 +42,10 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func searchedLocationLabel() {
-        
-        let searchedLabel = UILabel()
-        self.view.addSubview(searchedLabel)
+        let searchedLabel = ComparisonLabel().addSearchedLabel()
         searchedLabel.text = "New York City"
-        searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        self.view.addSubview(searchedLabel)
+        
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
         searchedLabel.snp_makeConstraints { (make) -> Void in
@@ -58,17 +57,11 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func ratingTextView() {
-        
         let ratingLabel = ComparisonLabel().addRatingsLabel()
         self.view.addSubview(ratingLabel)
+        
         ratingLabel.text = "9.5"
         ratingLabel.sendSubviewToBack(ratingLabel)
-        ratingLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(20)
-            make.top.equalTo(view).offset(110)
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-        }
         ratingLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(20)
             make.top.equalTo(view).offset(110)
@@ -80,9 +73,10 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func comparisonTextView() {
         
         let comparisonLabel = ComparisonLabel().addComparisonLabel()
-        self.view.addSubview(comparisonLabel)
-        comparisonLabel.text = "9.5"
         
+        self.view.addSubview(comparisonLabel)
+        
+        comparisonLabel.text = "9.5"
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.textAlignment = NSTextAlignment.Center
         comparisonLabel.snp_makeConstraints { (make) -> Void in
@@ -105,14 +99,15 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myArray.count
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = TableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.myLabel1.text = myArray[indexPath.row]
-        //cell.myLabel2.text = "\(indexPath.row + 1)"
         cell.myButton1.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -122,6 +117,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
+        
         return cell
     }
     

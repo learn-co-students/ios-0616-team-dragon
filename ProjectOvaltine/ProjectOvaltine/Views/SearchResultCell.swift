@@ -47,41 +47,36 @@ class SearchResultCell: UITableViewCell {
         self.contentView.clipsToBounds = true
         self.contentView.addSubview(self.scoreLabel)
         self.contentView.addSubview(self.resultLocationNameLabel)
-        //self.contentView.addSubview(self.resultDescription)
         self.contentView.addSubview(self.graphView)
         self.setupView()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        //self.scoreLabel.sizeThatFits(CGSize(width: 20, height: 35))
-        //self.scoreLabel.backgroundColor = UIColor.orangeColor()
-        //self.scoreLabel.frame = CGRect(x: 20, y: 15, width: 80, height: 35)
-        //self.resultLocationNameLabel.sizeThatFits(CGSize(width: 80, height: 35))
-        //self.resultLocationNameLabel.backgroundColor = UIColor.purpleColor()
-        //self.resultLocationNameLabel.frame = CGRect(x: 180, y: 15, width:180, height: 30)
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        
+//        //self.scoreLabel.sizeThatFits(CGSize(width: 20, height: 35))
+//        //self.scoreLabel.backgroundColor = UIColor.orangeColor()
+//        //self.scoreLabel.frame = CGRect(x: 20, y: 15, width: 80, height: 35)
+//        //self.resultLocationNameLabel.sizeThatFits(CGSize(width: 80, height: 35))
+//        //self.resultLocationNameLabel.backgroundColor = UIColor.purpleColor()
+//        //self.resultLocationNameLabel.frame = CGRect(x: 180, y: 15, width:180, height: 30)
+//    }
     
     
     func createGraph() {
-        //var newGraph = GaugeView()
-//        self.graphView = GaugeView(frame: CGRect(x:self.contentView.frame.width/1.8, y:10, width: self.contentView.frame.width, height:self.contentView.frame.height))
         self.graphView = GaugeView()
-        //self.graphView.backgroundColor = UIColor.orangeColor()
-        //self.graphView.sizeThatFits(CGSize(width: self.contentView.frame.width/1.8, height: self.contentView.frame.width))
+        self.graphView.gaugeColor = self.randomColor()
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
     }
     
 
     func createLabels() {
-        self.resultLocationNameLabel.font = UIFont(name:"AppleSDGothicNeo-Light", size:16)
+        self.resultLocationNameLabel.font = UIFont(name:"Helvetica-Light", size:16)
         self.scoreLabel.textColor = UIColor.whiteColor()
-        self.scoreLabel.font = UIFont(name:"AppleSDGothicNeo", size:16)
+        self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:16)
         self.scoreLabel.textAlignment = NSTextAlignment.Center
         self.scoreLabel.backgroundColor = UIColor.grayColor()
         self.scoreLabel.layer.backgroundColor = UIColor.lightGrayColor().CGColor
-        //        self.scoreLabel.layer.cornerRadius = (20/2)
         self.scoreLabel.layer.borderWidth = 1.0
     }
     
@@ -98,19 +93,23 @@ class SearchResultCell: UITableViewCell {
             make.width.equalTo(100)
             make.center.equalTo(self.contentView)
         }
+        
         self.resultDescription.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(100)
-            //make.centerX.equalTo(self.contentView)
-            //make.center.equalTo(self.contentView)
         }
-        //
-            self.graphView.snp_makeConstraints { (make) -> Void in
-                make.size.equalTo(40)
-                make.right.equalTo(self.contentView).inset(20)
-                make.top.equalTo(self.contentView).inset(15)
-                
-                //make.trailing.equalTo(self)
-            }
+        
+        self.graphView.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(40)
+            make.right.equalTo(self.contentView).inset(20)
+            make.top.equalTo(self.contentView).inset(15)
+        }
+    }
+    
+    private func randomColor() -> UIColor {
+        let hue = ( CGFloat(arc4random() % 256) / 256.0 )               //  0.0 to 1.0
+        let saturation = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from white
+        let brightness = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from black
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
     }
     
 }
