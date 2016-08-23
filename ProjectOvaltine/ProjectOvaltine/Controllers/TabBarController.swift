@@ -13,7 +13,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
+        self.delegate = self
         
     }
     
@@ -41,6 +41,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
         
         let controllers = [statsTab, financeTab, educationTab, transportationTab, demographicsTab]
         self.viewControllers = controllers
+        
         self.tabBar.tintColor = UIColor.whiteColor()
         self.tabBar.barTintColor = UIColor(netHex: 0x000000)
         
@@ -54,7 +55,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate, Navigabl
     func dismissView() {
         SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
         SwiftSpinner.hide()
     }
     

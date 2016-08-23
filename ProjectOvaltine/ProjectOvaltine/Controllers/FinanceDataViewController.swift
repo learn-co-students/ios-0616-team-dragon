@@ -74,7 +74,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         let comparisonLabel = ComparisonLabel().addComparisonLabel()
         self.view.addSubview(comparisonLabel)
         comparisonLabel.text = "9.5"
-
+        
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.textAlignment = NSTextAlignment.Center
         comparisonLabel.snp_makeConstraints { (make) -> Void in
@@ -105,8 +105,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         cell.resultDescription.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
         //cell.myLabel2.text = "\(indexPath.row + 1)"
-//        cell.myButton1.addTarget(self, action: #selector(FinanceDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-//        cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        //        cell.myButton1.addTarget(self, action: #selector(FinanceDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        //        cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()

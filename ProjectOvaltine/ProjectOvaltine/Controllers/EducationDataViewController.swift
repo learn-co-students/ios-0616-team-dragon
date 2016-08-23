@@ -143,7 +143,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
             make.width.equalTo(view)
         }
         
-
+        
         let navItem = UINavigationItem(title: "Education")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         
