@@ -21,7 +21,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        self.navBar()
+        self.setupNavBar()
         self.setupLabels()
         self.setupConstraints()
     }
@@ -119,11 +119,10 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         print(myArray[indexPath.row])
     }
     
-    func navBar() {
+    func setupNavBar() {
         let demographicNavBar = NavBar().setup()
         self.view.addSubview(demographicNavBar)
         

@@ -16,15 +16,12 @@ class StatsViewController: UITableViewController {
     var detailsArray = ["Economic","Education","Transit", "Demographic"]
     var statsNavBar: UINavigationBar = UINavigationBar()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
-        self.navBar()
+        self.setupNavBar()
         self.setupConstraints()
     }
-    
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         let headerView = self.tableView.tableHeaderView as! ResultView
@@ -33,15 +30,11 @@ class StatsViewController: UITableViewController {
     
     func statsTableView() {
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
         self.view.addSubview(tableView)
         self.view.sendSubviewToBack(tableView)
-        
         tableView.frame.origin.y += 366
-        
         self.edgesForExtendedLayout = .None
         
     }
@@ -49,7 +42,6 @@ class StatsViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 70
     }
-    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -61,14 +53,12 @@ class StatsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let points = self.comparisonData?.getScoresDictionary()
-        
         print(points)
         
         if let key = points?[detailsArray[indexPath.row]] {
             let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:key)
             return cell
         }
-        
         
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier",parameterDescription: detailsArray[indexPath.row], description: "Description", score:"90")
         return cell
@@ -80,16 +70,13 @@ class StatsViewController: UITableViewController {
     }
     
     
-    func navBar() {
+    func setupNavBar() {
+        
         self.statsNavBar = NavBar().setup()
         
         self.view.addSubview(statsNavBar)
-        
-        
         let navItem = UINavigationItem(title: "Statistics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        
-        
         navItem.leftBarButtonItem = homeItem
         
         self.statsNavBar.setItems([navItem], animated: false)
@@ -114,7 +101,6 @@ class StatsViewController: UITableViewController {
             make.top.equalTo(view).offset(20)
             make.width.equalTo(view)
         }
-        
     }
     
     func settingButtonPushed() {
