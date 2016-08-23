@@ -104,7 +104,7 @@ class ResultView: UIView {
         self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
         self.resultDescriptionTextView.textColor = UIColor.blackColor()
         self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
-        self.resultDescriptionTextView.font = HelveticaLight().getFont(20)
+        self.resultDescriptionTextView.font = HelveticaLight().getFont(14)
         
         self.addSubview(self.scoreLabel)
         self.addSubview(self.locationNameLabel)
@@ -119,10 +119,10 @@ class ResultView: UIView {
         
         self.resultDescriptionTextView.snp_makeConstraints { (make) -> Void in
             make.height.equalTo(self).dividedBy(4)
-            make.width.equalTo(self).offset(20)
-            //make.centerX.equalTo(self)
-            make.left.leftMargin.equalTo(20)
-            make.right.rightMargin.equalTo(self).offset(-20)
+            make.width.equalTo(self).dividedBy(1.5)
+            make.centerX.equalTo(self)
+            //make.left.leftMargin.equalTo(20)
+            //make.right.rightMargin.equalTo(self).offset(-20)
             make.centerY.equalTo(self).offset(120)
         }
         
