@@ -16,6 +16,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     let currentLabel = ComparisonLabel().addCurrentLabel()
     let ratingLabel = ComparisonLabel().addRatingsLabel()
     let searchedLabel = ComparisonLabel().addSearchedLabel()
+    let financeNavBar = NavBar().setup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,10 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         self.currentLabel.sendSubviewToBack(self.currentLabel)
         self.currentLabel.layer.masksToBounds = true
         
-        self.searchedLabel.text = "New York City"
         self.view.addSubview(searchedLabel)
+        self.searchedLabel.text = "New York City"
         self.searchedLabel.sendSubviewToBack(self.searchedLabel)
         self.searchedLabel.layer.masksToBounds = true
-        
         
         self.view.addSubview(self.ratingLabel)
         self.ratingLabel.text = "9.5"
@@ -74,6 +74,11 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
             make.top.equalTo(self.view).offset(66)
             make.width.equalTo(200)
             make.height.equalTo(30)
+        }
+        
+        self.financeNavBar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(view).offset(20)
+            make.width.equalTo(view)
         }
     }
     
@@ -122,23 +127,17 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         print(myArray[indexPath.row])
     }
     
     func navBar() {
-        let financeNavBar = NavBar().setup()
-        self.view.addSubview(financeNavBar)
-        financeNavBar.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(view).offset(20)
-            make.width.equalTo(view)
-        }
+        self.view.addSubview(self.financeNavBar)
         
         let navItem = UINavigationItem(title: "Finance")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         navItem.leftBarButtonItem = homeItem
-        financeNavBar.setItems([navItem], animated: false)
-        financeNavBar.alpha = 0.6
+        self.financeNavBar.setItems([navItem], animated: false)
+        self.financeNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)

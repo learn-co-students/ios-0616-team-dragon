@@ -32,8 +32,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         self.currentLabel.sendSubviewToBack(self.currentLabel)
         self.currentLabel.layer.masksToBounds = true
         
-        self.searchedLabel.text = "New York City"
         self.view.addSubview(self.searchedLabel)
+        self.searchedLabel.text = "New York City"
         self.searchedLabel.sendSubviewToBack(self.searchedLabel)
         self.searchedLabel.layer.masksToBounds = true
         
@@ -76,7 +76,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
             make.height.equalTo(30)
         }
     }
-    
+
     
     func resultsTableView() {
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)

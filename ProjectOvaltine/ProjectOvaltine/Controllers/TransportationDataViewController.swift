@@ -34,8 +34,8 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         self.currentLabel.sendSubviewToBack(self.currentLabel)
         self.currentLabel.layer.masksToBounds = true
         
-        self.searchedLabel.text = "New York City"
         self.view.addSubview(self.searchedLabel)
+        self.searchedLabel.text = "New York City"
         self.searchedLabel.sendSubviewToBack(self.searchedLabel)
         self.searchedLabel.layer.masksToBounds = true
         
