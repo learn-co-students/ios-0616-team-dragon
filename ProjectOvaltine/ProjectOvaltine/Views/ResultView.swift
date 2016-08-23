@@ -95,12 +95,12 @@ class ResultView: UIView {
 
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Center
-        self.locationNameLabel.font = UIFont(name:"Helvetica-Light", size:20)
+        self.locationNameLabel.font = AvenirFont().getFont()
         self.locationNameLabel.text = "New York"
 
         self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Left
-        self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:40)
+        self.scoreLabel.font = AvenirFont().getFont()
         self.scoreLabel.text = "90"
         
         
@@ -108,7 +108,7 @@ class ResultView: UIView {
         self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
         self.resultDescriptionTextView.textColor = UIColor.blackColor()
         self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
-        self.resultDescriptionTextView.font = UIFont(name:"Helvetica-Light", size:16)
+        self.resultDescriptionTextView.font = AvenirFont().getFont()
         self.addSubview(self.scoreLabel)
         self.addSubview(self.locationNameLabel)
         self.addSubview(self.resultDescriptionTextView)
