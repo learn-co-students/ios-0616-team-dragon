@@ -15,6 +15,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     let comparisonLabel = ComparisonLabel().addComparisonLabel()
     let currentLabel = ComparisonLabel().addCurrentLabel()
     let ratingLabel = ComparisonLabel().addRatingsLabel()
+    let searchedLabel = ComparisonLabel().addSearchedLabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,19 +36,11 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func searchedLocationLabel() {
-        let searchedLabel = UILabel()
+        self.searchedLabel.text = "New York City"
         self.view.addSubview(searchedLabel)
-        searchedLabel.text = "New York City"
-        searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
-        searchedLabel.sendSubviewToBack(searchedLabel)
-        searchedLabel.layer.masksToBounds = true
-        searchedLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(75)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        self.searchedLabel.sendSubviewToBack(self.searchedLabel)
+        self.searchedLabel.layer.masksToBounds = true
+        
     }
     
     func ratingTextView() {
@@ -85,6 +78,12 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
             make.height.equalTo(100)
         }
         
+        self.searchedLabel.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(self.view).offset(75)
+            make.top.equalTo(self.view).offset(66)
+            make.width.equalTo(200)
+            make.height.equalTo(30)
+        }
     }
     
     func resultsTableView() {
