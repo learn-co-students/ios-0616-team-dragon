@@ -93,18 +93,18 @@ class ResultView: UIView {
     func createLabels() {
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Center
-        self.locationNameLabel.font = AvenirFont().getFont(CGFloat(20))
+        self.locationNameLabel.font = HelveticaLight().getFont(20)
         self.locationNameLabel.text = "New York"
 
         self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Left
-        self.scoreLabel.font = AvenirFont().getFont(CGFloat(30))
+        self.scoreLabel.font = HelveticaLight().getFont(20)
         self.scoreLabel.text = "90"
         
         self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
         self.resultDescriptionTextView.textColor = UIColor.blackColor()
         self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
-        self.resultDescriptionTextView.font = AvenirFont().getFont(CGFloat(20))
+        self.resultDescriptionTextView.font = HelveticaLight().getFont(20)
         
         self.addSubview(self.scoreLabel)
         self.addSubview(self.locationNameLabel)
@@ -118,10 +118,11 @@ class ResultView: UIView {
         }
         
         self.resultDescriptionTextView.snp_makeConstraints { (make) -> Void in
-            make.height.equalTo(100)
-            make.width.equalTo(400)
-            make.centerX.equalTo(self)
-            make.left.leftMargin.equalTo(40)
+            make.height.equalTo(self).dividedBy(4)
+            make.width.equalTo(self).offset(20)
+            //make.centerX.equalTo(self)
+            make.left.leftMargin.equalTo(20)
+            make.right.rightMargin.equalTo(self).offset(-20)
             make.centerY.equalTo(self).offset(120)
         }
         
