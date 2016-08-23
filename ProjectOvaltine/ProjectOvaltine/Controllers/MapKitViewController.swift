@@ -20,7 +20,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     //Data store instances
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient()
-    let jobsAPI = USAJobsAPIClient.sharedInstance
     
     
     //Array of citySDK data
@@ -197,12 +196,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         }
                     }
                     
-                    for cityDataSet in (city?.dataSets!)! {
-                        for cityDataSet2 in (cityDataSet.values)!{
-                            cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
-                            cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
-                        }
-                    }
+//                    for cityDataSet in (city?.dataSets!)! {
+//                        for cityDataSet2 in (cityDataSet.values)!{
+//                            cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
+//                            cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
+//                        }
+//                    }
                     
                     var USScore = ScoreModel(originDataPoints: USAbsoluteDictionary, comparisonDataPoints: cityAbsoluteDictionary)
                     

@@ -118,14 +118,13 @@ class ResultView: UIView {
         self.scoreLabel.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(self)
             make.centerY.equalTo(self)
-            //make.top.equalTo(self).inset(20)
-            //make.centerY.equalTo(self).offset(-20)
         }
         
         self.resultDescriptionTextView.snp_makeConstraints { (make) -> Void in
             make.height.equalTo(100)
-            make.width.equalTo(350)
+            make.width.equalTo(400)
             make.centerX.equalTo(self)
+            make.left.leftMargin.equalTo(40)
             make.centerY.equalTo(self).offset(120)
         }
         

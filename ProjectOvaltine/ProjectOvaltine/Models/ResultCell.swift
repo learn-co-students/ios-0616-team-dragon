@@ -24,11 +24,11 @@ class ResultCell: UITableViewCell {
         self.locationScoreLabel.text = "Score"
         self.resultCatagoryLabel.text = "Category"
         
-        contentView.addSubview(self.locationNameLabel)
-        contentView.addSubview(self.resultGraph)
-        contentView.addSubview(self.locationScoreLabel)
-        contentView.addSubview(self.resultCatagoryLabel)
-        contentView.addSubview(createScoreLabel())
+        self.contentView.addSubview(self.locationNameLabel)
+        self.contentView.addSubview(self.resultGraph)
+        self.contentView.addSubview(self.locationScoreLabel)
+        self.contentView.addSubview(self.resultCatagoryLabel)
+        self.contentView.addSubview(createScoreLabel())
     }
     
     func createScoreLabel() -> UILabel {

@@ -96,7 +96,7 @@ class StatsViewController: UITableViewController {
     }
     
     func dismissView() {
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func settingButtonPushed() {

@@ -38,20 +38,20 @@ struct ScoreModel {
         var returnValue = ""
         var sumDifference = 0
         
-        let origin = Double(self.originDataPoints!["Median household income"]!)
-        let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
+//        let origin = Double(self.originDataPoints!["Median household income"]!)
+//        let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
         
   
         
         //Subtracts the comparison level with the origin level 
             //Should take the lowever level, for instance, and subtract by the higher level
             //Ex. City Avg - US Avg which should produce a positive number
-        let subtractedValueForPercentage = comparison! - origin!
+//        let subtractedValueForPercentage = comparison! - origin!
         
         //Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
-        let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
-        
-        print(percentageChange)
+//        let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
+//        
+//        print(percentageChange)
         
         return ""
     }

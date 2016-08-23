@@ -19,13 +19,11 @@ struct ComparisonLabel {
     }
     
     func addComparisonLabel() -> UILabel {
-        //comparisonLabel.text = "9.5"
         comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
         comparisonLabel.textColor = UIColor.orangeColor()
         comparisonLabel.layer.borderWidth = 3
         comparisonLabel.layer.borderColor = UIColor.orangeColor().CGColor
-        comparisonLabel.font = UIFont(name:"Futura", size:33)
-        //comparisonLabel.sendSubviewToBack(comparisonLabel)
+        comparisonLabel.font = UIFont(name:"Helvetica-Light", size:33)
         comparisonLabel.layer.masksToBounds = true
         comparisonLabel.layer.cornerRadius = 50
         comparisonLabel.textAlignment = NSTextAlignment.Center
@@ -37,8 +35,7 @@ struct ComparisonLabel {
         ratingLabel.textColor = UIColor.orangeColor()
         ratingLabel.layer.borderWidth = 3
         ratingLabel.layer.borderColor = UIColor.orangeColor().CGColor
-        ratingLabel.font = UIFont(name:"Futura", size:33)
-        //ratingLabel.sendSubviewToBack(ratingLabel)
+        ratingLabel.font = UIFont(name:"Helvetica-Light", size:33)
         ratingLabel.layer.masksToBounds = true
         ratingLabel.layer.cornerRadius = 50
         ratingLabel.textAlignment = NSTextAlignment.Center
@@ -48,7 +45,7 @@ struct ComparisonLabel {
     func addSearchedLabel() -> UILabel {
         searchedLabel.text = "New York City"
         searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        searchedLabel.font = UIFont(name:"Helvetica-Light", size:20)
         return searchedLabel
     }
 }

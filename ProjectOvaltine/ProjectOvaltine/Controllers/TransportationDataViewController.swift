@@ -35,7 +35,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         currentLabel.text = "Bergen County"
         
         currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        currentLabel.font = UIFont(name:"Helvetica-Light", size:20)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
         currentLabel.snp_makeConstraints { (make) -> Void in
