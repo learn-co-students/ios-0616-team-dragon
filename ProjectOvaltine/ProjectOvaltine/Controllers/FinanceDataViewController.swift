@@ -57,18 +57,10 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func ratingTextView() {
-        let ratingLabel = UILabel()
+        let ratingLabel = ComparisonLabel().addRatingsLabel()
         self.view.addSubview(ratingLabel)
         ratingLabel.text = "9.5"
-        ratingLabel.backgroundColor = UIColor(netHex:0x000000)
-        ratingLabel.textColor = UIColor.orangeColor()
-        ratingLabel.layer.borderWidth = 3
-        ratingLabel.layer.borderColor = UIColor.orangeColor().CGColor
-        ratingLabel.font = UIFont(name:"Futura", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
-        ratingLabel.layer.masksToBounds = true
-        ratingLabel.layer.cornerRadius = 50
-        ratingLabel.textAlignment = NSTextAlignment.Center
         ratingLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(20)
             make.top.equalTo(view).offset(110)
@@ -82,14 +74,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         let comparisonLabel = ComparisonLabel().addComparisonLabel()
         self.view.addSubview(comparisonLabel)
         comparisonLabel.text = "9.5"
-//        comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
-//        comparisonLabel.textColor = UIColor.orangeColor()
-//        comparisonLabel.layer.borderWidth = 3
-//        comparisonLabel.layer.borderColor = UIColor.orangeColor().CGColor
-//        comparisonLabel.font = UIFont(name:"Futura", size:33)
-//        comparisonLabel.sendSubviewToBack(comparisonLabel)
-//        comparisonLabel.layer.masksToBounds = true
-//        comparisonLabel.layer.cornerRadius = 50
+
+        comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.textAlignment = NSTextAlignment.Center
         comparisonLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(-20)

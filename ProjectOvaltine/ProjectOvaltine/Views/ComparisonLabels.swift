@@ -10,6 +10,7 @@ import UIKit
 
 struct ComparisonLabel {
     var comparisonLabel = UILabel()
+    var ratingLabel = UILabel()
     func addCurrentLabel() -> UILabel {
         return UILabel() 
     }
@@ -26,6 +27,19 @@ struct ComparisonLabel {
         comparisonLabel.layer.cornerRadius = 50
         comparisonLabel.textAlignment = NSTextAlignment.Center
         return comparisonLabel
+    }
+    
+    func addRatingsLabel() -> UILabel {
+        ratingLabel.backgroundColor = UIColor(netHex:0x000000)
+        ratingLabel.textColor = UIColor.orangeColor()
+        ratingLabel.layer.borderWidth = 3
+        ratingLabel.layer.borderColor = UIColor.orangeColor().CGColor
+        ratingLabel.font = UIFont(name:"Futura", size:33)
+        //ratingLabel.sendSubviewToBack(ratingLabel)
+        ratingLabel.layer.masksToBounds = true
+        ratingLabel.layer.cornerRadius = 50
+        ratingLabel.textAlignment = NSTextAlignment.Center
+        return ratingLabel
     }
 }
 
