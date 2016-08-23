@@ -18,19 +18,19 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        navBar()
-        resultsTableView()
-        ratingTextView()
-        comparisonTextView()
-        currentLocationLabel()
-        searchedLocationLabel()
+        self.navBar()
+        self.resultsTableView()
+        self.ratingTextView()
+        self.comparisonTextView()
+        self.currentLocationLabel()
+        self.searchedLocationLabel()
     }
     
     func currentLocationLabel() {
         
         let currentLabel = UILabel()
         
-        view.addSubview(currentLabel)
+        self.view.addSubview(currentLabel)
         
         currentLabel.text = "Bergen County"
         
@@ -50,7 +50,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         
         let searchedLabel = UILabel()
         
-        view.addSubview(searchedLabel)
+        self.view.addSubview(searchedLabel)
         
         searchedLabel.text = "New York City"
         
@@ -68,7 +68,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     func ratingTextView() {
         let ratingLabel = UILabel()
-        view.addSubview(ratingLabel)
+        self.view.addSubview(ratingLabel)
         ratingLabel.text = "9.5"
         ratingLabel.backgroundColor = UIColor(netHex:0x000000)
         ratingLabel.textColor = UIColor.greenColor()
@@ -89,7 +89,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     func comparisonTextView() {
         let comparisonLabel = UILabel()
-        view.addSubview(comparisonLabel)
+        self.view.addSubview(comparisonLabel)
         comparisonLabel.text = "9.5"
         comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
         comparisonLabel.textColor = UIColor.greenColor()
@@ -112,7 +112,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
-        view.addSubview(tableView)
+        self.view.addSubview(tableView)
         tableView.frame.origin.y += 190
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
@@ -121,7 +121,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         return 66
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        return self.myArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -131,12 +131,9 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         cell.myButton1.addTarget(self, action: #selector(TransportationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(TransportationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
-        }
-        else
-        {
+        } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
         
@@ -153,7 +150,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print(myArray[indexPath.row])
+        print(self.myArray[indexPath.row])
     }
     
     func navBar() {
@@ -187,7 +184,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func dismissView() {
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func settingButtonPushed() {

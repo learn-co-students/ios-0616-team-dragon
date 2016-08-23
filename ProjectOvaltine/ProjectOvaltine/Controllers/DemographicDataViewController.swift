@@ -16,17 +16,17 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        navBar()
-        resultsTableView()
-        ratingTextView()
-        comparisonTextView()
-        currentLocationLabel()
-        searchedLocationLabel()
+        self.navBar()
+        self.resultsTableView()
+        self.ratingTextView()
+        self.comparisonTextView()
+        self.currentLocationLabel()
+        self.searchedLocationLabel()
     }
     
     func currentLocationLabel() {
         let currentLabel = UILabel()
-        view.addSubview(currentLabel)
+        self.view.addSubview(currentLabel)
         currentLabel.text = "Bergen County"
         currentLabel.textColor = UIColor.blackColor()
         currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
@@ -42,7 +42,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     
     func searchedLocationLabel() {
         let searchedLabel = UILabel()
-        view.addSubview(searchedLabel)
+        self.view.addSubview(searchedLabel)
         searchedLabel.text = "New York City"
         searchedLabel.textColor = UIColor.blackColor()
         searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
@@ -58,7 +58,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     
     func ratingTextView() {
         let ratingLabel = UILabel()
-        view.addSubview(ratingLabel)
+        self.view.addSubview(ratingLabel)
         ratingLabel.text = "9.5"
         ratingLabel.backgroundColor = UIColor(netHex:0x000000)
         ratingLabel.textColor = UIColor(netHex:0x00BFFF)
@@ -79,7 +79,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     
     func comparisonTextView() {
         let comparisonLabel = UILabel()
-        view.addSubview(comparisonLabel)
+        self.view.addSubview(comparisonLabel)
         comparisonLabel.text = "9.5"
         comparisonLabel.backgroundColor = UIColor(netHex:0x000000)
         comparisonLabel.textColor = UIColor(netHex:0x00BFFF)
@@ -102,7 +102,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
-        view.addSubview(tableView)
+        self.view.addSubview(tableView)
         tableView.frame.origin.y += 190
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
@@ -121,12 +121,9 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(DemographicDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
-        }
-        else
-        {
+        } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
         
@@ -175,7 +172,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func dismissView() {
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func settingButtonPushed() {

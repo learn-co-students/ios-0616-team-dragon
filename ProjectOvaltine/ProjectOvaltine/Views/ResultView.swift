@@ -87,6 +87,7 @@ class ResultView: UIView {
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
         self.graphView.labelColor = self.randomColor()
         self.graphView.gaugeBackgroundColor = self.randomColor()
+        //self.graphView.backgroundColor = UIColor.orangeColor()
         self.addSubview(graphView)
         
     }
