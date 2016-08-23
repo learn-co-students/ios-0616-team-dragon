@@ -67,18 +67,10 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func ratingTextView() {
-        let ratingLabel = UILabel()
+        let ratingLabel = ComparisonLabel().addRatingsLabel()
         self.view.addSubview(ratingLabel)
         ratingLabel.text = "9.5"
-        ratingLabel.backgroundColor = UIColor(netHex:0x000000)
-        ratingLabel.textColor = UIColor.greenColor()
-        ratingLabel.layer.borderWidth = 3
-        ratingLabel.layer.borderColor = UIColor.greenColor().CGColor
-        ratingLabel.font = UIFont(name:"Futura", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
-        ratingLabel.layer.masksToBounds = true
-        ratingLabel.layer.cornerRadius = 50
-        ratingLabel.textAlignment = NSTextAlignment.Center
         ratingLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(20)
             make.top.equalTo(view).offset(110)
