@@ -56,6 +56,7 @@
 		AFE4600E1D551B7900FBE63B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460081D551B7900FBE63B /* Request.swift */; };
 		AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */; };
 		AFE460161D551BE400FBE63B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460121D551BE400FBE63B /* DataStore.swift */; };
+		AFE4AC721D6BDA9000C81D86 /* ComparisonLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4AC711D6BDA8F00C81D86 /* ComparisonLabels.swift */; };
 		AFE644331D67503D00E85930 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE644321D67503D00E85930 /* TableViewCell.swift */; };
 		AFE759391D62BC3D0072FF76 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE759381D62BC3D0072FF76 /* DetailView.swift */; };
 		AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */; };
@@ -125,6 +126,7 @@
 		AFE460081D551B7900FBE63B /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Utilities/Request.swift; sourceTree = "<group>"; };
 		AFE460091D551B7900FBE63B /* USAJobsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = USAJobsAPIClient.swift; path = Utilities/USAJobsAPIClient.swift; sourceTree = "<group>"; };
 		AFE460121D551BE400FBE63B /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		AFE4AC711D6BDA8F00C81D86 /* ComparisonLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComparisonLabels.swift; path = Views/ComparisonLabels.swift; sourceTree = "<group>"; };
 		AFE644321D67503D00E85930 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AFE759381D62BC3D0072FF76 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailView.swift; path = Views/DetailView.swift; sourceTree = "<group>"; };
 		AFE906A51D5E3D1000CEA2C9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				AFE759381D62BC3D0072FF76 /* DetailView.swift */,
 				AFDA12441D65134300A11FCA /* ErrorView.swift */,
 				AF1FC7D51D5B8A58004973A2 /* Cells */,
+				AFE4AC711D6BDA8F00C81D86 /* ComparisonLabels.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				AFE4600F1D551B7900FBE63B /* USAJobsAPIClient.swift in Sources */,
 				AFE906A61D5E3D1000CEA2C9 /* TabBarController.swift in Sources */,
 				AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */,
+				AFE4AC721D6BDA9000C81D86 /* ComparisonLabels.swift in Sources */,
 				AF4E94791D660E1F00515266 /* TestView.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
 				AFDA12451D65134300A11FCA /* ErrorView.swift in Sources */,

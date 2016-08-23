@@ -31,8 +31,8 @@ class StatsViewController: UITableViewController {
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
-        view.addSubview(tableView)
-        view.sendSubviewToBack(tableView)
+        self.view.addSubview(tableView)
+        self.view.sendSubviewToBack(tableView)
         tableView.frame.origin.y += 366
         
     }
@@ -48,7 +48,7 @@ class StatsViewController: UITableViewController {
     }
     
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return detailsArray.count
+        return self.detailsArray.count
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let points = self.store.scoreData?.getScoresDictionary()
