@@ -21,35 +21,26 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.navBar()
-        self.resultsTableView()
-        self.ratingTextView()
-        self.comparisonTextView()
-        self.currentLocationLabel()
-        self.searchedLocationLabel()
+        self.setupLabels()
         self.setupConstraints()
     }
-    func currentLocationLabel() {
+    
+    func setupLabels() {
         self.view.addSubview(self.currentLabel)
         self.currentLabel.text = "Bergen County"
         self.currentLabel.sendSubviewToBack(self.currentLabel)
         self.currentLabel.layer.masksToBounds = true
-    }
-    
-    func searchedLocationLabel() {
+        
         self.searchedLabel.text = "New York City"
         self.view.addSubview(searchedLabel)
         self.searchedLabel.sendSubviewToBack(self.searchedLabel)
         self.searchedLabel.layer.masksToBounds = true
+
         
-    }
-    
-    func ratingTextView() {
         self.view.addSubview(self.ratingLabel)
         self.ratingLabel.text = "9.5"
         self.ratingLabel.sendSubviewToBack(self.ratingLabel)
-    }
-    
-    func comparisonTextView() {
+        
         self.view.addSubview(comparisonLabel)
         self.comparisonLabel.text = "9.5"
         self.comparisonLabel.sendSubviewToBack(comparisonLabel)
