@@ -46,16 +46,11 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         }
     }
     
+    
     func searchedLocationLabel() {
-        
-        let searchedLabel = UILabel()
-        
-        self.view.addSubview(searchedLabel)
-        
+        let searchedLabel = ComparisonLabel().addSearchedLabel()
         searchedLabel.text = "New York City"
-        
-        searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        self.view.addSubview(searchedLabel)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
         searchedLabel.snp_makeConstraints { (make) -> Void in
@@ -65,7 +60,6 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
             make.height.equalTo(30)
         }
     }
-    
     func ratingTextView() {
         let ratingLabel = ComparisonLabel().addRatingsLabel()
         self.view.addSubview(ratingLabel)

@@ -11,6 +11,9 @@ import UIKit
 struct ComparisonLabel {
     var comparisonLabel = UILabel()
     var ratingLabel = UILabel()
+    var currentLabel = UILabel()
+    var searchedLabel = UILabel()
+    
     func addCurrentLabel() -> UILabel {
         return UILabel() 
     }
@@ -40,6 +43,13 @@ struct ComparisonLabel {
         ratingLabel.layer.cornerRadius = 50
         ratingLabel.textAlignment = NSTextAlignment.Center
         return ratingLabel
+    }
+    
+    func addSearchedLabel() -> UILabel {
+        searchedLabel.text = "New York City"
+        searchedLabel.textColor = UIColor.blackColor()
+        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        return searchedLabel
     }
 }
 
