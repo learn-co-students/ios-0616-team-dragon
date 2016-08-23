@@ -48,6 +48,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func setupConstraints() {
+        
         self.comparisonLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(-20)
             make.top.equalTo(view).offset(110)
@@ -100,7 +101,6 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.resultDescription.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
@@ -108,12 +108,11 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         //        cell.myButton1.addTarget(self, action: #selector(FinanceDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         //        cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        if(indexPath.row % 2 == 0) {
+        if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()
         } else {
             cell.backgroundColor = UIColor.clearColor()
         }
-        
         return cell
     }
     
