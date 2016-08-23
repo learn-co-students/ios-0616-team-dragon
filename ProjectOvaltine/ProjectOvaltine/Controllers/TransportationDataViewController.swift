@@ -20,6 +20,8 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     let ratingLabel = ComparisonLabel().addRatingsLabel()
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let transportNavBar = NavBar().setup()
+    let navItem = UINavigationItem(title: "Transportation")
+    let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,11 +134,9 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     func setupNavBar() {
         self.view.addSubview(self.transportNavBar)
-        let navItem = UINavigationItem(title: "Transportation")
-        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         
-        navItem.leftBarButtonItem = homeItem
-        self.transportNavBar.setItems([navItem], animated: false)
+        self.navItem.leftBarButtonItem = self.homeItem
+        self.transportNavBar.setItems([self.navItem], animated: false)
         self.transportNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
@@ -146,7 +146,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
-        navItem.rightBarButtonItem = barButton
+        self.navItem.rightBarButtonItem = barButton
     }
     
     func dismissView() {

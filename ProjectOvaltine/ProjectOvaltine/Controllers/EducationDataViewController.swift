@@ -18,6 +18,9 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     let ratingLabel = ComparisonLabel().addRatingsLabel()
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let educationNavBar = NavBar().setup()
+    let navItem = UINavigationItem(title: "Education")
+    let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
+    let button: UIButton = UIButton(type: .Custom)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +52,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func setupConstraints() {
+        
         self.comparisonLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(-20)
             make.top.equalTo(view).offset(110)
@@ -83,7 +87,6 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-    
     func resultsTableView() {
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.Grouped)
         tableView.delegate = self
@@ -108,13 +111,11 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         cell.myButton1.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()
         } else {
             cell.backgroundColor = UIColor.clearColor()
         }
-        
         return cell
     }
     
@@ -127,28 +128,23 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         print(myArray[indexPath.row])
     }
     
     func setupNavBar() {
-        
         self.view.addSubview(self.educationNavBar)
-        let navItem = UINavigationItem(title: "Education")
-        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
         
-        navItem.leftBarButtonItem = homeItem
-        self.educationNavBar.setItems([navItem], animated: false)
+        self.navItem.leftBarButtonItem = self.homeItem
+        self.educationNavBar.setItems([self.navItem], animated: false)
         self.educationNavBar.alpha = 0.6
-
-        let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
-        button.frame = CGRectMake(3, 3, 25, 25)
+        
+        self.button.setImage(UIImage(named: "menu-2"), forState: UIControlState.Normal)
+        self.button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+        self.button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
-        navItem.rightBarButtonItem = barButton
+        self.navItem.rightBarButtonItem = barButton
     }
     
     func dismissView() {

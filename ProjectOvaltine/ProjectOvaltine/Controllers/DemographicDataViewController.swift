@@ -18,6 +18,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     let ratingLabel = ComparisonLabel().addRatingsLabel()
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let demographicNavBar = NavBar().setup()
+    let navItem = UINavigationItem(title: "Demographics")
+    let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,11 +132,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func setupNavBar() {
         self.view.addSubview(self.demographicNavBar)
         
-        let navItem = UINavigationItem(title: "Demographics")
-        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        
-        navItem.leftBarButtonItem = homeItem
-        self.demographicNavBar.setItems([navItem], animated: false)
+        self.navItem.leftBarButtonItem = self.homeItem
+        self.demographicNavBar.setItems([self.navItem], animated: false)
         self.demographicNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
@@ -144,7 +143,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
-        navItem.rightBarButtonItem = barButton
+        self.navItem.rightBarButtonItem = barButton
     }
     
     func dismissView() {

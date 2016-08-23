@@ -17,6 +17,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     let ratingLabel = ComparisonLabel().addRatingsLabel()
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let financeNavBar = NavBar().setup()
+    let navItem = UINavigationItem(title: "Finance")
+    let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,11 +132,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     func setupNavBar() {
         self.view.addSubview(self.financeNavBar)
-        
-        let navItem = UINavigationItem(title: "Finance")
-        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        navItem.leftBarButtonItem = homeItem
-        self.financeNavBar.setItems([navItem], animated: false)
+        self.navItem.leftBarButtonItem = self.homeItem
+        self.financeNavBar.setItems([self.navItem], animated: false)
         self.financeNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
@@ -144,7 +143,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
-        navItem.rightBarButtonItem = barButton
+        self.navItem.rightBarButtonItem = barButton
     }
     
     func dismissView() {
