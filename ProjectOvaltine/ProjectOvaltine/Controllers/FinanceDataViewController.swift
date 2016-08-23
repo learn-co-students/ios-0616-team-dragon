@@ -106,10 +106,6 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = SearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myIdentifier")
         cell.resultDescription.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
-        //cell.myLabel2.text = "\(indexPath.row + 1)"
-        //        cell.myButton1.addTarget(self, action: #selector(FinanceDataViewController.pressedButton1(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        //        cell.myButton2.addTarget(self, action: #selector(FinanceDataViewController.pressedButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()
         } else {

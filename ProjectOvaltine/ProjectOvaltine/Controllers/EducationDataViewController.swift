@@ -55,7 +55,6 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func setupConstraints() {
-        
         self.comparisonLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(-20)
             make.top.equalTo(view).offset(110)
@@ -111,13 +110,12 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = TableViewCell(style: UITableViewCellStyle.Default,
                                  reuseIdentifier: "myIdentifier")
-        
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myButton1.addTarget(self, action: #selector(EducationDataViewController.pressedButton1(_:)),
                                  forControlEvents: UIControlEvents.TouchUpInside)
+        
         cell.myButton2.addTarget(self, action: #selector(EducationDataViewController.pressedButton2(_:)),
                                  forControlEvents: UIControlEvents.TouchUpInside)
-        
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()
         } else {
@@ -140,12 +138,10 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     
     func setupNavBar() {
         self.view.addSubview(self.educationNavBar)
-        
         self.navItem.leftBarButtonItem = self.homeItem
         self.educationNavBar.setItems([self.navItem],
                                       animated: false)
         self.educationNavBar.alpha = 0.6
-        
         self.button.setImage(UIImage(named: "menu-2"),
                              forState: UIControlState.Normal)
         
@@ -153,7 +149,6 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
                               forControlEvents: UIControlEvents.TouchUpInside)
         
         self.button.frame = CGRectMake(3, 3, 25, 25)
-        
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
         self.navItem.rightBarButtonItem = barButton

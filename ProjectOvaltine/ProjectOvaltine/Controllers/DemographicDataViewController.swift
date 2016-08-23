@@ -87,7 +87,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
             make.width.equalTo(view)
         }
     }
-
+    
     
     func resultsTableView() {
         let tableView = UITableView(frame: view.bounds,
@@ -110,7 +110,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = TableViewCell(style: UITableViewCellStyle.Default,
                                  reuseIdentifier: "myIdentifier")
-        
         cell.myLabel1.text = myArray[indexPath.row]
         cell.myButton1.addTarget(self, action: #selector(DemographicDataViewController.pressedButton1(_:)),
                                  forControlEvents: UIControlEvents.TouchUpInside)
@@ -123,7 +122,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         } else {
             cell.backgroundColor = UIColor.clearColor()//(netHex:0xFFFFFF)
         }
-        
         return cell
     }
     
