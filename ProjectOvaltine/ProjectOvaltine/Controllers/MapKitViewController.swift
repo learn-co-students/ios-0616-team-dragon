@@ -124,6 +124,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
         if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
             
+        
             let detailVC = TabBarController()
             self.showViewController(detailVC, sender: nil)
             self.searchController.text?.removeAll()
@@ -200,20 +201,30 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
 //                        }
 //                    }
 //                    
-
-//                    for cityDataSet in (city?.dataSets!)! {
-//                        for cityDataSet2 in (cityDataSet.values)!{
-//                            self!.cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
-//                            self!.cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
-//                        }
-//                    }
-//                    
-                    let USScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
+                    for cityDataSet in (city?.dataSets!)! {
+                        for cityDataSet2 in (cityDataSet.values)!{
+                            self!.cityAbsoluteDictionary.updateValue(cityDataSet2.absoluteValue!, forKey: cityDataSet2.name!)
+                            self!.cityPercentDictionary.updateValue(cityDataSet2.percentValue!, forKey: cityDataSet2.name!)
+                        }
+                    }
                     
-                    self!.store.comparisonData = USScore
+                    
+                    dispatch_async(dispatch_get_main_queue()) { [weak self] in
+                        let USScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
+                        
+                        self!.store.comparisonData = USScore
+                        
+                        self!.store.comparisonData?.getEconomicScore()
+                        self!.store.comparisonData?.getTransitScore()
+                        self!.store.comparisonData?.getEducationScore()
+                        
+                    }
+                   
                     
                     
                 })
+                
+               
                 
                 SwiftSpinner.showWithDuration(2.0, title: "Ovaltine")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
