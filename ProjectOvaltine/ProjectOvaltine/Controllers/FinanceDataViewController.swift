@@ -25,7 +25,9 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.setupNavBar()
         self.setupLabels()
+        self.resultsTableView()
         self.setupConstraints()
+       
     }
     
     func setupLabels() {

@@ -113,20 +113,11 @@ struct ScoreModel {
             return "Low"}
         
     }
-    //
-    //    mutating func getDemographicScore() -> String {
-    //        var returnValue = " "
-    //        var sum = 0
-    //        for data in self.dataPoints!.values {
-    //            if let data = Int(data) {
-    //                sum = sum + data
-    //            }
-    //
-    //        }
-    //        self.demographicScore = sum / self.dataPoints!.count
-    //        returnValue = String(sum)
-    //        return returnValue
-    //    }
+    
+        mutating func getDemographicScore() -> String {
+            var returnValue = ""
+            return returnValue
+        }
     
     mutating func getScoresArray() -> [String] {
         self.getEducationScore()

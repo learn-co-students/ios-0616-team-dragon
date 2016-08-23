@@ -29,6 +29,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.setupNavBar()
         self.setupLabels()
+        self.resultsTableView()
         self.setupConstraints()
     }
     
