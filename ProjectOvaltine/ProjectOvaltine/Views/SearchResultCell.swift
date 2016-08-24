@@ -67,7 +67,7 @@ class SearchResultCell: UITableViewCell {
         self.comparisonScoreLabel.textColor = UIColor.whiteColor()
         self.comparisonScoreLabel.font = UIFont(name:"Helvetica-Light", size:16)
         self.comparisonScoreLabel.textAlignment = NSTextAlignment.Center
-        self.comparisonScoreLabel.backgroundColor = UIColor.grayColor()
+        //self.comparisonScoreLabel.backgroundColor = UIColor.grayColor()
         self.comparisonScoreLabel.layer.backgroundColor = UIColor.lightGrayColor().CGColor
         self.comparisonScoreLabel.layer.borderWidth = 1.0
         //        self.graphView = GaugeView()

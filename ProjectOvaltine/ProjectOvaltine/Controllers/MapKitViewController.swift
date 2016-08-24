@@ -105,8 +105,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
         let polygonRenderer = MKPolygonRenderer(overlay: overlay)
         polygonRenderer.lineWidth = 1
-        polygonRenderer.fillColor = UIColor.cyanColor()
-        polygonRenderer.alpha = 0.20
+        polygonRenderer.fillColor = UIColor(red:0.65, green:0.96, blue:0.69, alpha:0.45)
         return polygonRenderer
     }
     
@@ -126,9 +125,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         anView?.rightCalloutAccessoryView = UIButton(type: UIButtonType.DetailDisclosure)
         anView!.backgroundColor = UIColor.clearColor()
         anView!.canShowCallout = true
-        let testImage = UIImage(named: "Black_Circle")
+        let testImage = UIImage(named: "cityButton")
         let scaledImage = UIImage.init(CGImage: (testImage?.CGImage)!,
-                                       scale: 35,
+                                       scale: 15,
                                        orientation: UIImageOrientation.Up)
         anView!.image = scaledImage
         return anView
@@ -281,18 +280,18 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.searchController.frame = CGRect(x: 0,
                                              y: 0,
                                              width: self.view.frame.size.width,
-                                             height: 70)
+                                             height: 65)
         let topConstraint = NSLayoutConstraint(item: searchController,
                                                attribute: NSLayoutAttribute.Top,
                                                relatedBy: NSLayoutRelation.Equal,
                                                toItem: self.view,
                                                attribute: NSLayoutAttribute.Top,
                                                multiplier: 1, constant: 0)
+    
         self.searchController.delegate = self
         self.view.addSubview(self.searchController)
         self.view.addConstraint(topConstraint)
-        self.searchController.barTintColor = UIColor.blackColor()
-        self.searchController.alpha = 0.8
+        self.searchController.barTintColor = UIColor(red:0.36, green:0.49, blue:0.55, alpha:1.0)
     }
 }
 

@@ -93,12 +93,12 @@ class ResultView: UIView {
     
     func createGraph() {
         self.graphView = GaugeView()
-        self.graphView.gaugeColor = self.randomColor()
+       // self.graphView.gaugeColor = self.randomColor()
         self.graphView.percentage = self.graphPercentage
         self.graphView.thickness = 14
         self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
-        self.graphView.labelColor = self.randomColor()
-        self.graphView.gaugeBackgroundColor = self.randomColor()
+        //self.graphView.labelColor = self.randomColor()
+        //self.graphView.gaugeBackgroundColor = self.randomColor()
         self.addSubview(graphView)
     }
     
@@ -169,11 +169,11 @@ class ResultView: UIView {
         
     }
     
-    private func randomColor() -> UIColor {
-        let hue = ( CGFloat(arc4random() % 256) / 256.0 )               //  0.0 to 1.0
-        let saturation = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from white
-        let brightness = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from black
-        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
-    }
+//    private func randomColor() -> UIColor {
+//        let hue = ( CGFloat(arc4random() % 256) / 256.0 )               //  0.0 to 1.0
+//        let saturation = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from white
+//        let brightness = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from black
+//        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
+//    }
     
 }

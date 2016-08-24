@@ -134,11 +134,11 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
         cell.selectionStyle = UITableViewCellSelectionStyle.None
-        if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.clearColor()
-        } else {
-            cell.backgroundColor = UIColor.clearColor()
-        }
+//        if (indexPath.row % 2 == 0) {
+//            cell.backgroundColor = UIColor.clearColor()
+//        } else {
+//            cell.backgroundColor = UIColor.clearColor()
+//        }
         return cell
     }
     
