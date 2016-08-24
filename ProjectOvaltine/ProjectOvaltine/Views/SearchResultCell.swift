@@ -85,7 +85,7 @@ class SearchResultCell: UITableViewCell {
         self.scoreLabel.textColor = UIColor.whiteColor()
         self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:16)
         self.scoreLabel.textAlignment = NSTextAlignment.Center
-        self.scoreLabel.backgroundColor = UIColor.grayColor()
+        //self.scoreLabel.backgroundColor = UIColor.grayColor()
         self.scoreLabel.layer.backgroundColor = UIColor.lightGrayColor().CGColor
         self.scoreLabel.layer.borderWidth = 1.0
     }
@@ -112,13 +112,6 @@ class SearchResultCell: UITableViewCell {
             make.right.equalTo(self.contentView).inset(20)
             make.top.equalTo(self.contentView).inset(15)
         }
-    }
-    
-    private func randomColor() -> UIColor {
-        let hue = ( CGFloat(arc4random() % 256) / 256.0 )               //  0.0 to 1.0
-        let saturation = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from white
-        let brightness = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from black
-        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
     }
     
 }

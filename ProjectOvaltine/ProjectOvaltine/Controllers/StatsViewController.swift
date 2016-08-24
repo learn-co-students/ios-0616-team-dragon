@@ -13,6 +13,7 @@ class StatsViewController: UITableViewController {
     // MARK: - Properties
     
     var comparisonData: ScoreModel?
+    var percentageComparisonData: ScoreModel?
     
     var dataArray = [String]()
     
@@ -32,6 +33,7 @@ class StatsViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
         self.comparisonData = self.store.comparisonData
+        self.percentageComparisonData = self.store.comparisonPercentageData
         self.setupNavBar()
         self.setupConstraints()
     }

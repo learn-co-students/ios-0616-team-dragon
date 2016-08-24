@@ -222,7 +222,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     
                     let USAbsoluteScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
                     
-                    let USPercentageScore = ScoreModel(originDataPoints: self!.USPercentDictionary, comparisonDataPoints: self!.cityPercentDictionary)
+                   let USPercentageScore = ScoreModel(originDataPoints: self!.USPercentDictionary, comparisonDataPoints: self!.cityPercentDictionary)
+                    
                     self!.store.comparisonData = USAbsoluteScore
                     
                     self!.store.comparisonPercentageData = USPercentageScore
