@@ -237,7 +237,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     
                 })
                 
-                SwiftSpinner.showWithDuration(2.0, title: "Ovaltine")
+                SwiftSpinner.showWithDuration(2.0, title: "Community Radar")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
                 
                 if let placemarkZipcode = self!.placemark?.postalCode {
@@ -268,7 +268,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.mapView.selectAnnotation(self!.anotation, animated: true)
                 }
                 self!.zipLocation = self!.placemark?.location
-                SwiftSpinner.showWithDuration(3.0, title: "Ovaltine")
+                SwiftSpinner.showWithDuration(3.0, title: "Community Radar")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
             }
             })

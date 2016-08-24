@@ -27,6 +27,7 @@ class StatsViewController: UITableViewController {
                                         target: nil,
                                         action: #selector(dismissView))
     
+    
     // MARK: - Loading view and UI Elements
     
     override func viewDidLoad() {
@@ -102,6 +103,7 @@ class StatsViewController: UITableViewController {
         self.statsNavBar = NavBar().setup()
         self.view.addSubview(self.statsNavBar)
         self.navItem.leftBarButtonItem = self.homeItem
+        self.navItem.leftBarButtonItem?.tintColor = UIColor.blackColor()
         self.statsNavBar.setItems([self.navItem],
                                   animated: false)
         

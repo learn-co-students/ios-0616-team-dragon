@@ -17,8 +17,8 @@ class NavBar {
         navBar.layer.zPosition = 3
         navBar.barTintColor = UIColor.whiteColor()
         navBar.titleTextAttributes = [ NSFontAttributeName:HelveticaLight().getFont(20), //UIFont(name:"Helvetica-Light", size: 20)!,
-                                       NSForegroundColorAttributeName: UIColor.whiteColor()]
-        navBar.layer.borderColor = UIColor.blueColor().CGColor
+                                       NSForegroundColorAttributeName: UIColor.blackColor()]
+        navBar.layer.borderColor = UIColor.blackColor().CGColor
         return navBar
     }
 }

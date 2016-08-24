@@ -16,6 +16,7 @@ class ResultView: UIView {
     var containerView = UIView()
     var containerLayoutConstraint = NSLayoutConstraint()
     
+    
     var scoreLabel: UILabel! = UILabel()
     var locationNameLabel: UILabel! = UILabel()
     var countyNameLabel: UILabel! = UILabel()
@@ -111,7 +112,7 @@ class ResultView: UIView {
         self.countyNameLabel.textColor = UIColor.blackColor()
         self.countyNameLabel.textAlignment = NSTextAlignment.Center
         self.countyNameLabel.adjustsFontSizeToFitWidth = true
-        self.countyNameLabel.font = HelveticaLight().getFont(30)
+        self.countyNameLabel.font = HelveticaLight().getFont(20)
         self.countyNameLabel.text = "New York County"
         
         self.scoreLabel.textColor = UIColor.blackColor()
@@ -151,14 +152,13 @@ class ResultView: UIView {
             make.size.equalTo(100)
             make.centerY.equalTo(self)
             //make.centerX.equalTo(self)
-            make.right.equalTo(-20)
+            make.right.equalTo(-40)
         }
         self.countyNameLabel.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(100)
+            make.size.equalTo(150)
             make.centerY.equalTo(self).offset(33)
             //make.centerX.equalTo(self)
             make.right.equalTo(-20)
-            
         }
         self.graphView.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(120)
