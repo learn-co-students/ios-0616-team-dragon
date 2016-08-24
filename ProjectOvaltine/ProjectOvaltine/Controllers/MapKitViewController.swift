@@ -220,15 +220,16 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         }
                     }
                     
+                    let USAbsoluteScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
                     
+                    let USPercentageScore = ScoreModel(originDataPoints: self!.USPercentDictionary, comparisonDataPoints: self!.cityPercentDictionary)
+                    self!.store.comparisonData = USAbsoluteScore
                     
-                    let USScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
+                    self!.store.comparisonPercentageData = USPercentageScore
                     
-                    self!.store.comparisonData = USScore
-                    
-                    self!.store.comparisonData?.getEconomicScore()
-                    self!.store.comparisonData?.getTransitScore()
-                    self!.store.comparisonData?.getEducationScore()
+//                    self!.store.comparisonData?.getEconomicScore()
+//                    self!.store.comparisonData?.getTransitScore()
+//                    self!.store.comparisonData?.getEducationScore()
                     
                     
                     

@@ -36,7 +36,6 @@ struct ScoreModel {
     
     mutating func getEconomicScore() -> String {
         // FIXME: Figure this out
-        print("Inside getEconomicScore")
         
         let origin = Double(self.originDataPoints!["Median household income"]!)
         let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
@@ -46,13 +45,17 @@ struct ScoreModel {
         //            Should take the lowever level, for instance, and subtract by the higher level
         //            Ex. City Avg - US Avg which should produce a positive number
         
-        
+        print("Origin: \(origin)")
+        print("Comparison: \(comparison)")
         
         let subtractedValueForPercentage = comparison! - origin!
         
-        //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
-        let percentageChange = ((origin!/subtractedValueForPercentage) * 100.0)
+        print(subtractedValueForPercentage)
         
+        //        Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
+        let percentageChange = Int((origin!/subtractedValueForPercentage) * 100.0)
+        
+        print(percentageChange)
         
         return String(percentageChange)
     }
@@ -60,15 +63,10 @@ struct ScoreModel {
     mutating func getTransitScore() -> String {
         // TODO: add method body 
         
-        
-        //let origin = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
-        // let comparison = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
-        
-        return ""
+        return String(self.originDataPoints!["Average travel time to work one way in minutes"])
     }
     
     mutating func getEducationScore() -> String {
-        print("INSIDE getEducationScore")
         //Origin data points
         
         let originNoSchool = Double(self.originDataPoints!["No schooling completed"]!)
@@ -99,7 +97,6 @@ struct ScoreModel {
         
         let comparisonValues = [comparisonNoSchool, comparisonHighSchool, comparisonGED, comparisonProfessionalDegree, comparisonBachelors, comparisonMasters, comparisonDoctorates]
         
-        print(comparisonValues.enumerate())
         
         var comparisonSum = 0.0
         for values in comparisonValues {
@@ -107,23 +104,47 @@ struct ScoreModel {
         }
         
         let originDegreePercentage = ((originBachelors! + originMasters! + originDoctorates!)/originSum) * 100
-        print("originDegreePercentage \(originDegreePercentage)")
+
         
         let comparisonDegreePercentage = ((comparisonBachelors! + comparisonMasters! + comparisonDoctorates!)/comparisonSum) * 100
         
-        print("originDegreePercentage \(comparisonDegreePercentage)")
+   
         
         if comparisonDegreePercentage > originDegreePercentage * 2 {
             return "High"
-        } else if comparisonDegreePercentage > originDegreePercentage && comparisonDegreePercentage < originDegreePercentage * 2 { return "Moderate" } else { return "Low" }
+        } else if comparisonDegreePercentage > originDegreePercentage && comparisonDegreePercentage < originDegreePercentage * 2 { return "Med." } else { return "Low" }
         
     }
     
-    mutating func getDemographicScore() -> String {
-        print("inside get demographic score")
-        var returnValue = ""
-        return returnValue
-    }
+        mutating func getDemographicScore() -> String {
+            
+            //Origin Data Points
+            let whiteOriginPercentage = self.originDataPoints!["White"]
+            let blackOriginPercentage = self.originDataPoints!["Black or African American"]
+            let americanIndianOriginPercentage = self.originDataPoints!["American Indian and Alaska Native"]
+            let asianOriginPercentage = self.originDataPoints!["Asian"]
+            let pacificIslanderOriginPercentage = self.originDataPoints!["Pacific islander"]
+            let hispanicOriginPercentage = self.originDataPoints!["Hispanic or Latino"]
+            
+            //Comparison Data Points
+            let whiteComparisonPercentage = self.comparisonDataPoints!["White"]
+            let blackComparisonPercentage = self.comparisonDataPoints!["Black or African American"]
+            let americanIndianComparisonPercentage = self.comparisonDataPoints!["American Indian and Alaska Native"]
+            let asianComparisonPercentage = self.comparisonDataPoints!["Asian"]
+            let pacificIslanderComparisonPercentage = self.comparisonDataPoints!["Pacific islander"]
+            let hispanicComparisonPercentage = self.comparisonDataPoints!["Hispanic or Latino"]
+            
+            let originArray = [whiteOriginPercentage, blackOriginPercentage, americanIndianOriginPercentage, asianOriginPercentage, pacificIslanderOriginPercentage, hispanicOriginPercentage]
+            
+            print(originArray)
+            
+            let comparisonArray = [whiteComparisonPercentage, blackComparisonPercentage, americanIndianComparisonPercentage, asianComparisonPercentage, pacificIslanderComparisonPercentage, hispanicComparisonPercentage]
+            
+            print(comparisonArray)
+            
+            let returnValue = ""
+            return returnValue
+        }
     
     mutating func getScoresArray() -> [String] {
         self.getEducationScore()

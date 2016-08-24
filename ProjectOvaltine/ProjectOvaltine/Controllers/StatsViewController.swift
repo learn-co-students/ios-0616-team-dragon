@@ -34,6 +34,7 @@ class StatsViewController: UITableViewController {
         self.comparisonData = self.store.comparisonData
         self.setupNavBar()
         self.setupConstraints()
+        
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -69,10 +70,13 @@ class StatsViewController: UITableViewController {
     override func tableView(tableView: UITableView,
                             cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // let points = self.comparisonData?.getScoresArray()
+
         
         let economicData = self.comparisonData?.getEconomicScore()
         let educationData = self.comparisonData?.getEducationScore()
+        let transitData = self.comparisonData?.getTransitScore()
         
+        print(self.comparisonData?.getDemographicScore())
         
         self.dataArray = [String(economicData!), String(educationData!), String(0), String(0)]
         //        print(points)
@@ -83,6 +87,7 @@ class StatsViewController: UITableViewController {
                                     parameterDescription: detailsArray[indexPath.row],
                                     description: "Description",
                                     score: self.dataArray[indexPath.row])
+
         
         return cell
         
