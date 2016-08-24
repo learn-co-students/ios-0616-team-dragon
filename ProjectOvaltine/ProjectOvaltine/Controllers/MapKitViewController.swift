@@ -188,9 +188,14 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 self!.placemark = (placemarks?.last)!
                 
-                print(self!.placemark)
-                
                 CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
+                    
+                    print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
+                    print("CITY: \(city?.name!)")
+                    print("COUNTY: \(county?.name!)")
+                    print("STATE: \(state?.name!)")
+                    print("ZIPCODE: \(self!.placemark!.postalCode)")
+                    
                     for USDataSet in (us?.dataSets!)! {
                         for USDataSetTwo in (USDataSet.values)! {
                             
