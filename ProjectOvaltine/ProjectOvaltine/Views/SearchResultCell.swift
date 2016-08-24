@@ -12,7 +12,8 @@ import GaugeView
 
 class SearchResultCell: UITableViewCell {
     
-    private var graphView: GaugeView!
+    //    private var graphView: GaugeView!
+    var comparisonScoreLabel = UILabel()
     var scoreLabel:UILabel! = UILabel()
     var resultLocationNameLabel:UILabel! = UILabel()
     var resultDescription: UITextView! = UITextView()
@@ -26,7 +27,7 @@ class SearchResultCell: UITableViewCell {
         self.createLabels()
         self.contentView.addSubview(self.scoreLabel)
         self.contentView.addSubview(self.resultLocationNameLabel)
-        self.contentView.addSubview(self.graphView)
+        self.contentView.addSubview(self.comparisonScoreLabel)
         self.setupView()
     }
     
@@ -36,7 +37,7 @@ class SearchResultCell: UITableViewCell {
         self.createLabels()
         self.contentView.addSubview(self.scoreLabel)
         self.contentView.addSubview(self.resultLocationNameLabel)
-        self.contentView.addSubview(self.graphView)
+        self.contentView.addSubview(self.comparisonScoreLabel)
         self.setupView()
     }
     
@@ -55,19 +56,32 @@ class SearchResultCell: UITableViewCell {
         self.contentView.clipsToBounds = true
         self.contentView.addSubview(self.scoreLabel)
         self.contentView.addSubview(self.resultLocationNameLabel)
-        self.contentView.addSubview(self.graphView)
+        self.contentView.addSubview(self.comparisonScoreLabel)
         self.setupView()
     }
     
     func createGraph() {
-        self.graphView = GaugeView()
-        self.graphView.gaugeColor = self.randomColor()
-        self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
+        
+        // MARK: - GREY LABEL RIGHT
+        
+        self.comparisonScoreLabel.textColor = UIColor.whiteColor()
+        self.comparisonScoreLabel.font = UIFont(name:"Helvetica-Light", size:16)
+        self.comparisonScoreLabel.textAlignment = NSTextAlignment.Center
+        self.comparisonScoreLabel.backgroundColor = UIColor.grayColor()
+        self.comparisonScoreLabel.layer.backgroundColor = UIColor.lightGrayColor().CGColor
+        self.comparisonScoreLabel.layer.borderWidth = 1.0
+        //        self.graphView = GaugeView()
+        //        self.graphView.gaugeColor = self.randomColor()
+        //        self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
     }
     
-
+    
     func createLabels() {
         self.resultLocationNameLabel.font = UIFont(name:"Helvetica-Light", size:16)
+        self.resultLocationNameLabel.textAlignment = NSTextAlignment.Center
+        
+        // MARK: - GRAY LABEL LEFT
+        
         self.scoreLabel.textColor = UIColor.whiteColor()
         self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:16)
         self.scoreLabel.textAlignment = NSTextAlignment.Center
@@ -85,7 +99,7 @@ class SearchResultCell: UITableViewCell {
         
         self.resultLocationNameLabel.snp_makeConstraints { (make) -> Void in
             make.height.equalTo(60)
-            make.width.equalTo(100)
+            make.width.equalTo(166)
             make.center.equalTo(self.contentView)
         }
         
@@ -93,7 +107,7 @@ class SearchResultCell: UITableViewCell {
             make.size.equalTo(100)
         }
         
-        self.graphView.snp_makeConstraints { (make) -> Void in
+        self.comparisonScoreLabel.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(40)
             make.right.equalTo(self.contentView).inset(20)
             make.top.equalTo(self.contentView).inset(15)

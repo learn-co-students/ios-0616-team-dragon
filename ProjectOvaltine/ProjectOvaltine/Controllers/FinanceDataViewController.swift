@@ -13,84 +13,96 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: - Properties
     
     var myArray = ["Median Income","Unemployment Rate","etc."]
-    let comparisonLabel = ComparisonLabel().addComparisonLabel()
-    let currentLabel = ComparisonLabel().addCurrentLabel()
-    let ratingLabel = ComparisonLabel().addRatingsLabel()
-    let searchedLabel = ComparisonLabel().addSearchedLabel()
-    let financeNavBar = NavBar().setup()
-    let navItem = UINavigationItem(title: "Finance")
-    let homeItem = UIBarButtonItem.init(title: "Home",
-                                        style: .Done,
-                                        target: nil,
-                                        action: #selector(dismissView))
+    
     
     // MARK: - Loading UI Elements and View
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
-        self.setupNavBar()
+        self.navBar()
         self.resultsTableView()
-        self.setupLabels()
-        self.resultsTableView()
+        ratingTextView()
+        comparisonTextView()
+        currentLocationLabel()
+        searchedLocationLabel()
     }
     
     // MARK: - Setup labels for tablview
-    
-    func setupLabels() {
-        self.view.addSubview(self.currentLabel)
-        self.currentLabel.text = "Bergen County"
-        self.currentLabel.sendSubviewToBack(self.currentLabel)
-        self.currentLabel.layer.masksToBounds = true
-        
-        self.view.addSubview(searchedLabel)
-        self.searchedLabel.text = "New York City"
-        self.searchedLabel.sendSubviewToBack(self.searchedLabel)
-        self.searchedLabel.layer.masksToBounds = true
-        
-        self.view.addSubview(self.ratingLabel)
-        self.ratingLabel.text = "9.5"
-        self.ratingLabel.sendSubviewToBack(self.ratingLabel)
-        
-        self.view.addSubview(comparisonLabel)
-        self.comparisonLabel.text = "9.5"
-        self.comparisonLabel.sendSubviewToBack(comparisonLabel)
-        self.comparisonLabel.textAlignment = NSTextAlignment.Center
-    }
-    
-    func setupConstraints() {
-        
-        self.comparisonLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(-20)
-            make.top.equalTo(view).offset(110)
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-        }
-        
-        self.currentLabel.snp_makeConstraints { (make) -> Void in
+    func currentLocationLabel() {
+        let currentLabel = UILabel()
+        view.addSubview(currentLabel)
+        currentLabel.text = "Bergen County"
+        currentLabel.textColor = UIColor.blackColor()
+        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        currentLabel.sendSubviewToBack(currentLabel)
+        currentLabel.layer.masksToBounds = true
+        currentLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(15)
             make.top.equalTo(view).offset(66)
             make.width.equalTo(200)
             make.height.equalTo(30)
         }
-        
-        self.ratingLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(20)
-            make.top.equalTo(view).offset(110)
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-        }
-        
-        self.searchedLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(self.view).offset(75)
-            make.top.equalTo(self.view).offset(66)
+    }
+    
+    func searchedLocationLabel() {
+        let searchedLabel = UILabel()
+        view.addSubview(searchedLabel)
+        searchedLabel.text = "New York City"
+        searchedLabel.textColor = UIColor.blackColor()
+        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        searchedLabel.sendSubviewToBack(searchedLabel)
+        searchedLabel.layer.masksToBounds = true
+        searchedLabel.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(view).offset(75)
+            make.top.equalTo(view).offset(66)
             make.width.equalTo(200)
             make.height.equalTo(30)
         }
+    }
+    
+    func ratingTextView() {
+        let ratingLabel = UILabel()
+        view.addSubview(ratingLabel)
+        ratingLabel.text = "9.5"
+        ratingLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
+        ratingLabel.textColor = UIColor.blackColor()
+        ratingLabel.layer.borderWidth = 3
+        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
+        ratingLabel.adjustsFontSizeToFitWidth = true
+        ratingLabel.font = UIFont(name:"Futura", size:33)
+        ratingLabel.sendSubviewToBack(ratingLabel)
+        ratingLabel.layer.masksToBounds = true
+        ratingLabel.layer.cornerRadius = 33
+        ratingLabel.textAlignment = NSTextAlignment.Center
+        ratingLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(20)
+            make.top.equalTo(view).offset(110)
+            make.width.equalTo(66)
+            make.height.equalTo(66)
+        }
+    }
+    
+    func comparisonTextView() {
         
-        self.financeNavBar.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(view).offset(20)
-            make.width.equalTo(view)
+        let comparisonLabel = UILabel()
+        view.addSubview(comparisonLabel)
+        comparisonLabel.text = "9.5"
+        comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
+        comparisonLabel.textColor = UIColor.blackColor()
+        comparisonLabel.layer.borderWidth = 3
+        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
+        comparisonLabel.adjustsFontSizeToFitWidth = true
+        comparisonLabel.font = UIFont(name:"Futura", size:33)
+        comparisonLabel.sendSubviewToBack(comparisonLabel)
+        comparisonLabel.layer.masksToBounds = true
+        comparisonLabel.layer.cornerRadius = 33
+        comparisonLabel.textAlignment = NSTextAlignment.Center
+        comparisonLabel.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(view).offset(-20)
+            make.top.equalTo(view).offset(110)
+            make.width.equalTo(66)
+            make.height.equalTo(66)
         }
     }
     
@@ -100,7 +112,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
-        tableView.frame.origin.y += 190
+        tableView.frame.origin.y += 166
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
     
@@ -120,6 +132,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
                                     reuseIdentifier: "myIdentifier")
         cell.resultDescription.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
+        cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.clearColor()
         } else {
@@ -141,24 +155,31 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         print(myArray[indexPath.row])
     }
     
-    func setupNavBar() {
-        self.view.addSubview(self.financeNavBar)
-        self.navItem.leftBarButtonItem = self.homeItem
-        self.financeNavBar.setItems([self.navItem], animated: false)
-        self.financeNavBar.alpha = 0.6
+    func navBar() {
+        let financeNavBar = NavBar().setup()
+        self.view.addSubview(financeNavBar)
+        financeNavBar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(view).offset(20)
+            make.width.equalTo(view)
+        }
+        //navBar.backgroundColor = UIColor(netHex:0xFFFF03)
+        financeNavBar.barTintColor = UIColor(netHex:0xFFFFFF)
+        
+        let navItem = UINavigationItem(title: "Finance")
+        let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
+        homeItem.tintColor = UIColor(netHex:0x000000)
+        navItem.leftBarButtonItem = homeItem
+        financeNavBar.setItems([navItem], animated: false)
+        financeNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "menu-2"),
-                        forState: UIControlState.Normal)
-        button.addTarget(self,
-                         action: #selector(settingButtonPushed),
-                         forControlEvents: UIControlEvents.TouchUpInside)
-        
+        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
-        self.navItem.rightBarButtonItem = barButton
+        navItem.rightBarButtonItem = barButton
     }
     
     func dismissView() {

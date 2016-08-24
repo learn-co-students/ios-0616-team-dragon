@@ -10,7 +10,7 @@ import UIKit
 import SwiftSpinner
 
 class StatsViewController: UITableViewController {
-    // MARK: - Properties 
+    // MARK: - Properties
     
     var comparisonData: ScoreModel?
     
@@ -34,13 +34,12 @@ class StatsViewController: UITableViewController {
         self.comparisonData = self.store.comparisonData
         self.setupNavBar()
         self.setupConstraints()
-        
     }
     
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        let headerView = self.tableView.tableHeaderView as! ResultView
-        headerView.scrollViewDidScroll(scrollView)
-    }
+    //    override func scrollViewDidScroll(scrollView: UIScrollView) {
+    //        let headerView = self.tableView.tableHeaderView as! ResultView
+    //        headerView.scrollViewDidScroll(scrollView)
+    //    }
     
     func statsTableView() {
         let tableView = UITableView(frame: view.bounds,
@@ -70,13 +69,10 @@ class StatsViewController: UITableViewController {
     override func tableView(tableView: UITableView,
                             cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // let points = self.comparisonData?.getScoresArray()
-
         
         let economicData = self.comparisonData?.getEconomicScore()
         let educationData = self.comparisonData?.getEducationScore()
-        let transitData = self.comparisonData?.getTransitScore()
         
-        print(self.comparisonData?.getDemographicScore())
         
         self.dataArray = [String(economicData!), String(educationData!), String(0), String(0)]
         //        print(points)
@@ -87,8 +83,7 @@ class StatsViewController: UITableViewController {
                                     parameterDescription: detailsArray[indexPath.row],
                                     description: "Description",
                                     score: self.dataArray[indexPath.row])
-
-        
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
         
         
@@ -111,7 +106,7 @@ class StatsViewController: UITableViewController {
         self.statsNavBar.alpha = 0.6
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "menu-2"),
+        button.setImage(UIImage(named: "settings-4"),
                         forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed),
                          forControlEvents: UIControlEvents.TouchUpInside)
