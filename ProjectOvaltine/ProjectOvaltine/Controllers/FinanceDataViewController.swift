@@ -67,16 +67,16 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         ratingLabel.text = "9.5"
         ratingLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         ratingLabel.textColor = UIColor.blackColor()
-        ratingLabel.layer.borderWidth = 3
-        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
+//        ratingLabel.layer.borderWidth = 3
+//        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
         ratingLabel.adjustsFontSizeToFitWidth = true
         ratingLabel.font = UIFont(name:"Futura", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
         ratingLabel.layer.masksToBounds = true
-        ratingLabel.layer.cornerRadius = 33
+        //ratingLabel.layer.cornerRadius = 33
         ratingLabel.textAlignment = NSTextAlignment.Center
         ratingLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(20)
+            make.left.equalTo(view).offset(10)
             make.top.equalTo(view).offset(110)
             make.width.equalTo(66)
             make.height.equalTo(66)
@@ -90,16 +90,16 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         comparisonLabel.text = "9.5"
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         comparisonLabel.textColor = UIColor.blackColor()
-        comparisonLabel.layer.borderWidth = 3
-        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
+//        comparisonLabel.layer.borderWidth = 3
+//        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
         comparisonLabel.adjustsFontSizeToFitWidth = true
         comparisonLabel.font = UIFont(name:"Futura", size:33)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.layer.masksToBounds = true
-        comparisonLabel.layer.cornerRadius = 33
+        //comparisonLabel.layer.cornerRadius = 33
         comparisonLabel.textAlignment = NSTextAlignment.Center
         comparisonLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(-20)
+            make.right.equalTo(view).offset(-10)
             make.top.equalTo(view).offset(110)
             make.width.equalTo(66)
             make.height.equalTo(66)
