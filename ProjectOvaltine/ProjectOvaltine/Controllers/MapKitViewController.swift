@@ -12,39 +12,49 @@ import MapKit
 import SwiftSpinner
 
 class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControllerDelegate, UISearchBarDelegate {
+    // MARK: - Properties
     
     var window: UIWindow?
     var placemark: CLPlacemark?
     
-    //Data store instances
+    // MARK: - Data store instances
+    
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient()
     
-    //Array of citySDK data
+    // MARK: - Array of citySDK data
+    
     var cityData: [CitySDKData] = []
     var destinationVC = StatsViewController()
     
-    //Initialized mapView
+    // MARK: - Initialized mapView
+    
     let mapView: MKMapView! = MKMapView()
     
-    //Set zipLocation (used in GeoCoder function), region radius
+    // MARK: - Set zipLocation (used in GeoCoder function), region radius
+    
     var zipLocation : CLLocation! = nil
     let regionRadius: CLLocationDistance = 1000
     
-    //Initialize alert - used in GeoCoder function when user enters an invalid zipcode
+    // MARK: - Initialize alert - used in GeoCoder function when user enters an invalid zipcode
+    
     let alert = UIAlertController.init(title: "Invalid Entry",
                                        message: "You entered an invalid Zipcode",
                                        preferredStyle: .Alert)
-    //Calculates a location from array of location data - will be deprecated eventually
+    
+    // MARK: - Calculates a location from array of location data - will be deprecated eventually
+    
     var initialLocation : CLLocation {
         let newLocation = CLLocation.init(latitude: 40.28683599971092,
                                           longitude: -75.26431999998206)
         return newLocation}
     
-    //Necessary to convert point data to CLLocationCoordinate2D array
+    // MARK: - Necessary to convert point data to CLLocationCoordinate2D array
+    
     var boundary: [CLLocationCoordinate2D] = []
     
-    //Initialized array of MKOverlays
+    // MARK: - Initialized array of MKOverlays
+    
     var overlayArray: [MKOverlay] = []
     
     var polygon: MKPolygon!
@@ -57,7 +67,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     var cityAbsoluteDictionary = [String : String]()
     var cityPercentDictionary = [String : String]()
     
-    //Init searchBar
+    // MARK: - Init searchBar
+    
     let searchController = UISearchBar.init()
     
     override func viewDidLoad() {
@@ -88,7 +99,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         //self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, animated: true)
     }
     
-    //Delegate method from mapView in order to render the polyline
+    // MARK: - Delegate method from mapView in order to render the polyline
     func mapView(mapView: MKMapView,
                  rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         
@@ -99,7 +110,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         return polygonRenderer
     }
     
-    //Following two functions from: http://stackoverflow.com/questions/33123724/swift-adding-a-button-to-my-mkpointannotation
+    // MARK: - Following two functions from: http://stackoverflow.com/questions/33123724/swift-adding-a-button-to-my-mkpointannotation
     func mapView(mapView: MKMapView,
                  viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationReuseId = "Place"
@@ -124,7 +135,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
+        // MARK: - I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
         if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
             
             let detailVC = TabBarController()
@@ -162,7 +173,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.view.endEditing(true)
     }
     
-    //Takes a string of numbers and gets a lat/long - Async
+    // MARK: - Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
         
         

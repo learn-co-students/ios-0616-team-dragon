@@ -35,6 +35,7 @@
 		AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */; };
 		AF4E94791D660E1F00515266 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E94781D660E1F00515266 /* TestView.swift */; };
 		AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */; };
+		AF57D89A1D6DB60B000DFD6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57D8991D6DB60B000DFD6D /* Constants.swift */; };
 		AF588A641D5CB78400F228C7 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A631D5CB78400F228C7 /* AppFont.swift */; };
 		AF68B8631D6B46B500C32B8C /* TestCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF68B8621D6B46B500C32B8C /* TestCore.swift */; };
 		AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DF991D53D30300DDF173 /* AppDelegate.swift */; };
@@ -44,7 +45,6 @@
 		AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */; };
 		AFE460161D551BE400FBE63B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE460121D551BE400FBE63B /* DataStore.swift */; };
 		AFE4AC721D6BDA9000C81D86 /* ComparisonLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4AC711D6BDA8F00C81D86 /* ComparisonLabels.swift */; };
-		AFE4AC741D6BEE6A00C81D86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4AC731D6BEE6A00C81D86 /* Constants.swift */; };
 		AFE4AC761D6C124800C81D86 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4AC751D6C124800C81D86 /* ViewConstants.swift */; };
 		AFE4AC781D6C9AC500C81D86 /* ResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4AC771D6C9AC500C81D86 /* ResultTableView.swift */; };
 		AFE644331D67503D00E85930 /* ComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE644321D67503D00E85930 /* ComparisonCell.swift */; };
@@ -89,6 +89,7 @@
 		AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKData.swift; sourceTree = "<group>"; };
 		AF4E94781D660E1F00515266 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestView.swift; path = Views/TestView.swift; sourceTree = "<group>"; };
 		AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSCoderExtension.swift; path = Utilities/NSCoderExtension.swift; sourceTree = "<group>"; };
+		AF57D8991D6DB60B000DFD6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AF588A631D5CB78400F228C7 /* AppFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		AF68B8621D6B46B500C32B8C /* TestCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCore.swift; sourceTree = "<group>"; };
 		AF75DF961D53D30300DDF173 /* ProjectOvaltine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOvaltine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +101,6 @@
 		AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySDKAPIClient.swift; path = Utilities/CitySDKAPIClient.swift; sourceTree = "<group>"; };
 		AFE460121D551BE400FBE63B /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		AFE4AC711D6BDA8F00C81D86 /* ComparisonLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComparisonLabels.swift; path = Views/ComparisonLabels.swift; sourceTree = "<group>"; };
-		AFE4AC731D6BEE6A00C81D86 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AFE4AC751D6C124800C81D86 /* ViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewConstants.swift; path = Views/ViewConstants.swift; sourceTree = "<group>"; };
 		AFE4AC771D6C9AC500C81D86 /* ResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableView.swift; sourceTree = "<group>"; };
 		AFE644321D67503D00E85930 /* ComparisonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparisonCell.swift; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
-				AFE4AC731D6BEE6A00C81D86 /* Constants.swift */,
+				AF57D8991D6DB60B000DFD6D /* Constants.swift */,
 				AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */,
 			);
 			name = Utilities;
@@ -533,6 +533,7 @@
 				8EAF7E751D68E730004D8C9A /* StateCodes.swift in Sources */,
 				AF68B8631D6B46B500C32B8C /* TestCore.swift in Sources */,
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
+				AF57D89A1D6DB60B000DFD6D /* Constants.swift in Sources */,
 				AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */,
 				8E1DCF971D67C35A003B2B25 /* City+CoreDataProperties.swift in Sources */,
 				8E74E6F71D65EC1C0056E866 /* CoreDataHelperExtension.swift in Sources */,
@@ -546,7 +547,6 @@
 				AFEE32161D635A5600884D42 /* NavBar.swift in Sources */,
 				AFE4AC781D6C9AC500C81D86 /* ResultTableView.swift in Sources */,
 				8E74E6FC1D65EC1C0056E866 /* DataSet+CoreDataProperties.swift in Sources */,
-				AFE4AC741D6BEE6A00C81D86 /* Constants.swift in Sources */,
 				AF7777E91D6103C000303DBB /* ProjectButton.swift in Sources */,
 				8E74E6F61D65EC1C0056E866 /* CoreDataHelper.swift in Sources */,
 				8E74E7031D65EC1C0056E866 /* US+CoreDataProperties.swift in Sources */,

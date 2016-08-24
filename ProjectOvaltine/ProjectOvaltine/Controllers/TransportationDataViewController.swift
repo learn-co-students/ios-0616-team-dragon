@@ -12,6 +12,7 @@ import SwiftSpinner
 import SnapKit
 
 class TransportationDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Properties
     
     var myArray = ["Commute Time","Public Transportation","etc."]
     
@@ -25,6 +26,8 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
                                         style: .Done,
                                         target: nil,
                                         action: #selector(dismissView))
+    
+    // MARK: - Setup view and add UIElements
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +59,8 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         self.comparisonLabel.sendSubviewToBack(self.comparisonLabel)
         self.comparisonLabel.textAlignment = NSTextAlignment.Center
     }
+    
+    // MARK: - Setup view constraints
     
     func setupConstraints() {
         self.comparisonLabel.snp_makeConstraints { (make) -> Void in
@@ -91,6 +96,8 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
             make.width.equalTo(view)
         }
     }
+    
+    // MARK: - Tableview methods
     
     func resultsTableView() {
         let tableView = UITableView(frame: view.bounds,

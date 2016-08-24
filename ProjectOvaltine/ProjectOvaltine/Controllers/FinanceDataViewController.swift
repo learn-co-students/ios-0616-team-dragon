@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 class FinanceDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Properties
     
     var myArray = ["Median Income","Unemployment Rate","etc."]
     let comparisonLabel = ComparisonLabel().addComparisonLabel()
@@ -23,6 +24,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
                                         target: nil,
                                         action: #selector(dismissView))
     
+    // MARK: - Loading UI Elements and View
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
@@ -31,6 +34,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         self.setupLabels()
         self.resultsTableView()
     }
+    
+    // MARK: - Setup labels for tablview
     
     func setupLabels() {
         self.view.addSubview(self.currentLabel)

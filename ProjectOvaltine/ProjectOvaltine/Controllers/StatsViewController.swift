@@ -10,6 +10,7 @@ import UIKit
 import SwiftSpinner
 
 class StatsViewController: UITableViewController {
+    // MARK: - Properties 
     
     var comparisonData: ScoreModel?
     
@@ -25,6 +26,7 @@ class StatsViewController: UITableViewController {
                                         target: nil,
                                         action: #selector(dismissView))
     
+    // MARK: - Loading view and UI Elements
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,10 +117,14 @@ class StatsViewController: UITableViewController {
         self.navItem.rightBarButtonItem = barButton
     }
     
+    // MARK: - Action for when home button is pressed
+    
     func dismissView() {
         dismissViewControllerAnimated(true,
                                       completion: nil)
     }
+    
+    // MARK: - Setting up constraints
     
     func setupConstraints() {
         self.statsNavBar.snp_makeConstraints { (make) -> Void in

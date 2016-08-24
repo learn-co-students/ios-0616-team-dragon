@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 class EducationDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Properties 
     
     var myArray = ["High School Graduate","College Graduate","etc."]
     
@@ -19,6 +20,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     let searchedLabel = ComparisonLabel().addSearchedLabel()
     let educationNavBar = NavBar().setup()
     let navItem = UINavigationItem(title: "Education")
+    
+    // MARK: - Load view and setup UI Elements
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +53,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         self.comparisonLabel.sendSubviewToBack(self.comparisonLabel)
         self.comparisonLabel.textAlignment = NSTextAlignment.Center
     }
+    
+    // MARK: - Setting up view constraints
     
     func setupConstraints() {
         self.comparisonLabel.snp_makeConstraints { (make) -> Void in
@@ -85,6 +90,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
             make.width.equalTo(view)
         }
     }
+    
+    // MARK: - Tableview setup methods
     
     func resultsTableView() {
         let tableView = UITableView(frame: view.bounds,
@@ -127,6 +134,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
+    // MARK: - Action methods for button presses
+    
     func pressedButton1(sender: UIButton) {
         print("Pressed Button 1")
     }
@@ -139,6 +148,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
                    didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(myArray[indexPath.row])
     }
+    
+    // MARK: - Navigation Bar setup
     
     func setupNavBar() {
         let homeItem = UIBarButtonItem.init(title: "Home",
@@ -162,6 +173,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationItem.rightBarButtonItem = barButton
         self.navItem.rightBarButtonItem = barButton
     }
+    
+    // MARK: - Function called when home button is pressed
     
     func dismissView() {
         self.dismissViewControllerAnimated(true, completion: nil)

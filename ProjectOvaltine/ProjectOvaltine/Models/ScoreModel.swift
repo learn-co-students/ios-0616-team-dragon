@@ -9,6 +9,7 @@
 import Foundation
 
 struct ScoreModel {
+    // MARK: - Properties 
     
     var scoreName: String
     var score: Int
@@ -34,6 +35,7 @@ struct ScoreModel {
     //Otherwise it should just be the starting destination
     
     mutating func getEconomicScore() -> String {
+        // FIXME: Figure this out
         print("Inside getEconomicScore")
         
         let origin = Double(self.originDataPoints!["Median household income"]!)
@@ -53,10 +55,11 @@ struct ScoreModel {
         
         
         return String(percentageChange)
-        //return "Economics"
     }
     
     mutating func getTransitScore() -> String {
+        // TODO: add method body 
+        
         
         //let origin = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
         // let comparison = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)

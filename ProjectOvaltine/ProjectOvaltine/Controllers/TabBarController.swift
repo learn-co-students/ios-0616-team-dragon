@@ -10,16 +10,21 @@ import UIKit
 import SwiftSpinner
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
+    // MARK: - Properties
     
     var scoreData: ScoreModel?
     
     var scoreArray: [String]?
+    
+    // MARK: - View setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         
     }
+    
+    // MARK: Added VCs to tabbar
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,6 +62,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         print("viewController selected: \(viewController.tabBarItem.title!)")
         return true
     }
+    
+    // MARK: - SwiftSpinner for when view is dismissed 
     
     func dismissView() {
         SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
