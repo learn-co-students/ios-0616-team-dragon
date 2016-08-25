@@ -11,12 +11,17 @@ import SnapKit
 
 class DemographicDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var myArray = ["Diversity","Population","etc."]
+    let store = DataStore.sharedInstance
+    //var myArray = ["High School Graduate","College Graduate","etc."]
+    var comparisonData: ScoreModel?
+    var percentageComparisonData: ScoreModel?
     
     // MARK: - Loading UI Elements and View
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.comparisonData = self.store.comparisonData
+        self.percentageComparisonData = self.store.comparisonPercentageData
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.navBar()
         self.resultsTableView()
@@ -121,15 +126,21 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        guard let demographicComparisonData = self.comparisonData?.getTransitScore() else { fatalError() }
+        return demographicComparisonData.1.count
     }
     
     func tableView(tableView: UITableView,
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let demographicComparisonData = self.comparisonData?.getDemographicScore() else { fatalError() }
+        print(demographicComparisonData.0)
+        var demographicKeys = Array(demographicComparisonData.1.keys)
+        
+
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
-        cell.resultDescription.text = self.myArray[indexPath.row]
-        cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
+        cell.resultDescription.text = demographicKeys[indexPath.row]
+        cell.resultLocationNameLabel.text = demographicKeys[indexPath.row]
         cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
         cell.selectionStyle = UITableViewCellSelectionStyle.None
 //        if (indexPath.row % 2 == 0) {
@@ -150,7 +161,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView,
                    didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(myArray[indexPath.row])
+        //print(myArray[indexPath.row])
     }
     
     func navBar() {

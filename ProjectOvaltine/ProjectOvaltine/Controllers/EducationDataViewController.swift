@@ -11,14 +11,18 @@ import SnapKit
 
 class EducationDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Properties
-    
+    let store = DataStore.sharedInstance
     var myArray = ["High School Graduate","College Graduate","etc."]
+    var comparisonData: ScoreModel?
+    var percentageComparisonData: ScoreModel?
     
     // MARK: - Loading UI Elements and View
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
+        self.comparisonData = self.store.comparisonData
+        self.percentageComparisonData = self.store.comparisonPercentageData
         self.navBar()
         self.resultsTableView()
         ratingTextView()
@@ -61,6 +65,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func ratingTextView() {
+        
         let ratingLabel = UILabel()
         view.addSubview(ratingLabel)
         ratingLabel.text = "9.5"
@@ -122,15 +127,20 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        guard let educationComparisonData = self.comparisonData?.getEducationScore() else { fatalError() }
+        return educationComparisonData.1.keys.count
     }
     
     func tableView(tableView: UITableView,
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let educationComparisonData = self.comparisonData?.getEducationScore() else { fatalError() }
+        print(educationComparisonData.0)
+        var educationKeys = Array(educationComparisonData.1.keys)
+        print(educationComparisonData.2)
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
-        cell.resultDescription.text = self.myArray[indexPath.row]
-        cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
+        cell.resultDescription.text = educationKeys[indexPath.row]
+        cell.resultLocationNameLabel.text = educationKeys[indexPath.row]
         cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
         cell.selectionStyle = UITableViewCellSelectionStyle.None
 //        if (indexPath.row % 2 == 0) {

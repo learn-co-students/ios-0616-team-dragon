@@ -14,12 +14,17 @@ import SnapKit
 class TransportationDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Properties
     
-    var myArray = ["Commute Time","Public Transportation","etc."]
+    let store = DataStore.sharedInstance
+    //var myArray = ["High School Graduate","College Graduate","etc."]
+    var comparisonData: ScoreModel?
+    var percentageComparisonData: ScoreModel?
     
     // MARK: - Loading UI Elements and View
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.comparisonData = self.store.comparisonData
+        self.percentageComparisonData = self.store.comparisonPercentageData
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.navBar()
         self.resultsTableView()
@@ -124,15 +129,21 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     func tableView(tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        guard let transitComparisonData = self.comparisonData?.getTransitScore() else { fatalError() }
+        return transitComparisonData.1.count
     }
     
     func tableView(tableView: UITableView,
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let transitComparisonData = self.comparisonData?.getTransitScore() else { fatalError() }
+        print(transitComparisonData.0)
+        var educationKeys = Array(transitComparisonData.1.keys)
+
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
-        cell.resultDescription.text = self.myArray[indexPath.row]
-        cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
+        var transitKeys = Array(transitComparisonData.1.keys)
+        cell.resultDescription.text = transitKeys[indexPath.row]
+        cell.resultLocationNameLabel.text = transitKeys[indexPath.row]
         cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
         cell.selectionStyle = UITableViewCellSelectionStyle.None
 //        if (indexPath.row % 2 == 0) {
@@ -153,7 +164,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     func tableView(tableView: UITableView,
                    didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(myArray[indexPath.row])
+       //print(myArray[indexPath.row])
     }
     
     func navBar() {

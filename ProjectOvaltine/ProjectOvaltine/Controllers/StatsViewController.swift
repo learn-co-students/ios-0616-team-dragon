@@ -103,11 +103,14 @@ class StatsViewController: UITableViewController {
         //        print(points)
         //        print(economicData)
         
+        //self.dataArray[indexPath.row].0
+        print("---------")
+        print("DATA \(self.dataArray[indexPath.row])")
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier",
                                     parameterDescription: self.detailsArray[indexPath.row],
-                                    description: self.originArray[indexPath.row],
-                                    score: self.dataArray[indexPath.row])
+                                    description: "LOW",
+                                    score: "HIGH")
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
