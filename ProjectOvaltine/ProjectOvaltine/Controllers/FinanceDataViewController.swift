@@ -146,21 +146,27 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView,
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
+                                    reuseIdentifier: "myIdentifier")
+        
         if let economicComparisonData = self.comparisonData {
             var ecoChange = economicComparisonData
             print("----------------------")
             //print(economicComparisonData)
-            var ecoData = ecoChange.getEconomicScore()
-            for i in ecoData.1 {
-                print("--")
-                print(i)
-            }
-            //print(ecoData.1)
+            var ecoChanger = ecoChange.getEconomicScore()
+            let eChanger = ecoChange.getEconomicScore().1
+            var ecoKeys =  Array(eChanger.keys)
+            print(ecoKeys[indexPath.row])
+            print(ecoKeys)
+            print("-------")
+            var keyeco = ecoKeys[indexPath.row]
+            cell.resultLocationNameLabel.text = String(ecoKeys[indexPath.row])
+            //print(ecoData)
+            cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
         }
         //guard let economicComparisonData = self.comparisonData?.getEconomicScore() else { fatalError() }
         
-        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
-                                    reuseIdentifier: "myIdentifier")
         
         ///var keyDict: [String] = []
         
@@ -176,8 +182,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         //cell.comparisonScoreLabel.text = String(scorenum)
         //cell.comparisonScoreLabel.text = String(economicComparisonData.1[indexPath.row].1)
        //cell.resultLocationNameLabel.text = scoretext
-        cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+//        cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
+//        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         
 //        print("TABLE VIEW \(economicComparisonData)\n\n\n\n\n\n")

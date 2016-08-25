@@ -46,7 +46,7 @@ struct ScoreModel {
     
     mutating func getEconomicScore() -> (String, [String:Double])  {
         
-        var returnArray: [(String, Double)] = []
+        //var returnArray: [(String, Double)] = []
         
         // FIXME: - Figure this out
         guard let
