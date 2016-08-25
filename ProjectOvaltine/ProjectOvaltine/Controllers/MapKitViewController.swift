@@ -203,13 +203,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         }
                     }
                     
-                    for USDataSet in (us?.dataSets!)! {
-                        for USDataSetTwo in (USDataSet.values)! {
-                            
-                            self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
-                            self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
-                        }
-                    }
                     if let city = city?.dataSets {
                         for cityDataSet in city {
                             for cityDataSet2 in (cityDataSet.values)!{

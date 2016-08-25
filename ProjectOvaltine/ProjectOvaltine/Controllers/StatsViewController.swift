@@ -107,7 +107,7 @@ class StatsViewController: UITableViewController {
         self.statsNavBar.setItems([self.navItem],
                                   animated: false)
         
-        self.statsNavBar.alpha = 0.6
+        self.statsNavBar.alpha = 1.0
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4"),

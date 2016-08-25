@@ -13,12 +13,14 @@ class NavBar {
     
     func setup() -> UINavigationBar {
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width:self.width, height: 40))
-        navBar.alpha = 1.0
+        
         navBar.layer.zPosition = 3
-        navBar.barTintColor = UIColor.whiteColor()
+        navBar.barTintColor = UIColor(red:0.36, green:0.49, blue:0.55, alpha:1.0)
         navBar.titleTextAttributes = [ NSFontAttributeName:HelveticaLight().getFont(20), //UIFont(name:"Helvetica-Light", size: 20)!,
-                                       NSForegroundColorAttributeName: UIColor.blackColor()]
+            
+            NSForegroundColorAttributeName: UIColor.blackColor()]
         navBar.layer.borderColor = UIColor.blackColor().CGColor
+        
         return navBar
     }
 }

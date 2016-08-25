@@ -171,7 +171,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         homeItem.tintColor = UIColor(netHex:0x000000)
         navItem.leftBarButtonItem = homeItem
         financeNavBar.setItems([navItem], animated: false)
-        financeNavBar.alpha = 0.6
+        financeNavBar.alpha = 1.0
         
         let button: UIButton = UIButton(type: .Custom)
         button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
