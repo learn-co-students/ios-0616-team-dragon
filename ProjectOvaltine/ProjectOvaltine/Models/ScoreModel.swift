@@ -10,7 +10,7 @@ import Foundation
 
 struct ScoreModel {
     // MARK: - Properties 
-    
+    var location: String
     var scoreName: String
     var score: Int
     var originDataPoints: [String: String]?
@@ -20,7 +20,7 @@ struct ScoreModel {
     var demographicScore: Int
     var educationScore: Int
     
-    init (originDataPoints: [String : String], comparisonDataPoints: [String : String]) {
+    init (location:String, originDataPoints: [String : String], comparisonDataPoints: [String : String]) {
         self.originDataPoints = originDataPoints
         print("Origin \(originDataPoints["Median gross rent as percentage of household income"])")
         print("\(originDataPoints)\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -32,12 +32,14 @@ struct ScoreModel {
         self.transitScore = 0
         self.demographicScore = 0
         self.educationScore = 0
+        self.location = location 
         self.getTransitScore()
     }
     
     //Origin should be the higher level - US -> State -> County -> City
     //Otherwise it should just be the starting destination
     
+    //mutating func getEconomicScore() -> (String, (Double, Double)) {
     mutating func getEconomicScore() -> String {
         // FIXME: Figure this out
         
@@ -49,8 +51,8 @@ struct ScoreModel {
         //            Should take the lowever level, for instance, and subtract by the higher level
         //            Ex. City Avg - US Avg which should produce a positive number
         
-        print("Origin: \(origin)")
-        print("Comparison: \(comparison)")
+        //print("Origin: \(origin)")
+        //print("Comparison: \(comparison)")
         
         let subtractedValueForPercentage = comparison! - origin!
         
@@ -61,7 +63,26 @@ struct ScoreModel {
         
         print(percentageChange)
         
-        return String(percentageChange)
+        guard let
+            unwrappedOrigin = origin,
+            unrappedComparison = comparison
+            else { fatalError() }
+        let eachScore = (unwrappedOrigin, unrappedComparison)
+        
+        
+        
+       //(String(percentageChange), eachScore)
+        
+        if comparison > origin {
+            print("High")
+            return "High"
+        } else if comparison > origin && comparison < origin {
+            print("Med")
+            return "Med."
+        } else {
+            print("Low")
+            return "Low"
+        }
     }
     
     mutating func getTransitScore() -> String {
@@ -152,16 +173,35 @@ struct ScoreModel {
             let pacificIslanderComparisonPercentage = self.comparisonDataPoints!["Pacific islander"]
             let hispanicComparisonPercentage = self.comparisonDataPoints!["Hispanic or Latino"]
             
-            let originArray = [whiteOriginPercentage, blackOriginPercentage, americanIndianOriginPercentage, asianOriginPercentage, pacificIslanderOriginPercentage, hispanicOriginPercentage]
+            let originArray = [whiteOriginPercentage!, blackOriginPercentage!, americanIndianOriginPercentage!, asianOriginPercentage!, pacificIslanderOriginPercentage!, hispanicOriginPercentage!]
+            
+            let comparisonArray = [whiteComparisonPercentage!, blackComparisonPercentage!, americanIndianComparisonPercentage!, asianComparisonPercentage!, pacificIslanderComparisonPercentage!, hispanicComparisonPercentage!]
+            
+            var comparisonSum = 0.0
+            for values in comparisonArray {
+                comparisonSum += comparisonSum + Double(values)!
+            }
+            
+            var originSum = 0.0
+            for values in originArray {
+                originSum += originSum + Double(values)!
+            }
             
             print(originArray)
             
-            let comparisonArray = [whiteComparisonPercentage, blackComparisonPercentage, americanIndianComparisonPercentage, asianComparisonPercentage, pacificIslanderComparisonPercentage, hispanicComparisonPercentage]
+            if comparisonSum > originSum * 2 {
+                return "High"
+            } else if comparisonSum > originSum && comparisonSum < originSum * 2 {
+                return "Med."
+            } else {
+                return "Low"
+            }
             
-            print(comparisonArray)
-            
-            let returnValue = ""
-            return returnValue
+//            print("\n\n\n\n\n DEMOGRAPHICS  \(comparisonArray)")
+//            print("\n\n\n\n\n\n\n DEMOG \(originArray)")
+//            
+//            let returnValue = ""
+//            return returnValue
         }
     
     mutating func getScoresArray() -> [String] {

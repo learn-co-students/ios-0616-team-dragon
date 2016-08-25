@@ -16,7 +16,7 @@ class StatsViewController: UITableViewController {
     var percentageComparisonData: ScoreModel?
     
     var dataArray = [String]()
-    //var originArray = [String]()
+    var originArray = [String]()
     
     var detailsArray = ["Economic","Education","Transit", "Demographic"]
     var statsNavBar: UINavigationBar = UINavigationBar()
@@ -88,19 +88,20 @@ class StatsViewController: UITableViewController {
         
         
         self.dataArray = [String(economicData!), String(educationData!), String(transitData!), String(demographicData!)]
+        self.originArray = [String(originEconomicData!), String(originEducationData!), String(originTransitData!), String(originDemographicData!)]
         
+        print(self.dataArray)
+        print(self.originArray)
         //        print(points)
         //        print(economicData)
         
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier",
-                                    parameterDescription: detailsArray[indexPath.row],
-                                    description: "Description",
+                                    parameterDescription: self.detailsArray[indexPath.row],
+                                    description: self.originArray[indexPath.row],
                                     score: self.dataArray[indexPath.row])
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
-        
-        
     }
     
     override func tableView(tableView: UITableView,

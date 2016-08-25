@@ -141,6 +141,9 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
         let originEconomicData = self.comparisonData?.getEconomicScore()
+        let comparrisonEconomicData = self.comparisonData?.getEconomicScore()
+        print("\n\n ORIGIN ECONOMICDATA \(originEconomicData!)")
+        print("\n\n COMPARISON ECONOMICDATA \(comparrisonEconomicData!)")
         self.comparisonLabel.text = self.myArray[indexPath.row]
         cell.resultDescription.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
