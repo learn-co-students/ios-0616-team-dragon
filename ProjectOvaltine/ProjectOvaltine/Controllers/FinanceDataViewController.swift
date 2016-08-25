@@ -14,6 +14,10 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     var store = DataStore.sharedInstance
     
+    var tabCityDataSets: [DataSetModel] = []
+    var tabUSDataSets: [DataSetModel] = []
+    
+    
     var myArray = ["Median Income","Unemployment Rate","etc."]
     var comparisonData: ScoreModel?
     var percentageComparisonData: ScoreModel?
@@ -28,9 +32,12 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabCityDataSets = self.tabSets(city: true, type: Hints.economy)
+        self.tabUSDataSets = self.tabSets(city: false, type: Hints.economy)
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.comparisonData = self.store.comparisonData
         self.percentageComparisonData = self.store.comparisonPercentageData
+        
         
         self.navBar()
         self.resultsTableView()
@@ -38,6 +45,38 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         comparisonTextView()
         currentLocationLabel()
         searchedLocationLabel()
+    }
+    
+    func tabSets(city city: Bool, type: String) -> [DataSetModel] {
+        if city {
+            let citySets = store.cityModel.dataSets.filter({ (dataSet) -> Bool in
+                dataSet.type == type && dataSet.displayPercent
+            })
+            for set in citySets {
+                for (index, value) in set.values.enumerate() {
+                    if value.name == Hints.total {
+                        set.values.removeAtIndex(index)
+                    }
+                }
+            }
+            return citySets.sort({ (dataSetModel1, dataSetModel2) -> Bool in
+                dataSetModel1.name > dataSetModel2.name
+            })
+        } else {
+            let usSets = store.usModel.dataSets.filter({ (dataSet) -> Bool in
+                dataSet.type == Hints.economy && dataSet.displayPercent
+            })
+            for set in usSets {
+                for (index, value) in set.values.enumerate() {
+                    if value.name == Hints.total {
+                        set.values.removeAtIndex(index)
+                    }
+                }
+            }
+            return usSets.sort({ (dataSetModel1, dataSetModel2) -> Bool in
+                dataSetModel1.name > dataSetModel2.name
+            })
+        }
     }
     
     // MARK: - Setup labels for tablview
@@ -55,13 +94,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     func searchedLocationLabel() {
         
-        var shortenedCity = ""
-        
-        if let cityName = self.store.cityName {
-            shortenedCity = CensusAPIClient().actualName(cityName)}
-        
         view.addSubview(searchedLabel)
-        searchedLabel.text = shortenedCity
+        searchedLabel.text = store.cityModel.name
         searchedLabel.textAlignment = .Right
         searchedLabel.textColor = UIColor.blackColor()
         searchedLabel.font = UIFont(name:"Helvetica Light", size:17)
@@ -73,7 +107,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     func ratingTextView() {
         let ratingLabel = UILabel()
         view.addSubview(ratingLabel)
-        ratingLabel.text = "9.5"
+        ratingLabel.text = "N/A"
         ratingLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         ratingLabel.textColor = UIColor.blackColor()
 //        ratingLabel.layer.borderWidth = 3
@@ -96,7 +130,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         
         view.addSubview(comparisonLabel)
-        comparisonLabel.text = "9.5"
+        comparisonLabel.text = "N/A"
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         comparisonLabel.textColor = UIColor.blackColor()
 //        comparisonLabel.layer.borderWidth = 3
@@ -122,6 +156,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         self.view.addSubview(tableView)
         tableView.frame.origin.y += 166
+        tableView.frame.size.height = self.view.bounds.height - 206
         tableView.backgroundColor = UIColor(netHex:0xFFFFFF)
     }
     
@@ -130,46 +165,72 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         return 66
     }
     
-    func tableView(tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        
-        guard let economicComparisonData = self.comparisonData?.getEconomicScore() else { fatalError() }
-        //return economicComparisonData.0
-        return economicComparisonData.1.count
     
-//        guard let economicComparisonData = else { fatalError() }
-//        return economicComparisonData.1.keys.count
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return tabCityDataSets.count
     }
     
-    func tableView(tableView: UITableView,
-                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
-                                    reuseIdentifier: "myIdentifier")
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tabCityDataSets[section].values.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return tabCityDataSets[section].name
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = SearchResultCell(style: .Default, reuseIdentifier: "myIdentifier")
+        cell.resultLocationNameLabel.text = tabCityDataSets[indexPath.section].values[indexPath.row].name
+        cell.resultLocationNameLabel.textColor = UIColor.blackColor()
+        cell.scoreLabel.text = tabUSDataSets[indexPath.section].values[indexPath.row].percentValue
+        cell.scoreLabel.textColor = UIColor.blackColor()
+        cell.comparisonScoreLabel.text = self.tabCityDataSets[indexPath.section].values[indexPath.row].percentValue
+        cell.comparisonScoreLabel.textColor = UIColor.blackColor()
         
-        if let economicComparisonData = self.comparisonData {
-            var economicComparisonDataMutable = economicComparisonData
-            print("----------------------")
-            //print(economicComparisonData)
-            var economicDataScore = economicComparisonDataMutable.getEconomicScore()
-            let economicDetails = economicDataScore.1
-            
-            var economicKeys =  Array(economicDetails.keys)
-            print("____________")
-            print(economicDetails[economicKeys[indexPath.row]])
-            print(economicKeys[indexPath.row])
-            print(economicKeys)
-            print("-------")
-            var economicScoreItem = economicKeys[indexPath.row]
-            print(economicScoreItem)
-            var newKey = economicKeys[indexPath.row]
-            var ecoScore = economicDetails[newKey]! / 10
-            cell.scoreLabel.text = String(ecoScore)
-            cell.scoreLabel.textColor = UIColor.blackColor()
-            cell.resultLocationNameLabel.text = String(economicKeys[indexPath.row])
-            //print(ecoData)
-            cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-        }
+        return cell
+    }
+    
+    
+//    func tableView(tableView: UITableView,
+//                   numberOfRowsInSection section: Int) -> Int {
+//        
+//        guard let economicComparisonData = self.comparisonData?.getEconomicScore() else { fatalError() }
+//        //return economicComparisonData.0
+//        return economicComparisonData.1.count
+//    
+////        guard let economicComparisonData = else { fatalError() }
+////        return economicComparisonData.1.keys.count
+//    }
+    
+//    func tableView(tableView: UITableView,
+//                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
+//                                    reuseIdentifier: "myIdentifier")
+//        
+//        if let economicComparisonData = self.comparisonData {
+//            var economicComparisonDataMutable = economicComparisonData
+//            print("----------------------")
+//            //print(economicComparisonData)
+//            var economicDataScore = economicComparisonDataMutable.getEconomicScore()
+//            let economicDetails = economicDataScore.1
+//            
+//            var economicKeys =  Array(economicDetails.keys)
+//            print("____________")
+//            print(economicDetails[economicKeys[indexPath.row]])
+//            print(economicKeys[indexPath.row])
+//            print(economicKeys)
+//            print("-------")
+//            var economicScoreItem = economicKeys[indexPath.row]
+//            print(economicScoreItem)
+//            var newKey = economicKeys[indexPath.row]
+//            var ecoScore = economicDetails[newKey]! / 10
+//            cell.scoreLabel.text = String(ecoScore)
+//            cell.scoreLabel.textColor = UIColor.blackColor()
+//            cell.resultLocationNameLabel.text = String(economicKeys[indexPath.row])
+//            //print(ecoData)
+//            cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
+//            cell.selectionStyle = UITableViewCellSelectionStyle.None
+//        }
         //guard let economicComparisonData = self.comparisonData?.getEconomicScore() else { fatalError() }
         
         
@@ -249,8 +310,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
 //        } else {
 //            cell.backgroundColor = UIColor.clearColor()
 //        }
-        return cell
-    }
+//        return cell
+//    }
     
     func pressedButton1(sender: UIButton) {
         print("Pressed Button 1")
@@ -260,10 +321,10 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         print("Pressed Button 2")
     }
     
-    func tableView(tableView: UITableView,
-                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(myArray[indexPath.row])
-    }
+//    func tableView(tableView: UITableView,
+//                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        print(myArray[indexPath.row])
+//    }
     
     func navBar() {
         let financeNavBar = NavBar().setup()

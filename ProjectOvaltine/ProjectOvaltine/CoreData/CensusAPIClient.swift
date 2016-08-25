@@ -414,7 +414,7 @@ class CensusAPIClient {
         
         for (dataSet, codes) in propertyType {
             for code in codes.keys {
-                if code != Hints.type && code != Hints.description {
+                if code != Hints.type && code != Hints.description && code != Hints.ratable && code != Hints.displayPercent {
                     codesString += dataSet + "_" + code + ","
                 }
             }

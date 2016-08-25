@@ -60,6 +60,8 @@ extension CoreDataHelper {
                             tmpDataSet.index = index
                             tmpDataSet.name = dataSetProperties[Hints.description]!
                             tmpDataSet.type = dataSetProperties[Hints.type]!
+                            tmpDataSet.ratable = dataSetProperties[Hints.ratable]!
+                            tmpDataSet.displayPercent = dataSetProperties[Hints.displayPercent]!
                             tmpDataSet.code = dataSetCode
                             tmpDataSet.dataSet = dataSetProperties
                             
@@ -130,6 +132,8 @@ extension CoreDataHelper {
                     dataSet.code = tmpDataSet.code
                     dataSet.type = tmpDataSet.type
                     dataSet.name = tmpDataSet.name
+                    dataSet.ratable = tmpDataSet.ratable
+                    dataSet.displayPercent = tmpDataSet.displayPercent
                     dataSet.city = city
                     dataSet.total = values[tmpDataSet.index]
                     
@@ -212,6 +216,8 @@ extension CoreDataHelper {
                             tmpDataSet.index = index
                             tmpDataSet.name = dataSetProperties[Hints.description]!
                             tmpDataSet.type = dataSetProperties[Hints.type]!
+                            tmpDataSet.ratable = dataSetProperties[Hints.ratable]!
+                            tmpDataSet.displayPercent = dataSetProperties[Hints.displayPercent]!
                             tmpDataSet.code = dataSetCode
                             tmpDataSet.dataSet = dataSetProperties
                             
@@ -251,6 +257,8 @@ extension CoreDataHelper {
                         dataSet.code = tmpDataSet.code
                         dataSet.type = tmpDataSet.type
                         dataSet.name = tmpDataSet.name
+                        dataSet.ratable = tmpDataSet.ratable
+                        dataSet.displayPercent = tmpDataSet.displayPercent
                         dataSet.county = county
                         dataSet.total = values[tmpDataSet.index]
                         
@@ -332,6 +340,8 @@ extension CoreDataHelper {
                             tmpDataSet.index = index
                             tmpDataSet.name = dataSetProperties[Hints.description]!
                             tmpDataSet.type = dataSetProperties[Hints.type]!
+                            tmpDataSet.ratable = dataSetProperties[Hints.ratable]!
+                            tmpDataSet.displayPercent = dataSetProperties[Hints.displayPercent]!
                             tmpDataSet.code = dataSetCode
                             tmpDataSet.dataSet = dataSetProperties
                             
@@ -375,6 +385,8 @@ extension CoreDataHelper {
                             dataSet.code = tmpDataSet.code
                             dataSet.type = tmpDataSet.type
                             dataSet.name = tmpDataSet.name
+                            dataSet.ratable = tmpDataSet.ratable
+                            dataSet.displayPercent = tmpDataSet.displayPercent
                             dataSet.state = state
                             dataSet.total = values[tmpDataSet.index]
                             
@@ -449,6 +461,8 @@ extension CoreDataHelper {
                         tmpDataSet.index = index
                         tmpDataSet.name = dataSetProperties[Hints.description]!
                         tmpDataSet.type = dataSetProperties[Hints.type]!
+                        tmpDataSet.ratable = dataSetProperties[Hints.ratable]!
+                        tmpDataSet.displayPercent = dataSetProperties[Hints.displayPercent]!
                         tmpDataSet.code = dataSetCode
                         tmpDataSet.dataSet = dataSetProperties
                         
@@ -490,6 +504,8 @@ extension CoreDataHelper {
                         dataSet.code = tmpDataSet.code
                         dataSet.type = tmpDataSet.type
                         dataSet.name = tmpDataSet.name
+                        dataSet.ratable = tmpDataSet.ratable
+                        dataSet.displayPercent = tmpDataSet.displayPercent
                         dataSet.us = us
                         dataSet.total = values[tmpDataSet.index]
                         
@@ -697,11 +713,13 @@ extension CoreDataHelper {
 
 
 private class TmpDataSet {
-    var type: String = ""
-    var name: String = ""
-    var code: String = ""
+    var type = ""
+    var name = ""
+    var code = ""
+    var ratable = ""
+    var displayPercent = ""
     var dataSet: [String: String] = [:]
-    var index: Int = 0
+    var index = 0
     var valueIndexes: [Int] = []
 }
 

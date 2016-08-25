@@ -18,6 +18,8 @@ extension DataSet {
     @NSManaged var name: String?
     @NSManaged var total: String?
     @NSManaged var type: String?
+    @NSManaged var ratable: String?
+    @NSManaged var displayPercent: String?
     @NSManaged var city: City?
     @NSManaged var county: County?
     @NSManaged var state: State?

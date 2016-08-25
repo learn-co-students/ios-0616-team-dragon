@@ -12,8 +12,12 @@ import Foundation
 class Hints { // Autocomplete for commonly used strings
     
     static let description = "Description"
+    static let ratable = "Ratable"
+    static let displayPercent = "Display Percent"
     static let type = "Type"
     static let total = "Total in the data set"
+    static let trueValue = "True"
+    static let falseValue = "False"
     
     static let demographics = "Demographics"
     static let demographicsPart1 = "Demographics Part 1"

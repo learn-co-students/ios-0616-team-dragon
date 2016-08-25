@@ -68,7 +68,7 @@ class SearchResultCell: UITableViewCell {
         // MARK: - GREY LABEL RIGHT
         
         self.comparisonScoreLabel.textColor = UIColor.whiteColor()
-        self.comparisonScoreLabel.font = UIFont(name:"Helvetica-Light", size:16)
+        self.comparisonScoreLabel.font = UIFont(name:"Helvetica-Light", size:14)
         self.comparisonScoreLabel.textAlignment = NSTextAlignment.Center
         //self.comparisonScoreLabel.backgroundColor = UIColor.grayColor()
         self.comparisonScoreLabel.layer.backgroundColor = UIColor.clearColor().CGColor
@@ -86,7 +86,7 @@ class SearchResultCell: UITableViewCell {
         // MARK: - GRAY LABEL LEFT
         
         self.scoreLabel.textColor = UIColor.whiteColor()
-        self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:16)
+        self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:14)
         self.scoreLabel.textAlignment = NSTextAlignment.Center
         //self.scoreLabel.backgroundColor = UIColor.grayColor()
         self.scoreLabel.layer.backgroundColor = UIColor.clearColor().CGColor
@@ -95,7 +95,7 @@ class SearchResultCell: UITableViewCell {
     
     func setupView() {
         self.scoreLabel.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(40)
+            make.size.equalTo(45)
             make.left.equalTo(self.contentView).offset(20)
             make.top.equalTo(self.contentView).offset(15)
         }
@@ -111,7 +111,7 @@ class SearchResultCell: UITableViewCell {
         }
         
         self.comparisonScoreLabel.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(40)
+            make.size.equalTo(45)
             make.right.equalTo(self.contentView).inset(20)
             make.top.equalTo(self.contentView).inset(15)
         }

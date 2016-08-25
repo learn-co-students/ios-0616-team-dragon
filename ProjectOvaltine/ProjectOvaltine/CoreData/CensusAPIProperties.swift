@@ -18,12 +18,16 @@ struct CensusAPIProperties {
         "B08136": [ // Special case - average time to be calculated based on other data set value
             Hints.description: "Travel time to work",
             Hints.type: Hints.transporation,
+            Hints.ratable: Hints.trueValue,
+            Hints.displayPercent: Hints.falseValue,
             "001E": "Average travel time to work one way in minutes" // Special case - value manually overriden in Core Data population
         ],
         
         "B08301": [
             Hints.description: "Means of transporation to work",
             Hints.type: Hints.transporation,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "002E": "Commuting to work by car, truck or van",
             "003E": "Commuting to work by car, truck or van alone",
@@ -38,6 +42,8 @@ struct CensusAPIProperties {
         "B15003": [
             Hints.description: "Educational attainment for population 25 years and over",
             Hints.type: Hints.education,
+            Hints.ratable: Hints.trueValue,
+            Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "002E": "No schooling completed",
             "017E": "High school diploma",
@@ -57,12 +63,16 @@ struct CensusAPIProperties {
         "B01003": [
             Hints.description: "Population",
             Hints.type: Hints.demographics,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.falseValue,
             "001E": "Population"
         ],
         
         "B01002": [
             Hints.description: "Median age",
             Hints.type: Hints.demographics,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.falseValue,
             "001E": "Median age",
             "002E": "Median age - male",
             "003E": "Median age - female"
@@ -71,12 +81,16 @@ struct CensusAPIProperties {
         "B25035": [
             Hints.description: "Median year structure built",
             Hints.type: Hints.demographics,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.falseValue,
             "001E": "Median year structure built",
         ],
         
         "B01001": [
             Hints.description: "Population by sex",
             Hints.type: Hints.demographics,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "002E": "Males",
             "026E": "Females"
@@ -85,12 +99,16 @@ struct CensusAPIProperties {
         "B25001": [
             Hints.description: "Number of houses",
             Hints.type: Hints.demographics,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.falseValue,
             "001E": "Number of houses",
         ],
         
         "B25003": [
             Hints.description: "Houses by occupation",
             Hints.type: Hints.demographics,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "002E": "Owner occupied",
             "003E": "Renter occupied"
@@ -99,6 +117,8 @@ struct CensusAPIProperties {
         "B05002": [
             Hints.description: "Place of birth",
             Hints.type: Hints.demographics,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "013E": "Foreign born"
         ],
@@ -106,6 +126,8 @@ struct CensusAPIProperties {
         "B03002": [
             Hints.description: "Diversity",
             Hints.type: Hints.demographics,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "003E": "White",
             "004E": "Black or African American",
@@ -124,25 +146,33 @@ struct CensusAPIProperties {
         "B19013": [
             Hints.description: "Median household income",
             Hints.type: Hints.economy,
+            Hints.ratable: Hints.trueValue,
+            Hints.displayPercent: Hints.falseValue,
             "001E": "Median household income"
         ],
         
         "B25077": [
             Hints.description: "Median house value",
             Hints.type: Hints.economy,
+            Hints.ratable: Hints.trueValue,
+            Hints.displayPercent: Hints.falseValue,
             "001E": "Median house value"
         ],
         
         "B25064": [
             Hints.description: "Median gross rent",
             Hints.type: Hints.economy,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.falseValue,
             "001E": "Median gross rent"
         ],
         
         "B25071": [
-            Hints.description: "Median gross rent as percentage of household income",
+            Hints.description: "Rent as percentage of household income",
             Hints.type: Hints.economy,
-            "001E": "Median gross rent as percentage of household income"
+            Hints.ratable: Hints.trueValue,
+            Hints.displayPercent: Hints.falseValue,
+            "001E": "Rent as percentage of household income"
         ],
         
         // Have to calculate affordabily index based on above data, special case
@@ -150,6 +180,8 @@ struct CensusAPIProperties {
         "B23025": [
             Hints.description: "Employment",
             Hints.type: Hints.economy,
+            Hints.ratable: Hints.trueValue,
+            Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "005E": "Unemployed"
         ],
@@ -157,6 +189,8 @@ struct CensusAPIProperties {
         "B17001": [
             Hints.description: "Poverty",
             Hints.type: Hints.economy,
+            Hints.ratable: Hints.trueValue,
+            Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "002E": "Below poverty level"
         ],
@@ -164,6 +198,8 @@ struct CensusAPIProperties {
         "C24050": [
             Hints.description: "Industry by occupation",
             Hints.type: Hints.economy,
+            Hints.ratable: Hints.falseValue,
+            Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "002E": "Agriculture, forestry, fishing and hunting, and mining",
             "003E": "Construction",

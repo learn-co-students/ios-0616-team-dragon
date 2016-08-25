@@ -15,6 +15,9 @@ class DataStore {
     
     let cityAPI = CitySDKAPIClient()
     
+    var cityModel = CityModel()
+    var usModel = USModel()
+    
     var cityName : String?
     var countyName : String?
     

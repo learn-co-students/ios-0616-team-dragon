@@ -14,7 +14,9 @@
     </entity>
     <entity name="DataSet" representedClassName=".DataSet" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayPercent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ratable" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="total" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="dataSets" inverseEntity="City" syncable="YES"/>
@@ -47,7 +49,7 @@
     <elements>
         <element name="City" positionX="-423" positionY="-162" width="128" height="105"/>
         <element name="County" positionX="-180" positionY="-108" width="128" height="105"/>
-        <element name="DataSet" positionX="-315" positionY="153" width="128" height="180"/>
+        <element name="DataSet" positionX="-315" positionY="153" width="128" height="210"/>
         <element name="DataSetValues" positionX="-36" positionY="171" width="128" height="118"/>
         <element name="State" positionX="-641" positionY="-45" width="128" height="150"/>
         <element name="US" positionX="16" positionY="-63" width="128" height="90"/>

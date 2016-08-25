@@ -213,6 +213,48 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     print("COUNTY: \(county)")
                     print("STATE: \(state)")
                     print("ZIPCODE: \(zipCode)")
+                    
+                    let cityModel = self!.store.cityModel
+                    cityModel.name = CensusAPIClient().actualName(city!.name!)
+                    for dataSet in city!.dataSets! {
+                        let dataSetModel = DataSetModel()
+                        dataSetModel.name = dataSet.name!
+                        dataSetModel.type = dataSet.type!
+                        if dataSet.ratable! == Hints.trueValue { dataSetModel.ratable = true }
+                        if dataSet.displayPercent! == Hints.trueValue { dataSetModel.displayPercent = true }
+                        for dataSetValue in dataSet.values! {
+                            let dataSetValueModel = DataSetValueModel()
+                            dataSetValueModel.name = dataSetValue.name!
+                            dataSetValueModel.absoluteValue = dataSetValue.absoluteValue!
+                            dataSetValueModel.percentValue = dataSetValue.percentValue!
+                            if dataSetValueModel.percentValue == "100.0%" { dataSetValueModel.percentValue = "100%" }
+                            dataSetModel.values.append(dataSetValueModel)
+                        }
+                        cityModel.dataSets.append(dataSetModel)
+                    }
+                    
+                    let usModel = self!.store.usModel
+                    for dataSet in us!.dataSets! {
+                        let dataSetModel = DataSetModel()
+                        dataSetModel.name = dataSet.name!
+                        dataSetModel.type = dataSet.type!
+                        if dataSet.ratable! == Hints.trueValue { dataSetModel.ratable = true }
+                        if dataSet.displayPercent! == Hints.trueValue { dataSetModel.displayPercent = true }
+                        for dataSetValue in dataSet.values! {
+                            let dataSetValueModel = DataSetValueModel()
+                            dataSetValueModel.name = dataSetValue.name!
+                            dataSetValueModel.absoluteValue = dataSetValue.absoluteValue!
+                            dataSetValueModel.percentValue = dataSetValue.percentValue!
+                            if dataSetValueModel.percentValue == "100.0%" { dataSetValueModel.percentValue = "100%" }
+                            dataSetModel.values.append(dataSetValueModel)
+                        }
+                        usModel.dataSets.append(dataSetModel)
+                    }
+                    
+                    
+                    
+                    
+                    
                      
                     guard let usData = us?.dataSets! else { fatalError() }
                     for USDataSet in usData {
