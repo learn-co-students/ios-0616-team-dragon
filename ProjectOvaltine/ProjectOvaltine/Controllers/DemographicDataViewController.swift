@@ -15,6 +15,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     //var myArray = ["High School Graduate","College Graduate","etc."]
     var comparisonData: ScoreModel?
     var percentageComparisonData: ScoreModel?
+    let searchedLabel = UILabel()
+    let currentLabel = UILabel()
     
     // MARK: - Loading UI Elements and View
     
@@ -33,19 +35,15 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     
     // MARK: - Setup labels for tablview
     func currentLocationLabel() {
-        let currentLabel = UILabel()
+        
         view.addSubview(currentLabel)
         currentLabel.text = "National Average"
+        currentLabel.textAlignment = .Left
         currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Helvetica Light", size:20)
+        currentLabel.font = UIFont(name:"Helvetica Light", size:17)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
-        currentLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(15)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        currentLabel.frame = CGRectMake(20, 75, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func searchedLocationLabel() {
@@ -55,19 +53,14 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         if let cityName = self.store.cityName {
             shortenedCity = CensusAPIClient().actualName(cityName)}
         
-        let searchedLabel = UILabel()
         view.addSubview(searchedLabel)
         searchedLabel.text = shortenedCity
+        searchedLabel.textAlignment = .Right
         searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Helvetica Light", size:20)
+        searchedLabel.font = UIFont(name:"Helvetica Light", size:17)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
-        searchedLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(75)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        searchedLabel.frame = CGRectMake(self.view.bounds.width * 0.5, 75, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func ratingTextView() {

@@ -45,16 +45,12 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         view.addSubview(currentLabel)
         currentLabel.text = "National Average"
+        currentLabel.textAlignment = .Left
         currentLabel.textColor = UIColor.blackColor()
         currentLabel.font = UIFont(name:"Helvetica Light", size:17)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
-        currentLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(15)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        currentLabel.frame = CGRectMake(20, 75, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func searchedLocationLabel() {
@@ -66,16 +62,12 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         view.addSubview(searchedLabel)
         searchedLabel.text = shortenedCity
+        searchedLabel.textAlignment = .Right
         searchedLabel.textColor = UIColor.blackColor()
         searchedLabel.font = UIFont(name:"Helvetica Light", size:17)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
-        searchedLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(75)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        searchedLabel.frame = CGRectMake(self.view.bounds.width * 0.5, 75, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func ratingTextView() {
