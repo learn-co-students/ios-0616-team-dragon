@@ -152,12 +152,27 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
             //print(economicComparisonData)
             let economicDataScore = economicComparisonDataMutable.getEconomicScore()
             let economicDetails = economicDataScore.1
+            
             var economicKeys =  Array(economicDetails.keys)
+
 //            print(economicKeys[indexPath.row])
 //            print(economicKeys)
 //            print("-------")
             //let economicScoreItem = economicKeys[indexPath.row]
 //            print(economicScoreItem)
+
+//            print("____________")
+//            print(economicDetails[economicKeys[indexPath.row]])
+//            print(economicKeys[indexPath.row])
+//            print(economicKeys)
+//            print("-------")
+//            var economicScoreItem = economicKeys[indexPath.row]
+//            print(economicScoreItem)
+//            var newKey = economicKeys[indexPath.row]
+//            var ecoScore = economicDetails[newKey]! / 10
+//            cell.scoreLabel.text = String(ecoScore)
+//            cell.scoreLabel.textColor = UIColor.blackColor()
+
             cell.resultLocationNameLabel.text = String(economicKeys[indexPath.row])
             //print(ecoData)
             cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
