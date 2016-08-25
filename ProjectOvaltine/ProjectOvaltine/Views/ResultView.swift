@@ -9,7 +9,7 @@ class ResultView: UIView {
     
     let states = [State]()
     
-    private var graphView: GaugeView!
+   // private var graphView: GaugeView!
     
     var heightLayoutConstraint = NSLayoutConstraint()
     var bottomLayoutConstraint = NSLayoutConstraint()
@@ -32,7 +32,7 @@ class ResultView: UIView {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.frame = CGRectMake(0, 0, width, height)
         self.backgroundColor = UIColor.whiteColor()
-        self.createGraph()
+   //     self.createGraph()
         self.createLabels()
         self.layer.borderColor = UIColor.blackColor().CGColor
         self.setupView()
@@ -42,7 +42,7 @@ class ResultView: UIView {
         super.init(coder: coder)
         self.frame = CGRectMake(0, 0, width, height)
         self.backgroundColor = UIColor.whiteColor()
-        self.createGraph()
+   //     self.createGraph()
         self.createLabels()
         self.setupView()
     }
@@ -66,7 +66,7 @@ class ResultView: UIView {
     func setupConstraints() {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.containerView.backgroundColor = UIColor.grayColor()
-        self.createGraph()
+    //    self.createGraph()
         self.addSubview(self.containerView)
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|",
             options: NSLayoutFormatOptions(rawValue: 0),
@@ -89,33 +89,36 @@ class ResultView: UIView {
         newView.backgroundColor = UIColor.blueColor()
         newView.clipsToBounds = true
         newView.contentMode = .ScaleAspectFill
-        self.createGraph()
-        newView.addSubview(self.graphView)
+   //     self.createGraph()
+   //     newView.addSubview(self.graphView)
         self.containerView.addSubview(newView)
     }
     
-    func createGraph() {
-        self.graphView = GaugeView()
-       // self.graphView.gaugeColor = self.randomColor()
-        self.graphView.percentage = self.graphPercentage
-        self.graphView.thickness = 14
-        self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
-        //self.graphView.labelColor = self.randomColor()
-        //self.graphView.gaugeBackgroundColor = self.randomColor()
-        self.addSubview(graphView)
-    }
+//    func createGraph() {
+//        self.graphView = GaugeView()
+//       // self.graphView.gaugeColor = self.randomColor()
+//        self.graphView.percentage = self.graphPercentage
+//        self.graphView.thickness = 14
+//        self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
+//        //self.graphView.labelColor = self.randomColor()
+//        //self.graphView.gaugeBackgroundColor = self.randomColor()
+//        self.addSubview(graphView)
+//    }
     
     func createLabels() {
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Center
         self.locationNameLabel.font = HelveticaLight().getFont(20)
-        self.locationNameLabel.text = self.store.comparisonData?.location
+        self.locationNameLabel.text = self.store.cityName
+        
+       
+
         
         self.countyNameLabel.textColor = UIColor.blackColor()
         self.countyNameLabel.textAlignment = NSTextAlignment.Center
         self.countyNameLabel.adjustsFontSizeToFitWidth = true
         self.countyNameLabel.font = HelveticaLight().getFont(20)
-        self.countyNameLabel.text = self.store.comparisonData?.location
+        self.countyNameLabel.text = self.store.countyName
         
         self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Left
@@ -162,12 +165,12 @@ class ResultView: UIView {
             //make.centerX.equalTo(self)
             make.right.equalTo(-20)
         }
-        self.graphView.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(120)
-            //make.centerX.equalTo(self)
-            make.left.equalTo(20)
-            make.centerY.equalTo(self).offset(20)
-        }
+//        self.graphView.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(120)
+//            //make.centerX.equalTo(self)
+//            make.left.equalTo(20)
+//            make.centerY.equalTo(self).offset(20)
+//        }
         
     }
     

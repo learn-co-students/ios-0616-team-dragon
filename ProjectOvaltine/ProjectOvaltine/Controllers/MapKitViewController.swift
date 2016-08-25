@@ -15,7 +15,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     // MARK: - Properties
     
     var window: UIWindow?
-    var placemark: CLPlacemark?
     
     // MARK: - Data store instances
     
@@ -174,7 +173,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     // MARK: - Takes a string of numbers and gets a lat/long - Async
     func getLocationFromZipcode(zipcode: String){
-        
+        var placemark : CLPlacemark?
         
         let zipcode = "\(zipcode)" + " United States"
         
@@ -185,9 +184,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
             } else {
                 
-                self!.placemark = (placemarks?.last)!
                 
-                CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
+                placemark = (placemarks?.last)!
+                
+                
+                
+                CensusAPIClient().requestDataForLocation(placemark: placemark!, completion: { (city, county, state, us) in
                     
                     print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
                     
@@ -195,8 +197,12 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         cityName = city?.name!,
                         county = county?.name!,
                         state = state?.name!,
-                        zipCode = self!.placemark!.postalCode
+                        zipCode = placemark!.postalCode
                     else { return }
+                    
+                        self!.store.cityName = cityName
+                        self!.store.countyName = county
+                    
                     print("CITY: \(cityName)")
                     print("COUNTY: \(county)")
                     print("STATE: \(state)")
@@ -240,13 +246,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.store.comparisonData = USAbsoluteScore
                     
                     self!.store.comparisonPercentageData = USPercentageScore
-            
+                    
                 })
                 
                 SwiftSpinner.showWithDuration(2.0, title: "Community Radar")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
                 
-                if let placemarkZipcode = self!.placemark?.postalCode {
+                if let placemarkZipcode = placemark?.postalCode {
                     self!.store.zipCode = placemarkZipcode}
                 self!.populateCoordinateArray{[weak self] (someArray) in
                     self!.boundary.removeAll()
@@ -267,13 +273,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.mapView.addOverlays(self!.overlayArray)
                     self!.zoomToPolygon(self!.polygon, animated: true)
                     self!.mapView.removeAnnotation(self!.anotation)
-                    self!.anotation.coordinate = (self!.placemark?.location?.coordinate)!
-                    self!.anotation.title = self!.placemark?.locality
-                    self!.anotation.subtitle = "\(self!.placemark!.subAdministrativeArea!) County"
+                    self!.anotation.coordinate = (placemark?.location?.coordinate)!
+                    self!.anotation.title = placemark?.locality
+                    self!.anotation.subtitle = "\(placemark!.subAdministrativeArea!) County"
                     self!.mapView.addAnnotation(self!.anotation)
                     self!.mapView.selectAnnotation(self!.anotation, animated: true)
                 }
-                self!.zipLocation = self!.placemark?.location
+                self!.zipLocation = placemark?.location
                 SwiftSpinner.showWithDuration(3.0, title: "Community Radar")
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
             }

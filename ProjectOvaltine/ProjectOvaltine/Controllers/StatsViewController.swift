@@ -72,7 +72,6 @@ class StatsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView,
                             cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // let points = self.comparisonData?.getScoresArray()
         
         guard let
             economicData = self.comparisonData?.getEconomicScore(),
@@ -136,7 +135,6 @@ class StatsViewController: UITableViewController {
                          forControlEvents: UIControlEvents.TouchUpInside)
         
         button.tintColor = UIColor.whiteColor()
-        //button.set
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
