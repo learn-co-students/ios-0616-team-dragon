@@ -97,21 +97,34 @@ class StatsViewController: UITableViewController {
         self.dataArray = [String(economicData), String(educationData), String(transitData), String(demographicData)]
         self.originArray = [String(originEconomicData), String(originEducationData), String(originTransitData), String(originDemographicData)]
         
+        print("--------------")
+        //print("\(self.dataArray)")
+        //if let compare = self.comparisonData?.getScoresArray() {
+        //    print("COMPARE")
+        //    print(compare)
+       // }
+        //print(self.comparisonData.getScoresArray())
         ///print(self.dataArray)
         //print(self.originArray)
         //        print(points)
         //        print(economicData)
         
         //self.dataArray[indexPath.row].0
-        print("---------")
-        print("DATA \(self.dataArray[indexPath.row])")
+        guard let compare = self.comparisonData?.getScoresArray() else { fatalError() }
+        //guard let data = dataArray[indexPath.row] else { fatalError() }
+        
+       // print("---------")
+       // print("DATA \(self.dataArray[indexPath.row])")
+       // print(compare)
+       // print("---------")
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier",
                                     parameterDescription: self.detailsArray[indexPath.row],
-                                    description: "LOW",
-                                    score: "HIGH")
-        
+                                    description: compare[indexPath.row],
+                                    score: compare[indexPath.row])
+
         cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.comparisonScoreLabel.hidden = true
         return cell
     }
     

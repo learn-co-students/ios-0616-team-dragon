@@ -35,6 +35,7 @@
 		AF2C0B401D57DC04002B7994 /* CitySDKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */; };
 		AF4E94791D660E1F00515266 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E94781D660E1F00515266 /* TestView.swift */; };
 		AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */; };
+		AF56BC211D6F4BC3002762A3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56BC201D6F4BC3002762A3 /* Constants.swift */; };
 		AF588A641D5CB78400F228C7 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF588A631D5CB78400F228C7 /* AppFont.swift */; };
 		AF68B8631D6B46B500C32B8C /* TestCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF68B8621D6B46B500C32B8C /* TestCore.swift */; };
 		AF75DF9A1D53D30300DDF173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75DF991D53D30300DDF173 /* AppDelegate.swift */; };
@@ -89,6 +90,7 @@
 		AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySDKData.swift; sourceTree = "<group>"; };
 		AF4E94781D660E1F00515266 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestView.swift; path = Views/TestView.swift; sourceTree = "<group>"; };
 		AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSCoderExtension.swift; path = Utilities/NSCoderExtension.swift; sourceTree = "<group>"; };
+		AF56BC201D6F4BC3002762A3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		AF588A631D5CB78400F228C7 /* AppFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		AF68B8621D6B46B500C32B8C /* TestCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCore.swift; sourceTree = "<group>"; };
 		AF75DF961D53D30300DDF173 /* ProjectOvaltine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOvaltine.app; sourceTree = BUILT_PRODUCTS_DIR; };
