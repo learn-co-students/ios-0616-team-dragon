@@ -72,7 +72,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.firstLaunchAlert()
         self.drawInMapView()
         self.searchBar()
         centerMapOnLocation(self.initialLocation)
@@ -80,6 +79,11 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
             UIAlertAction(title: "OK",
             style: UIAlertActionStyle.Default,
             handler: nil))
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.firstLaunchAlert()
     }
     
     func drawInMapView(){
