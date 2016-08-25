@@ -105,7 +105,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         
         let polygonRenderer = MKPolygonRenderer(overlay: overlay)
         polygonRenderer.lineWidth = 1
-        polygonRenderer.fillColor = UIColor(red:0.65, green:0.96, blue:0.69, alpha:0.45)
+        polygonRenderer.fillColor = UIColor(red:1.0, green:0.7, blue:0.3, alpha:0.65)
         return polygonRenderer
     }
     
