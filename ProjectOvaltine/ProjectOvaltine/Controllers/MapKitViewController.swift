@@ -190,11 +190,27 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
                     
                     print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
-                    print("CITY: \(city?.name!)")
-                    print("COUNTY: \(county?.name!)")
-                    print("STATE: \(state?.name!)")
-                    print("ZIPCODE: \(self!.placemark!.postalCode)")
                     
+                    guard let
+                        cityName = city?.name!,
+                        county = county?.name!,
+                        state = state?.name!,
+                        zipCode = self!.placemark!.postalCode
+                    else { return }
+                    print("CITY: \(cityName)")
+                    print("COUNTY: \(county)")
+                    print("STATE: \(state)")
+                    print("ZIPCODE: \(zipCode)")
+                    
+//                    guard let
+//                        usData = us?.dataSets!
+//                    else { return }
+//                    for data in usData {
+//                        var mappedData = usData.flatMap { $0 }
+//                        print(mappedData.map { $0.city })
+//                        //var flatMape {
+//                    }
+//                   
                     for USDataSet in (us?.dataSets!)! {
                         for USDataSetTwo in (USDataSet.values)! {
                             

@@ -16,6 +16,7 @@ class StatsViewController: UITableViewController {
     var percentageComparisonData: ScoreModel?
     
     var dataArray = [String]()
+    //var originArray = [String]()
     
     var detailsArray = ["Economic","Education","Transit", "Demographic"]
     var statsNavBar: UINavigationBar = UINavigationBar()
@@ -75,9 +76,19 @@ class StatsViewController: UITableViewController {
         
         let economicData = self.comparisonData?.getEconomicScore()
         let educationData = self.comparisonData?.getEducationScore()
+        let transitData = self.comparisonData?.getTransitScore()
+        let demographicData = self.comparisonData?.getDemographicScore()
+        
+        let originEconomicData = self.comparisonData?.getEconomicScore()
+        let originEducationData = self.comparisonData?.getEducationScore()
+        let originTransitData = self.comparisonData?.getTransitScore()
+        let originDemographicData = self.comparisonData?.getDemographicScore()
         
         
-        self.dataArray = [String(economicData!), String(educationData!), String(0), String(0)]
+        
+        
+        self.dataArray = [String(economicData!), String(educationData!), String(transitData!), String(demographicData!)]
+        
         //        print(points)
         //        print(economicData)
         

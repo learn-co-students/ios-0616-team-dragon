@@ -12,14 +12,24 @@ import SnapKit
 class FinanceDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Properties
     
-    var myArray = ["Median Income","Unemployment Rate","etc."]
+    var store = DataStore.sharedInstance
     
+    var myArray = ["Median Income","Unemployment Rate","etc."]
+    var comparisonData: ScoreModel?
+    var percentageComparisonData: ScoreModel?
+    let comparisonLabel = UILabel()
+    let searchedLabel = UILabel()
+    let currentLabel = UILabel()
+    var dataArray = [String]()
+    //var originArray = [String]()
     
     // MARK: - Loading UI Elements and View
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
+        self.comparisonData = self.store.comparisonData
+        self.percentageComparisonData = self.store.comparisonPercentageData
         self.navBar()
         self.resultsTableView()
         ratingTextView()
@@ -30,7 +40,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: - Setup labels for tablview
     func currentLocationLabel() {
-        let currentLabel = UILabel()
+        
         view.addSubview(currentLabel)
         currentLabel.text = "Bergen County"
         currentLabel.textColor = UIColor.blackColor()
@@ -46,7 +56,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func searchedLocationLabel() {
-        let searchedLabel = UILabel()
+        
         view.addSubview(searchedLabel)
         searchedLabel.text = "New York City"
         searchedLabel.textColor = UIColor.blackColor()
@@ -85,9 +95,9 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     func comparisonTextView() {
         
-        let comparisonLabel = UILabel()
+        
         view.addSubview(comparisonLabel)
-        comparisonLabel.text = "9.5"
+        //comparisonLabel.text = "9.5"
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         comparisonLabel.textColor = UIColor.blackColor()
 //        comparisonLabel.layer.borderWidth = 3
@@ -130,6 +140,8 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
+        let originEconomicData = self.comparisonData?.getEconomicScore()
+        self.comparisonLabel.text = self.myArray[indexPath.row]
         cell.resultDescription.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true

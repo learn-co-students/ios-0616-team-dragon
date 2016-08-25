@@ -22,13 +22,17 @@ struct ScoreModel {
     
     init (originDataPoints: [String : String], comparisonDataPoints: [String : String]) {
         self.originDataPoints = originDataPoints
+        print("Origin \(originDataPoints["Median gross rent as percentage of household income"])")
+        print("\(originDataPoints)\n\n\n\n\n\n\n\n\n\n\n\n")
         self.comparisonDataPoints = comparisonDataPoints
+        print("Comparison \(comparisonDataPoints)\n\n\n\n\n\n\n\n\n\n")
         self.scoreName = ""
         self.score = 0
         self.economicScore = 0
         self.transitScore = 0
         self.demographicScore = 0
         self.educationScore = 0
+        self.getTransitScore()
     }
     
     //Origin should be the higher level - US -> State -> County -> City
@@ -62,8 +66,22 @@ struct ScoreModel {
     
     mutating func getTransitScore() -> String {
         // TODO: add method body 
+        //
+        let originCommuteTime = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
+        let comparisonCommuteTime = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
+        //print("None")
+        if comparisonCommuteTime > originCommuteTime {
+            print("High")
+            return "High"
+        } else if comparisonCommuteTime > originCommuteTime && comparisonCommuteTime < originCommuteTime {
+            print("Med")
+            return "Med."
+        } else {
+            print("Low")
+            return "Low"
+        }
         
-        return String(self.originDataPoints!["Average travel time to work one way in minutes"])
+        ///return String(self.originDataPoints!["Average travel time to work one way in minutes"])
     }
     
     mutating func getEducationScore() -> String {
@@ -151,6 +169,7 @@ struct ScoreModel {
         self.getTransitScore()
         self.getEconomicScore()
         // self.getDemographicScore()
+        print(getTransitScore())
         let returnArray = [String(self.educationScore), String(self.transitScore), String(self.economicScore), String(self.demographicScore)]
         return returnArray
     }
