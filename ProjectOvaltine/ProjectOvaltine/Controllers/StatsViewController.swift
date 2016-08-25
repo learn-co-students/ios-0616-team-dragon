@@ -74,21 +74,29 @@ class StatsViewController: UITableViewController {
                             cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // let points = self.comparisonData?.getScoresArray()
         
-        let economicData = self.comparisonData?.getEconomicScore().0
-        let educationData = self.comparisonData?.getEducationScore()
-        let transitData = self.comparisonData?.getTransitScore()
-        let demographicData = self.comparisonData?.getDemographicScore()
+        guard let
+            economicData = self.comparisonData?.getEconomicScore(),
+            educationData = self.comparisonData?.getEducationScore(),
+            transitData = self.comparisonData?.getTransitScore(),
+            demographicData = self.comparisonData?.getDemographicScore()
+            else {
+                fatalError()
+        }
         
-        let originEconomicData = self.comparisonData?.getEconomicScore().0
-        let originEducationData = self.comparisonData?.getEducationScore()
-        let originTransitData = self.comparisonData?.getTransitScore()
-        let originDemographicData = self.comparisonData?.getDemographicScore()
+        guard let
+            originEconomicData = self.comparisonData?.getEconomicScore().1,
+            originEducationData = self.comparisonData?.getEducationScore(),
+            originTransitData = self.comparisonData?.getTransitScore(),
+            originDemographicData = self.comparisonData?.getDemographicScore()
+            else {
+                fatalError()
+        }
         
         
         
         
-        self.dataArray = [String(economicData!), String(educationData!), String(transitData!), String(demographicData!)]
-        self.originArray = [String(originEconomicData!), String(originEducationData!), String(originTransitData!), String(originDemographicData!)]
+        self.dataArray = [String(economicData), String(educationData), String(transitData), String(demographicData)]
+        self.originArray = [String(originEconomicData), String(originEducationData), String(originTransitData), String(originDemographicData)]
         
         ///print(self.dataArray)
         //print(self.originArray)

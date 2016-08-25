@@ -31,6 +31,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.comparisonData = self.store.comparisonData
         self.percentageComparisonData = self.store.comparisonPercentageData
+        
         self.navBar()
         self.resultsTableView()
         ratingTextView()
@@ -145,21 +146,36 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView,
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if let economicComparisonData = self.comparisonData {
+            var ecoChange = economicComparisonData
+            print("----------------------")
+            //print(economicComparisonData)
+            var ecoData = ecoChange.getEconomicScore()
+            for i in ecoData.1 {
+                print("--")
+                print(i)
+            }
+            //print(ecoData.1)
+        }
+        //guard let economicComparisonData = self.comparisonData?.getEconomicScore() else { fatalError() }
+        
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
         
         ///var keyDict: [String] = []
-        guard let economicComparisonData = self.comparisonData?.getEconomicScore() else { fatalError() }
         
         
-        print("\(economicComparisonData.1)\n\n\n\n\n\n\n\n")
-        var newArray = economicComparisonData.1
-        let score = newArray.popLast()
-        let scoretext = score!.0
-        let scorenum = score!.1
-        cell.comparisonScoreLabel.text = String(scorenum)
+        
+//        print("\(economicComparisonData.1)\n\n\n\n\n\n\n\n")
+//        var newArray = economicComparisonData.1
+//        let score = newArray.popLast()
+//        let scoretext = score!.0
+//        let scorenum = score!.1
+//        print("SCORE -------------------- \(score)")
+//        print(scorenum)
+        //cell.comparisonScoreLabel.text = String(scorenum)
         //cell.comparisonScoreLabel.text = String(economicComparisonData.1[indexPath.row].1)
-        cell.resultLocationNameLabel.text = scoretext
+       //cell.resultLocationNameLabel.text = scoretext
         cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
