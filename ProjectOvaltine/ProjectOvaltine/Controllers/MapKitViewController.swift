@@ -196,7 +196,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 CensusAPIClient().requestDataForLocation(placemark: placemark!, completion: { (city, county, state, us) in
                     
-                    print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
+//                    print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
                     
                     guard let
                         cityName = city?.name!,
@@ -259,10 +259,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     guard let usData = us?.dataSets! else { fatalError() }
                     for USDataSet in usData {
                         guard USDataSet.values != nil else { fatalError() }
-                        guard let USDataSet2 = USDataSet.values else { fatalError() }
-                        for dataSet in USDataSet2 {
-                            print(dataSet.absoluteValue)
-                        }
+//                        guard let USDataSet2 = USDataSet.values else { fatalError() }
+//                        for dataSet in USDataSet2 {
+////                            print(dataSet.absoluteValue)
+//                        }
                         for USDataSetTwo in (USDataSet.values)! {
                             self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
                             self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)

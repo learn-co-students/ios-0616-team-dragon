@@ -88,7 +88,6 @@ class SearchResultCell: UITableViewCell {
         self.scoreLabel.textColor = UIColor.whiteColor()
         self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:14)
         self.scoreLabel.textAlignment = NSTextAlignment.Center
-        //self.scoreLabel.backgroundColor = UIColor.grayColor()
         self.scoreLabel.layer.backgroundColor = UIColor.clearColor().CGColor
         self.scoreLabel.layer.borderWidth = 1.0
     }

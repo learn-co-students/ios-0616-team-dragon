@@ -185,7 +185,6 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         cell.scoreLabel.textColor = UIColor.blackColor()
         cell.comparisonScoreLabel.text = self.tabCityDataSets[indexPath.section].values[indexPath.row].percentValue
         cell.comparisonScoreLabel.textColor = UIColor.blackColor()
-        
         return cell
     }
     
@@ -223,6 +222,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         print("Pressed Button 2")
     }
     
+
 //    func tableView(tableView: UITableView,
 //                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        print(myArray[indexPath.row])
@@ -249,7 +249,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         
         let button: UIButton = UIButton(type: .Custom)
         //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
@@ -261,8 +261,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func settingButtonPushed() {
-        print("Settings Pushed")
-    }
+//    func settingButtonPushed() {
+//        print("Settings Pushed")
+//    }
     
 }

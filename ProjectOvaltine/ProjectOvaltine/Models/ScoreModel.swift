@@ -63,11 +63,11 @@ struct ScoreModel {
         // MARK: - Should take the lowever level, for instance, and subtract by the higher level
         // MARK: - Ex. City Avg - US Avg which should produce a positive number
         
-        let subtractedValueForPercentage = comparisonMedianHouseIncome - originMedianHouseIncome
+        //let subtractedValueForPercentage = comparisonMedianHouseIncome - originMedianHouseIncome
         
         // MARK: - Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
         
-        let percentageChange = Int((originMedianHouseIncome/subtractedValueForPercentage) * 100.0)
+       // let percentageChange = Int((originMedianHouseIncome/subtractedValueForPercentage) * 100.0)
         
        // MARK: - (String(percentageChange), eachScore)
         
@@ -95,11 +95,6 @@ struct ScoreModel {
                 fatalError()
         }
         let transitArray = ["Origin Average travel time to work one way in minutes": originCommute, "Comparison Average travel time to work one way in minutes": compareCommute]
-        
-//       var total["Origin Average travel time to work one way in minutes": originCommute, "Comparison Average travel time to work one way in minutes": compareCommute]
-    
-       // var transitArray: (String, Double)
-        //print("None")
         
         
         if compareCommute > originCommute {
@@ -154,11 +149,13 @@ struct ScoreModel {
         }
         
         let originDegreePercentage = ((originBachelors! + originMasters! + originDoctorates!)/originSum) * 100
+        
+        print(originDegreePercentage)
 
         
         let comparisonDegreePercentage = ((comparisonBachelors! + comparisonMasters! + comparisonDoctorates!)/comparisonSum) * 100
         
-   
+        print(comparisonDegreePercentage)
         
         if comparisonDegreePercentage > originDegreePercentage * 2 {
             self.educationScore = "High"
@@ -184,8 +181,8 @@ struct ScoreModel {
             let originDiversity = ["White": whiteOriginPercentage!, "Black or African American": blackOriginPercentage!, "American Indian and Alaska Native": americanIndianOriginPercentage!, "Asian":asianOriginPercentage!, "Pacific islander": pacificIslanderOriginPercentage!, "Hispanic or Latino": hispanicOriginPercentage!]
             
             
-            let originAge = self.originDataPoints!["Age"]
-            let comparisonAge = self.comparisonDataPoints!["Age"]
+//            let originAge = self.originDataPoints!["Age"]
+//            let comparisonAge = self.comparisonDataPoints!["Age"]
         
             // MARK: - Comparison Data Points
             let whiteComparisonPercentage = self.comparisonDataPoints!["White"]
@@ -196,7 +193,8 @@ struct ScoreModel {
             let hispanicComparisonPercentage = self.comparisonDataPoints!["Hispanic or Latino"]
         
             let comparisonDiversity = ["White": whiteComparisonPercentage!, "Black or African American": blackComparisonPercentage!, "American Indian and Alaska Native": americanIndianOriginPercentage!, "Asian":asianOriginPercentage!, "Pacific islander": pacificIslanderComparisonPercentage!, "Hispanic or Latino": hispanicComparisonPercentage!]
-            
+        
+            print(comparisonDiversity)
             
             let originArray = [whiteOriginPercentage!, blackOriginPercentage!, americanIndianOriginPercentage!, asianOriginPercentage!, pacificIslanderOriginPercentage!, hispanicOriginPercentage!]
             
@@ -228,15 +226,15 @@ struct ScoreModel {
         self.getEducationScore()
         self.getTransitScore()
         self.getEconomicScore()
-        let returnArray = [String(self.educationScore), String(self.transitScore), String(self.economicScore), String(self.demographicScore)]
+        let returnArray = [String(self.economicScore), String(self.educationScore), String(self.transitScore), String(self.demographicScore)]
         return returnArray
     }
     
     mutating func getAggregateScore() -> String {
-        let ecoScore = self.getEconomicScore()
-        let eduScore = self.getEducationScore()
-        let tranScore = self.getTransitScore()
-        let demScore = self.getDemographicScore()
+//        let ecoScore = self.getEconomicScore()
+//        let eduScore = self.getEducationScore()
+//        let tranScore = self.getTransitScore()
+//        let demScore = self.getDemographicScore()
         
         let scores = getScoresArray()[0]
         //var aggregateScore = 0

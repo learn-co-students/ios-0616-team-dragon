@@ -12,7 +12,7 @@ import UIKit
 class ResultTableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    var detailsArray = ["Finance","Education","Transportation", "Demographics"]
+    var detailsArray = ["Finance","Education","Transportation", "Diversity"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
