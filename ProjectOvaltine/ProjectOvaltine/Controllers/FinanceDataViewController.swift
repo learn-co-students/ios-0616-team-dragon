@@ -140,10 +140,14 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
-        let originEconomicData = self.comparisonData?.getEconomicScore()
-        let comparrisonEconomicData = self.comparisonData?.getEconomicScore()
-        print("\n\n ORIGIN ECONOMICDATA \(originEconomicData!)")
-        print("\n\n COMPARISON ECONOMICDATA \(comparrisonEconomicData!)")
+        if let comparisonData = self.comparisonData {
+            let economicFactors = comparisonData.economicScoreFactors
+            print("\n\n COMPARISON DATA \(comparisonData.economicScoreFactors)")
+            let originEconomicData = economicFactors["Median household income"]
+            let comparisonEconomicData = economicFactors["Median household income"]
+            print("\n\n ORIGIN ECONOMICDATA \(originEconomicData)")
+            print("\n\n COMPARISON ECONOMICDATA \(comparisonEconomicData)")
+        }
         self.comparisonLabel.text = self.myArray[indexPath.row]
         cell.resultDescription.text = self.myArray[indexPath.row]
         cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
