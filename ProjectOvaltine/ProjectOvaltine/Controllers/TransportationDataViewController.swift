@@ -168,13 +168,13 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         
         let navItem = UINavigationItem(title: "Transportation")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        homeItem.tintColor = UIColor(netHex:0x000000)
+        homeItem.tintColor = UIColor(netHex:0xFFFFFF)
         navItem.leftBarButtonItem = homeItem
         financeNavBar.setItems([navItem], animated: false)
       
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+        //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         

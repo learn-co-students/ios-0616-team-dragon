@@ -22,7 +22,7 @@ class StatsViewController: UITableViewController {
     var statsNavBar: UINavigationBar = UINavigationBar()
     
     var store = DataStore.sharedInstance
-    let navItem = UINavigationItem(title: "Community Radar")
+    let navItem = UINavigationItem(title: "Statistics")
     let homeItem = UIBarButtonItem.init(title: "Home",
                                         style: .Done,
                                         target: nil,
@@ -129,10 +129,10 @@ class StatsViewController: UITableViewController {
         self.statsNavBar.alpha = 1.0
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "settings-4"),
-                        forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed),
-                         forControlEvents: UIControlEvents.TouchUpInside)
+        //button.setImage(UIImage(named: "settings-4"),
+                        //forState: UIControlState.Normal)
+        //button.addTarget(self, action: #selector(settingButtonPushed),
+                         //forControlEvents: UIControlEvents.TouchUpInside)
         
         button.tintColor = UIColor.whiteColor()
         button.frame = CGRectMake(3, 3, 25, 25)

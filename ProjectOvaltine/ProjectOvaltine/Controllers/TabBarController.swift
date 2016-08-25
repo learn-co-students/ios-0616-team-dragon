@@ -34,7 +34,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let transportationTab: TransportationDataViewController! = TransportationDataViewController()
         let demographicsTab: DemographicDataViewController! = DemographicDataViewController()
         
-        statsTab.tabBarItem.title = "Community Rader"
+        statsTab.tabBarItem.title = "Statistics"
         //statsTab.comparisonData = self.scoreData
         statsTab.tabBarItem.image = UIImage(named: "futures.png")
         financeTab.tabBarItem.title = "Finance"

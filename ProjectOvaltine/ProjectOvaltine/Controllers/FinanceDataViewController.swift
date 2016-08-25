@@ -46,7 +46,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         view.addSubview(currentLabel)
         currentLabel.text = "National Average"
         currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:17)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
         currentLabel.snp_makeConstraints { (make) -> Void in
@@ -62,7 +62,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         view.addSubview(searchedLabel)
         searchedLabel.text = self.store.cityName
         searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:17)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
         searchedLabel.snp_makeConstraints { (make) -> Void in
@@ -99,7 +99,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         
         view.addSubview(comparisonLabel)
-        //comparisonLabel.text = "9.5"
+        comparisonLabel.text = "9.5"
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         comparisonLabel.textColor = UIColor.blackColor()
 //        comparisonLabel.layer.borderWidth = 3
@@ -272,13 +272,13 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         let navItem = UINavigationItem(title: "Finance")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        homeItem.tintColor = UIColor(netHex:0x000000)
+        homeItem.tintColor = UIColor(netHex:0xFFFFFF)
         navItem.leftBarButtonItem = homeItem
         financeNavBar.setItems([navItem], animated: false)
      
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+        //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
