@@ -122,6 +122,7 @@ class StatsViewController: UITableViewController {
                                     parameterDescription: self.detailsArray[indexPath.row],
                                     description: compare[indexPath.row],
                                     score: compare[indexPath.row])
+
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         cell.comparisonScoreLabel.hidden = true
         return cell
