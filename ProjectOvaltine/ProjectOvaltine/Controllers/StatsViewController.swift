@@ -74,12 +74,12 @@ class StatsViewController: UITableViewController {
                             cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // let points = self.comparisonData?.getScoresArray()
         
-        let economicData = self.comparisonData?.getEconomicScore()
+        let economicData = self.comparisonData?.getEconomicScore().0
         let educationData = self.comparisonData?.getEducationScore()
         let transitData = self.comparisonData?.getTransitScore()
         let demographicData = self.comparisonData?.getDemographicScore()
         
-        let originEconomicData = self.comparisonData?.getEconomicScore()
+        let originEconomicData = self.comparisonData?.getEconomicScore().0
         let originEducationData = self.comparisonData?.getEducationScore()
         let originTransitData = self.comparisonData?.getTransitScore()
         let originDemographicData = self.comparisonData?.getDemographicScore()

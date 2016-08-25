@@ -18,6 +18,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     var comparisonData: ScoreModel?
     var percentageComparisonData: ScoreModel?
     let comparisonLabel = UILabel()
+    var unemployment: String = ""
     let searchedLabel = UILabel()
     let currentLabel = UILabel()
     var dataArray = [String]()
@@ -140,17 +141,37 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
-        if let comparisonData = self.comparisonData {
-            let economicFactors = comparisonData.economicScoreFactors
-            print("\n\n COMPARISON DATA \(comparisonData.economicScoreFactors)")
-            let originEconomicData = economicFactors["Median household income"]
-            let comparisonEconomicData = economicFactors["Median household income"]
-            print("\n\n ORIGIN ECONOMICDATA \(originEconomicData)")
-            print("\n\n COMPARISON ECONOMICDATA \(comparisonEconomicData)")
+//        if let comparisonData = self.comparisonData {
+//            let economicFactors = comparisonData.economicScoreFactors
+//            print("\n\n COMPARISON DATA \(comparisonData.economicScoreFactors)")
+//            let originEconomicData = economicFactors["Median household income"]
+//            let comparisonEconomicData = economicFactors["Median household income"]
+//            print("\n\n ORIGIN ECONOMICDATA \(originEconomicData)")
+//            print("\n\n COMPARISON ECONOMICDATA \(comparisonEconomicData)")
+//        }
+        if let economicComparisonData = self.comparisonData?.getEconomicScore() {
+            //self.comparisonLabel.text = economicComparisonData.0
         }
-        self.comparisonLabel.text = self.myArray[indexPath.row]
-        cell.resultDescription.text = self.myArray[indexPath.row]
-        cell.resultLocationNameLabel.text = self.myArray[indexPath.row]
+        
+        if let dataDict = self.comparisonData?.getEconomicScore().0 {
+            self.unemployment = dataDict
+        }
+        
+        self.comparisonLabel.text = self.unemployment
+        
+        //self.unemployment.append(["Origin unemployed level"])
+//        if let economicComparisonData = {
+//            // = self.economicComparisonData.1[]!
+//        }
+        
+//            self.economicScoreFactors["Comparison Median household income"] = originMedianHouseIncome
+//            self.economicScoreFactors["Origin Median household income"] = originMedianHouseIncome
+//            self.economicScoreFactors["Origin Poverty level"] = originPovertyLevel
+//            self.economicScoreFactors["Origin unemployed level"] = originUnemployed
+
+        ///self.comparisonLabel.text = self.comparisonData.economicScoreFactors["Comparison Median household income"]
+       
+        cell.resultLocationNameLabel.text = self.unemployment
         cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
         cell.selectionStyle = UITableViewCellSelectionStyle.None
 //        if (indexPath.row % 2 == 0) {

@@ -10,6 +10,10 @@ import Foundation
 
 struct ScoreModel {
     // MARK: - Properties 
+    var store = DataStore.sharedInstance
+    
+    
+    
     var location: String
     var scoreName: String
     var score: Int
@@ -40,73 +44,69 @@ struct ScoreModel {
     // MARK: - Origin should be the higher level - US -> State -> County -> City
     // MARK: - Otherwise it should just be the starting destination
     
-    //mutating func getEconomicScore() -> (String, (Double, Double)) {
-    
-    mutating func getEconomicScore() -> String {
+    mutating func getEconomicScore() -> (String, [String: Double]) {
         
         // FIXME: - Figure this out
+        guard let
+            originMedianHouseIncome = Double(self.originDataPoints!["Median household income"]!),
+            comparisonMedianHouseIncome = Double(self.comparisonDataPoints!["Median household income"]!),
+            originPovertyLevel =  Double(self.comparisonDataPoints!["Below poverty level"]!),
+            originUnemployed = Double(self.comparisonDataPoints!["Unemployed"]!)
+            
+        else {
+            fatalError()
+        }
         
-        let origin = Double(self.originDataPoints!["Median household income"]!)
-        let comparison = Double(self.comparisonDataPoints!["Median household income"]!)
-        self.economicScoreFactors["Comparison - Median household income"] = comparison
-        self.economicScoreFactors["Origin - Median household income"] = origin
+        self.economicScoreFactors["Comparison Median household income"] = originMedianHouseIncome
+        self.economicScoreFactors["Origin Median household income"] = originMedianHouseIncome
+        self.economicScoreFactors["Origin Poverty level"] = originPovertyLevel
+        self.economicScoreFactors["Origin unemployed level"] = originUnemployed
         
         // MARK: - Subtracts the comparison level with the origin level
         // MARK: - Should take the lowever level, for instance, and subtract by the higher level
         // MARK: - Ex. City Avg - US Avg which should produce a positive number
-        
-        //print("Origin: \(origin)")
-        //print("Comparison: \(comparison)")
-        
+
         print(self.economicScoreFactors)
         
-        let subtractedValueForPercentage = comparison! - origin!
+        let subtractedValueForPercentage = comparisonMedianHouseIncome - originMedianHouseIncome
         
         // MARK: - Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
         
-        let percentageChange = Int((origin!/subtractedValueForPercentage) * 100.0)
-        
-        print(percentageChange)
-        
-        guard let
-            unwrappedOrigin = origin,
-            unrappedComparison = comparison
-            else {
-                fatalError()
-        }
-        
-        let eachScore = (unwrappedOrigin, unrappedComparison)
+        let percentageChange = Int((originMedianHouseIncome/subtractedValueForPercentage) * 100.0)
+
+        //let eachScore = (unwrappedOrigin, unrappedComparison)
         
         
         
        // MARK: - (String(percentageChange), eachScore)
         
-        if comparison > origin {
-            print("High")
-            return "High"
-        } else if comparison > origin && comparison < origin {
-            print("Med")
-            return "Med."
+        if comparisonMedianHouseIncome > originMedianHouseIncome {
+            //print("High")
+            return ("High", self.economicScoreFactors)
+        } else if comparisonMedianHouseIncome > originMedianHouseIncome && comparisonMedianHouseIncome < originMedianHouseIncome {
+            //print("Med")
+            return ("Med.", self.economicScoreFactors)
         } else {
-            print("Low")
-            return "Low"
+            //print("Low")
+            return ("Low", self.economicScoreFactors)
         }
     }
     
     mutating func getTransitScore() -> String {
         // TODO: - add method body
         //
+        print(self.originDataPoints!)
         let originCommuteTime = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
         let comparisonCommuteTime = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
         //print("None")
         if comparisonCommuteTime > originCommuteTime {
-            print("High")
+            //print("High")
             return "High"
         } else if comparisonCommuteTime > originCommuteTime && comparisonCommuteTime < originCommuteTime {
-            print("Med")
+            //print("Med")
             return "Med."
         } else {
-            print("Low")
+            //print("Low")
             return "Low"
         }
         
@@ -220,11 +220,6 @@ struct ScoreModel {
         print(getTransitScore())
         let returnArray = [String(self.educationScore), String(self.transitScore), String(self.economicScore), String(self.demographicScore)]
         return returnArray
-    }
-    
-
-    mutating func getEconomicScoreBreakDown() {
-        
     }
     
     mutating func getAggregateScore() -> String {
