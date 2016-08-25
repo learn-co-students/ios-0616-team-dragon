@@ -150,17 +150,18 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
                                     reuseIdentifier: "myIdentifier")
         
         if let economicComparisonData = self.comparisonData {
-            var ecoChange = economicComparisonData
+            var economicComparisonDataMutable = economicComparisonData
             print("----------------------")
             //print(economicComparisonData)
-            var ecoChanger = ecoChange.getEconomicScore()
-            let eChanger = ecoChange.getEconomicScore().1
-            var ecoKeys =  Array(eChanger.keys)
-            print(ecoKeys[indexPath.row])
-            print(ecoKeys)
+            var economicDataScore = economicComparisonDataMutable.getEconomicScore()
+            let economicDetails = economicDataScore.1
+            var economicKeys =  Array(economicDetails.keys)
+            print(economicKeys[indexPath.row])
+            print(economicKeys)
             print("-------")
-            var keyeco = ecoKeys[indexPath.row]
-            cell.resultLocationNameLabel.text = String(ecoKeys[indexPath.row])
+            var economicScoreItem = economicKeys[indexPath.row]
+            print(economicScoreItem)
+            cell.resultLocationNameLabel.text = String(economicKeys[indexPath.row])
             //print(ecoData)
             cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
             cell.selectionStyle = UITableViewCellSelectionStyle.None
