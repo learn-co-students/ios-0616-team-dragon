@@ -49,7 +49,8 @@ class SearchResultCell: UITableViewCell {
         self.init(style: style,
                   reuseIdentifier: reuseIdentifier)
         self.scoreLabel.text = score
-        self.resultDescription.text = description
+        self.comparisonScoreLabel.text = description
+        //self.resultDescription.text = description
         self.resultLocationNameLabel.text = parameterDescription
         self.createGraph()
         self.createLabels()

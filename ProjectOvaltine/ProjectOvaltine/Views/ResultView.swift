@@ -5,6 +5,7 @@ import GaugeView
 class ResultView: UIView {
     
     let store = DataStore.sharedInstance
+    var comparrisonData: ScoreModel?
     
     let states = [State]()
     
@@ -27,6 +28,7 @@ class ResultView: UIView {
     
     override init(frame:CGRect) {
         super.init(frame: frame)
+        self.comparrisonData = self.store.comparisonData
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.frame = CGRectMake(0, 0, width, height)
         self.backgroundColor = UIColor.whiteColor()
@@ -107,18 +109,18 @@ class ResultView: UIView {
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Center
         self.locationNameLabel.font = HelveticaLight().getFont(20)
-        self.locationNameLabel.text = "New York"
+        self.locationNameLabel.text = self.store.comparisonData?.location
         
         self.countyNameLabel.textColor = UIColor.blackColor()
         self.countyNameLabel.textAlignment = NSTextAlignment.Center
         self.countyNameLabel.adjustsFontSizeToFitWidth = true
         self.countyNameLabel.font = HelveticaLight().getFont(20)
-        self.countyNameLabel.text = "New York County"
+        self.countyNameLabel.text = self.store.comparisonData?.location
         
         self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Left
         self.scoreLabel.font = HelveticaLight().getFont(20)
-        self.scoreLabel.text = "90"
+        self.scoreLabel.text = self.comparrisonData?.getAggregateScore()
         
         //self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
         //self.resultDescriptionTextView.editable = false

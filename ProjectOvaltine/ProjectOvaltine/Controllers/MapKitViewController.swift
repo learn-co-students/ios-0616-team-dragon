@@ -56,7 +56,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     // MARK: - Initialized array of MKOverlays
     
     var overlayArray: [MKOverlay] = []
-    
+
     var polygon: MKPolygon!
     
     var anotation = MKPointAnnotation()
@@ -190,14 +190,35 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 CensusAPIClient().requestDataForLocation(placemark: self!.placemark!, completion: { (city, county, state, us) in
                     
                     print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
-                    print("CITY: \(city?.name!)")
-                    print("COUNTY: \(county?.name!)")
-                    print("STATE: \(state?.name!)")
-                    print("ZIPCODE: \(self!.placemark!.postalCode)")
                     
-                    for USDataSet in (us?.dataSets!)! {
+                    guard let
+                        cityName = city?.name!,
+                        county = county?.name!,
+                        state = state?.name!,
+                        zipCode = self!.placemark!.postalCode
+                    else { return }
+                    print("CITY: \(cityName)")
+                    print("COUNTY: \(county)")
+                    print("STATE: \(state)")
+                    print("ZIPCODE: \(zipCode)")
+                    
+//                    guard let
+//                        usData = us?.dataSets!
+//                    else { return }
+//                    for data in usData {
+//                        var mappedData = usData.flatMap { $0 }
+//                        print(mappedData.map { $0.city })
+//                        //var flatMape {
+//                    }
+//                   
+                    guard let usData = us?.dataSets! else { fatalError() }
+                    for USDataSet in usData {
+                        guard USDataSet.values != nil else { fatalError() }
+                        guard let USDataSet2 = USDataSet.values else { fatalError() }
+                        for dataSet in USDataSet2 {
+                            print(dataSet.absoluteValue)
+                        }
                         for USDataSetTwo in (USDataSet.values)! {
-                            
                             self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
                             self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
                         }
@@ -212,22 +233,14 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         }
                     }
                     
-                    let USAbsoluteScore = ScoreModel(originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
+                    let USAbsoluteScore = ScoreModel(location: cityName, originDataPoints: self!.USAbsoluteDictionary, comparisonDataPoints: self!.cityAbsoluteDictionary)
                     
-                   let USPercentageScore = ScoreModel(originDataPoints: self!.USPercentDictionary, comparisonDataPoints: self!.cityPercentDictionary)
+                    let USPercentageScore = ScoreModel(location: cityName, originDataPoints: self!.USPercentDictionary, comparisonDataPoints: self!.cityPercentDictionary)
                     
                     self!.store.comparisonData = USAbsoluteScore
                     
                     self!.store.comparisonPercentageData = USPercentageScore
-                    
-//                    self!.store.comparisonData?.getEconomicScore()
-//                    self!.store.comparisonData?.getTransitScore()
-//                    self!.store.comparisonData?.getEducationScore()
-                    
-                    
-                    
-                    
-                    
+            
                 })
                 
                 SwiftSpinner.showWithDuration(2.0, title: "Community Radar")

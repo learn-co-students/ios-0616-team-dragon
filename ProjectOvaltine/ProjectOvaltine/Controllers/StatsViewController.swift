@@ -16,6 +16,7 @@ class StatsViewController: UITableViewController {
     var percentageComparisonData: ScoreModel?
     
     var dataArray = [String]()
+    var originArray = [String]()
     
     var detailsArray = ["Economic","Education","Transit", "Demographic"]
     var statsNavBar: UINavigationBar = UINavigationBar()
@@ -73,23 +74,42 @@ class StatsViewController: UITableViewController {
                             cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // let points = self.comparisonData?.getScoresArray()
         
-        let economicData = self.comparisonData?.getEconomicScore()
-        let educationData = self.comparisonData?.getEducationScore()
+        guard let
+            economicData = self.comparisonData?.getEconomicScore(),
+            educationData = self.comparisonData?.getEducationScore(),
+            transitData = self.comparisonData?.getTransitScore(),
+            demographicData = self.comparisonData?.getDemographicScore()
+            else {
+                fatalError()
+        }
+        
+        guard let
+            originEconomicData = self.comparisonData?.getEconomicScore().1,
+            originEducationData = self.comparisonData?.getEducationScore(),
+            originTransitData = self.comparisonData?.getTransitScore(),
+            originDemographicData = self.comparisonData?.getDemographicScore()
+            else {
+                fatalError()
+        }
         
         
-        self.dataArray = [String(economicData!), String(educationData!), String(0), String(0)]
+        
+        
+        self.dataArray = [String(economicData), String(educationData), String(transitData), String(demographicData)]
+        self.originArray = [String(originEconomicData), String(originEducationData), String(originTransitData), String(originDemographicData)]
+        
+        ///print(self.dataArray)
+        //print(self.originArray)
         //        print(points)
         //        print(economicData)
         
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier",
-                                    parameterDescription: detailsArray[indexPath.row],
-                                    description: "Description",
+                                    parameterDescription: self.detailsArray[indexPath.row],
+                                    description: self.originArray[indexPath.row],
                                     score: self.dataArray[indexPath.row])
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
-        
-        
     }
     
     override func tableView(tableView: UITableView,
