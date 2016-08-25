@@ -72,7 +72,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         SwiftSpinner.hide()
     }
     
-    func settingButtonPushed() {
-        print("Settings Pushed")
-    }
+//    func settingButtonPushed() {
+//        print("Settings Pushed")
+//    }
 }

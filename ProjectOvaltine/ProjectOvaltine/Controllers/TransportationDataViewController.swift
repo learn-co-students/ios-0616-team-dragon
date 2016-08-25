@@ -135,8 +135,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     func tableView(tableView: UITableView,
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let transitComparisonData = self.comparisonData?.getTransitScore() else { fatalError() }
-        print(transitComparisonData.0)
-        var educationKeys = Array(transitComparisonData.1.keys)
+
 
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
@@ -185,7 +184,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         
         let button: UIButton = UIButton(type: .Custom)
         //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
@@ -197,7 +196,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func settingButtonPushed() {
-        print("Settings Pushed")
-    }
+//    func settingButtonPushed() {
+//        print("Settings Pushed")
+//    }
 }

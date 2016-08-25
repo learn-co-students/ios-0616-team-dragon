@@ -132,7 +132,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func tableView(tableView: UITableView,
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let demographicComparisonData = self.comparisonData?.getDemographicScore() else { fatalError() }
-        print(demographicComparisonData.0)
+//        print(demographicComparisonData.0)
         var demographicKeys = Array(demographicComparisonData.1.keys)
         
 
@@ -182,7 +182,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         
         let button: UIButton = UIButton(type: .Custom)
         //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
@@ -194,7 +194,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func settingButtonPushed() {
-        print("Settings Pushed")
-    }
+//    func settingButtonPushed() {
+//        print("Settings Pushed")
+//    }
 }

@@ -18,7 +18,7 @@ class StatsViewController: UITableViewController {
     var dataArray = [String]()
     var originArray = [String]()
     
-    var detailsArray = ["Economic","Education","Transit", "Demographic"]
+    var detailsArray = ["Economic","Education","Transit", "Diversity"]
     var statsNavBar: UINavigationBar = UINavigationBar()
     
     var store = DataStore.sharedInstance
@@ -97,7 +97,7 @@ class StatsViewController: UITableViewController {
         self.dataArray = [String(economicData), String(educationData), String(transitData), String(demographicData)]
         self.originArray = [String(originEconomicData), String(originEducationData), String(originTransitData), String(originDemographicData)]
         
-        print("--------------")
+//        print("--------------")
         //print("\(self.dataArray)")
         //if let compare = self.comparisonData?.getScoresArray() {
         //    print("COMPARE")
@@ -112,10 +112,10 @@ class StatsViewController: UITableViewController {
         //self.dataArray[indexPath.row].0
         guard let compare = self.comparisonData?.getScoresArray() else { fatalError() }
         //guard let data = dataArray[indexPath.row] else { fatalError() }
-        
+        print(compare)
        // print("---------")
        // print("DATA \(self.dataArray[indexPath.row])")
-       // print(compare)
+//       print(compare)
        // print("---------")
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier",
@@ -130,7 +130,7 @@ class StatsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView,
                             didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(self.detailsArray[indexPath.row])
+//        print(self.detailsArray[indexPath.row])
     }
     
     
@@ -175,7 +175,7 @@ class StatsViewController: UITableViewController {
         }
     }
     
-    func settingButtonPushed() {
-        print("Settings Pushed")
-    }
+//    func settingButtonPushed() {
+//        print("Settings Pushed")
+//    }
 }

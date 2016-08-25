@@ -148,16 +148,16 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         if let economicComparisonData = self.comparisonData {
             var economicComparisonDataMutable = economicComparisonData
-            print("----------------------")
+//            print("----------------------")
             //print(economicComparisonData)
-            var economicDataScore = economicComparisonDataMutable.getEconomicScore()
+            let economicDataScore = economicComparisonDataMutable.getEconomicScore()
             let economicDetails = economicDataScore.1
             var economicKeys =  Array(economicDetails.keys)
-            print(economicKeys[indexPath.row])
-            print(economicKeys)
-            print("-------")
-            var economicScoreItem = economicKeys[indexPath.row]
-            print(economicScoreItem)
+//            print(economicKeys[indexPath.row])
+//            print(economicKeys)
+//            print("-------")
+            //let economicScoreItem = economicKeys[indexPath.row]
+//            print(economicScoreItem)
             cell.resultLocationNameLabel.text = String(economicKeys[indexPath.row])
             //print(ecoData)
             cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
@@ -276,7 +276,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         let button: UIButton = UIButton(type: .Custom)
         //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
@@ -288,7 +288,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func settingButtonPushed() {
-        print("Settings Pushed")
-    }
+//    func settingButtonPushed() {
+//        print("Settings Pushed")
+//    }
 }

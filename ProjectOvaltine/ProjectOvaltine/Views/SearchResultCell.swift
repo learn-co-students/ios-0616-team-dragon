@@ -67,7 +67,7 @@ class SearchResultCell: UITableViewCell {
         
         // MARK: - GREY LABEL RIGHT
         
-        self.comparisonScoreLabel.textColor = UIColor.whiteColor()
+        self.comparisonScoreLabel.textColor = UIColor.blackColor()
         self.comparisonScoreLabel.font = UIFont(name:"Helvetica-Light", size:16)
         self.comparisonScoreLabel.textAlignment = NSTextAlignment.Center
         //self.comparisonScoreLabel.backgroundColor = UIColor.grayColor()
@@ -85,10 +85,9 @@ class SearchResultCell: UITableViewCell {
         
         // MARK: - GRAY LABEL LEFT
         
-        self.scoreLabel.textColor = UIColor.whiteColor()
+        self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.font = UIFont(name:"Helvetica-Light", size:16)
         self.scoreLabel.textAlignment = NSTextAlignment.Center
-        //self.scoreLabel.backgroundColor = UIColor.grayColor()
         self.scoreLabel.layer.backgroundColor = UIColor.clearColor().CGColor
         self.scoreLabel.layer.borderWidth = 1.0
     }

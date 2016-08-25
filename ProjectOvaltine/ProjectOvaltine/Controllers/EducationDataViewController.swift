@@ -134,9 +134,9 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView,
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let educationComparisonData = self.comparisonData?.getEducationScore() else { fatalError() }
-        print(educationComparisonData.0)
+//        print(educationComparisonData.0)
         var educationKeys = Array(educationComparisonData.1.keys)
-        print(educationComparisonData.2)
+//        print(educationComparisonData.2)
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
         cell.resultDescription.text = educationKeys[indexPath.row]
@@ -161,7 +161,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView,
                    didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(myArray[indexPath.row])
+//        print(myArray[indexPath.row])
     }
     
     // MARK: - Navigation Bar setup
@@ -185,7 +185,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         
         let button: UIButton = UIButton(type: .Custom)
         //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
+//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
@@ -197,8 +197,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func settingButtonPushed() {
-        print("Settings Pushed")
-    }
+//    func settingButtonPushed() {
+//        print("Settings Pushed")
+//    }
     
 }
