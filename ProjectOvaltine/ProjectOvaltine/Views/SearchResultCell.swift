@@ -23,6 +23,8 @@ class SearchResultCell: UITableViewCell {
                   reuseIdentifier: String?) {
         super.init(style: style,
                    reuseIdentifier: reuseIdentifier)
+        
+        
         self.createGraph()
         self.createLabels()
         self.contentView.addSubview(self.scoreLabel)

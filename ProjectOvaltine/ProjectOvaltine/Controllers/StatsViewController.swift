@@ -110,6 +110,7 @@ class StatsViewController: UITableViewController {
                                     parameterDescription: self.detailsArray[indexPath.row],
                                     description: "LOW",
                                     score: "HIGH")
+        
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
