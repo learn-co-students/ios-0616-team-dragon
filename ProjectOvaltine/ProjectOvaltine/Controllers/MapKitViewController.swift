@@ -72,6 +72,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.firstLaunchAlert()
         self.drawInMapView()
         self.searchBar()
         centerMapOnLocation(self.initialLocation)
@@ -297,5 +298,22 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.view.addConstraint(topConstraint)
         self.searchController.barTintColor = UIColor(red:0.36, green:0.49, blue:0.55, alpha:1.0)
     }
+    
+    func firstLaunchAlert() {
+        let userDefaults = NSUserDefaults()
+        if !userDefaults.boolForKey("Launched Before") {
+            
+            let firstLaunchAlert = UIAlertController.init(title: "Welcome to Community Radar",
+                                               message: "Please input desired zip code in the search field above then click on the information button by the city name to view detailed information and comparion data for chosen zip code.",
+                                               preferredStyle: .Alert)
+            
+            firstLaunchAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(firstLaunchAlert, animated: true, completion: nil)
+            
+            userDefaults.setBool(true, forKey: "Launched Before")
+        }
+    }
+    
+    
 }
 
