@@ -38,9 +38,9 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     func currentLocationLabel() {
         let currentLabel = UILabel()
         view.addSubview(currentLabel)
-        currentLabel.text = "Bergen County"
+        currentLabel.text = "National Average"
         currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        currentLabel.font = UIFont(name:"Helvetica Light", size:20)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
         currentLabel.snp_makeConstraints { (make) -> Void in
@@ -52,11 +52,17 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func searchedLocationLabel() {
+        
+        var shortenedCity = ""
+        
+        if let cityName = self.store.cityName {
+            shortenedCity = CensusAPIClient().actualName(cityName)}
+        
         let searchedLabel = UILabel()
         view.addSubview(searchedLabel)
-        searchedLabel.text = "New York City"
+        searchedLabel.text = shortenedCity
         searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        searchedLabel.font = UIFont(name:"Helvetica Light", size:20)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
         searchedLabel.snp_makeConstraints { (make) -> Void in
@@ -76,7 +82,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
 //        ratingLabel.layer.borderWidth = 3
 //        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
         ratingLabel.adjustsFontSizeToFitWidth = true
-        ratingLabel.font = UIFont(name:"Futura", size:33)
+        ratingLabel.font = UIFont(name:"Helvetica Light", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
         ratingLabel.layer.masksToBounds = true
         //ratingLabel.layer.cornerRadius = 33
@@ -99,7 +105,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
 //        comparisonLabel.layer.borderWidth = 3
 //        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
         comparisonLabel.adjustsFontSizeToFitWidth = true
-        comparisonLabel.font = UIFont(name:"Futura", size:33)
+        comparisonLabel.font = UIFont(name:"Helvetica Light", size:33)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.layer.masksToBounds = true
         //comparisonLabel.layer.cornerRadius = 33

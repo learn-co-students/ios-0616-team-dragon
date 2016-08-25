@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B7C8CEB1D6F2E2500E67E5A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C8CEA1D6F2E2500E67E5A /* Constants.swift */; };
 		8E1DCF961D67C35A003B2B25 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF941D67C35A003B2B25 /* City.swift */; };
 		8E1DCF971D67C35A003B2B25 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF951D67C35A003B2B25 /* City+CoreDataProperties.swift */; };
 		8E74E6F01D65EC1C0056E866 /* CensusAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6DB1D65EC1C0056E866 /* CensusAPIClient.swift */; };
@@ -56,11 +55,11 @@
 		AFE906B01D5E3F0500CEA2C9 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */; };
 		AFEE32161D635A5600884D42 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE32151D635A5600884D42 /* NavBar.swift */; };
 		BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20C70F1D6355CE0065CADF /* StatsViewController.swift */; };
+		BD5790B51D6F4362005DA6A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5790B41D6F4362005DA6A5 /* Constants.swift */; };
 		D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B7C8CEA1D6F2E2500E67E5A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../Constants.swift; sourceTree = "<group>"; };
 		60C2129E72DDDDF5234858A7 /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
 		8E1DCF941D67C35A003B2B25 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = CoreData/City.swift; sourceTree = "<group>"; };
 		8E1DCF951D67C35A003B2B25 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "City+CoreDataProperties.swift"; path = "CoreData/City+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultCell.swift; path = Views/SearchResultCell.swift; sourceTree = "<group>"; };
 		AFEE32151D635A5600884D42 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Controllers/NavBar.swift; sourceTree = "<group>"; };
 		BD20C70F1D6355CE0065CADF /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = Controllers/StatsViewController.swift; sourceTree = "<group>"; };
+		BD5790B41D6F4362005DA6A5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC048C74F799EF73ABF209A0 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
-				2B7C8CEA1D6F2E2500E67E5A /* Constants.swift */,
+				BD5790B41D6F4362005DA6A5 /* Constants.swift */,
 				AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */,
 			);
 			name = Utilities;
@@ -549,8 +549,8 @@
 				8EAF7E751D68E730004D8C9A /* StateCodes.swift in Sources */,
 				AF68B8631D6B46B500C32B8C /* TestCore.swift in Sources */,
 				AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */,
+				BD5790B51D6F4362005DA6A5 /* Constants.swift in Sources */,
 				AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */,
-				2B7C8CEB1D6F2E2500E67E5A /* Constants.swift in Sources */,
 				8E1DCF971D67C35A003B2B25 /* City+CoreDataProperties.swift in Sources */,
 				8E74E6F71D65EC1C0056E866 /* CoreDataHelperExtension.swift in Sources */,
 				AFE906A81D5E3D2600CEA2C9 /* FinanceDataViewController.swift in Sources */,

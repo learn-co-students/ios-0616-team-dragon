@@ -106,11 +106,17 @@ class ResultView: UIView {
 //    }
     
     func createLabels() {
+        
+        var shortenedCity = ""
+        
+        if let cityName = self.store.cityName {
+            shortenedCity = CensusAPIClient().actualName(cityName)}
+        
         self.locationNameLabel.textColor = UIColor.blackColor()
         self.locationNameLabel.textAlignment = NSTextAlignment.Center
         self.locationNameLabel.adjustsFontSizeToFitWidth = true
         self.locationNameLabel.font = HelveticaLight().getFont(20)
-        self.locationNameLabel.text = self.store.cityName
+        self.locationNameLabel.text = shortenedCity
         
        
 

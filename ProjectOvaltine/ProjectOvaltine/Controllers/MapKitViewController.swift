@@ -200,6 +200,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         zipCode = placemark!.postalCode
                     else { return }
                     
+                    
                         self!.store.cityName = cityName
                         self!.store.countyName = county
                     
@@ -207,16 +208,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     print("COUNTY: \(county)")
                     print("STATE: \(state)")
                     print("ZIPCODE: \(zipCode)")
-                    
-//                    guard let
-//                        usData = us?.dataSets!
-//                    else { return }
-//                    for data in usData {
-//                        var mappedData = usData.flatMap { $0 }
-//                        print(mappedData.map { $0.city })
-//                        //var flatMape {
-//                    }
-//                   
+                     
                     guard let usData = us?.dataSets! else { fatalError() }
                     for USDataSet in usData {
                         guard USDataSet.values != nil else { fatalError() }
@@ -250,7 +242,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 })
                 
                 SwiftSpinner.showWithDuration(2.0, title: "Community Radar")
-                SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+                SwiftSpinner.setTitleFont(UIFont(name: "Helvetica Light", size: 33.0))
                 
                 if let placemarkZipcode = placemark?.postalCode {
                     self!.store.zipCode = placemarkZipcode}
@@ -281,7 +273,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 }
                 self!.zipLocation = placemark?.location
                 SwiftSpinner.showWithDuration(3.0, title: "Community Radar")
-                SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+                SwiftSpinner.setTitleFont(UIFont(name: "Helvetica Light", size: 33.0))
             }
             })
         

@@ -35,9 +35,9 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     func currentLocationLabel() {
         let currentLabel = UILabel()
         view.addSubview(currentLabel)
-        currentLabel.text = "Bergen County"
+        currentLabel.text = "National Average"
         currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        currentLabel.font = UIFont(name:"Helvetica Light", size:20)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
         currentLabel.snp_makeConstraints { (make) -> Void in
@@ -49,11 +49,16 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func searchedLocationLabel() {
+        var shortenedCity = ""
+        
+        if let cityName = self.store.cityName {
+            shortenedCity = CensusAPIClient().actualName(cityName)}
+        
         let searchedLabel = UILabel()
         view.addSubview(searchedLabel)
-        searchedLabel.text = "New York City"
+        searchedLabel.text = shortenedCity
         searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        searchedLabel.font = UIFont(name:"Helvetica Light", size:20)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
         searchedLabel.snp_makeConstraints { (make) -> Void in
@@ -71,10 +76,10 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         ratingLabel.text = "9.5"
         ratingLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         ratingLabel.textColor = UIColor.blackColor()
-//        ratingLabel.layer.borderWidth = 3
-//        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
+        //        ratingLabel.layer.borderWidth = 3
+        //        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
         ratingLabel.adjustsFontSizeToFitWidth = true
-        ratingLabel.font = UIFont(name:"Futura", size:33)
+        ratingLabel.font = UIFont(name:"Helvetica Light", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
         ratingLabel.layer.masksToBounds = true
         //ratingLabel.layer.cornerRadius = 33
@@ -94,10 +99,10 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         comparisonLabel.text = "9.5"
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         comparisonLabel.textColor = UIColor.blackColor()
-//        comparisonLabel.layer.borderWidth = 3
-//        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
+        //        comparisonLabel.layer.borderWidth = 3
+        //        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
         comparisonLabel.adjustsFontSizeToFitWidth = true
-        comparisonLabel.font = UIFont(name:"Futura", size:33)
+        comparisonLabel.font = UIFont(name:"Helvetica Light", size:33)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.layer.masksToBounds = true
         //comparisonLabel.layer.cornerRadius = 33
@@ -143,11 +148,11 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         cell.resultLocationNameLabel.text = educationKeys[indexPath.row]
         cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
         cell.selectionStyle = UITableViewCellSelectionStyle.None
-//        if (indexPath.row % 2 == 0) {
-//            cell.backgroundColor = UIColor.clearColor()
-//        } else {
-//            cell.backgroundColor = UIColor.clearColor()
-//        }
+        //        if (indexPath.row % 2 == 0) {
+        //            cell.backgroundColor = UIColor.clearColor()
+        //        } else {
+        //            cell.backgroundColor = UIColor.clearColor()
+        //        }
         return cell
     }
     
@@ -181,7 +186,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         homeItem.tintColor = UIColor(netHex:0xFFFFFF)
         navItem.leftBarButtonItem = homeItem
         financeNavBar.setItems([navItem], animated: false)
-      
+        
         
         let button: UIButton = UIButton(type: .Custom)
         //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
