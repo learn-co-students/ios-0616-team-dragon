@@ -44,7 +44,9 @@ struct ScoreModel {
     // MARK: - Origin should be the higher level - US -> State -> County -> City
     // MARK: - Otherwise it should just be the starting destination
     
-    mutating func getEconomicScore() -> (String, [String: Double]) {
+    mutating func getEconomicScore() -> (String, [(String, Double)])  {
+        
+        var returnArray: [(String, Double)] = []
         
         // FIXME: - Figure this out
         guard let
@@ -56,17 +58,27 @@ struct ScoreModel {
         else {
             fatalError()
         }
-        
+    
         self.economicScoreFactors["Comparison Median household income"] = originMedianHouseIncome
         self.economicScoreFactors["Origin Median household income"] = originMedianHouseIncome
         self.economicScoreFactors["Origin Poverty level"] = originPovertyLevel
+        self.economicScoreFactors["Comparison Poverty level"] = originPovertyLevel
         self.economicScoreFactors["Origin unemployed level"] = originUnemployed
+        self.economicScoreFactors["Comparison unemployed level"] = originUnemployed
+        print(economicScoreFactors.count)
+        for (i, n) in economicScoreFactors {
+            while returnArray.count < 7 {
+                returnArray.append((i, n))
+            }
+            
+            print(returnArray)
+        }
         
         // MARK: - Subtracts the comparison level with the origin level
         // MARK: - Should take the lowever level, for instance, and subtract by the higher level
         // MARK: - Ex. City Avg - US Avg which should produce a positive number
 
-        print(self.economicScoreFactors)
+        //print(self.economicScoreFactors)
         
         let subtractedValueForPercentage = comparisonMedianHouseIncome - originMedianHouseIncome
         
@@ -82,34 +94,44 @@ struct ScoreModel {
         
         if comparisonMedianHouseIncome > originMedianHouseIncome {
             //print("High")
-            return ("High", self.economicScoreFactors)
+            return ("High", returnArray)
         } else if comparisonMedianHouseIncome > originMedianHouseIncome && comparisonMedianHouseIncome < originMedianHouseIncome {
             //print("Med")
-            return ("Med.", self.economicScoreFactors)
+            return ("Med.", returnArray)
         } else {
             //print("Low")
-            return ("Low", self.economicScoreFactors)
+            return ("Low", returnArray)
         }
     }
-    
-    mutating func getTransitScore() -> String {
+    //mutating func getTransitScore() -> (String, [(String, Double)])
+    mutating func getTransitScore() {
         // TODO: - add method body
         //
-        print(self.originDataPoints!)
-        let originCommuteTime = Double(self.originDataPoints!["Average travel time to work one way in minutes"]!)
-        let comparisonCommuteTime = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!)
-        //print("None")
-        if comparisonCommuteTime > originCommuteTime {
-            //print("High")
-            return "High"
-        } else if comparisonCommuteTime > originCommuteTime && comparisonCommuteTime < originCommuteTime {
-            //print("Med")
-            return "Med."
-        } else {
-            //print("Low")
-            return "Low"
-        }
+        //print(self.originDataPoints!)
+        let originCommuteTime = self.originDataPoints!["Average travel time to work one way in minutes"]!
+        //else { fatalError() }
+        print(originCommuteTime)
+        guard let comparisonCommuteTime = Double(self.comparisonDataPoints!["Average travel time to work one way in minutes"]!) else { fatalError() }
         
+        //var originTransit = ("Origin Average travel time to work one way in minutes", originCommuteTime)
+        //var comparisonTransit = ("Comparison Average travel time to work one way in minutes", comparisonCommuteTime)
+    
+       // var transitArray: (String, Double)
+        //print("None")
+        
+        
+//        if comparisonCommuteTime > originCommuteTime {
+//            //print("High")
+//            return ("High", [originTransit, comparisonTransit])
+//        } else if comparisonCommuteTime > originCommuteTime && comparisonCommuteTime < originCommuteTime {
+//            //print("Med")
+//            return ("Med.",[originTransit, comparisonTransit])
+//            
+//        } else {
+//            //print("Low")
+//            return ("Low", [originTransit, comparisonTransit])
+//        }
+//        
         ///return String(self.originDataPoints!["Average travel time to work one way in minutes"])
     }
     
@@ -195,7 +217,7 @@ struct ScoreModel {
                 originSum += originSum + Double(values)!
             }
             
-            print(originArray)
+            //print(originArray)
             
             if comparisonSum > originSum * 2 {
                 return "High"
@@ -217,7 +239,7 @@ struct ScoreModel {
         self.getTransitScore()
         self.getEconomicScore()
         // self.getDemographicScore()
-        print(getTransitScore())
+        //print(getTransitScore())
         let returnArray = [String(self.educationScore), String(self.transitScore), String(self.economicScore), String(self.demographicScore)]
         return returnArray
     }

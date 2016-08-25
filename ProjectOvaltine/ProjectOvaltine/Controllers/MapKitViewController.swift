@@ -56,7 +56,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     // MARK: - Initialized array of MKOverlays
     
     var overlayArray: [MKOverlay] = []
-    
+
     var polygon: MKPolygon!
     
     var anotation = MKPointAnnotation()
@@ -211,9 +211,14 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
 //                        //var flatMape {
 //                    }
 //                   
-                    for USDataSet in (us?.dataSets!)! {
+                    guard let usData = us?.dataSets! else { fatalError() }
+                    for USDataSet in usData {
+                        guard USDataSet.values != nil else { fatalError() }
+                        guard let USDataSet2 = USDataSet.values else { fatalError() }
+                        for dataSet in USDataSet2 {
+                            print(dataSet.absoluteValue)
+                        }
                         for USDataSetTwo in (USDataSet.values)! {
-                            
                             self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
                             self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
                         }
@@ -242,15 +247,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.store.comparisonData = USAbsoluteScore
                     
                     self!.store.comparisonPercentageData = USPercentageScore
-                    
-//                    self!.store.comparisonData?.getEconomicScore()
-//                    self!.store.comparisonData?.getTransitScore()
-//                    self!.store.comparisonData?.getEducationScore()
-                    
-                    
-                    
-                    
-                    
+            
                 })
                 
                 SwiftSpinner.showWithDuration(2.0, title: "Community Radar")

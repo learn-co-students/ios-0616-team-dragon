@@ -90,8 +90,8 @@ class StatsViewController: UITableViewController {
         self.dataArray = [String(economicData!), String(educationData!), String(transitData!), String(demographicData!)]
         self.originArray = [String(originEconomicData!), String(originEducationData!), String(originTransitData!), String(originDemographicData!)]
         
-        print(self.dataArray)
-        print(self.originArray)
+        ///print(self.dataArray)
+        //print(self.originArray)
         //        print(points)
         //        print(economicData)
         

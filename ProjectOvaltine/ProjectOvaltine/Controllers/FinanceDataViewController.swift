@@ -134,13 +134,59 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        
+        guard let economicComparisonData = self.comparisonData?.getEconomicScore() else { fatalError() }
+        //return economicComparisonData.0
+        return economicComparisonData.1.count
+    
+//        guard let economicComparisonData = else { fatalError() }
+//        return economicComparisonData.1.keys.count
     }
     
     func tableView(tableView: UITableView,
                    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = SearchResultCell(style: UITableViewCellStyle.Default,
                                     reuseIdentifier: "myIdentifier")
+        
+        ///var keyDict: [String] = []
+        guard let economicComparisonData = self.comparisonData?.getEconomicScore() else { fatalError() }
+        
+        
+        print("\(economicComparisonData.1)\n\n\n\n\n\n\n\n")
+        var newArray = economicComparisonData.1
+        let score = newArray.popLast()
+        let scoretext = score!.0
+        let scorenum = score!.1
+        cell.comparisonScoreLabel.text = String(scorenum)
+        //cell.comparisonScoreLabel.text = String(economicComparisonData.1[indexPath.row].1)
+        cell.resultLocationNameLabel.text = scoretext
+        cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
+        
+//        print("TABLE VIEW \(economicComparisonData)\n\n\n\n\n\n")
+        
+        //let economicDataKeys = economicComparisonData.1.keys
+//        for i in economicDataKeys.enumerate() {
+//            var key  = i.element
+//            keyDict.append(key)
+//            
+//        }
+        
+ //       var economicKeys = economicComparisonData.1
+   //     print(economicKeys)
+        //let params = economicKeys.popFirst()
+        //cell.resultLocationNameLabel.text = self.unemployment
+  
+        //cell.resultLocationNameLabel.text = params!.0
+        
+//        print(economicKeys.popFirst())
+//        for (i, n) in economicKeys.enumerate() {
+//            print(n)
+//        }
+        
+        
+       // cell.resultLocationNameLabel.text = economicDataKeys[keyDict[indexPath.row]]
 //        if let comparisonData = self.comparisonData {
 //            let economicFactors = comparisonData.economicScoreFactors
 //            print("\n\n COMPARISON DATA \(comparisonData.economicScoreFactors)")
@@ -149,15 +195,14 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
 //            print("\n\n ORIGIN ECONOMICDATA \(originEconomicData)")
 //            print("\n\n COMPARISON ECONOMICDATA \(comparisonEconomicData)")
 //        }
-        if let economicComparisonData = self.comparisonData?.getEconomicScore() {
-            //self.comparisonLabel.text = economicComparisonData.0
-        }
         
-        if let dataDict = self.comparisonData?.getEconomicScore().0 {
-            self.unemployment = dataDict
-        }
         
-        self.comparisonLabel.text = self.unemployment
+//        if let dataDict = self.comparisonData?.getEconomicScore() {
+//            print("DATADICT \(dataDict.1)")
+//            //self.unemployment = dataDict.1
+//        }
+//        
+//        self.comparisonLabel.text = self.unemployment
         
         //self.unemployment.append(["Origin unemployed level"])
 //        if let economicComparisonData = {
@@ -171,9 +216,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
 
         ///self.comparisonLabel.text = self.comparisonData.economicScoreFactors["Comparison Median household income"]
        
-        cell.resultLocationNameLabel.text = self.unemployment
-        cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+
 //        if (indexPath.row % 2 == 0) {
 //            cell.backgroundColor = UIColor.clearColor()
 //        } else {
@@ -202,7 +245,6 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
             make.top.equalTo(view).offset(20)
             make.width.equalTo(view)
         }
-        //navBar.backgroundColor = UIColor(netHex:0xFFFF03)
         financeNavBar.barTintColor = UIColor(netHex:0xFFFFFF)
         
         let navItem = UINavigationItem(title: "Finance")
