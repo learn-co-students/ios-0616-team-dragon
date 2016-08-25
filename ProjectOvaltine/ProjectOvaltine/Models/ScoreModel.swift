@@ -17,10 +17,10 @@ struct ScoreModel {
     var score: Int
     var originDataPoints: [String: String]?
     var comparisonDataPoints: [String : String]?
-    var economicScore: Int
-    var transitScore: Int
-    var demographicScore: Int
-    var educationScore: Int
+    var economicScore: String
+    var transitScore: String
+    var demographicScore: String
+    var educationScore: String
     var economicScoreFactors = [String:Double]()
     
     init (location:String, originDataPoints: [String : String], comparisonDataPoints: [String : String]) {
@@ -28,10 +28,10 @@ struct ScoreModel {
         self.comparisonDataPoints = comparisonDataPoints
         self.scoreName = ""
         self.score = 0
-        self.economicScore = 0
-        self.transitScore = 0
-        self.demographicScore = 0
-        self.educationScore = 0
+        self.economicScore = " "
+        self.transitScore = " "
+        self.demographicScore = " "
+        self.educationScore = " "
         self.location = location 
         self.getTransitScore()
     }
@@ -72,10 +72,13 @@ struct ScoreModel {
        // MARK: - (String(percentageChange), eachScore)
         
         if comparisonMedianHouseIncome > originMedianHouseIncome {
+            self.economicScore = "High"
             return ("High", self.economicScoreFactors)
         } else if comparisonMedianHouseIncome > originMedianHouseIncome && comparisonMedianHouseIncome < originMedianHouseIncome {
+            self.economicScore = "Med."
             return ("Med.", self.economicScoreFactors)
         } else {
+            self.economicScore = "Low"
             return ("Low", self.economicScoreFactors)
         }
     }
@@ -100,11 +103,13 @@ struct ScoreModel {
         
         
         if compareCommute > originCommute {
+            self.transitScore = "High"
             return ("High", transitArray)
-        } else if compareCommute > originCommute && compareCommute < originCommute{
+        } else if compareCommute > originCommute && compareCommute < originCommute {
+            self.transitScore = "Med."
             return ("Med.", transitArray)
-            
         } else {
+            self.transitScore = "Low"
             return ("Low", transitArray)
         }
     }
@@ -156,10 +161,13 @@ struct ScoreModel {
    
         
         if comparisonDegreePercentage > originDegreePercentage * 2 {
+            self.educationScore = "High"
             return ("High", originEducation, comparisonEducation)
         } else if comparisonDegreePercentage > originDegreePercentage && comparisonDegreePercentage < originDegreePercentage * 2 {
+            self.educationScore = "Med"
             return ("Med.", originEducation, comparisonEducation)
         } else {
+            self.educationScore = "Low"
             return ("Low", originEducation, comparisonEducation)
         }
     }
@@ -205,10 +213,13 @@ struct ScoreModel {
             }
         
             if comparisonSum > originSum * 2 {
+                self.demographicScore = "High"
                 return ("High", originDiversity, comparisonDiversity)
             } else if comparisonSum > originSum && comparisonSum < originSum * 2 {
+                self.demographicScore = "Med."
                 return ("Med.", originDiversity, comparisonDiversity)
             } else {
+                self.demographicScore = "Low"
                 return ("Low", originDiversity, comparisonDiversity)
             }
         }
@@ -222,13 +233,18 @@ struct ScoreModel {
     }
     
     mutating func getAggregateScore() -> String {
-        let scores = getScoresArray()
-        var aggregateScore = 0
-        for score in scores {
-            aggregateScore = aggregateScore + Int(score)!
-        }
-        aggregateScore = aggregateScore / scores.count
-        return String(aggregateScore)
+        let ecoScore = self.getEconomicScore()
+        let eduScore = self.getEducationScore()
+        let tranScore = self.getTransitScore()
+        let demScore = self.getDemographicScore()
+        
+        let scores = getScoresArray()[0]
+        //var aggregateScore = 0
+       // for score in scores {
+          //  aggregateScore = aggregateScore + Int(score)!
+       // }
+       // aggregateScore = aggregateScore / scores.count
+        return scores
     }
     
     
