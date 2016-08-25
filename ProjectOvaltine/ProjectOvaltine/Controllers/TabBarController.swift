@@ -67,7 +67,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     func dismissView() {
         SwiftSpinner.showWithDuration(99.0, title: "TEAM DRAGON")
-        SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 33.0))
+        SwiftSpinner.setTitleFont(UIFont(name: "Helvetica Light", size: 33.0))
         self.dismissViewControllerAnimated(true, completion: nil)
         SwiftSpinner.hide()
     }

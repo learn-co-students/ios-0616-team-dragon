@@ -18,6 +18,8 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     //var myArray = ["High School Graduate","College Graduate","etc."]
     var comparisonData: ScoreModel?
     var percentageComparisonData: ScoreModel?
+    let searchedLabel = UILabel()
+    let currentLabel = UILabel()
     
     // MARK: - Loading UI Elements and View
     
@@ -36,35 +38,32 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     
     // MARK: - Setup labels for tablview
     func currentLocationLabel() {
-        let currentLabel = UILabel()
+        
         view.addSubview(currentLabel)
-        currentLabel.text = "Bergen County"
+        currentLabel.text = "National Average"
+        currentLabel.textAlignment = .Left
         currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        currentLabel.font = UIFont(name:"Helvetica Light", size:17)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
-        currentLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(15)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        currentLabel.frame = CGRectMake(20, 75, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func searchedLocationLabel() {
-        let searchedLabel = UILabel()
+        
+        var shortenedCity = ""
+        
+        if let cityName = self.store.cityName {
+            shortenedCity = CensusAPIClient().actualName(cityName)}
+        
         view.addSubview(searchedLabel)
-        searchedLabel.text = "New York City"
+        searchedLabel.text = shortenedCity
+        searchedLabel.textAlignment = .Right
         searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:20)
+        searchedLabel.font = UIFont(name:"Helvetica Light", size:17)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
-        searchedLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(75)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        searchedLabel.frame = CGRectMake(self.view.bounds.width * 0.5, 75, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func ratingTextView() {
@@ -76,7 +75,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
 //        ratingLabel.layer.borderWidth = 3
 //        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
         ratingLabel.adjustsFontSizeToFitWidth = true
-        ratingLabel.font = UIFont(name:"Futura", size:33)
+        ratingLabel.font = UIFont(name:"Helvetica Light", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
         ratingLabel.layer.masksToBounds = true
         //ratingLabel.layer.cornerRadius = 33
@@ -99,7 +98,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
 //        comparisonLabel.layer.borderWidth = 3
 //        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
         comparisonLabel.adjustsFontSizeToFitWidth = true
-        comparisonLabel.font = UIFont(name:"Futura", size:33)
+        comparisonLabel.font = UIFont(name:"Helvetica Light", size:33)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.layer.masksToBounds = true
         //comparisonLabel.layer.cornerRadius = 33

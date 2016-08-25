@@ -45,32 +45,29 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         view.addSubview(currentLabel)
         currentLabel.text = "National Average"
+        currentLabel.textAlignment = .Left
         currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Univers Ultra Condensed", size:17)
+        currentLabel.font = UIFont(name:"Helvetica Light", size:17)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
-        currentLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(15)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        currentLabel.frame = CGRectMake(20, 75, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func searchedLocationLabel() {
         
+        var shortenedCity = ""
+        
+        if let cityName = self.store.cityName {
+            shortenedCity = CensusAPIClient().actualName(cityName)}
+        
         view.addSubview(searchedLabel)
-        searchedLabel.text = self.store.cityName
+        searchedLabel.text = shortenedCity
+        searchedLabel.textAlignment = .Right
         searchedLabel.textColor = UIColor.blackColor()
-        searchedLabel.font = UIFont(name:"Univers Ultra Condensed", size:17)
+        searchedLabel.font = UIFont(name:"Helvetica Light", size:17)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
-        searchedLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(75)
-            make.top.equalTo(view).offset(66)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
+        searchedLabel.frame = CGRectMake(self.view.bounds.width * 0.5, 75, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func ratingTextView() {
@@ -82,7 +79,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
 //        ratingLabel.layer.borderWidth = 3
 //        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
         ratingLabel.adjustsFontSizeToFitWidth = true
-        ratingLabel.font = UIFont(name:"Futura", size:33)
+        ratingLabel.font = UIFont(name:"Helvetica Light", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
         ratingLabel.layer.masksToBounds = true
         //ratingLabel.layer.cornerRadius = 33
@@ -105,7 +102,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
 //        comparisonLabel.layer.borderWidth = 3
 //        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
         comparisonLabel.adjustsFontSizeToFitWidth = true
-        comparisonLabel.font = UIFont(name:"Futura", size:33)
+        comparisonLabel.font = UIFont(name:"Helvetica Light", size:33)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.layer.masksToBounds = true
         //comparisonLabel.layer.cornerRadius = 33
