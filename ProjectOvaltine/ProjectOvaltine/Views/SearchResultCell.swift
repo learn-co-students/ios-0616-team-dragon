@@ -78,7 +78,7 @@ class SearchResultCell: UITableViewCell {
     
     
     func createLabels() {
-        self.resultLocationNameLabel.font = UIFont(name:"Helvetica-Light", size:16)
+        self.resultLocationNameLabel.font = UIFont(name:"Helvetica-Light", size:12)
         self.resultLocationNameLabel.textAlignment = NSTextAlignment.Center
         
         // MARK: - GRAY LABEL LEFT
@@ -100,7 +100,7 @@ class SearchResultCell: UITableViewCell {
         
         self.resultLocationNameLabel.snp_makeConstraints { (make) -> Void in
             make.height.equalTo(60)
-            make.width.equalTo(166)
+            make.width.equalTo(200)
             make.center.equalTo(self.contentView)
         }
         

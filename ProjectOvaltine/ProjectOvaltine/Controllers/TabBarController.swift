@@ -48,14 +48,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGrayColor()],
                                                          forState:.Normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(netHex:0xFFFFFF)],
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()],
                                                          forState:.Selected)
         
         let controllers = [statsTab, financeTab, educationTab, transportationTab, demographicsTab]
         self.viewControllers = controllers
         
         self.tabBar.tintColor = UIColor.whiteColor()
-        self.tabBar.barTintColor = UIColor(netHex: 0x000000)
+        self.tabBar.barTintColor = UIColor(red:0.15, green:0.24, blue:0.23, alpha:1.0)
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {

@@ -72,7 +72,6 @@ class StatsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView,
                             cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // let points = self.comparisonData?.getScoresArray()
         
         guard let
             economicData = self.comparisonData?.getEconomicScore(),
@@ -126,17 +125,19 @@ class StatsViewController: UITableViewController {
         self.statsNavBar = NavBar().setup()
         self.view.addSubview(self.statsNavBar)
         self.navItem.leftBarButtonItem = self.homeItem
-        self.navItem.leftBarButtonItem?.tintColor = UIColor.blackColor()
+        self.navItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
         self.statsNavBar.setItems([self.navItem],
                                   animated: false)
         
-        self.statsNavBar.alpha = 0.6
+        self.statsNavBar.alpha = 1.0
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "settings-4"),
-                        forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(settingButtonPushed),
-                         forControlEvents: UIControlEvents.TouchUpInside)
+        //button.setImage(UIImage(named: "settings-4"),
+                        //forState: UIControlState.Normal)
+        //button.addTarget(self, action: #selector(settingButtonPushed),
+                         //forControlEvents: UIControlEvents.TouchUpInside)
+        
+        button.tintColor = UIColor.whiteColor()
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)

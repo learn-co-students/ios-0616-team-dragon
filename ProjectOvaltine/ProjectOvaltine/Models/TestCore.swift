@@ -19,15 +19,15 @@ class TestCore {
         
     }
     
-    func testCore() {
-        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n RUNNINGING")
-        if let mark = mark.placemark {
-             print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n RUNNINGING")
-            censusAPI.requestDataForLocation(placemark: mark) { (city, county, state, us) in
-                print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \(city)")
-                print(county)
-            }
-            
-        }
-    }
+//    func testCore() {
+//        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n RUNNINGING")
+//        if let mark = mark.placemark {
+//             print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n RUNNINGING")
+//            censusAPI.requestDataForLocation(placemark: mark) { (city, county, state, us) in
+//                print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \(city)")
+//                print(county)
+//            }
+//            
+//        }
+//    }
 }

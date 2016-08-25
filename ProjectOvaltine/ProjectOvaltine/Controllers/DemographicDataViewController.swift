@@ -172,17 +172,17 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
             make.width.equalTo(view)
         }
         //navBar.backgroundColor = UIColor(netHex:0xFFFF03)
-        financeNavBar.barTintColor = UIColor(netHex:0xFFFFFF)
+        financeNavBar.barTintColor = UIColor(red:0.36, green:0.49, blue:0.55, alpha:1.0)
         
         let navItem = UINavigationItem(title: "Demographics")
         let homeItem = UIBarButtonItem.init(title: "Home", style: .Done, target: nil, action: #selector(dismissView))
-        homeItem.tintColor = UIColor(netHex:0x000000)
+        homeItem.tintColor = UIColor(netHex:0xFFFFFF)
         navItem.leftBarButtonItem = homeItem
         financeNavBar.setItems([navItem], animated: false)
-        financeNavBar.alpha = 0.6
+        
         
         let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
+        //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         

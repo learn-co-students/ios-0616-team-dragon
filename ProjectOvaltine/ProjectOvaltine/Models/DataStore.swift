@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import CoreLocation
 
 
 class DataStore {
     static let sharedInstance = DataStore()
     
     let cityAPI = CitySDKAPIClient()
+    
+    var cityName : String?
+    var countyName : String?
     
     var cityDataPoints:[CitySDKData] = []
     

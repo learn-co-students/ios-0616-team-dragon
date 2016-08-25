@@ -14,7 +14,7 @@ struct ProjectButton {
     init() {
         self.nameButton = UIButton(frame: CGRectMake(20, 630, self.screenSize.width-40, 40))
         self.nameButton.backgroundColor=UIColor.lightGrayColor()
-        self.nameButton.setTitle("Community Radar", forState: .Normal)
+        self.nameButton.setTitle("Statistics", forState: .Normal)
         self.nameButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         self.nameButton.alpha = 0.3
         self.nameButton.layer.zPosition = 3
