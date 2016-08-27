@@ -41,10 +41,10 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         self.navBar()
         self.resultsTableView()
-        ratingTextView()
-        comparisonTextView()
-        currentLocationLabel()
-        searchedLocationLabel()
+        self.ratingTextView()
+        self.comparisonTextView()
+        self.currentLocationLabel()
+        self.searchedLocationLabel()
     }
     
     func tabSets(city city: Bool, type: String) -> [DataSetModel] {
@@ -109,13 +109,10 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         ratingLabel.text = "N/A"
         ratingLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         ratingLabel.textColor = UIColor.blackColor()
-//        ratingLabel.layer.borderWidth = 3
-//        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
         ratingLabel.adjustsFontSizeToFitWidth = true
         ratingLabel.font = UIFont(name:"Helvetica Light", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
         ratingLabel.layer.masksToBounds = true
-        //ratingLabel.layer.cornerRadius = 33
         ratingLabel.textAlignment = NSTextAlignment.Center
         ratingLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(10)
@@ -132,13 +129,10 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         comparisonLabel.text = "N/A"
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         comparisonLabel.textColor = UIColor.blackColor()
-//        comparisonLabel.layer.borderWidth = 3
-//        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
         comparisonLabel.adjustsFontSizeToFitWidth = true
         comparisonLabel.font = UIFont(name:"Helvetica Light", size:33)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.layer.masksToBounds = true
-        //comparisonLabel.layer.cornerRadius = 33
         comparisonLabel.textAlignment = NSTextAlignment.Center
         comparisonLabel.snp_makeConstraints { (make) -> Void in
             make.right.equalTo(view).offset(-10)

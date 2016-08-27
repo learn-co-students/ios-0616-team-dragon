@@ -55,7 +55,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     // MARK: - Initialized array of MKOverlays
     
     var overlayArray: [MKOverlay] = []
-
+    
     var polygon: MKPolygon!
     
     var anotation = MKPointAnnotation()
@@ -77,8 +77,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         centerMapOnLocation(self.initialLocation)
         self.alert.addAction(
             UIAlertAction(title: "OK",
-            style: UIAlertActionStyle.Default,
-            handler: nil))
+                style: UIAlertActionStyle.Default,
+                handler: nil))
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -100,7 +100,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         self.mapView.setVisibleMapRect(self.polygon.boundingMapRect,
                                        edgePadding: insets,
                                        animated: true)
-        //self.mapView.setVisibleMapRect(self.polygon.boundingMapRect, animated: true)
     }
     
     // MARK: - Delegate method from mapView in order to render the polyline
@@ -149,11 +148,13 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func populateCoordinateArray(completionHandler: (NSArray) -> ()){
+        
         self.store.getCitySDKData({
             if let geo = self.store.cityDataPoints.first?.coordinates {
                 completionHandler(geo)
             }
         })
+        
     }
     
     func convertArrayDataToPoints(array: [AnyObject]) {
@@ -192,8 +193,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 placemark = (placemarks?.last)!
                 
-                
-                
                 CensusAPIClient().requestDataForLocation(placemark: placemark!, completion: { (city, county, state, us) in
                     
                     self!.store.cityModel.dataSets.removeAll()
@@ -204,11 +203,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         county = county?.name!,
                         state = state?.name!,
                         zipCode = placemark!.postalCode
-                    else { return }
+                        else { return }
                     
-                    
-                        self!.store.cityName = cityName
-                        self!.store.countyName = county
+                    self!.store.cityName = cityName
+                    self!.store.countyName = county
                     
                     print("CITY: \(cityName)")
                     print("COUNTY: \(county)")
@@ -252,18 +250,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         usModel.dataSets.append(dataSetModel)
                     }
                     
-                    
-                    
-                    
-                    
-                     
                     guard let usData = us?.dataSets! else { fatalError() }
                     for USDataSet in usData {
                         guard USDataSet.values != nil else { fatalError() }
-//                        guard let USDataSet2 = USDataSet.values else { fatalError() }
-//                        for dataSet in USDataSet2 {
-////                            print(dataSet.absoluteValue)
-//                        }
+                        
                         for USDataSetTwo in (USDataSet.values)! {
                             self!.USAbsoluteDictionary.updateValue(USDataSetTwo.absoluteValue!, forKey: USDataSetTwo.name!)
                             self!.USPercentDictionary.updateValue(USDataSetTwo.percentValue!, forKey: USDataSetTwo.name!)
@@ -289,12 +279,10 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     
                 })
                 
-                SwiftSpinner.showWithDuration(2.0, title: "Community Radar")
-                SwiftSpinner.setTitleFont(UIFont(name: "Helvetica Light", size: 33.0))
-                
                 if let placemarkZipcode = placemark?.postalCode {
                     self!.store.zipCode = placemarkZipcode}
                 self!.populateCoordinateArray{[weak self] (someArray) in
+                    
                     self!.boundary.removeAll()
                     
                     for i in 0...someArray.count-1 {
@@ -319,6 +307,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.mapView.addAnnotation(self!.anotation)
                     self!.mapView.selectAnnotation(self!.anotation, animated: true)
                 }
+                
                 self!.zipLocation = placemark?.location
                 SwiftSpinner.showWithDuration(3.0, title: "Community Radar")
                 SwiftSpinner.setTitleFont(UIFont(name: "Helvetica Light", size: 33.0))
@@ -339,7 +328,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                                                toItem: self.view,
                                                attribute: NSLayoutAttribute.Top,
                                                multiplier: 1, constant: 0)
-    
+        
         self.searchController.delegate = self
         self.view.addSubview(self.searchController)
         self.view.addConstraint(topConstraint)
@@ -351,8 +340,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
         if !userDefaults.boolForKey("Launched Before") {
             
             let firstLaunchAlert = UIAlertController.init(title: "Welcome to Community Radar",
-                                               message: "Please input desired zip code in the search field above then click on the information button by the city name to view detailed information and comparion data for chosen zip code.",
-                                               preferredStyle: .Alert)
+                                                          message: "Please input desired zip code in the search field above then click on the information button by the city name to view detailed information and comparion data for chosen zip code.",
+                                                          preferredStyle: .Alert)
             
             firstLaunchAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(firstLaunchAlert, animated: true, completion: nil)
