@@ -43,35 +43,34 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     }
     
     func tabSets(city city: Bool, type: String) -> [DataSetModel] {
+        var sets: [DataSetModel] = []
+        
         if city {
-            let citySets = store.cityModel.dataSets.filter({ (dataSet) -> Bool in
+            sets = store.cityModel.dataSets.filter({ (dataSet) -> Bool in
                 dataSet.type == type && dataSet.displayPercent
-            })
-            for set in citySets {
-                for (index, value) in set.values.enumerate() {
-                    if value.name == Hints.total {
-                        set.values.removeAtIndex(index)
-                    }
-                }
-            }
-            return citySets.sort({ (dataSetModel1, dataSetModel2) -> Bool in
-                dataSetModel1.name > dataSetModel2.name
             })
         } else {
-            let usSets = store.usModel.dataSets.filter({ (dataSet) -> Bool in
+            sets = store.usModel.dataSets.filter({ (dataSet) -> Bool in
                 dataSet.type == type && dataSet.displayPercent
             })
-            for set in usSets {
-                for (index, value) in set.values.enumerate() {
-                    if value.name == Hints.total {
-                        set.values.removeAtIndex(index)
-                    }
+        }
+        
+        for set in sets {
+            for (index, value) in set.values.enumerate() {
+                if value.name == Hints.total {
+                    set.values.removeAtIndex(index)
                 }
             }
-            return usSets.sort({ (dataSetModel1, dataSetModel2) -> Bool in
-                dataSetModel1.name > dataSetModel2.name
+        }
+        for set in sets {
+            set.values.sortInPlace({ (valueModel1, valueModel2) -> Bool in
+                valueModel1.name < valueModel2.name
             })
         }
+        return sets.sort({ (dataSetModel1, dataSetModel2) -> Bool in
+            dataSetModel1.name < dataSetModel2.name
+        })
+        
     }
     
     // MARK: - Setup labels for tablview

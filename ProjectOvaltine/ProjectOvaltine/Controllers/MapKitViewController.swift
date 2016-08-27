@@ -196,7 +196,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 CensusAPIClient().requestDataForLocation(placemark: placemark!, completion: { (city, county, state, us) in
                     
-//                    print("INSIDE REQUEST COMPLETION IN MAP KIT VIEW")
+                    self!.store.cityModel.dataSets.removeAll()
+                    self!.store.usModel.dataSets.removeAll()
                     
                     guard let
                         cityName = city?.name!,
