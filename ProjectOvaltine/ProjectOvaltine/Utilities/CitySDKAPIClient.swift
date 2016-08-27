@@ -18,6 +18,7 @@ class CitySDKAPIClient {
     let headers: Dictionary<String, String> = ["Not":"Implemented"]
     let parameters:Dictionary<String, String> = ["parameterOne": "not implemented"]
     let key = Constants.CITYSDK_API_KEY
+    var couldNotReturn = false
     
     // MARK: Request
     func sendAPIRequest(params: NSDictionary, completion: ([CitySDKData]) -> ()) {
@@ -69,6 +70,7 @@ class CitySDKAPIClient {
                 }
             default:
                 print("ERROR - CITYSDK CANNOT BE REACHED")
+                self.couldNotReturn = true
             }
         }
     }

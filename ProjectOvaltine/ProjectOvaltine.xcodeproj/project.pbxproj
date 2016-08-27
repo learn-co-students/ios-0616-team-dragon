@@ -59,6 +59,8 @@
 		AFE906B01D5E3F0500CEA2C9 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */; };
 		AFEE32161D635A5600884D42 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE32151D635A5600884D42 /* NavBar.swift */; };
 		BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20C70F1D6355CE0065CADF /* StatsViewController.swift */; };
+		BD8EA4191D71E2A200CE2833 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EA4181D71E2A200CE2833 /* Constants.swift */; };
+
 		D2DACD433DF7781D4A11E996 /* Pods_ProjectOvaltine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +119,8 @@
 		AFE906AF1D5E3F0500CEA2C9 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultCell.swift; path = Views/SearchResultCell.swift; sourceTree = "<group>"; };
 		AFEE32151D635A5600884D42 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Controllers/NavBar.swift; sourceTree = "<group>"; };
 		BD20C70F1D6355CE0065CADF /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = Controllers/StatsViewController.swift; sourceTree = "<group>"; };
+		BD8EA4181D71E2A200CE2833 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
+
 		CE26922BFD154DC8736CEAB9 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC048C74F799EF73ABF209A0 /* Pods-ProjectOvaltine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,7 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
-				8E2A1BCB1D6F92E70005A5A1 /* Constants.swift */,
+				BD8EA4181D71E2A200CE2833 /* Constants.swift */,
+
 				AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */,
 			);
 			name = Utilities;
@@ -322,7 +327,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF75DFA81D53D30400DDF173 /* Build configuration list for PBXNativeTarget "ProjectOvaltine" */;
 			buildPhases = (
-				488CF1C064652C36C946313A /* 📦 Check Pods Manifest.lock */,
+				488CF1C064652C36C946313A /* [CP] Check Pods Manifest.lock */,
 				07CF913733C0BF1B7A4AE8C2 /* [CP] Check Pods Manifest.lock */,
 				FFC5BCB8CC488BB95C1376C3 /* [CP] Check Pods Manifest.lock */,
 				07CBDA4CD2168B61BF7D5B65 /* [CP] Check Pods Manifest.lock */,
@@ -453,14 +458,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		488CF1C064652C36C946313A /* 📦 Check Pods Manifest.lock */ = {
+		488CF1C064652C36C946313A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,7 +617,8 @@
 				AFE4AC721D6BDA9000C81D86 /* ComparisonLabels.swift in Sources */,
 				AF4E94791D660E1F00515266 /* TestView.swift in Sources */,
 				AFE4600A1D551B7900FBE63B /* CitySDKAPIClient.swift in Sources */,
-				8E2A1BCC1D6F92E70005A5A1 /* Constants.swift in Sources */,
+				BD8EA4191D71E2A200CE2833 /* Constants.swift in Sources */,
+
 				BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */,
 				8E74E7011D65EC1C0056E866 /* State+CoreDataProperties.swift in Sources */,
 			);

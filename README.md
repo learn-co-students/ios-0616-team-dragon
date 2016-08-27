@@ -1,3 +1,3 @@
-# 🐉 Team Dragon 🐉
+# Community Radar 
 
-We bring the fire....
+Our aims to allow users to compare census data for a city of their choice, with the data of the US national average.

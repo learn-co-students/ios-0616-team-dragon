@@ -9,8 +9,6 @@ class ResultView: UIView {
     
     let states = [State]()
     
-   // private var graphView: GaugeView!
-    
     var heightLayoutConstraint = NSLayoutConstraint()
     var bottomLayoutConstraint = NSLayoutConstraint()
     
@@ -21,7 +19,6 @@ class ResultView: UIView {
     var scoreLabel: UILabel! = UILabel()
     var locationNameLabel: UILabel! = UILabel()
     var countyNameLabel: UILabel! = UILabel()
-    //var resultDescriptionTextView: UITextView = UITextView()
     let height: CGFloat = UIScreen.mainScreen().bounds.height / 2.3
     let width: CGFloat = UIScreen.mainScreen().bounds.width
     var graphPercentage: Float = 90
@@ -66,7 +63,6 @@ class ResultView: UIView {
     func setupConstraints() {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.containerView.backgroundColor = UIColor.grayColor()
-    //    self.createGraph()
         self.addSubview(self.containerView)
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|",
             options: NSLayoutFormatOptions(rawValue: 0),
@@ -89,21 +85,8 @@ class ResultView: UIView {
         newView.backgroundColor = UIColor.blueColor()
         newView.clipsToBounds = true
         newView.contentMode = .ScaleAspectFill
-   //     self.createGraph()
-   //     newView.addSubview(self.graphView)
         self.containerView.addSubview(newView)
     }
-    
-//    func createGraph() {
-//        self.graphView = GaugeView()
-//       // self.graphView.gaugeColor = self.randomColor()
-//        self.graphView.percentage = self.graphPercentage
-//        self.graphView.thickness = 14
-//        self.graphView.labelFont = UIFont.systemFontOfSize(80, weight: UIFontWeightThin)
-//        //self.graphView.labelColor = self.randomColor()
-//        //self.graphView.gaugeBackgroundColor = self.randomColor()
-//        self.addSubview(graphView)
-//    }
     
     func createLabels() {
         
@@ -134,17 +117,9 @@ class ResultView: UIView {
         self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)
         self.scoreLabel.layer.masksToBounds = true
         self.scoreLabel.layer.cornerRadius = 50
-        
-        //self.resultDescriptionTextView.backgroundColor = UIColor.clearColor()
-        //self.resultDescriptionTextView.editable = false
-        //        self.resultDescriptionTextView.textColor = UIColor.blackColor()
-        //        self.resultDescriptionTextView.text = "Lorem Ipsum is simply dummy text of computing/printing and typeset industry."
-        //        self.resultDescriptionTextView.font = HelveticaLight().getFont(14)
-        
         self.addSubview(self.scoreLabel)
         self.addSubview(self.locationNameLabel)
         self.addSubview(self.countyNameLabel)
-        //self.addSubview(self.resultDescriptionTextView)
     }
     
     func setupView() {
@@ -155,15 +130,6 @@ class ResultView: UIView {
             make.width.equalTo(100)
             make.height.equalTo(100)
         }
-        
-        //        self.resultDescriptionTextView.snp_makeConstraints { (make) -> Void in
-        //            make.height.equalTo(self).dividedBy(4)
-        //            make.width.equalTo(self).dividedBy(1.5)
-        //            make.centerX.equalTo(self)
-        //            //make.left.leftMargin.equalTo(20)
-        //            //make.right.rightMargin.equalTo(self).offset(-20)
-        //            make.centerY.equalTo(self).offset(120)
-        //        }
         
         self.locationNameLabel.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(175)
@@ -177,20 +143,6 @@ class ResultView: UIView {
             make.centerX.equalTo(self).offset(66)
             //make.right.equalTo(-5)
         }
-//        self.graphView.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(120)
-//            //make.centerX.equalTo(self)
-//            make.left.equalTo(20)
-//            make.centerY.equalTo(self).offset(20)
-//        }
-        
     }
-    
-//    private func randomColor() -> UIColor {
-//        let hue = ( CGFloat(arc4random() % 256) / 256.0 )               //  0.0 to 1.0
-//        let saturation = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from white
-//        let brightness = ( CGFloat(arc4random() % 128) / 256.0 ) + 0.5  //  0.5 to 1.0, away from black
-//        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
-//    }
     
 }

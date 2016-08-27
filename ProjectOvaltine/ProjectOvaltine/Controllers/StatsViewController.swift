@@ -184,10 +184,6 @@ class StatsViewController: UITableViewController {
         self.statsNavBar.alpha = 1.0
         
         let button: UIButton = UIButton(type: .Custom)
-        //button.setImage(UIImage(named: "settings-4"),
-                        //forState: UIControlState.Normal)
-        //button.addTarget(self, action: #selector(settingButtonPushed),
-                         //forControlEvents: UIControlEvents.TouchUpInside)
         
         button.tintColor = UIColor.whiteColor()
         button.frame = CGRectMake(3, 3, 25, 25)
@@ -213,7 +209,4 @@ class StatsViewController: UITableViewController {
         }
     }
     
-//    func settingButtonPushed() {
-//        print("Settings Pushed")
-//    }
 }
