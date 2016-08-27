@@ -129,7 +129,7 @@ class FinanceDataViewController: UIViewController, UITableViewDataSource, UITabl
         
         
         view.addSubview(comparisonLabel)
-        comparisonLabel.text = "N/A"
+        comparisonLabel.text = self.store.cityScoresByType[Hints.economy]
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         comparisonLabel.textColor = UIColor.blackColor()
 //        comparisonLabel.layer.borderWidth = 3

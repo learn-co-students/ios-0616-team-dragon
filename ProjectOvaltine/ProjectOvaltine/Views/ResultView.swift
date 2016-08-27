@@ -130,7 +130,7 @@ class ResultView: UIView {
         self.scoreLabel.textColor = UIColor.blackColor()
         self.scoreLabel.textAlignment = NSTextAlignment.Center
         self.scoreLabel.font = HelveticaLight().getFont(20)
-        self.scoreLabel.text = self.comparrisonData?.getAggregateScore()
+        self.scoreLabel.text = self.store.cityScoresByType[Hints.absolute]
         self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)
         self.scoreLabel.layer.masksToBounds = true
         self.scoreLabel.layer.cornerRadius = 50

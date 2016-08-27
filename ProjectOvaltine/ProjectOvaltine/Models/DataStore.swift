@@ -17,6 +17,8 @@ class DataStore {
     
     var cityModel = CityModel()
     var usModel = USModel()
+    var cityScoresByDataSet: [String : String] = [:]
+    var cityScoresByType: [String : String] = [:]
     
     var cityName : String?
     var countyName : String?

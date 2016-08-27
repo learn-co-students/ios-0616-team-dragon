@@ -196,9 +196,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 CensusAPIClient().requestDataForLocation(placemark: placemark!, completion: { (city, county, state, us) in
                     
-                    self!.store.cityModel.dataSets.removeAll()
-                    self!.store.usModel.dataSets.removeAll()
-                    
                     guard let
                         cityName = city?.name!,
                         county = county?.name!,
@@ -217,6 +214,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     
                     let cityModel = self!.store.cityModel
                     cityModel.name = CensusAPIClient().actualName(city!.name!)
+                    cityModel.dataSets.removeAll()
                     for dataSet in city!.dataSets! {
                         let dataSetModel = DataSetModel()
                         dataSetModel.name = dataSet.name!
@@ -235,6 +233,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     }
                     
                     let usModel = self!.store.usModel
+                    usModel.dataSets.removeAll()
                     for dataSet in us!.dataSets! {
                         let dataSetModel = DataSetModel()
                         dataSetModel.name = dataSet.name!

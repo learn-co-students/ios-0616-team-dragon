@@ -20,8 +20,6 @@ class Hints { // Autocomplete for commonly used strings
     static let falseValue = "False"
     
     static let demographics = "Demographics"
-    static let demographicsPart1 = "Demographics Part 1"
-    static let demographicsPart2 = "Demographics Part 2"
     static let economy = "Economy"
     static let education = "Education"
     static let transporation = "Transportation"
@@ -41,6 +39,13 @@ class Hints { // Autocomplete for commonly used strings
     static let name = "name"
     static let code = "code"
     static let place = "place"
+    
+    static let veryHigh = "Very High"
+    static let high = "High"
+    static let average = "Average"
+    static let low = "Low"
+    static let veryLow = "Very Low"
+    static let absolute = "Absolute"
     
     
     private init() {}

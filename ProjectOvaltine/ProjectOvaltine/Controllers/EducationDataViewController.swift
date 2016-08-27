@@ -129,7 +129,7 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         
         let comparisonLabel = UILabel()
         view.addSubview(comparisonLabel)
-        comparisonLabel.text = "N/A"
+        comparisonLabel.text = self.store.cityScoresByType[Hints.education]
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         comparisonLabel.textColor = UIColor.blackColor()
         //        comparisonLabel.layer.borderWidth = 3

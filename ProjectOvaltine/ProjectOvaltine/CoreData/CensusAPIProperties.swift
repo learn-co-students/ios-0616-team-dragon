@@ -126,7 +126,7 @@ struct CensusAPIProperties {
         "B03002": [
             Hints.description: "Diversity",
             Hints.type: Hints.demographics,
-            Hints.ratable: Hints.falseValue,
+            Hints.ratable: Hints.trueValue,
             Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
             "003E": "White",
@@ -170,7 +170,7 @@ struct CensusAPIProperties {
         "B25071": [
             Hints.description: "Rent as percentage of household income",
             Hints.type: Hints.economy,
-            Hints.ratable: Hints.trueValue,
+            Hints.ratable: Hints.falseValue,
             Hints.displayPercent: Hints.falseValue,
             "001E": "Rent as percentage of household income"
         ],

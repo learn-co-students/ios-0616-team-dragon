@@ -29,6 +29,7 @@
 		8E74E7021D65EC1C0056E866 /* US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6EE1D65EC1C0056E866 /* US.swift */; };
 		8E74E7031D65EC1C0056E866 /* US+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E6EF1D65EC1C0056E866 /* US+CoreDataProperties.swift */; };
 		8EAF7E751D68E730004D8C9A /* StateCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7E741D68E730004D8C9A /* StateCodes.swift */; };
+		8ED73D2B1D720B41006AC30F /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED73D2A1D720B41006AC30F /* ScoreCalculator.swift */; };
 		AF04F1CB1D5A8DC6005B7F26 /* CensusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF04F1CA1D5A8DC6005B7F26 /* CensusConstants.swift */; };
 		AF1786361D595B09008C834D /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1786351D595B09008C834D /* MapKitViewController.swift */; };
 		AF1FC7C31D5B6F8C004973A2 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FC7C21D5B6F8C004973A2 /* ResultView.swift */; };
@@ -84,6 +85,7 @@
 		8E74E6EE1D65EC1C0056E866 /* US.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = US.swift; path = CoreData/US.swift; sourceTree = "<group>"; };
 		8E74E6EF1D65EC1C0056E866 /* US+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "US+CoreDataProperties.swift"; path = "CoreData/US+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8EAF7E741D68E730004D8C9A /* StateCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateCodes.swift; sourceTree = "<group>"; };
+		8ED73D2A1D720B41006AC30F /* ScoreCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreCalculator.swift; path = ../ScoreCalculator.swift; sourceTree = "<group>"; };
 		AF04F1CA1D5A8DC6005B7F26 /* CensusConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CensusConstants.swift; sourceTree = "<group>"; };
 		AF1786351D595B09008C834D /* MapKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapKitViewController.swift; path = Controllers/MapKitViewController.swift; sourceTree = "<group>"; };
 		AF1FC7C21D5B6F8C004973A2 /* ResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultView.swift; path = Views/ResultView.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			children = (
 				AF2C0B3F1D57DC04002B7994 /* CitySDKData.swift */,
 				AFE460121D551BE400FBE63B /* DataStore.swift */,
+				8ED73D2A1D720B41006AC30F /* ScoreCalculator.swift */,
 				AF04F1CA1D5A8DC6005B7F26 /* CensusConstants.swift */,
 				AF1FC7C71D5B72C0004973A2 /* ScoreModel.swift */,
 				AF1FC7D61D5B8D78004973A2 /* LocationData.swift */,
@@ -581,6 +584,7 @@
 				8E74E6F81D65EC1C0056E866 /* County.swift in Sources */,
 				8E74E6FB1D65EC1C0056E866 /* DataSet.swift in Sources */,
 				8E1DCF961D67C35A003B2B25 /* City.swift in Sources */,
+				8ED73D2B1D720B41006AC30F /* ScoreCalculator.swift in Sources */,
 				AF5045191D5C47AB00A2E97D /* NSCoderExtension.swift in Sources */,
 				8EAF7E751D68E730004D8C9A /* StateCodes.swift in Sources */,
 				AF68B8631D6B46B500C32B8C /* TestCore.swift in Sources */,

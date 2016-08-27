@@ -126,7 +126,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         
         let comparisonLabel = UILabel()
         view.addSubview(comparisonLabel)
-        comparisonLabel.text = "N/A"
+        comparisonLabel.text = self.store.cityScoresByType[Hints.demographics]
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         comparisonLabel.textColor = UIColor.blackColor()
 //        comparisonLabel.layer.borderWidth = 3

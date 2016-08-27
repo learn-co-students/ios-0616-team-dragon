@@ -22,6 +22,13 @@ class StatsViewController: UITableViewController {
     var statsNavBar: UINavigationBar = UINavigationBar()
     
     var store = DataStore.sharedInstance
+    var storeCalculator = ScoreCalculator()
+    var dataSetNames: [String] = []
+    var dataSetScores: [String] = []
+    
+    var tabCityDataSets: [DataSetModel] = []
+    var tabUSDataSets: [DataSetModel] = []
+    
     let navItem = UINavigationItem(title: "Statistics")
     let homeItem = UIBarButtonItem.init(title: "Home",
                                         style: .Done,
@@ -33,6 +40,8 @@ class StatsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.storeCalculator.createRatings()
+        self.populateScoreArrays()
         self.tableView.tableHeaderView = ResultView.init(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 335));
         self.comparisonData = self.store.comparisonData
         self.percentageComparisonData = self.store.comparisonPercentageData
@@ -44,6 +53,18 @@ class StatsViewController: UITableViewController {
     //        let headerView = self.tableView.tableHeaderView as! ResultView
     //        headerView.scrollViewDidScroll(scrollView)
     //    }
+    
+    
+    func populateScoreArrays() {
+        self.dataSetNames.removeAll()
+        self.dataSetScores.removeAll()
+        
+        for (name, score) in self.store.cityScoresByDataSet {
+            self.dataSetNames.append(name)
+            self.dataSetScores.append(score)
+        }
+    }
+    
     
     func statsTableView() {
         let tableView = UITableView(frame: view.bounds,
@@ -67,71 +88,88 @@ class StatsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
-        return self.detailsArray.count
+        return self.store.cityScoresByDataSet.count
     }
     
-    override func tableView(tableView: UITableView,
-                            cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = SearchResultCell(style: .Default, reuseIdentifier: "myIdentifier")
         
-        guard let
-            economicData = self.comparisonData?.getEconomicScore(),
-            educationData = self.comparisonData?.getEducationScore(),
-            transitData = self.comparisonData?.getTransitScore(),
-            demographicData = self.comparisonData?.getDemographicScore()
-            else {
-                fatalError()
-        }
+        cell.resultLocationNameLabel.text = "\(self.dataSetNames[indexPath.row]) score"
+        cell.comparisonScoreLabel.text = self.dataSetScores[indexPath.row]
         
-        guard let
-            originEconomicData = self.comparisonData?.getEconomicScore().1,
-            originEducationData = self.comparisonData?.getEducationScore(),
-            originTransitData = self.comparisonData?.getTransitScore(),
-            originDemographicData = self.comparisonData?.getDemographicScore()
-            else {
-                fatalError()
-        }
+        cell.resultLocationNameLabel.textColor = UIColor.blackColor()
+        cell.comparisonScoreLabel.textColor = UIColor.blackColor()
         
-        
-        
-        
-        self.dataArray = [String(economicData), String(educationData), String(transitData), String(demographicData)]
-        self.originArray = [String(originEconomicData), String(originEducationData), String(originTransitData), String(originDemographicData)]
-        
-//        print("--------------")
-        //print("\(self.dataArray)")
-        //if let compare = self.comparisonData?.getScoresArray() {
-        //    print("COMPARE")
-        //    print(compare)
-       // }
-        //print(self.comparisonData.getScoresArray())
-        ///print(self.dataArray)
-        //print(self.originArray)
-        //        print(points)
-        //        print(economicData)
-        
-        //self.dataArray[indexPath.row].0
-        guard let compare = self.comparisonData?.getScoresArray() else { fatalError() }
-        //guard let data = dataArray[indexPath.row] else { fatalError() }
-        print(compare)
-       // print("---------")
-       // print("DATA \(self.dataArray[indexPath.row])")
-//       print(compare)
-       // print("---------")
-        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
-                                    reuseIdentifier: "myIdentifier",
-                                    parameterDescription: self.detailsArray[indexPath.row],
-                                    description: compare[indexPath.row],
-                                    score: compare[indexPath.row])
-
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
-        cell.comparisonScoreLabel.hidden = true
         return cell
+        
     }
     
-    override func tableView(tableView: UITableView,
-                            didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        print(self.detailsArray[indexPath.row])
-    }
+    
+    
+    
+    
+//    override func tableView(tableView: UITableView,
+//                            cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        guard let
+//            economicData = self.comparisonData?.getEconomicScore(),
+//            educationData = self.comparisonData?.getEducationScore(),
+//            transitData = self.comparisonData?.getTransitScore(),
+//            demographicData = self.comparisonData?.getDemographicScore()
+//            else {
+//                fatalError()
+//        }
+//        
+//        guard let
+//            originEconomicData = self.comparisonData?.getEconomicScore().1,
+//            originEducationData = self.comparisonData?.getEducationScore(),
+//            originTransitData = self.comparisonData?.getTransitScore(),
+//            originDemographicData = self.comparisonData?.getDemographicScore()
+//            else {
+//                fatalError()
+//        }
+//        
+//        
+//        
+//        
+//        self.dataArray = [String(economicData), String(educationData), String(transitData), String(demographicData)]
+//        self.originArray = [String(originEconomicData), String(originEducationData), String(originTransitData), String(originDemographicData)]
+//        
+////        print("--------------")
+//        //print("\(self.dataArray)")
+//        //if let compare = self.comparisonData?.getScoresArray() {
+//        //    print("COMPARE")
+//        //    print(compare)
+//       // }
+//        //print(self.comparisonData.getScoresArray())
+//        ///print(self.dataArray)
+//        //print(self.originArray)
+//        //        print(points)
+//        //        print(economicData)
+//        
+//        //self.dataArray[indexPath.row].0
+//        guard let compare = self.comparisonData?.getScoresArray() else { fatalError() }
+//        //guard let data = dataArray[indexPath.row] else { fatalError() }
+//        print(compare)
+//       // print("---------")
+//       // print("DATA \(self.dataArray[indexPath.row])")
+////       print(compare)
+//       // print("---------")
+//        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
+//                                    reuseIdentifier: "myIdentifier",
+//                                    parameterDescription: self.detailsArray[indexPath.row],
+//                                    description: compare[indexPath.row],
+//                                    score: compare[indexPath.row])
+//
+//        cell.selectionStyle = UITableViewCellSelectionStyle.None
+//        cell.comparisonScoreLabel.hidden = true
+//        return cell
+//    }
+    
+//    override func tableView(tableView: UITableView,
+//                            didSelectRowAtIndexPath indexPath: NSIndexPath) {
+////        print(self.detailsArray[indexPath.row])
+//    }
     
     
     func setupNavBar() {
