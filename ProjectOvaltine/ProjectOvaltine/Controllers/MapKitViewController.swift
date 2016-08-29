@@ -21,6 +21,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     let store = DataStore.sharedInstance
     let cityAPI = CitySDKAPIClient()
     
+    let censusAPI = CensusAPIClient()
+    
     // MARK: - Array of citySDK data
     
     var cityData: [CitySDKData] = []
@@ -193,7 +195,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 
                 placemark = (placemarks?.last)!
                 
-                CensusAPIClient().requestDataForLocation(placemark: placemark!, completion: { (city, county, state, us) in
+                self!.censusAPI.requestDataForLocation(placemark: placemark!, completion: { (city, county, state, us) in
                     
                     guard let
                         cityName = city?.name!,
@@ -201,6 +203,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                         state = state?.name!,
                         zipCode = placemark!.postalCode
                         else { return }
+                    
+                    
                     
                     self!.store.cityName = cityName
                     self!.store.countyName = county
@@ -293,6 +297,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     if self!.overlayArray.count != 0 {
                         self!.overlayArray.removeAll()
                     }
+                    
                     self!.polygon = MKPolygon(coordinates: &self!.boundary,
                         count: self!.boundary.count)
                     self!.polygon.title = "county_borders"

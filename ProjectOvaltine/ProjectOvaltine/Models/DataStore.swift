@@ -15,12 +15,15 @@ class DataStore {
     
     let cityAPI = CitySDKAPIClient()
     
+    let censusAPI = CensusAPIClient()
+    
     var cityModel = CityModel()
     var usModel = USModel()
     var cityScoresByDataSet: [String : String] = [:]
     var cityScoresByType: [String : String] = [:]
     
     var cityName : String?
+        
     var countyName : String?
     
     var cityDataPoints:[CitySDKData] = []

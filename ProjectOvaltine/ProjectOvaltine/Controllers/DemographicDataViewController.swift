@@ -33,8 +33,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.navBar()
         self.resultsTableView()
-        ratingTextView()
-        comparisonTextView()
         currentLocationLabel()
         searchedLocationLabel()
     }
@@ -74,13 +72,14 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func currentLocationLabel() {
         
         view.addSubview(currentLabel)
-        currentLabel.text = "National Average"
+        currentLabel.text = "National \n Average"
         currentLabel.textAlignment = .Left
         currentLabel.textColor = UIColor.blackColor()
         currentLabel.font = UIFont(name:"Helvetica Light", size:17)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
-        currentLabel.frame = CGRectMake(20, 75, self.view.bounds.width * 0.5 - 20, 30)
+        currentLabel.frame = CGRectMake(30, 75, self.view.bounds.width * 0.5 - 20, 50)
+        
     }
     
     func searchedLocationLabel() {
@@ -185,33 +184,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         return cell
     }
     
-//    func tableView(tableView: UITableView,
-//                   numberOfRowsInSection section: Int) -> Int {
-//        guard let demographicComparisonData = self.comparisonData?.getTransitScore() else { fatalError() }
-//        return demographicComparisonData.1.count
-//    }
-//    
-//    func tableView(tableView: UITableView,
-//                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        guard let demographicComparisonData = self.comparisonData?.getDemographicScore() else { fatalError() }
-//        print(demographicComparisonData.0)
-//        var demographicKeys = Array(demographicComparisonData.1.keys)
-//        
-//
-//        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
-//                                    reuseIdentifier: "myIdentifier")
-//        cell.resultDescription.text = demographicKeys[indexPath.row]
-//        cell.resultLocationNameLabel.text = demographicKeys[indexPath.row]
-//        cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
-//        cell.selectionStyle = UITableViewCellSelectionStyle.None
-////        if (indexPath.row % 2 == 0) {
-////            cell.backgroundColor = UIColor.clearColor()
-////        } else {
-////            cell.backgroundColor = UIColor.clearColor()
-////        }
-//        return cell
-//    }
-    
     func pressedButton1(sender: UIButton) {
         print("Pressed Button 1")
     }
@@ -220,11 +192,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         print("Pressed Button 2")
     }
     
-//    func tableView(tableView: UITableView,
-//                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        //print(myArray[indexPath.row])
-//    }
-    
     func navBar() {
         let financeNavBar = NavBar().setup()
         self.view.addSubview(financeNavBar)
@@ -232,7 +199,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
             make.top.equalTo(view).offset(20)
             make.width.equalTo(view)
         }
-        //navBar.backgroundColor = UIColor(netHex:0xFFFF03)
         financeNavBar.barTintColor = UIColor(red:0.36, green:0.49, blue:0.55, alpha:1.0)
         
         let navItem = UINavigationItem(title: "Demographics")
@@ -243,8 +209,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         
         
         let button: UIButton = UIButton(type: .Custom)
-        //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
@@ -255,8 +219,4 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     func dismissView() {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-//    func settingButtonPushed() {
-//        print("Settings Pushed")
-//    }
 }
