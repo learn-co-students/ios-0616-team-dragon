@@ -19,6 +19,8 @@ class ResultView: UIView {
     var scoreLabel: UILabel! = UILabel()
     var locationNameLabel: UILabel! = UILabel()
     var countyNameLabel: UILabel! = UILabel()
+    var communityRatingLabel: UILabel! = UILabel()
+    //var resultDescriptionTextView: UITextView = UITextView()
     let height: CGFloat = UIScreen.mainScreen().bounds.height / 2.3
     let width: CGFloat = UIScreen.mainScreen().bounds.width
     var graphPercentage: Float = 90
@@ -114,12 +116,24 @@ class ResultView: UIView {
         self.scoreLabel.textAlignment = NSTextAlignment.Center
         self.scoreLabel.font = HelveticaLight().getFont(20)
         self.scoreLabel.text = self.store.cityScoresByType[Hints.absolute]
-        self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)
+        //self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)
+        if self.scoreLabel.text == "Very Low"{self.scoreLabel.backgroundColor = UIColor.redColor()}
+        else if self.scoreLabel.text == "Low"{self.scoreLabel.backgroundColor = UIColor.orangeColor()}
+        else if self.scoreLabel.text == "Average"{self.scoreLabel.backgroundColor = UIColor.yellowColor()}
+        else{self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)}
         self.scoreLabel.layer.masksToBounds = true
         self.scoreLabel.layer.cornerRadius = 50
+        
+        self.communityRatingLabel.textColor = UIColor.blackColor()
+        self.communityRatingLabel.textAlignment = NSTextAlignment.Center
+        self.communityRatingLabel.adjustsFontSizeToFitWidth = true
+        self.communityRatingLabel.font = HelveticaLight().getFont(20)
+        self.communityRatingLabel.text = "Community Rating"
+        
         self.addSubview(self.scoreLabel)
         self.addSubview(self.locationNameLabel)
         self.addSubview(self.countyNameLabel)
+        self.addSubview(self.communityRatingLabel)
     }
     
     func setupView() {
@@ -142,6 +156,12 @@ class ResultView: UIView {
             make.centerY.equalTo(self).offset(33)
             make.centerX.equalTo(self).offset(66)
             //make.right.equalTo(-5)
+        }
+        self.communityRatingLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(30)
+            make.centerY.equalTo(self).offset(90)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
         }
     }
     

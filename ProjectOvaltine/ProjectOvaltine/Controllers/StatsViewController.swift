@@ -81,7 +81,7 @@ class StatsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView,
                             heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 70
+        return 115
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -100,8 +100,33 @@ class StatsViewController: UITableViewController {
         cell.comparisonScoreLabel.text = self.dataSetScores[indexPath.row]
         
         cell.resultLocationNameLabel.textColor = UIColor.blackColor()
-        cell.comparisonScoreLabel.textColor = UIColor.blackColor()
+        //cell.comparisonScoreLabel.textColor = UIColor.blackColor()
+        if cell.comparisonScoreLabel.text == "Very Low"{cell.comparisonScoreLabel.textColor = UIColor.redColor()}
+            else if cell.comparisonScoreLabel.text == "Average"{cell.comparisonScoreLabel.textColor = UIColor(netHex:0xE8B20A)}
+        else {cell.comparisonScoreLabel.textColor = UIColor.blackColor()}
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.resultLocationNameLabel.snp_makeConstraints { (make) -> Void in
+//            make.height.equalTo(66)
+//            make.width.equalTo(175)
+//            make.bottom.equalTo(-10)
+//            make.center.equalTo(cell)
+            make.size.equalTo(66)
+            make.left.equalTo(cell).offset(20)
+            make.top.equalTo(cell).offset(10)
+        }
+        cell.scoreLabel.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(45)
+            make.left.equalTo(cell).offset(20)
+            make.top.equalTo(cell).offset(10)
+        }
+        cell.comparisonScoreLabel.snp_makeConstraints { (make) -> Void in
+            make.height.equalTo(66)
+            make.width.equalTo(33)
+            make.left.equalTo(99)
+            make.top.equalTo(cell).offset(50)
+        }
+        cell.scoreLabel.hidden = true
         return cell
         
     }

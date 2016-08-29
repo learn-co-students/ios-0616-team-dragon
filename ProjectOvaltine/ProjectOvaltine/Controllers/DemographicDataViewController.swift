@@ -33,7 +33,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         self.view.backgroundColor = UIColor(netHex:0xFFFFFF)
         self.navBar()
         self.resultsTableView()
-        currentLocationLabel()
+        comparisonTextView()
+        //currentLocationLabel()
         searchedLocationLabel()
     }
     
@@ -96,7 +97,8 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         searchedLabel.font = UIFont(name:"Helvetica Light", size:17)
         searchedLabel.sendSubviewToBack(searchedLabel)
         searchedLabel.layer.masksToBounds = true
-        searchedLabel.frame = CGRectMake(self.view.bounds.width * 0.5, 75, self.view.bounds.width * 0.5 - 20, 30)
+        searchedLabel.frame = CGRectMake(self.view.bounds.width * 0.28, 75, self.view.bounds.width * 0.5 - 20, 30)
+        searchedLabel.textAlignment = NSTextAlignment.Center
     }
     
     func ratingTextView() {
@@ -126,22 +128,19 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         let comparisonLabel = UILabel()
         view.addSubview(comparisonLabel)
         comparisonLabel.text = self.store.cityScoresByType[Hints.demographics]
+        if comparisonLabel.text == "Very Low"{comparisonLabel.textColor = UIColor.redColor()}
+        else {comparisonLabel.textColor = UIColor.blackColor()}
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
-        comparisonLabel.textColor = UIColor.blackColor()
+        //comparisonLabel.textColor = UIColor.blackColor()
 //        comparisonLabel.layer.borderWidth = 3
 //        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
         comparisonLabel.adjustsFontSizeToFitWidth = true
-        comparisonLabel.font = UIFont(name:"Helvetica Light", size:33)
+        comparisonLabel.font = UIFont(name:"Helvetica Light", size:25)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
         comparisonLabel.layer.masksToBounds = true
         //comparisonLabel.layer.cornerRadius = 33
         comparisonLabel.textAlignment = NSTextAlignment.Center
-        comparisonLabel.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(view).offset(-10)
-            make.top.equalTo(view).offset(110)
-            make.width.equalTo(66)
-            make.height.equalTo(66)
-        }
+         comparisonLabel.frame = CGRectMake(self.view.bounds.width * 0.28, 115, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func resultsTableView() {
@@ -157,7 +156,7 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView,
                    heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 66
+        return 115
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

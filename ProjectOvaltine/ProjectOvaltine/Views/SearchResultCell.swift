@@ -76,8 +76,9 @@ class SearchResultCell: UITableViewCell {
     
     
     func createLabels() {
-        self.resultLocationNameLabel.font = UIFont(name:"Helvetica-Light", size:12)
-        self.resultLocationNameLabel.textAlignment = NSTextAlignment.Center
+        self.resultLocationNameLabel.font = UIFont(name:"Helvetica-Light", size:15)
+        self.resultLocationNameLabel.textAlignment = NSTextAlignment.Left
+        self.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
         
         // MARK: - GRAY LABEL LEFT
         
@@ -92,13 +93,14 @@ class SearchResultCell: UITableViewCell {
         self.scoreLabel.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(45)
             make.left.equalTo(self.contentView).offset(20)
-            make.top.equalTo(self.contentView).offset(15)
+            make.top.equalTo(self.contentView).offset(50)
         }
         
         self.resultLocationNameLabel.snp_makeConstraints { (make) -> Void in
             make.height.equalTo(60)
-            make.width.equalTo(200)
+            make.width.equalTo(300)
             make.center.equalTo(self.contentView)
+            make.bottom.equalTo(self.contentView).offset(-60)
         }
         
         self.resultDescription.snp_makeConstraints { (make) -> Void in
@@ -108,7 +110,7 @@ class SearchResultCell: UITableViewCell {
         self.comparisonScoreLabel.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(45)
             make.right.equalTo(self.contentView).inset(20)
-            make.top.equalTo(self.contentView).inset(15)
+            make.top.equalTo(self.contentView).inset(50)
         }
     }
     
