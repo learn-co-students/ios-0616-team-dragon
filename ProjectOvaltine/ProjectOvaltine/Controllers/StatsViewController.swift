@@ -101,10 +101,11 @@ class StatsViewController: UITableViewController {
         
         cell.resultLocationNameLabel.textColor = UIColor.blackColor()
         //cell.comparisonScoreLabel.textColor = UIColor.blackColor()
-        if cell.comparisonScoreLabel.text == "Very Low"{cell.comparisonScoreLabel.textColor = UIColor.redColor()}
-        else if cell.comparisonScoreLabel.text == "Average"{cell.comparisonScoreLabel.textColor = UIColor(netHex:0xE8B20A)}
-        else if cell.comparisonScoreLabel.text == "High"{cell.comparisonScoreLabel.textColor = UIColor.greenColor()}
-        else if cell.comparisonScoreLabel.text == "Very High"{cell.comparisonScoreLabel.textColor = UIColor.blueColor()}
+        if cell.comparisonScoreLabel.text == "Very Low"{cell.comparisonScoreLabel.textColor = UIColor(netHex: 0xF25C5C)}
+        else if cell.comparisonScoreLabel.text == "Low"{cell.comparisonScoreLabel.textColor = UIColor(netHex: 0xF6A6A6)}
+        else if cell.comparisonScoreLabel.text == "Average"{cell.comparisonScoreLabel.textColor = UIColor(netHex: 0xFFB34D)}
+        else if cell.comparisonScoreLabel.text == "High"{cell.comparisonScoreLabel.textColor = UIColor(netHex: 0xA6F6AF)}
+        else if cell.comparisonScoreLabel.text == "Very High"{cell.comparisonScoreLabel.textColor = UIColor(netHex: 0x6BF67B)}
         else {cell.comparisonScoreLabel.textColor = UIColor.blackColor()}
         
         cell.selectionStyle = UITableViewCellSelectionStyle.None

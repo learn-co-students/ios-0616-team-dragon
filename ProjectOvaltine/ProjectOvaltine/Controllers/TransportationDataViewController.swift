@@ -24,6 +24,7 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     var percentageComparisonData: ScoreModel?
     let searchedLabel = UILabel()
     let currentLabel = UILabel()
+    let yourCityLabel = UILabel()
     
     // MARK: - Loading UI Elements and View
     
@@ -38,7 +39,8 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         self.resultsTableView()
         //ratingTextView()
         comparisonTextView()
-        //currentLocationLabel()
+        self.currentLocationLabel()
+        self.yourLocationLabel()
         searchedLocationLabel()
     }
     
@@ -80,10 +82,22 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         currentLabel.text = "National Average"
         currentLabel.textAlignment = .Left
         currentLabel.textColor = UIColor.blackColor()
-        currentLabel.font = UIFont(name:"Helvetica Light", size:17)
+        currentLabel.font = UIFont(name:"Helvetica Light", size:12)
         currentLabel.sendSubviewToBack(currentLabel)
         currentLabel.layer.masksToBounds = true
-        currentLabel.frame = CGRectMake(20, 75, self.view.bounds.width * 0.5 - 20, 30)
+        currentLabel.frame = CGRectMake(15, 133, self.view.bounds.width * 0.5 - 20, 30)
+    }
+    
+    func yourLocationLabel() {
+        
+        view.addSubview(yourCityLabel)
+        yourCityLabel.text = "Your City"
+        yourCityLabel.textAlignment = .Right
+        yourCityLabel.textColor = UIColor.blackColor()
+        yourCityLabel.font = UIFont(name:"Helvetica Light", size:12)
+        yourCityLabel.sendSubviewToBack(currentLabel)
+        yourCityLabel.layer.masksToBounds = true
+        yourCityLabel.frame = CGRectMake(190, 133, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func searchedLocationLabel() {
@@ -131,10 +145,11 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         let comparisonLabel = UILabel()
         view.addSubview(comparisonLabel)
         comparisonLabel.text = self.store.cityScoresByType[Hints.transporation]
-        if comparisonLabel.text == "Very Low"{comparisonLabel.textColor = UIColor.redColor()}
-        else if comparisonLabel.text == "Average"{comparisonLabel.textColor = UIColor(netHex:0xE8B20A)}
-        else if comparisonLabel.text == "High"{comparisonLabel.textColor = UIColor.greenColor()}
-        else if comparisonLabel.text == "Very High"{comparisonLabel.textColor = UIColor.blueColor()}
+        if comparisonLabel.text == "Very Low"{comparisonLabel.textColor = UIColor(netHex: 0xF25C5C)}
+        else if comparisonLabel.text == "Low"{comparisonLabel.textColor = UIColor(netHex: 0xF6A6A6)}
+        else if comparisonLabel.text == "Average"{comparisonLabel.textColor = UIColor(netHex: 0xFFB34D)}
+        else if comparisonLabel.text == "High"{comparisonLabel.textColor = UIColor(netHex: 0xA6F6AF)}
+        else if comparisonLabel.text == "Very High"{comparisonLabel.textColor = UIColor(netHex: 0x6BF67B)}
         else {comparisonLabel.textColor = UIColor.blackColor()}
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
 //        comparisonLabel.textColor = UIColor.blackColor()
