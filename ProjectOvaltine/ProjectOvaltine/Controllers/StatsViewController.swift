@@ -102,7 +102,9 @@ class StatsViewController: UITableViewController {
         cell.resultLocationNameLabel.textColor = UIColor.blackColor()
         //cell.comparisonScoreLabel.textColor = UIColor.blackColor()
         if cell.comparisonScoreLabel.text == "Very Low"{cell.comparisonScoreLabel.textColor = UIColor.redColor()}
-            else if cell.comparisonScoreLabel.text == "Average"{cell.comparisonScoreLabel.textColor = UIColor(netHex:0xE8B20A)}
+        else if cell.comparisonScoreLabel.text == "Average"{cell.comparisonScoreLabel.textColor = UIColor(netHex:0xE8B20A)}
+        else if cell.comparisonScoreLabel.text == "High"{cell.comparisonScoreLabel.textColor = UIColor.greenColor()}
+        else if cell.comparisonScoreLabel.text == "Very High"{cell.comparisonScoreLabel.textColor = UIColor.blueColor()}
         else {cell.comparisonScoreLabel.textColor = UIColor.blackColor()}
         
         cell.selectionStyle = UITableViewCellSelectionStyle.None

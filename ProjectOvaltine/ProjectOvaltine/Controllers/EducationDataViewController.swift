@@ -46,11 +46,11 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         
         if city {
             sets = store.cityModel.dataSets.filter({ (dataSet) -> Bool in
-                dataSet.type == type && dataSet.displayPercent
+                dataSet.type == type
             })
         } else {
             sets = store.usModel.dataSets.filter({ (dataSet) -> Bool in
-                dataSet.type == type && dataSet.displayPercent
+                dataSet.type == type 
             })
         }
         
@@ -130,6 +130,8 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
         comparisonLabel.text = self.store.cityScoresByType[Hints.education]
         if comparisonLabel.text == "Very Low"{comparisonLabel.textColor = UIColor.redColor()}
         else if comparisonLabel.text == "Average"{comparisonLabel.textColor = UIColor(netHex:0xE8B20A)}
+        else if comparisonLabel.text == "High"{comparisonLabel.textColor = UIColor.greenColor()}
+        else if comparisonLabel.text == "Very High"{comparisonLabel.textColor = UIColor.blueColor()}
         else {comparisonLabel.textColor = UIColor.blackColor()}
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         //comparisonLabel.textColor = UIColor.blackColor()
@@ -171,12 +173,25 @@ class EducationDataViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = SearchResultCell(style: .Default, reuseIdentifier: "myIdentifier")
+        
+        let usDataSet = self.tabUSDataSets[indexPath.section]
+        let cityDataSet = self.tabCityDataSets[indexPath.section]
+        let usValue = usDataSet.values[indexPath.row]
+        let cityValue = cityDataSet.values[indexPath.row]
+        
+        var usValueToDisplay = usValue.absoluteValue
+        var cityValueToDisplay = cityValue.absoluteValue
+        if usDataSet.displayPercent { usValueToDisplay = usValue.percentValue }
+        if cityDataSet.displayPercent { cityValueToDisplay = cityValue.percentValue }
+        
         cell.resultLocationNameLabel.text = tabCityDataSets[indexPath.section].values[indexPath.row].name
         cell.resultLocationNameLabel.textColor = UIColor.blackColor()
-        cell.scoreLabel.text = tabUSDataSets[indexPath.section].values[indexPath.row].percentValue
+        cell.resultLocationNameLabel.textAlignment = NSTextAlignment.Center
+        cell.scoreLabel.text = usValueToDisplay
         cell.scoreLabel.textColor = UIColor.blackColor()
-        cell.comparisonScoreLabel.text = self.tabCityDataSets[indexPath.section].values[indexPath.row].percentValue
+        cell.comparisonScoreLabel.text = cityValueToDisplay
         cell.comparisonScoreLabel.textColor = UIColor.blackColor()
+        
         return cell
     }
     

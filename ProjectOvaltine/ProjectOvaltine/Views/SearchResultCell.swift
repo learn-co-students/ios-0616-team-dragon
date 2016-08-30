@@ -91,7 +91,8 @@ class SearchResultCell: UITableViewCell {
     
     func setupView() {
         self.scoreLabel.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(45)
+            make.height.equalTo(45)
+            make.width.equalTo(99)
             make.left.equalTo(self.contentView).offset(20)
             make.top.equalTo(self.contentView).offset(50)
         }
@@ -108,7 +109,8 @@ class SearchResultCell: UITableViewCell {
         }
         
         self.comparisonScoreLabel.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(45)
+            make.height.equalTo(45)
+            make.width.equalTo(99)
             make.right.equalTo(self.contentView).inset(20)
             make.top.equalTo(self.contentView).inset(50)
         }

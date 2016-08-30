@@ -117,9 +117,12 @@ class ResultView: UIView {
         self.scoreLabel.font = HelveticaLight().getFont(20)
         self.scoreLabel.text = self.store.cityScoresByType[Hints.absolute]
         //self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)
+        //self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)
         if self.scoreLabel.text == "Very Low"{self.scoreLabel.backgroundColor = UIColor.redColor()}
         else if self.scoreLabel.text == "Low"{self.scoreLabel.backgroundColor = UIColor.orangeColor()}
         else if self.scoreLabel.text == "Average"{self.scoreLabel.backgroundColor = UIColor.yellowColor()}
+        else if self.scoreLabel.text == "High"{self.scoreLabel.backgroundColor = UIColor.greenColor()}
+        else if self.scoreLabel.text == "Very High"{self.scoreLabel.backgroundColor = UIColor.blueColor()}
         else{self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)}
         self.scoreLabel.layer.masksToBounds = true
         self.scoreLabel.layer.cornerRadius = 50
