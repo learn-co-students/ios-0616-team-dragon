@@ -91,13 +91,12 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     func yourLocationLabel() {
         
         view.addSubview(yourCityLabel)
-        yourCityLabel.text = "Your City"
-        yourCityLabel.textAlignment = .Right
+        yourCityLabel.text = "Current City"
         yourCityLabel.textColor = UIColor.blackColor()
         yourCityLabel.font = UIFont(name:"Helvetica Light", size:12)
         yourCityLabel.sendSubviewToBack(currentLabel)
         yourCityLabel.layer.masksToBounds = true
-        yourCityLabel.frame = CGRectMake(190, 133, self.view.bounds.width * 0.5 - 20, 30)
+        yourCityLabel.frame = CGRectMake(self.view.frame.width * 0.75, 133, self.view.bounds.width * 0.5 - 20, 30)
     }
     
     func searchedLocationLabel() {
