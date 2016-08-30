@@ -29,18 +29,18 @@ struct CensusAPIProperties {
             Hints.ratable: Hints.falseValue,
             Hints.displayPercent: Hints.trueValue,
             "001E": Hints.total,
-            "002E": "Commuting to work by car, truck or van",
-            "003E": "Commuting to work by car, truck or van alone",
-            "010E": "Commuting to work by public transporation",
-            "018E": "Commuting to work by bicycle",
-            "019E": "Walking to work"
+            "002E": "By car, truck or van",
+            "003E": "By car, truck or van alone",
+            "010E": "By public transporation",
+            "018E": "By bicycle",
+            "019E": "Walking"
         ],
         
         
     // EDUCATION DATA SET
         
         "B15003": [
-            Hints.description: "Educational attainment for population 25 years and over",
+            Hints.description: "Educational attainment",
             Hints.type: Hints.education,
             Hints.ratable: Hints.trueValue,
             Hints.displayPercent: Hints.trueValue,
@@ -168,7 +168,7 @@ struct CensusAPIProperties {
         ],
         
         "B25071": [
-            Hints.description: "Rent as percentage of household income",
+            Hints.description: "Rent as percentage of income",
             Hints.type: Hints.economy,
             Hints.ratable: Hints.falseValue,
             Hints.displayPercent: Hints.falseValue,
@@ -208,10 +208,10 @@ struct CensusAPIProperties {
             "006E": "Retail trade",
             "007E": "Transportation and warehousing, and utilities",
             "008E": "Information",
-            "009E": "Finance and insurance, and real estate and rental and leasing",
-            "010E": "Professional, scientific, and management, and administrative and waste management services",
-            "011E": "Educational services, and health care and social assistance",
-            "012E": "Arts, entertainment, and recreation, and accommodation and food services",
+            "009E": "Finance, insurance, real estate",
+            "010E": "Professional, scientific, management, administrative",
+            "011E": "Educational services, health care, social assistance",
+            "012E": "Arts, entertainment, accommodation and food services",
             "014E": "Public administration"
         ]
     ]
