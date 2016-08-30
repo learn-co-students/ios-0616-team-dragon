@@ -150,7 +150,7 @@ extension CoreDataHelper {
                         dataSetValues.code = template[valueSetIndex].componentsSeparatedByString("\(dataSet.code!)_")[1]
                         dataSetValues.name = tmpDataSet.dataSet[dataSetValues.code!]
                         dataSetValues.absoluteValue = values[valueSetIndex]
-                     //   dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
+                        dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
                         
                         dataSet.values?.insert(dataSetValues)
                         
@@ -275,7 +275,7 @@ extension CoreDataHelper {
                             dataSetValues.code = template[valueSetIndex].componentsSeparatedByString("\(dataSet.code!)_")[1]
                             dataSetValues.name = tmpDataSet.dataSet[dataSetValues.code!]
                             dataSetValues.absoluteValue = values[valueSetIndex]
-                           // dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
+                            dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
                             
                             dataSet.values?.insert(dataSetValues)
                             
@@ -403,7 +403,7 @@ extension CoreDataHelper {
                                 dataSetValues.code = template[valueSetIndex].componentsSeparatedByString("\(dataSet.code!)_")[1]
                                 dataSetValues.name = tmpDataSet.dataSet[dataSetValues.code!]
                                 dataSetValues.absoluteValue = values[valueSetIndex]
-                               // dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
+                                dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
                                 
                                 dataSet.values?.insert(dataSetValues)
                                 
@@ -522,7 +522,7 @@ extension CoreDataHelper {
                             dataSetValues.code = template[valueSetIndex].componentsSeparatedByString("\(dataSet.code!)_")[1]
                             dataSetValues.name = tmpDataSet.dataSet[dataSetValues.code!]
                             dataSetValues.absoluteValue = values[valueSetIndex]
-                           // dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
+                            dataSetValues.percentValue = self.calculatePercentValue(dataSetValues.absoluteValue, total: dataSet.total)
                             
                             dataSet.values?.insert(dataSetValues)
                             
@@ -667,18 +667,18 @@ extension CoreDataHelper {
     }
     
     
-//    private func calculatePercentValue(part: String?, total: String?) -> String {
-//        
-//        if let part = part, let total = total {
-//            if let partDouble = Double(part), let totalDouble = Double(total) {
-//                let percent = partDouble / totalDouble * 100
-//                let rounded = Double(round(10 * percent) / 10)
-//                return "\(rounded)%"
-//            }
-//        }
-//        //print("Error - cannot calculate Percent Value")
-//        return "N/A"
-//    }
+    private func calculatePercentValue(part: String?, total: String?) -> String {
+        
+        if let part = part, let total = total {
+            if let partDouble = Double(part), let totalDouble = Double(total) {
+                let percent = partDouble / totalDouble * 100
+                let rounded = Double(round(10 * percent) / 10)
+                return "\(rounded)%"
+            }
+        }
+        //print("Error - cannot calculate Percent Value")
+        return "N/A"
+    }
     
     
     func clearCoreData() { // DELETE IN THE PRODUCTION VERSION, FUNCTION EXISTS FOR TESTING ONLY
