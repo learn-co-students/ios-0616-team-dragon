@@ -75,7 +75,7 @@ class ScoreCalculator {
                 self.store.cityScoresByType[dataSet.type] = score
                 
                 if let actualScore = self.cityScoreAsPercentOfUS(cityScore: cityScore, usScore: usScore) {
-                    let reversedScore = 1 / actualScore
+                    let reversedScore = 100 / actualScore
                     typeScores.append(reversedScore)
                 }
             
@@ -152,7 +152,7 @@ class ScoreCalculator {
                 self.store.cityScoresByDataSet[dataSet.name] = score
                 
                 if let actualScore = self.cityScoreAsPercentOfUS(cityScore: cityScore, usScore: usScore) {
-                    let reversedScore = 1 / actualScore
+                    let reversedScore = 100 / actualScore
                     econScores.append(reversedScore)
                 }
             
@@ -173,7 +173,7 @@ class ScoreCalculator {
                 self.store.cityScoresByDataSet[dataSet.name] = score
                 
                 if let actualScore = self.cityScoreAsPercentOfUS(cityScore: cityScore, usScore: usScore) {
-                    let reversedScore = 1 / actualScore
+                    let reversedScore = 100 / actualScore
                     econScores.append(reversedScore)
                 }
                 
@@ -194,7 +194,7 @@ class ScoreCalculator {
                 self.store.cityScoresByDataSet[dataSet.name] = score
                 
                 if let actualScore = self.cityScoreAsPercentOfUS(cityScore: cityScore, usScore: usScore) {
-                    let reversedScore = 1 / actualScore
+                    let reversedScore = 100 / actualScore
                     econScores.append(reversedScore)
                 }
             
@@ -270,7 +270,7 @@ class ScoreCalculator {
             else if score > 65 { return Hints.low }
             else { return Hints.veryLow }
         } else {
-            let reversedScore = 1 / score
+            let reversedScore = 10000 / score
             return self.scoreName(reversedScore, reversed: false)
         }
     }
