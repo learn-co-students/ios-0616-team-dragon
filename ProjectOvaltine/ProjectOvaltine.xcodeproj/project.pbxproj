@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B64BE3A1D76085000E18D05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64BE391D76085000E18D05 /* Constants.swift */; };
 		8E1DCF961D67C35A003B2B25 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF941D67C35A003B2B25 /* City.swift */; };
 		8E1DCF971D67C35A003B2B25 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DCF951D67C35A003B2B25 /* City+CoreDataProperties.swift */; };
 		8E2A1BC81D6F66470005A5A1 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -60,10 +59,10 @@
 		AFEE32161D635A5600884D42 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE32151D635A5600884D42 /* NavBar.swift */; };
 		BD20C7101D6355CE0065CADF /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20C70F1D6355CE0065CADF /* StatsViewController.swift */; };
 		BD8EA4211D76055900CE2833 /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EA4201D76055900CE2833 /* MapKitViewController.swift */; };
+		BD8EA4251D760F4900CE2833 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EA4241D760F4900CE2833 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B64BE391D76085000E18D05 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../Constants.swift; sourceTree = "<group>"; };
 		3A3038958249FF0F3501C66D /* Pods-ProjectOvaltine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOvaltine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOvaltine/Pods-ProjectOvaltine.release.xcconfig"; sourceTree = "<group>"; };
 		6CD7C59066597A5435421D78 /* Pods_ProjectOvaltine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectOvaltine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1DCF941D67C35A003B2B25 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = CoreData/City.swift; sourceTree = "<group>"; };
@@ -119,6 +118,7 @@
 		AFEE32151D635A5600884D42 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Controllers/NavBar.swift; sourceTree = "<group>"; };
 		BD20C70F1D6355CE0065CADF /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = Controllers/StatsViewController.swift; sourceTree = "<group>"; };
 		BD8EA4201D76055900CE2833 /* MapKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapKitViewController.swift; path = Controllers/MapKitViewController.swift; sourceTree = "<group>"; };
+		BD8EA4241D760F4900CE2833 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				AFE460041D551B7900FBE63B /* CitySDKAPIClient.swift */,
-				2B64BE391D76085000E18D05 /* Constants.swift */,
+				BD8EA4241D760F4900CE2833 /* Constants.swift */,
 				AF5045181D5C47AB00A2E97D /* NSCoderExtension.swift */,
 			);
 			name = Utilities;
@@ -606,7 +606,7 @@
 				8EAF7E751D68E730004D8C9A /* StateCodes.swift in Sources */,
 				AF68B8631D6B46B500C32B8C /* TestCore.swift in Sources */,
 				AFE906AA1D5E3D3D00CEA2C9 /* DemographicDataViewController.swift in Sources */,
-				2B64BE3A1D76085000E18D05 /* Constants.swift in Sources */,
+				BD8EA4251D760F4900CE2833 /* Constants.swift in Sources */,
 				8E2A1BC81D6F66470005A5A1 /* (null) in Sources */,
 				8E1DCF971D67C35A003B2B25 /* City+CoreDataProperties.swift in Sources */,
 				8E74E6F71D65EC1C0056E866 /* CoreDataHelperExtension.swift in Sources */,

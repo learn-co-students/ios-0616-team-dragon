@@ -233,7 +233,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     let cityModel = self!.store.cityModel
                     cityModel.name = CensusAPIClient().actualName(city!.name!)
                     cityModel.dataSets.removeAll()
-                 //   print(self!.store.couldntReturn)
+                
                     for dataSet in city!.dataSets! {
                         let dataSetModel = DataSetModel()
                         dataSetModel.name = dataSet.name!
