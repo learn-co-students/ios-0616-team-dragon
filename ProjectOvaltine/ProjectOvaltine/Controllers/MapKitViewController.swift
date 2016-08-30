@@ -175,8 +175,25 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.getLocationFromZipcode(self.searchController.text!)
-        self.view.endEditing(true)
+        
+        var notValid = false
+        
+        for number in (self.searchController.text?.asciiArray)! {
+            if number < 48 || number > 57 {
+                notValid = true
+                break
+            } else {
+                continue
+            }
+        }
+        
+        if notValid == true {
+             self.presentViewController(self.alert, animated: true, completion: nil)
+        } else {
+            self.getLocationFromZipcode(self.searchController.text!)
+            self.view.endEditing(true)
+        }
+        
     }
     
     // MARK: - Takes a string of numbers and gets a lat/long - Async
@@ -191,7 +208,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                 print("\(error)")
                 
             } else {
-                
                 
                 placemark = (placemarks?.last)!
                 
@@ -217,6 +233,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     let cityModel = self!.store.cityModel
                     cityModel.name = CensusAPIClient().actualName(city!.name!)
                     cityModel.dataSets.removeAll()
+                 //   print(self!.store.couldntReturn)
                     for dataSet in city!.dataSets! {
                         let dataSetModel = DataSetModel()
                         dataSetModel.name = dataSet.name!
@@ -306,7 +323,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
                     self!.zoomToPolygon(self!.polygon, animated: true)
                     self!.mapView.removeAnnotation(self!.anotation)
                     self!.anotation.coordinate = (placemark?.location?.coordinate)!
-                    self!.anotation.title = placemark?.locality
+                    self!.anotation.title = self!.store.cityName
                     self!.anotation.subtitle = "\(placemark!.subAdministrativeArea!) County"
                     self!.mapView.addAnnotation(self!.anotation)
                     self!.mapView.selectAnnotation(self!.anotation, animated: true)
@@ -355,5 +372,16 @@ class MapKitViewController: UIViewController, MKMapViewDelegate, UISearchControl
     }
     
     
+}
+
+extension String {
+    var asciiArray: [UInt32] {
+        return unicodeScalars.filter{$0.isASCII()}.map{$0.value}
+    }
+}
+extension Character {
+    var asciiValue: UInt32? {
+        return String(self).unicodeScalars.filter{$0.isASCII()}.first?.value
+    }
 }
 
