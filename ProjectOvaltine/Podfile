@@ -7,7 +7,4 @@ target 'ProjectOvaltine' do
     pod 'SnapKit', '~> 0.15.0'
     pod 'SwiftyJSON'
     pod 'SwiftSpinner'
-    pod 'GaugeView'
-    pod 'YOChartImageKit', '~> 1.1'
-    pod 'FoldingCell', '~> 0.8.1'
 end

@@ -71,8 +71,4 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
         SwiftSpinner.hide()
     }
-    
-//    func settingButtonPushed() {
-//        print("Settings Pushed")
-//    }
 }

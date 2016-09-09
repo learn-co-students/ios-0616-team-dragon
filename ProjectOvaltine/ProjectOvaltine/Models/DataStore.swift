@@ -13,27 +13,20 @@ import CoreLocation
 class DataStore {
     static let sharedInstance = DataStore()
     
-    let cityAPI = CitySDKAPIClient()
-    
-    let censusAPI = CensusAPIClient()
-    
     var cityModel = CityModel()
     var usModel = USModel()
     var cityScoresByDataSet: [String : String] = [:]
     var cityScoresByType: [String : String] = [:]
-    
     var cityName : String?
-        
     var countyName : String?
-    
-    var cityDataPoints:[CitySDKData] = []
-    
-    var comparisonData: ScoreModel?
-    
-    var comparisonPercentageData: ScoreModel?
-
-    let levelOfLocationDetails = "county"
     var zipCode = "00000"
+    var cityDataPoints:[CitySDKData] = []
+    var comparisonData: ScoreModel?
+    var comparisonPercentageData: ScoreModel?
+    
+    let cityAPI = CitySDKAPIClient()
+    let censusAPI = CensusAPIClient()
+    let levelOfLocationDetails = "county"
     let censusSurveyAPI = "acs5"
     let yearOfSurvey = "2014"
     let variablesToAdd = Array(CensusConstants.CENSUS_REQUEST_PARAMS.keys)
@@ -50,8 +43,6 @@ class DataStore {
     func getCitySDKData(completion: () -> ()) {
         cityAPI.sendAPIRequest(["level":self.levelOfLocationDetails, "zip":self.zipCode, "api":self.censusSurveyAPI, "year":self.yearOfSurvey, "variables":self.requestParameters]) { (cityData) in
             self.cityDataPoints = cityData
-           // let score = ScoreModel(name: "Name", dataPoints: self.cityDataPoints[0].sendDataPoints())
-            //self.scoreData = score
             completion()
         }
     }

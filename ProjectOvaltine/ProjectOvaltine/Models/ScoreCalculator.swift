@@ -15,7 +15,7 @@ class ScoreCalculator {
     
     var cityDataSets: [DataSetModel]
     var usDataSets: [DataSetModel]
-
+    
     required init() {
         cityDataSets = []
         usDataSets = []
@@ -66,7 +66,7 @@ class ScoreCalculator {
         for (dataSetIndex, dataSet) in self.cityDataSets.enumerate() {
             
             switch dataSet.name {
-            
+                
             case CensusAPIProperties.eduTransProperties["B08136"]![Hints.description]!: // Travel time to work
                 let cityScore = dataSet.values[0].absoluteValue
                 let usScore = self.usDataSets[dataSetIndex].values[0].absoluteValue
@@ -78,7 +78,7 @@ class ScoreCalculator {
                     let reversedScore = 100 / actualScore
                     typeScores.append(reversedScore)
                 }
-            
+                
                 
             case CensusAPIProperties.eduTransProperties["B15003"]![Hints.description]!: // Education level
                 var cityEdu: [String] = []
@@ -87,10 +87,10 @@ class ScoreCalculator {
                 for (valueIndex, dataSetValue) in dataSet.values.enumerate() {
                     let property = CensusAPIProperties.eduTransProperties["B15003"]!
                     if dataSetValue.name == property["017E"] ||
-                       dataSetValue.name == property["022E"] ||
-                       dataSetValue.name == property["023E"] ||
-                       dataSetValue.name == property["024E"] ||
-                       dataSetValue.name == property["025E"] {
+                        dataSetValue.name == property["022E"] ||
+                        dataSetValue.name == property["023E"] ||
+                        dataSetValue.name == property["024E"] ||
+                        dataSetValue.name == property["025E"] {
                         cityEdu.append(dataSetValue.percentValue)
                         usEdu.append(self.usDataSets[dataSetIndex].values[valueIndex].percentValue)
                     }
@@ -105,7 +105,7 @@ class ScoreCalculator {
                 if let actualScore = self.cityScoreAsPercentOfUS(cityScore: cityScore, usScore: usScore) {
                     typeScores.append(actualScore)
                 }
-
+                
                 
             case CensusAPIProperties.demoProperties["B03002"]![Hints.description]!: // Diversity
                 var cityEdu: [String] = []
@@ -133,7 +133,7 @@ class ScoreCalculator {
                     typeScores.append(actualScore)
                 }
                 
-            
+                
             case CensusAPIProperties.econProperties["B19013"]![Hints.description]!: // Median household income
                 let cityScore = dataSet.values[0].absoluteValue
                 let usScore = self.usDataSets[dataSetIndex].values[0].absoluteValue
@@ -144,7 +144,7 @@ class ScoreCalculator {
                     econScores.append(actualScore)
                 }
                 
-            
+                
             case CensusAPIProperties.econProperties["B25077"]![Hints.description]!: // Median house value
                 let cityScore = dataSet.values[0].absoluteValue
                 let usScore = self.usDataSets[dataSetIndex].values[0].absoluteValue
@@ -155,7 +155,7 @@ class ScoreCalculator {
                     let reversedScore = 100 / actualScore
                     econScores.append(reversedScore)
                 }
-            
+                
                 
             case CensusAPIProperties.econProperties["B23025"]![Hints.description]!: // Employment
                 var cityScore = ""
@@ -168,7 +168,7 @@ class ScoreCalculator {
                         usScore = usDataSets[dataSetIndex].values[index].percentValue
                     }
                 }
-
+                
                 let score = self.calculateScore(cityScore: cityScore, usScore: usScore, reversed: true)
                 self.store.cityScoresByDataSet[dataSet.name] = score
                 
@@ -197,8 +197,8 @@ class ScoreCalculator {
                     let reversedScore = 100 / actualScore
                     econScores.append(reversedScore)
                 }
-            
-            
+                
+                
             default:
                 print("Data set < \(dataSet.name) > is not accounted for!")
             }
@@ -275,7 +275,7 @@ class ScoreCalculator {
         }
     }
     
-
+    
     private func cutPercent(word: String) -> String {
         if word.characters.last == "%" {
             let truncated = word.substringToIndex(word.endIndex.predecessor())
@@ -285,6 +285,6 @@ class ScoreCalculator {
         }
     }
     
-
+    
 }
 

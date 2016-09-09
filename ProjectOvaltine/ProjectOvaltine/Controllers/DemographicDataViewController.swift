@@ -119,8 +119,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         ratingLabel.text = "N/A"
         ratingLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
         ratingLabel.textColor = UIColor.blackColor()
-//        ratingLabel.layer.borderWidth = 3
-//        ratingLabel.layer.borderColor = UIColor.blackColor().CGColor
         ratingLabel.adjustsFontSizeToFitWidth = true
         ratingLabel.font = UIFont(name:"Helvetica Light", size:33)
         ratingLabel.sendSubviewToBack(ratingLabel)
@@ -147,9 +145,6 @@ class DemographicDataViewController: UIViewController, UITableViewDataSource, UI
         else if comparisonLabel.text == "Very High"{comparisonLabel.textColor = UIColor(netHex: 0x6BF67B)}
         else {comparisonLabel.textColor = UIColor.blackColor()}
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
-        //comparisonLabel.textColor = UIColor.blackColor()
-//        comparisonLabel.layer.borderWidth = 3
-//        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
         comparisonLabel.adjustsFontSizeToFitWidth = true
         comparisonLabel.font = UIFont(name:"Helvetica Light", size:25)
         comparisonLabel.sendSubviewToBack(comparisonLabel)

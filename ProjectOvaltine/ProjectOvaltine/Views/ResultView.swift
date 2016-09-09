@@ -1,26 +1,21 @@
 import UIKit
 import SnapKit
-import GaugeView
+
 
 class ResultView: UIView {
     
     let store = DataStore.sharedInstance
-    var comparrisonData: ScoreModel?
-    
     let states = [State]()
     
+    var comparrisonData: ScoreModel?
     var heightLayoutConstraint = NSLayoutConstraint()
     var bottomLayoutConstraint = NSLayoutConstraint()
-    
     var containerView = UIView()
     var containerLayoutConstraint = NSLayoutConstraint()
-    
-    
     var scoreLabel: UILabel! = UILabel()
     var locationNameLabel: UILabel! = UILabel()
     var countyNameLabel: UILabel! = UILabel()
     var communityRatingLabel: UILabel! = UILabel()
-    //var resultDescriptionTextView: UITextView = UITextView()
     let height: CGFloat = UIScreen.mainScreen().bounds.height / 2.3
     let width: CGFloat = UIScreen.mainScreen().bounds.width
     var graphPercentage: Float = 90
@@ -31,7 +26,6 @@ class ResultView: UIView {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.frame = CGRectMake(0, 0, width, height)
         self.backgroundColor = UIColor.whiteColor()
-   //     self.createGraph()
         self.createLabels()
         self.layer.borderColor = UIColor.blackColor().CGColor
         self.setupView()
@@ -41,18 +35,9 @@ class ResultView: UIView {
         super.init(coder: coder)
         self.frame = CGRectMake(0, 0, width, height)
         self.backgroundColor = UIColor.whiteColor()
-   //     self.createGraph()
         self.createLabels()
         self.setupView()
     }
-    
-    //    func scrollViewDidScroll(scrollView: UIScrollView) {
-    //        self.containerLayoutConstraint.constant = scrollView.contentInset.top;
-    //        let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top);
-    //        self.containerView.clipsToBounds = offsetY <= 0
-    //        self.bottomLayoutConstraint.constant = offsetY >= 0 ? 0 : -offsetY / 2
-    //        self.heightLayoutConstraint.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)
-    //    }
     
     convenience init?(score: String, percentage: Float) {
         self.init(coder: NSCoder.empty())
@@ -63,24 +48,16 @@ class ResultView: UIView {
     
     
     func setupConstraints() {
+        
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.containerView.backgroundColor = UIColor.grayColor()
         self.addSubview(self.containerView)
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|",
-            options: NSLayoutFormatOptions(rawValue: 0),
-            metrics: nil,
-            views: ["containerView" : self.containerView]))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|",
-            options: NSLayoutFormatOptions(rawValue: 0),
-            metrics: nil,
-            views: ["containerView" : self.containerView]))
-        self.containerLayoutConstraint = NSLayoutConstraint(item: self.containerView,
-                                                            attribute: .Height,
-                                                            relatedBy: .Equal,
-                                                            toItem: self,
-                                                            attribute: .Height,
-                                                            multiplier: 1.0, constant: 0.0)
+        
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0),metrics: nil, views: ["containerView" : self.containerView]))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|", options: NSLayoutFormatOptions(rawValue: 0),metrics: nil, views: ["containerView" : self.containerView]))
+        self.containerLayoutConstraint = NSLayoutConstraint(item: self.containerView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0)
         self.addConstraint(self.containerLayoutConstraint)
+        
         let newView: UIView = UIView.init()
         newView.frame = CGRectMake(0, 0, 150, 150)
         newView.translatesAutoresizingMaskIntoConstraints = false
@@ -116,8 +93,7 @@ class ResultView: UIView {
         self.scoreLabel.textAlignment = NSTextAlignment.Center
         self.scoreLabel.font = HelveticaLight().getFont(20)
         self.scoreLabel.text = self.store.cityScoresByType[Hints.absolute]
-        //self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)
-        //self.scoreLabel.backgroundColor = UIColor(netHex: 0xA6F6AF)
+
         if self.scoreLabel.text == "Very Low"{self.scoreLabel.backgroundColor = UIColor(netHex: 0xF25C5C)}
         else if self.scoreLabel.text == "Low"{self.scoreLabel.backgroundColor = UIColor(netHex: 0xF6A6A6)}
         else if self.scoreLabel.text == "Average"{self.scoreLabel.backgroundColor = UIColor(netHex: 0xFFB34D)}
@@ -152,13 +128,11 @@ class ResultView: UIView {
             make.size.equalTo(175)
             make.centerY.equalTo(self)
             make.centerX.equalTo(self).offset(66)
-            //make.right.equalTo(-5)
         }
         self.countyNameLabel.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(150)
             make.centerY.equalTo(self).offset(33)
             make.centerX.equalTo(self).offset(66)
-            //make.right.equalTo(-5)
         }
         self.communityRatingLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(30)

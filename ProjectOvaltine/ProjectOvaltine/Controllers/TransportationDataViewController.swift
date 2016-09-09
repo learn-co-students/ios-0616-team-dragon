@@ -215,32 +215,6 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         return cell
     }
     
-//    func tableView(tableView: UITableView,
-//                   numberOfRowsInSection section: Int) -> Int {
-//        guard let transitComparisonData = self.comparisonData?.getTransitScore() else { fatalError() }
-//        return transitComparisonData.1.count
-//    }
-//    
-//    func tableView(tableView: UITableView,
-//                   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        guard let transitComparisonData = self.comparisonData?.getTransitScore() else { fatalError() }
-//        print(transitComparisonData.0)
-//        var educationKeys = Array(transitComparisonData.1.keys)
-//
-//        let cell = SearchResultCell(style: UITableViewCellStyle.Default,
-//                                    reuseIdentifier: "myIdentifier")
-//        var transitKeys = Array(transitComparisonData.1.keys)
-//        cell.resultDescription.text = transitKeys[indexPath.row]
-//        cell.resultLocationNameLabel.text = transitKeys[indexPath.row]
-//        cell.resultLocationNameLabel.adjustsFontSizeToFitWidth = true
-//        cell.selectionStyle = UITableViewCellSelectionStyle.None
-////        if (indexPath.row % 2 == 0) {
-////            cell.backgroundColor = UIColor.clearColor()
-////        } else {
-////            cell.backgroundColor = UIColor.clearColor()
-////        }
-//        return cell
-//    }
     
     func pressedButton1(sender: UIButton) {
         print("Pressed Button 1")
@@ -250,10 +224,6 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         print("Pressed Button 2")
     }
     
-//    func tableView(tableView: UITableView,
-//                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//       //print(myArray[indexPath.row])
-//    }
     
     func navBar() {
         let financeNavBar = NavBar().setup()
