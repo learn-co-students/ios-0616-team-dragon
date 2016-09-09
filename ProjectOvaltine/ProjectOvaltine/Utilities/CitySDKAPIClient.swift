@@ -13,10 +13,6 @@ import SwiftyJSON
 class CitySDKAPIClient {
     
     let baseURL: String = Constants.CITYSDK_URL
-    let method: String = "POST"
-    let URLPath: String = "/"
-    let headers: Dictionary<String, String> = ["Not":"Implemented"]
-    let parameters:Dictionary<String, String> = ["parameterOne": "not implemented"]
     let key = Constants.CITYSDK_API_KEY
     
     var couldNotReturn = false
