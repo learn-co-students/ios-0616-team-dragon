@@ -61,7 +61,7 @@ class CitySDKAPIClient {
                         cityDataPoints.append(otherData)
                         
                     } else {
-                        print("ERROR - SOMETHING IS WRONG WITH THE CALL TO THE ARRAYS!")}
+                        print("ERROR - SOMETHING IS WRONG WITH THE CALL TO THE ARRAYS")}
                 }
                 completion(cityDataPoints)
             default:

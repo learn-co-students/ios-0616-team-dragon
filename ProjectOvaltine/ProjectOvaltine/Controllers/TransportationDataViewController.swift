@@ -151,9 +151,6 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
         else if comparisonLabel.text == "Very High"{comparisonLabel.textColor = UIColor(netHex: 0x6BF67B)}
         else {comparisonLabel.textColor = UIColor.blackColor()}
         comparisonLabel.backgroundColor = UIColor(netHex:0xFFFFFF)
-//        comparisonLabel.textColor = UIColor.blackColor()
-//        comparisonLabel.layer.borderWidth = 3
-//        comparisonLabel.layer.borderColor = UIColor.blackColor().CGColor
         comparisonLabel.adjustsFontSizeToFitWidth = true
         comparisonLabel.font = UIFont(name:"Helvetica Light", size:25)
         comparisonLabel.sendSubviewToBack(comparisonLabel)
@@ -232,7 +229,6 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
             make.top.equalTo(view).offset(20)
             make.width.equalTo(view)
         }
-        //navBar.backgroundColor = UIColor(netHex:0xFFFF03)
         financeNavBar.barTintColor = UIColor(red:0.36, green:0.49, blue:0.55, alpha:1.0)
         
         let navItem = UINavigationItem(title: "Transportation")
@@ -243,8 +239,6 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
       
         
         let button: UIButton = UIButton(type: .Custom)
-        //button.setImage(UIImage(named: "settings-4.png"), forState: UIControlState.Normal)
-//        button.addTarget(self, action: #selector(settingButtonPushed), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(3, 3, 25, 25)
         
         let barButton = UIBarButtonItem(customView: button)
@@ -255,8 +249,4 @@ class TransportationDataViewController: UIViewController, UITableViewDataSource,
     func dismissView() {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-//    func settingButtonPushed() {
-//        print("Settings Pushed")
-//    }
 }

@@ -67,7 +67,8 @@ class ScoreCalculator {
             
             switch dataSet.name {
                 
-            case CensusAPIProperties.eduTransProperties["B08136"]![Hints.description]!: // Travel time to work
+            case CensusAPIProperties.eduTransProperties["B08136"]![Hints.description]!:
+                // Travel time to work
                 let cityScore = dataSet.values[0].absoluteValue
                 let usScore = self.usDataSets[dataSetIndex].values[0].absoluteValue
                 let score = self.calculateScore(cityScore: cityScore, usScore: usScore, reversed: true)
@@ -80,7 +81,8 @@ class ScoreCalculator {
                 }
                 
                 
-            case CensusAPIProperties.eduTransProperties["B15003"]![Hints.description]!: // Education level
+            case CensusAPIProperties.eduTransProperties["B15003"]![Hints.description]!:
+                // Education level
                 var cityEdu: [String] = []
                 var usEdu: [String] = []
                 
@@ -107,7 +109,8 @@ class ScoreCalculator {
                 }
                 
                 
-            case CensusAPIProperties.demoProperties["B03002"]![Hints.description]!: // Diversity
+            case CensusAPIProperties.demoProperties["B03002"]![Hints.description]!:
+                // Diversity
                 var cityEdu: [String] = []
                 var usEdu: [String] = []
                 
@@ -134,7 +137,8 @@ class ScoreCalculator {
                 }
                 
                 
-            case CensusAPIProperties.econProperties["B19013"]![Hints.description]!: // Median household income
+            case CensusAPIProperties.econProperties["B19013"]![Hints.description]!:
+                // Median household income
                 let cityScore = dataSet.values[0].absoluteValue
                 let usScore = self.usDataSets[dataSetIndex].values[0].absoluteValue
                 let score = self.calculateScore(cityScore: cityScore, usScore: usScore, reversed: false)
@@ -145,7 +149,8 @@ class ScoreCalculator {
                 }
                 
                 
-            case CensusAPIProperties.econProperties["B25077"]![Hints.description]!: // Median house value
+            case CensusAPIProperties.econProperties["B25077"]![Hints.description]!:
+                // Median house value
                 let cityScore = dataSet.values[0].absoluteValue
                 let usScore = self.usDataSets[dataSetIndex].values[0].absoluteValue
                 let score = self.calculateScore(cityScore: cityScore, usScore: usScore, reversed: true)
@@ -157,7 +162,8 @@ class ScoreCalculator {
                 }
                 
                 
-            case CensusAPIProperties.econProperties["B23025"]![Hints.description]!: // Employment
+            case CensusAPIProperties.econProperties["B23025"]![Hints.description]!:
+                // Employment
                 var cityScore = ""
                 var usScore = ""
                 
@@ -178,7 +184,8 @@ class ScoreCalculator {
                 }
                 
                 
-            case CensusAPIProperties.econProperties["B17001"]![Hints.description]!: // Poverty level
+            case CensusAPIProperties.econProperties["B17001"]![Hints.description]!:
+                // Poverty level
                 var cityScore = ""
                 var usScore = ""
                 

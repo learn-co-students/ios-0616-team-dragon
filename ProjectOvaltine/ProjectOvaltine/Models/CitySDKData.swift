@@ -10,12 +10,8 @@ import Foundation
 import SwiftyJSON
 
 class CitySDKData {
-    
     var coordinates: NSArray
-    
     init(json:JSON, geoJSON:NSArray) {
-
         self.coordinates = geoJSON
     }
-    
 }

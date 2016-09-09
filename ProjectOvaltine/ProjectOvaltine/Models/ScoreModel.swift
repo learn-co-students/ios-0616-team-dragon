@@ -36,12 +36,11 @@ struct ScoreModel {
         self.getTransitScore()
     }
     
-    // MARK: - Origin should be the higher level - US -> State -> County -> City
-    // MARK: - Otherwise it should just be the starting destination
+    //Origin should be the higher level - US -> State -> County -> City
+    //Otherwise it should just be the starting destination
     
     mutating func getEconomicScore() -> (String, [String:Double])  {
         
-        // FIXME: - Figure this out
         guard let
             originMedianHouseIncome = Double(self.originDataPoints!["Median household income"]!),
             comparisonMedianHouseIncome = Double(self.comparisonDataPoints!["Median household income"]!),
@@ -59,15 +58,10 @@ struct ScoreModel {
         self.economicScoreFactors["Comparison unemployed level"] = originUnemployed
         
         
-        // MARK: - Subtracts the comparison level with the origin level
-        // MARK: - Should take the lowever level, for instance, and subtract by the higher level
-        // MARK: - Ex. City Avg - US Avg which should produce a positive number
-        
-        // MARK: - Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
-        
-        // let percentageChange = Int((originMedianHouseIncome/subtractedValueForPercentage) * 100.0)
-        
-        // MARK: - (String(percentageChange), eachScore)
+        //Subtracts the comparison level with the origin level
+        //Should take the lowever level, for instance, and subtract by the higher level
+        //Ex. City Avg - US Avg which should produce a positive number
+        //Takes the origin data and divides by the subtractedValue to get a percentage, then adds by 100
         
         if comparisonMedianHouseIncome > originMedianHouseIncome {
             self.economicScore = "High"
@@ -82,7 +76,6 @@ struct ScoreModel {
     }
     
     mutating func getTransitScore() -> (String, [String:String]) {
-        // TODO: - add method body
         
         guard let
             comparisonPoint = self.comparisonDataPoints,
@@ -92,8 +85,8 @@ struct ScoreModel {
             else {
                 fatalError()
         }
-        let transitArray = ["Origin Average travel time to work one way in minutes": originCommute, "Comparison Average travel time to work one way in minutes": compareCommute]
         
+        let transitArray = ["Origin Average travel time to work one way in minutes": originCommute, "Comparison Average travel time to work one way in minutes": compareCommute]
         
         if compareCommute > originCommute {
             self.transitScore = "High"
@@ -217,10 +210,13 @@ struct ScoreModel {
     }
     
     mutating func getScoresArray() -> [String] {
+        
         self.getEducationScore()
         self.getTransitScore()
         self.getEconomicScore()
+        
         let returnArray = [String(self.economicScore), String(self.educationScore), String(self.transitScore), String(self.demographicScore)]
+        
         return returnArray
     }
     

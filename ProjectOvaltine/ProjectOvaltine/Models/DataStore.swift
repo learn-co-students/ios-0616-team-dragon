@@ -41,10 +41,12 @@ class DataStore {
                      "employment_employed"]
     
     func getCitySDKData(completion: () -> ()) {
+        
         cityAPI.sendAPIRequest(["level":self.levelOfLocationDetails, "zip":self.zipCode, "api":self.censusSurveyAPI, "year":self.yearOfSurvey, "variables":self.requestParameters]) { (cityData) in
             self.cityDataPoints = cityData
             completion()
         }
+        
     }
     
     func getScoreModel(completion: () -> ()) {}
